@@ -6,8 +6,13 @@
     <nav class="bg-blue-900 mx-auto my-2 rounded-full p-4 w-1/2">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center space-x-60">
-                <NuxtLink to="/" class="text-white font-bold">
-                    IT Squarehub
+                <NuxtLink to="/" class="flex items-center space-x-2 text-white font-bold">
+                    <img 
+                        src="~/assets/images/its-logo.png" 
+                        alt="IT Squarehub" 
+                        class="w-10 h-10 object-contain"
+                    />
+                    <span>IT Squarehub</span>
                 </NuxtLink>
                 <div class="hidden md:flex space-x-4 uppercase">
                     <NuxtLink to="/"

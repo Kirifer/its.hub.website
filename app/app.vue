@@ -6,4 +6,4 @@
       </div>
     </NuxtLayout>
   </div>
-</template>
+</template> 

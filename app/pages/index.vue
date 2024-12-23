@@ -1,5 +1,7 @@
 <template>
     <div>
+        <Navbar />
+        
         <!-- Hero Section -->
         <div class="bg-blue-900 w-screen">
             <div class="flex flex-row items-center justify-center text-white h-[500px] space-x-64">
