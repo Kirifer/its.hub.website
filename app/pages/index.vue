@@ -2,9 +2,9 @@
     <div>
         <!-- Hero Section -->
         <div class="bg-blue-900 w-screen">
-
+                <div>
                 <Navbar />
-
+                </div>
             <div class="flex flex-row items-center justify-center text-white h-[500px] space-x-64">
                 
                 <NuxtImg class="absolute right-32 h-[500px] object-cover overflow-hidden"
