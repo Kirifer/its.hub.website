@@ -1,10 +1,12 @@
 <template>
     <div>
-        <Navbar />
-        
         <!-- Hero Section -->
         <div class="bg-blue-900 w-screen">
+
+                <Navbar />
+
             <div class="flex flex-row items-center justify-center text-white h-[500px] space-x-64">
+                
                 <NuxtImg class="absolute right-32 h-[500px] object-cover overflow-hidden"
                     src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
                     style="clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);" />
@@ -20,6 +22,7 @@
                         </h1>
                     </div>
                 </div>
+                
                 <div class="w-[25%]"></div>
             </div>
         </div>
