@@ -110,7 +110,7 @@
                     <h1 class="text-[60px] uppercase font-bold text-right">What sets <br /> IT Squarehub apart?</h1>
                     <p class="text-right text-xl mt-2 uppercase">As the global labor shortage continues to
                         grow, securing adequate resources has become more critical than ever. Many organizations turn to
-                        outsourcing as a solution to bridge the skills gaps within their teams. At IT Squarehub, we...
+                        outsourcing as a solution to bridge the skills gaps within their teams. At IT Squarehub, we... are
                     </p>
                 </div>
                 <div class="w-1/2 h-full ">
