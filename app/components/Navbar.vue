@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <nav class="bg-blue-900 mx-auto my-2 rounded-full p-4 w-1/2">
+    <nav class="bg-blue-900 mx-auto rounded-full p-4 w-1/2  shadow-lg">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center space-x-60">
                 <NuxtLink to="/" class="flex items-center space-x-2 text-white font-bold">
