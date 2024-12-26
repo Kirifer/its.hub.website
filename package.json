@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.8.1",
-    "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "nuxt": "^3.14.1592",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@nuxtjs/google-fonts": "^3.2.0"
   }
 }

@@ -1,42 +1,64 @@
-<script>
+<template>
+  <nav class="bg-white font-instrument">
+    <div
+      class="container mx-auto flex justify-between items-center py-5 px-6 border-b-4 border-[#F0E5F3]"
+    >
+      <!-- Logo -->
+      <div class="text-xl font-bold text-gray-800">
+        <nuxt-link href="/"
+          ><img
+            class="w-[170px] h-auto"
+            src="~/assets/images/its-logo-light.png"
+        /></nuxt-link>
+      </div>
+      <!-- Navigation Links -->
+      <ul class="flex space-x-9 text-gray-600 text-sm">
+        <li>
+          <nuxt-link href="/" class="hover:text-gray-900 transition-colors">
+            Home
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link
+            href="/careers"
+            class="hover:text-gray-900 transition-colors"
+          >
+            Careers
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link
+            href="/blogs"
+            class="hover:text-gray-900 transition-colors"
+          >
+            Blogs
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link
+            href="/contact"
+            class="hover:text-gray-900 transition-colors"
+          >
+            Contact Us
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link
+            href="/about"
+            class="hover:text-gray-900 transition-colors"
+          >
+            About Us
+          </nuxt-link>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</template>
 
+<script lang="tsx" setup>
+// No additional logic is needed for this basic navbar.
 </script>
 
-<template>
-    <nav class="bg-blue-900 mx-auto rounded-full p-4 w-1/2  shadow-lg">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="flex items-center space-x-60">
-                <NuxtLink to="/" class="flex items-center space-x-2 text-white font-bold">
-                    <img 
-                        src="~/assets/images/its-logo.png" 
-                        alt="IT Squarehub" 
-                        class="w-10 h-10 object-contain"
-                    />
-                    <span>IT Squarehub</span>
-                </NuxtLink>
-                <div class="hidden md:flex space-x-4 uppercase">
-                    <NuxtLink to="/"
-                        class="text-white px-3 py-2 rounded-full text-sm font-medium transition-colors"
-                        activeClass="under">
-                        Home
-                    </NuxtLink>
-                    <NuxtLink to="/careers"
-                        class="text-white px-3 py-2 rounded-full text-sm font-medium transition-colors"
-                        activeClass="bg-gray-900 text-white">
-                        Careers
-                    </NuxtLink>
-                    <NuxtLink to="/blogs"
-                        class="text-white px-3 py-2 rounded-full text-sm font-medium transition-colors"
-                        activeClass="bg-gray-900 text-white">
-                        Blogs
-                    </NuxtLink>
-                    <NuxtLink to="/contact"
-                        class="text-white px-3 py-2 rounded-full text-sm font-medium transition-colors"
-                        activeClass="bg-gray-900 text-white">
-                        Contact Us
-                    </NuxtLink>
-                </div>
-            </div>
-        </div>
-    </nav>
-</template>
+<style scoped>
+/* Add custom styling here if needed */
+</style>
