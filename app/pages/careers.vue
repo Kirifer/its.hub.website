@@ -1,25 +1,7 @@
 <template>
   <div
-    class="bg-[url('@/assets/images/Careers.png')] bg-cover bg-center w-[1440] h-[1024] bg-no-repeat sm:bg-contain md:bg-cover"
+    class="bg-[url('@/assets/images/bg-careers.png')] bg-cover bg-center w-[1440] h-[1040] bg-no-repeat sm:bg-contain md:bg-cover"
   >
-    <!-- Radial background positioned at the top left -->
-    <!-- <div
-      class="absolute top-0 left-0 w-[1080px] h-[1080px] -ml-[342px] bg-[url('~/assets/images/radial_bg_yellow.png')] opacity-15"
-    ></div> -->
-
-    <!-- Concentric circles background effect (placed behind content) -->
-    <!-- <div class="absolute object-center">
-      <div
-        class="absolute w-[950px] h-[950px] rounded-full border-2 border-gray-100/20 shadow-[0_4px_116.8px_15px_rgba(0,0,0,0.03)]"
-      ></div>
-      <div
-        class="absolute w-[750px] h-[750px] rounded-full border-2 border-gray-100/20 shadow-[0_4px_116.8px_15px_rgba(0,0,0,0.03)] translate-x-[100px] translate-y-[100px]"
-      ></div>
-      <div
-        class="absolute w-[550px] h-[550px] rounded-full border-2 border-gray-100/20 shadow-[0_4px_116.8px_15px_rgba(0,0,0,0.03)] translate-x-[200px] translate-y-[200px]"
-      ></div>
-    </div> -->
-
     <!-- Main Content -->
     <div
       class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-20"
@@ -133,16 +115,11 @@
           </svg>
         </button>
       </div>
-      <!-- Radial background positioned at the bottom tight -->
-      <!-- <div
-        class="absolute bottom-0 right-0 w-[1080px] h-[1080px] -mr-[342px] bg-[url('~/assets/images/radial_bg_yellow.png')] opacity-15"
-      ></div> -->
 
       <h2 class="mt-16 text-5xl font-bold text-gray-900 text-center">
         Find your dream job at IT Squarehub
       </h2>
 
-      <!-- Apply Now Button placed below the heading -->
       <button
         class="mt-10 mb-10 px-8 py-2.5 text-sm font-medium text-white bg-[#844DDC] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors z-10"
       >
