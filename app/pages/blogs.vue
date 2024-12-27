@@ -21,7 +21,7 @@
       ></div>
 
       <!-- Blog Cards Container -->
-      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 w-full max-w-6xl px-4">
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16 w-full max-w-4xl px-4">
         <div
           v-for="(blog, index) in visibleBlogs"
           :key="index"
