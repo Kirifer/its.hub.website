@@ -1,20 +1,14 @@
 <template>
   <div
-    class="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-white via-purple-50 to-blue-50"
+    class="bg-[url('@/assets/images/Careers.png')] bg-cover bg-center w-[1440] h-[1024] bg-no-repeat sm:bg-contain md:bg-cover"
   >
     <!-- Radial background positioned at the top left -->
-<div
-  class="absolute top-0 left-0 w-[1080px] h-[1080px] -ml-[342px] bg-[url('~/assets/images/radial_bg_yellow.png')] opacity-15"
-></div>
-
-<!-- Radial background positioned at the top right -->
-<div
-  class="absolute top-0 right-0 w-[720px] h-[720px] -mr-[342px] bg-[url('@/assets/images/radial_bg_yellow.png')] opacity-15"
-></div>
-
+    <!-- <div
+      class="absolute top-0 left-0 w-[1080px] h-[1080px] -ml-[342px] bg-[url('~/assets/images/radial_bg_yellow.png')] opacity-15"
+    ></div> -->
 
     <!-- Concentric circles background effect (placed behind content) -->
-    <div class="absolute object-center">
+    <!-- <div class="absolute object-center">
       <div
         class="absolute w-[950px] h-[950px] rounded-full border-2 border-gray-100/20 shadow-[0_4px_116.8px_15px_rgba(0,0,0,0.03)]"
       ></div>
@@ -24,7 +18,8 @@
       <div
         class="absolute w-[550px] h-[550px] rounded-full border-2 border-gray-100/20 shadow-[0_4px_116.8px_15px_rgba(0,0,0,0.03)] translate-x-[200px] translate-y-[200px]"
       ></div>
-    </div>
+    </div> -->
+
     <!-- Main Content -->
     <div
       class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-20"
@@ -47,121 +42,112 @@
         </div>
       </div>
 
-      <div
-        class="bg-cover bg-center relative z-10 flex flex-col items-center justify-center  left-0 w-full  absolute bottom-0 min-h-screen px-4 py-20 "
+      <button
+        class="mt-7 px-9 py-2.5 text-m font-medium text-[#844DDC] bg-[rgba(132,77,220,0.19)] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors"
       >
-        <button
-          class="px-9 py-2.5 text-m font-medium text-[#844DDC] bg-[rgba(132,77,220,0.19)] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors"
+        Join Us
+      </button>
+
+      <h2 class="mt-16 text-5xl font-bold text-gray-900 text-center">
+        Explore our Job Openings
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 text-center max-w-xl">
+        Our talent experts will contact you once your profile has been submitted
+        to us. Hurry and click the poster to apply!
+      </p>
+
+      <!-- Job Cards Container -->
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div
+          v-for="(job, index) in visibleJobs"
+          :key="index"
+          class="relative w-[537px] h-[273px] bg-white border border-[#844DDC] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[10px] p-8"
         >
-          Join Us
-        </button>
-
-        <h2 class="mt-16 text-5xl font-bold text-gray-900 text-center">
-          Explore our Job Openings
-        </h2>
-        <p class="mt-4 text-lg text-gray-600 text-center max-w-xl">
-          Our talent experts will contact you once your profile has been
-          submitted to us. Hurry and click the poster to apply!
-        </p>
-
-        <!-- Job Cards Container -->
-        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div
-            v-for="(job, index) in visibleJobs"
-            :key="index"
-            class="relative w-[537px] h-[273px] bg-white border border-[#844DDC] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[10px] p-8"
-          >
-            <div class="absolute left-[37px] top-[33px]">
-              <div class="bg-[#D2A517] rounded-[15px] px-4 py-1">
-                <span
-                  class="text-white text-[18px] font-normal leading-[22px] tracking-[-0.03em]"
-                >
-                  Available
-                </span>
-              </div>
+          <div class="absolute left-[37px] top-[33px]">
+            <div class="bg-[#D2A517] rounded-[15px] px-4 py-1">
+              <span
+                class="text-white text-[18px] font-normal leading-[22px] tracking-[-0.03em]"
+              >
+                Available
+              </span>
             </div>
-            <h2
-              class="absolute left-[37px] top-[91px] font-['lato'] font-normal text-[30px] leading-[36px] text-black"
-            >
-              {{ job.title }}
-            </h2>
-            <p
-              class="absolute left-[37px] top-[141px] w-[451px] font-['lato'] font-normal text-[15px] leading-[18px] text-[#565656]"
-            >
-              {{ job.description }}
-            </p>
-            <button
-              class="absolute right-[37px] bottom-[25px] w-[109px] h-[32px] bg-[#844DDC] rounded-[6px] text-white text-[15px] leading-[18px] tracking-[-0.03em]"
-            >
-              Apply
-            </button>
           </div>
-        </div>
-
-        <!-- Chevron Navigation Buttons -->
-        <div class="mt-8 flex justify-center w-full max-w-[1100px]">
-          <button
-            v-if="currentPage > 1"
-            @click="navigate(-1)"
-            class="px-2 py-2 bg-trasnparent border-purple-500 border-2 rounded-full hover:bg-gray-300 transition mx-2"
+          <h2
+            class="absolute left-[37px] top-[91px] font-['lato'] font-normal text-[30px] leading-[36px] text-black"
           >
-            <svg
-              class="w-6 h-6 text-gray-600"
-              fill="none"
-              stroke="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15 19l-7-7 7-7"
-              ></path>
-            </svg>
-          </button>
-          <button
-            v-if="currentPage < totalPages"
-            @click="navigate(1)"
-            class="px-2 py-2 bg-trasnparent border-purple-500 border-2 rounded-full hover:bg-gray-300 transition mx-2"
+            {{ job.title }}
+          </h2>
+          <p
+            class="absolute left-[37px] top-[141px] w-[451px] font-['lato'] font-normal text-[15px] leading-[18px] text-[#565656]"
           >
-            <svg
-              class="w-6 h-6 text-gray-600"
-              fill="none"
-              stroke="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 5l7 7-7 7"
-              ></path>
-            </svg>
+            {{ job.description }}
+          </p>
+          <button
+            class="absolute right-[37px] bottom-[25px] w-[109px] h-[32px] bg-[#844DDC] rounded-[6px] text-white text-[15px] leading-[18px] tracking-[-0.03em]"
+          >
+            Apply
           </button>
         </div>
- <!-- Radial background positioned at the bottom tight -->
- <div
-  class="absolute bottom-0 right-0 w-[1080px] h-[1080px] -mr-[342px] bg-[url('~/assets/images/radial_bg_yellow.png')] opacity-15"
-></div>
+      </div>
 
-<!-- Radial background positioned at the top right -->
-<!-- <div
-  class="absolute bottom-0 left-0 w-[720px] h-[720px] -ml-[342px] bg-[url('@/assets/images/radial_bg.png')] opacity-15"
-></div> -->
-
-        <h2 class="mt-16 text-5xl font-bold text-gray-900 text-center">
-          Find your dream job at IT Squarehub
-        </h2>
-
-        <!-- Apply Now Button placed below the heading -->
+      <!-- Chevron Navigation Buttons -->
+      <div class="mt-8 flex justify-center w-full max-w-[1100px]">
         <button
-          class="mt-10 mb-10 px-8 py-2.5 text-sm font-medium text-white bg-[#844DDC] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors z-10"
+          v-if="currentPage > 1"
+          @click="navigate(-1)"
+          class="px-2 py-2 bg-transparent border-purple-500 border-2 rounded-full hover:bg-gray-300 transition mx-2"
         >
-          Apply Now!
+          <svg
+            class="w-6 h-6 text-gray-600"
+            fill="none"
+            stroke="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 19l-7-7 7-7"
+            ></path>
+          </svg>
+        </button>
+        <button
+          v-if="currentPage < totalPages"
+          @click="navigate(1)"
+          class="px-2 py-2 bg-transparent border-purple-500 border-2 rounded-full hover:bg-gray-300 transition mx-2"
+        >
+          <svg
+            class="w-6 h-6 text-gray-600"
+            fill="none"
+            stroke="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
         </button>
       </div>
+      <!-- Radial background positioned at the bottom tight -->
+      <!-- <div
+        class="absolute bottom-0 right-0 w-[1080px] h-[1080px] -mr-[342px] bg-[url('~/assets/images/radial_bg_yellow.png')] opacity-15"
+      ></div> -->
+
+      <h2 class="mt-16 text-5xl font-bold text-gray-900 text-center">
+        Find your dream job at IT Squarehub
+      </h2>
+
+      <!-- Apply Now Button placed below the heading -->
+      <button
+        class="mt-10 mb-10 px-8 py-2.5 text-sm font-medium text-white bg-[#844DDC] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors z-10"
+      >
+        Apply Now!
+      </button>
     </div>
   </div>
 </template>
