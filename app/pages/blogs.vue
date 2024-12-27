@@ -115,79 +115,79 @@ export default {
           title: "Philippine Outsourcing Industry: Trends and Future Prospects",
           description:
             "Discover the growth potential of the Philippine outsourcing industry in this insightful overview. Learn about the latest trends and opportunities for businesses.",
-          image: "@/assets/images/blog1.png", // Use require
+          image: "@/assets/images/blog1.png", 
         },
         {
           title: "Sustainability in Tech",
           description:
             "Explore the latest green innovations transforming the tech industry.",
-          image: "@/assets/images/sustainability-tech.png", // Use require
+          image: "@/assets/images/sustainability-tech.png", 
         },
         {
           title: "Remote Work Trends in 2024",
           description:
             "Learn about the evolving dynamics of remote work and its impact on productivity.",
-          image: "@/assets/images/remote-work.png", // Use require
+          image: "@/assets/images/remote-work.png", 
         },
         {
           title: "The Rise of Blockchain Beyond Crypto",
           description:
             "Uncover how blockchain technology is being applied across industries.",
-          image: "@/assets/images/blockchain.png", // Use require
+          image: "@/assets/images/blockchain.png", 
         },
         {
           title: "5 Tips for Staying Productive",
           description:
             "Simple and effective ways to maintain productivity throughout your day.",
-          image: "@/assets/images/productivity-tips.png", // Use require
+          image: "@/assets/images/productivity-tips.png", 
         },
         {
           title: "Cybersecurity Essentials for 2024",
           description:
             "Stay protected with these key tips to enhance your digital security.",
-          image: "@/assets/images/cybersecurity.png", // Use require
+          image: "@/assets/images/cybersecurity.png", 
         },
         {
           title: "Advancements in Renewable Energy",
           description:
             "Dive into the latest breakthroughs in renewable energy technologies.",
-          image: "@/assets/images/renewable-energy.png", // Use require
+          image: "@/assets/images/renewable-energy.png", 
         },
         {
           title: "Digital Marketing in the Age of AI",
           description:
             "Understand how AI tools are revolutionizing the world of digital marketing.",
-          image: "@/assets/images/digital-marketing.png", // Use require
+          image: "@/assets/images/digital-marketing.png", 
         },
         {
           title: "UX Design Best Practices",
           description:
             "Learn how to create user-friendly designs that drive engagement.",
-          image: "@/assets/images/ux-design.png", // Use require
+          image: "@/assets/images/ux-design.png", 
         },
         {
           title: "Top Programming Languages to Learn",
           description:
             "Find out which programming languages are in demand for 2024.",
-          image: "@/assets/images/programming-languages.png", // Use require
+          image: "@/assets/images/programming-languages.png", 
         },
         {
           title: "Building Resilience in Leadership",
           description:
             "Learn how to navigate challenges with resilience and confidence.",
-          image: "@/assets/images/leadership-resilience.png", // Use require
+          image: "@/assets/images/leadership-resilience.png", 
         },
         {
           title: "Health Tech Innovations",
           description:
             "Explore cutting-edge technologies revolutionizing the healthcare industry.",
-          image: "@/assets/images/health-tech.png", // Use require
+          image: "@/assets/images/health-tech.png", 
         },
         {
           title: "Cloud Computing for Beginners",
           description:
             "An introduction to cloud computing and its transformative power.",
-          image: "@/assets/images/cloud-computing.png", // Use require
+          image: "@/assets/images/cloud-computing.png", 
         },
       ],
       currentPage: 1,
