@@ -142,24 +142,23 @@ export default {
           link: "/career/1",
         },
         {
-          title: "Marketing Specialist",
-          description: "Develops marketing strategies and manages campaigns.",
+          title: "SQL Developer or Admin",
           link: "/career/2",
         },
         {
-          title: "Software Engineer",
+          title: "Accounting Assistant",
           description: "Designs and develops software applications.",
         },
         {
-          title: "HR Coordinator",
+          title: "Business Development Manager",
           description: "Manages recruitment and employee relations.",
         },
         {
-          title: "Product Manager",
+          title: "Company Nurse",
           description: "Leads product development and manages lifecycle.",
         },
         {
-          title: "UX/UI Designer",
+          title: "Data Engineer",
           description: "Designs user experiences and interfaces.",
         },
         {
@@ -167,7 +166,7 @@ export default {
           description: "Analyzes and interprets complex data.",
         },
         {
-          title: "Customer Support",
+          title: "Cloud Security Engineer",
           description: "Provides customer service and resolves issues.",
         },
         {
@@ -211,15 +210,15 @@ export default {
           description: "Assists in daily office operations.",
         },
         {
-          title: "SEO Specialist",
+          title: "Network Engineer",
           description: "Optimizes websites for search engines.",
         },
         {
-          title: "Financial Analyst",
+          title: "Product Owner",
           description: "Analyzes financial trends and forecasts.",
         },
         {
-          title: "Accountant",
+          title: "SQA Automation",
           description: "Manages financial records and transactions.",
         },
         {
@@ -227,11 +226,11 @@ export default {
           description: "Develops online marketing campaigns.",
         },
         {
-          title: "Data Scientist",
+          title: "Technical Writer",
           description: "Uses data analysis to solve business problems.",
         },
         {
-          title: "HR Manager",
+          title: "Talent Aquisition Associate",
           description: "Leads HR teams and manages employee relations.",
         },
       ],
