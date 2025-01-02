@@ -29,7 +29,7 @@
         >
           <!-- Blog Image -->
           <div class="w-full h-48 sm:h-75">
-            <nuxt-img
+            <NuxtImg
               :src="blog.image"
               class="w-full h-full object-cover border border-[#606DF1] rounded-[10px]"
             />
@@ -115,7 +115,7 @@ export default {
           title: "Philippine Outsourcing Industry: Trends and Future Prospects",
           description:
             "Discover the growth potential of the Philippine outsourcing industry in this insightful overview. Learn about the latest trends and opportunities for businesses.",
-          image: "@/assets/images/blog1.png", 
+          image: "@/assets/images/blog1", 
         },
         {
           title: "Sustainability in Tech",
