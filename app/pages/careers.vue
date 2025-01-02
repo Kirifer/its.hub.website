@@ -64,11 +64,12 @@
           >
             {{ job.description }}
           </p>
-          <button
-            class="absolute right-[37px] bottom-[25px] w-[109px] h-[32px] bg-[#844DDC] rounded-[6px] text-white text-[15px] leading-[18px] tracking-[-0.03em]"
+          <NuxtLink
+            :to="job.link"
+            class="absolute right-[37px] bottom-[25px] w-[109px] h-[32px] bg-[#844DDC] rounded-[6px] text-white text-[15px] leading-[18px] tracking-[-0.03em] flex items-center justify-center"
           >
             Apply
-          </button>
+          </NuxtLink>
         </div>
       </div>
 
@@ -138,10 +139,12 @@ export default {
         {
           title: "Finance Manager",
           description: "Oversees financial planning, budgeting, and reporting.",
+          link: "/career/1",
         },
         {
           title: "Marketing Specialist",
           description: "Develops marketing strategies and manages campaigns.",
+          link: "/career/2",
         },
         {
           title: "Software Engineer",
