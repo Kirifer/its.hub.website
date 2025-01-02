@@ -5,7 +5,10 @@ import {
   FlagIcon,
   ChartPieIcon,
 } from "@heroicons/vue/24/outline";
-import itsLogo from "@/assets/images/its-logo.png";
+import icon from "@/assets/images/icons/icon.png";
+import icon2 from "@/assets/images/icons/icon (2).png";
+import icon3 from "@/assets/images/icons/icon (3).png";
+import icon5 from "@/assets/images/icons/icon (5).png";
 import { ref, onMounted } from "vue";
 </script>
 <script>
@@ -21,31 +24,31 @@ export default {
     return {
       features: [
         {
-          icon: itsLogo,
+          icon: icon,
           title: "Empower Your Business Potential",
           description:
             "We work closely with you to identify your unique IT needs, ensuring a deep understanding of your goals and challenges.",
         },
         {
-          icon: itsLogo,
+          icon: icon2,
           title: "Tailored IT Solutions.",
           description:
             "We craft innovative and customized IT strategies, leveraging our expertise and streamlined processes to address your specific requirements.",
         },
         {
-          icon: itsLogo,
+          icon: icon3,
           title: "Building Teams That Excel.",
           description:
             "We specialize in sourcing and assembling top-tier IT professionals, perfectly aligned with your project objectives and organizational values.",
         },
         {
-          icon: itsLogo,
+          icon: icon5,
           title: "Seamless Onboarding,<br/>Smooth Execution",
           description:
             "We manage every step of the process, from onboarding skilled professionals to implementing solutions that drive success for your business.",
         },
         {
-          icon: itsLogo,
+          icon: icon5,
           title: "Future-Ready!",
           description:
             "We are dedicated to delivering scalable and impactful IT solutions that empower your business to thrive in a rapidly evolving digital landscape.",
@@ -104,7 +107,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- <div class="min-h-screen relative bg-[url('~/assets/images/grid-bg.png')] bg-cover bg-center bg-no-repeat"> -->
+  <div class="graph-paper">
   <!-- Hero Section -->
   <div
     class="container mx-auto flex flex-col items-center justify-center px-4 pt-12 pb-12"
@@ -150,23 +153,33 @@ onMounted(() => {
     </div>
   </div>
 
-  <!-- Image section -->
-  <div class="w-full max-w-[90vw] md:max-w-[1070px] mx-auto px-4">
-    <div
-      class="relative w-full h-[450px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC]"
-    >
-      <div
-        class="absolute inset-0 bg-[url('~/assets/images/pic-header.png')] bg-cover bg-center rounded-2xl rotate-180"
-        style="margin: 15px"
-      ></div>
-    </div>
+<!-- Image section -->
+<div class="w-full max-w-[90vw] md:max-w-[900px] mx-auto px-4 relative">
+  <div class="relative w-full h-[450px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC]">
+    <div class="absolute inset-0 bg-[url('~/assets/images/pic-header.png')] bg-cover bg-center rounded-2xl rotate-180" style="margin: 15px"></div>
   </div>
-  <!-- </div> -->
+  <!-- Additional Image on the Right Side Outside the Border -->
+  <img
+    src="~/assets/images/group 74.png"
+    alt="Design Element"
+    class="absolute right-[-184px] top-[315px] transform -translate-y-1/2"
+    style="height: 270px; width: auto;"
+  />
+  <!-- Additional Image on the Left Side Outside the Border -->
+  <img
+    src="~/assets/images/group 73.png"
+    alt="Design Element"
+    class="absolute left-[-180px] top-[315px] transform -translate-y-1/2"
+    style="height: 270px; width: auto;"
+  />
+</div>
+  
+  </div>
 
   <!-- 2nd -->
   <div>
     <!-- Features Section -->
-    <div class="container mx-auto px-16 pt-12">
+    <div class="container mx-auto px-4 pt-12">
       <!-- Main Title -->
 
       <!-- Features Grid -->
@@ -180,7 +193,7 @@ onMounted(() => {
           <!-- Left-aligned icons (odd indices) -->
           <div
             v-if="index % 2 === 0"
-            class="absolute left-4 w-[80px] h-[80px] border border-[#844ddc] rounded-lg flex items-center justify-center bg-white"
+            class="absolute left-[225px] w-[80px] h-[80px] border border-[#844ddc] rounded-lg flex items-center justify-center bg-white"
           >
             <img :src="feature.icon" alt="icon" class="w-12 h-12" />
           </div>
@@ -188,7 +201,7 @@ onMounted(() => {
           <!-- Right-aligned icons (even indices) -->
           <div
             v-else
-            class="absolute right-4 w-[80px] h-[80px] border border-[#844ddc] rounded-lg flex items-center justify-center bg-white"
+            class="absolute right-[230px] w-[80px] h-[80px] border border-[#844ddc] rounded-lg flex items-center justify-center bg-white"
           >
             <img :src="feature.icon" alt="icon" class="w-12 h-12" />
           </div>
@@ -529,7 +542,7 @@ onMounted(() => {
               @mouseleave="activeIndex = null"
             >
               <h3 class="text-3xl md:text-4xl font-semibold mb-4">
-                Customized Approach
+                Customized <br/>Approach
               </h3>
               <p
                 class="font-normal text-base md:text-lg leading-relaxed text-gray-600 max-w-[700px] mx-auto"
@@ -546,7 +559,7 @@ onMounted(() => {
               @mouseleave="activeIndex = null"
             >
               <h3 class="text-3xl md:text-4xl font-semibold mb-4">
-                Enduring Partnerships
+                Enduring <br/>Partnerships
               </h3>
               <p
                 class="font-normal text-base md:text-lg leading-relaxed text-gray-600 max-w-[700px] mx-auto"
@@ -781,6 +794,16 @@ onMounted(() => {
 </template>
 
 <style scoped>
+  .graph-paper {
+    background-image: 
+      linear-gradient(to right, rgba(220, 220, 220, 0.6) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(220, 220, 220, 0.6) 1px, transparent 1px);
+    background-size: 80px 80px;  /* Changed from 40px to 80px */
+    width: 100%;
+    height: 100%;
+    background-color: white;
+  }
+
 .circles-container {
   position: absolute;
   top: 95%;
