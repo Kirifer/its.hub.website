@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-[url('@/assets/images/bg-blogs.png')] bg-cover bg-center w-full min-h-screen bg-no-repeat sm:bg-contain md:bg-cover"
+    class="bg-[url('@/assets/images/bg-blogs.png')] bg-cover bg-center  w-[1440] h-[1040] min-h-screen bg-no-repeat sm:bg-contain md:bg-cover"
   >
     <!-- Main Content -->
     <div
