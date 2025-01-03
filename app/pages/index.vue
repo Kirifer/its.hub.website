@@ -31,19 +31,21 @@
         operation and achieve unparalleled success.
       </p>
 
-<!-- Buttons -->
-<div class="flex flex-col sm:flex-row gap-4 sm:space-x-4 mt-2 w-full sm:w-auto justify-center items-center">
-  <button
-    class="w-full sm:w-auto z-10 max-w-[150px] px-4 py-2 text-sm md:text-base font-semibold text-white bg-[#6c63ff] rounded-md hover:-translate-y-0.5 transition-transform duration-300 hover:bg-[#6c63ff]/80"
-  >
-    Let's get started
-  </button>
-  <button
-    class="w-full sm:w-auto z-10 max-w-[150px] px-4 py-2 text-sm md:text-base font-semibold text-[#6c63ff] border border-[#6c63ff] rounded-md hover:-translate-y-0.5 transition-transform duration-300 hover:bg-[#6c63ff]/10"
-  >
-    Learn more
-  </button>
-</div>
+      <!-- Buttons -->
+      <div
+        class="flex flex-col sm:flex-row gap-4 sm:space-x-4 mt-2 w-full sm:w-auto justify-center items-center"
+      >
+        <button
+          class="w-full sm:w-auto z-10 max-w-[150px] px-4 py-2 text-sm md:text-base font-semibold text-white bg-[#6c63ff] rounded-md hover:-translate-y-0.5 transition-transform duration-300 hover:bg-[#6c63ff]/80"
+        >
+          Let's get started
+        </button>
+        <button
+          class="w-full sm:w-auto z-10 max-w-[150px] px-4 py-2 text-sm md:text-base font-semibold text-[#6c63ff] border border-[#6c63ff] rounded-md hover:-translate-y-0.5 transition-transform duration-300 hover:bg-[#6c63ff]/10"
+        >
+          Learn more
+        </button>
+      </div>
     </div>
 
     <!-- Image section -->
@@ -118,193 +120,193 @@
 
   <!-- Additional Features Section -->
   <div class="container mx-auto px-4 py-12 sm:py-24 relative z-0">
-  <div class="relative rounded-2xl p-8 sm:p-16 md:p-32 overflow-hidden">
-    <!-- Border Container -->
-    <div
-      class="absolute border-l-2 border-r-2 border-b-2 border-violet-300 rounded-b-2xl z-50"
-      style="bottom: 0; left: 0; right: 0; height: calc(100% - 4rem)"
-    ></div>
-
-    <!-- Features Header -->
-    <div class="mb-12 relative z-10">
+    <div class="relative rounded-2xl p-8 sm:p-16 md:p-32 overflow-hidden">
+      <!-- Border Container -->
       <div
-        class="inline-block px-4 py-2 text-lg sm:text-xl font-medium rounded-full bg-violet-100 text-violet-600 mb-8"
-      >
-        Features
-      </div>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3">
-        Simplifying IT for<br />Business Success
-      </h2>
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <p
-          class="mt-5 mb-6 font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[900px]"
-        >
-          At IT Squarehub, we streamline complex business challenges with
-          innovative IT solutions, empowering companies to thrive in a digital
-          world.
-        </p>
-        <button
-          class="mt-4 px-4 py-2 text-base font-semibold bg-violet-600 text-white rounded-lg hover:bg-violet-700 transition-colors"
-        >
-          Connect With Us
-        </button>
-      </div>
-    </div>
+        class="absolute border-l-2 border-r-2 border-b-2 border-violet-300 rounded-b-2xl z-50"
+        style="bottom: 0; left: 0; right: 0; height: calc(100% - 4rem)"
+      ></div>
 
-    <!-- Feature Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 relative z-10">
-      <!-- Custom IT Strategies -->
-      <div
-        class="relative bg-violet-100 border border-violet-300 p-8 sm:p-12 rounded-2xl shadow-sm"
-      >
-        <h3 class="font-semibold text-2xl sm:text-3xl mb-3">
-          Custom IT<br />Strategies
-        </h3>
-        <p
-          class="mt-4 text-gray-600 mb-16 sm:mb-32 text-sm sm:text-base font-normal md:text-lg leading-relaxed max-w-[290px]"
-        >
-          At IT Squarehub, we streamline complex business challenges with
-          innovative IT solutions, empowering companies to thrive in a digital
-          world.
-        </p>
-        <img
-          src="~/assets/images/icons/bigicon (5).png"
-          alt="IT Strategy"
-          class="absolute bottom-[-25px] right-[-10px] w-auto h-[100px] sm:h-[150px] object-contain"
-        />
-      </div>
-
-      <!-- Expert IT Staffing -->
-      <div
-        class="relative bg-violet-100 border border-violet-300 p-8 sm:p-12 rounded-2xl shadow-sm"
-      >
-        <h3 class="font-semibold text-2xl sm:text-3xl mb-3">
-          Expert IT<br />Staffing
-        </h3>
-        <p
-          class="mt-4 text-gray-600 mb-16 sm:mb-32 text-sm sm:text-base font-normal md:text-lg leading-relaxed max-w-[290px]"
-        >
-          We source and provide top-tier IT professionals to meet your project
-          needs.
-        </p>
-        <img
-          src="~/assets/images/icons/bigicon (4).png"
-          alt="IT Staffing"
-          class="absolute bottom-[-10px] right-[-10px] w-[100px] sm:w-[150px] h-24 sm:h-32 object-contain"
-        />
-      </div>
-
-      <!-- Seamless Integration -->
-      <div
-        class="relative bg-violet-100 border border-violet-300 p-8 sm:p-12 rounded-2xl shadow-sm"
-      >
-        <h3 class="font-semibold text-2xl sm:text-3xl mb-3">
-          Seamless <br />
-          Integration
-        </h3>
-        <p
-          class="mt-4 text-gray-600 mb-16 sm:mb-32 text-sm sm:text-base font-normal md:text-lg leading-relaxed max-w-[290px]"
-        >
-          Our solutions integrate effortlessly into your existing systems,
-          ensuring a smooth transition with minimal disruption.
-        </p>
-        <img
-          src="~/assets/images/icons/bigicon (3).png"
-          alt="Integration"
-          class="absolute bottom-[-10px] right-[-10px] w-[100px] sm:w-[150px] h-24 sm:h-32 object-contain"
-        />
-      </div>
-    </div>
-    <div class="circles-container">
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-    </div>
-    <!-- Statistics Section -->
-    <div class="relative z-10 mb-16">
-      <div class="flex justify-center mb-8">
+      <!-- Features Header -->
+      <div class="mb-12 relative z-10">
         <div
           class="inline-block px-4 py-2 text-lg sm:text-xl font-medium rounded-full bg-violet-100 text-violet-600 mb-8"
         >
-          By the numbers
+          Features
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3">
+          Simplifying IT for<br />Business Success
+        </h2>
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p
+            class="mt-5 mb-6 font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[900px]"
+          >
+            At IT Squarehub, we streamline complex business challenges with
+            innovative IT solutions, empowering companies to thrive in a digital
+            world.
+          </p>
+          <button
+            class="mt-4 px-4 py-2 text-base font-semibold bg-violet-600 text-white rounded-lg hover:bg-violet-700 transition-colors"
+          >
+            Connect With Us
+          </button>
         </div>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-0">
+      <!-- Feature Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 relative z-10">
+        <!-- Custom IT Strategies -->
         <div
-          class="text-center border-r-2 border-b-2 border-violet-300 -m-px p-4 sm:p-5"
+          class="relative bg-violet-100 border border-violet-300 p-8 sm:p-12 rounded-2xl shadow-sm"
         >
-          <div class="text-3xl sm:text-5xl font-semibold mb-2 sm:mb-3">
-            500+
-          </div>
-          <div
-            class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600"
+          <h3 class="font-semibold text-2xl sm:text-3xl mb-3">
+            Custom IT<br />Strategies
+          </h3>
+          <p
+            class="mt-4 text-gray-600 mb-16 sm:mb-32 text-sm sm:text-base font-normal md:text-lg leading-relaxed max-w-[290px]"
           >
-            Projects Completed
+            At IT Squarehub, we streamline complex business challenges with
+            innovative IT solutions, empowering companies to thrive in a digital
+            world.
+          </p>
+          <img
+            src="~/assets/images/icons/bigicon (5).png"
+            alt="IT Strategy"
+            class="absolute bottom-[-25px] right-[-10px] w-auto h-[100px] sm:h-[150px] object-contain"
+          />
+        </div>
+
+        <!-- Expert IT Staffing -->
+        <div
+          class="relative bg-violet-100 border border-violet-300 p-8 sm:p-12 rounded-2xl shadow-sm"
+        >
+          <h3 class="font-semibold text-2xl sm:text-3xl mb-3">
+            Expert IT<br />Staffing
+          </h3>
+          <p
+            class="mt-4 text-gray-600 mb-16 sm:mb-32 text-sm sm:text-base font-normal md:text-lg leading-relaxed max-w-[290px]"
+          >
+            We source and provide top-tier IT professionals to meet your project
+            needs.
+          </p>
+          <img
+            src="~/assets/images/icons/bigicon (4).png"
+            alt="IT Staffing"
+            class="absolute bottom-[-10px] right-[-10px] w-[100px] sm:w-[150px] h-24 sm:h-32 object-contain"
+          />
+        </div>
+
+        <!-- Seamless Integration -->
+        <div
+          class="relative bg-violet-100 border border-violet-300 p-8 sm:p-12 rounded-2xl shadow-sm"
+        >
+          <h3 class="font-semibold text-2xl sm:text-3xl mb-3">
+            Seamless <br />
+            Integration
+          </h3>
+          <p
+            class="mt-4 text-gray-600 mb-16 sm:mb-32 text-sm sm:text-base font-normal md:text-lg leading-relaxed max-w-[290px]"
+          >
+            Our solutions integrate effortlessly into your existing systems,
+            ensuring a smooth transition with minimal disruption.
+          </p>
+          <img
+            src="~/assets/images/icons/bigicon (3).png"
+            alt="Integration"
+            class="absolute bottom-[-10px] right-[-10px] w-[100px] sm:w-[150px] h-24 sm:h-32 object-contain"
+          />
+        </div>
+      </div>
+      <div class="circles-container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+      <!-- Statistics Section -->
+      <div class="relative z-10 mb-16">
+        <div class="flex justify-center mb-8">
+          <div
+            class="inline-block px-4 py-2 text-lg sm:text-xl font-medium rounded-full bg-violet-100 text-violet-600 mb-8"
+          >
+            By the numbers
           </div>
         </div>
-        <div
-          class="text-center border-r-2 border-b-2 border-violet-300 -m-px p-4 sm:p-5"
-        >
-          <div class="text-3xl sm:text-5xl font-semibold mb-2 sm:mb-3">
-            95%
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-0">
+          <div
+            class="text-center border-r-2 border-b-2 border-violet-300 -m-px p-4 sm:p-5"
+          >
+            <div class="text-3xl sm:text-5xl font-semibold mb-2 sm:mb-3">
+              500+
+            </div>
+            <div
+              class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600"
+            >
+              Projects Completed
+            </div>
           </div>
           <div
-            class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600"
+            class="text-center border-r-2 border-b-2 border-violet-300 -m-px p-4 sm:p-5"
           >
-            Client Satisfaction
-          </div>
-        </div>
-        <div
-          class="text-center border-r-2 border-b-2 border-violet-300 -m-px p-4 sm:p-5"
-        >
-          <div class="text-3xl sm:text-5xl font-semibold mb-2 sm:mb-3">
-            24/7
+            <div class="text-3xl sm:text-5xl font-semibold mb-2 sm:mb-3">
+              95%
+            </div>
+            <div
+              class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600"
+            >
+              Client Satisfaction
+            </div>
           </div>
           <div
-            class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600"
+            class="text-center border-r-2 border-b-2 border-violet-300 -m-px p-4 sm:p-5"
           >
-            Online Support
-          </div>
-        </div>
-        <div
-          class="text-center border-b-2 border-violet-300 -m-px p-4 sm:p-5"
-        >
-          <div class="text-3xl sm:text-5xl font-semibold mb-2 sm:mb-3">
-            10+
+            <div class="text-3xl sm:text-5xl font-semibold mb-2 sm:mb-3">
+              24/7
+            </div>
+            <div
+              class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600"
+            >
+              Online Support
+            </div>
           </div>
           <div
-            class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600"
+            class="text-center border-b-2 border-violet-300 -m-px p-4 sm:p-5"
           >
-            Years of Experience
+            <div class="text-3xl sm:text-5xl font-semibold mb-2 sm:mb-3">
+              10+
+            </div>
+            <div
+              class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600"
+            >
+              Years of Experience
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Floating content -->
-    <div
-      class="relative z-50 mx-auto max-w-4xl animate-float mt-24 sm:mt-48 text-center"
-    >
-      <h2
-        class="text-2xl sm:text-3xl md:text-5xl font-semibold mb-3 whitespace-normal sm:whitespace-nowrap"
+      <!-- Floating content -->
+      <div
+        class="relative z-50 mx-auto max-w-4xl animate-float mt-24 sm:mt-48 text-center"
       >
-        Ready to transform your business?
-      </h2>
-      <p
-        class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 mb-8"
-      >
-        Let's shape the future success with innovative IT solutions!
-      </p>
-      <button
-        class="px-4 py-2 text-sm md:text-base font-semibold bg-violet-600 text-white rounded-md hover:bg-violet-700 transition-all duration-300 hover:scale-105"
-      >
-        Let's get started
-      </button>
+        <h2
+          class="text-2xl sm:text-3xl md:text-5xl font-semibold mb-3 whitespace-normal sm:whitespace-nowrap"
+        >
+          Ready to transform your business?
+        </h2>
+        <p
+          class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 mb-8"
+        >
+          Let's shape the future success with innovative IT solutions!
+        </p>
+        <button
+          class="px-4 py-2 text-sm md:text-base font-semibold bg-violet-600 text-white rounded-md hover:bg-violet-700 transition-all duration-300 hover:scale-105"
+        >
+          Let's get started
+        </button>
+      </div>
     </div>
   </div>
-</div>
 
   <!-- Solutions & Partnership Section -->
   <div class="container mx-auto px-4 py-12 sm:py-18">
@@ -802,7 +804,6 @@ onMounted(() => {
   resetAutoplay();
 });
 </script>
-
 
 <style scoped>
 .graph-paper-container {
