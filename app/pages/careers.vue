@@ -6,7 +6,9 @@
     <div
       class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-20"
     >
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900">Join us</h1>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900">
+        Join us
+      </h1>
       <p class="mt-4 text-base sm:text-lg text-gray-600 text-center max-w-xl">
         Discover a new era of outsourcing that focuses on excellence. Join the
         ITS Family.
@@ -30,7 +32,9 @@
         Join Us
       </button>
 
-      <h2 class="mt-16 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center">
+      <h2
+        class="mt-16 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center"
+      >
         Explore our Job Openings
       </h2>
       <p class="mt-4 text-base sm:text-lg text-gray-600 text-center max-w-xl">
@@ -40,38 +44,44 @@
 
       <!-- Job Cards Container -->
       <!-- Job Cards Container -->
-<div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-  <div
-    v-for="(job, index) in visibleJobs"
-    :key="index"
-    class="relative bg-white border border-[#844DDC] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[10px] p-6 sm:p-8 flex flex-col justify-between"
-  >
-    <!-- Available Badge -->
-    <div class="bg-[#D2A517] rounded-[15px] px-4 py-1 w-fit mb-4">
-      <span class="text-white text-sm sm:text-base font-normal leading-[22px] tracking-[-0.03em]">
-        Available
-      </span>
-    </div>
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+        <div
+          v-for="(job, index) in visibleJobs"
+          :key="index"
+          class="relative bg-white border border-[#844DDC] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[10px] p-6 sm:p-8 flex flex-col justify-between"
+        >
+          <!-- Available Badge -->
+          <div class="bg-[#D2A517] rounded-[15px] px-4 py-1 w-fit mb-4">
+            <span
+              class="text-white text-sm sm:text-base font-normal leading-[22px] tracking-[-0.03em]"
+            >
+              Available
+            </span>
+          </div>
 
-    <!-- Job Title -->
-    <h2 class="font-['lato'] font-normal text-xl sm:text-2xl md:text-3xl text-black mb-4">
-      {{ job.title }}
-    </h2>
+          <!-- Job Title -->
+          <h2
+            class="font-['lato'] font-normal text-xl sm:text-2xl md:text-3xl text-black mb-4"
+          >
+            {{ job.title }}
+          </h2>
 
-    <!-- Job Description -->
-    <p class="font-['lato'] font-normal text-sm sm:text-base text-[#565656] mb-6">
-      {{ job.description }}
-    </p>
+          <!-- Job Description -->
+          <p
+            class="font-['lato'] font-normal text-sm sm:text-base text-[#565656] mb-6"
+          >
+            {{ job.description }}
+          </p>
 
-    <!-- Apply Button -->
-    <NuxtLink
-      :to="job.link"
-      class="w-full sm:w-[109px] h-[32px] bg-[#844DDC] rounded-[6px] text-white text-sm sm:text-base leading-[18px] tracking-[-0.03em] flex items-center justify-center"
-    >
-      Apply
-    </NuxtLink>
-  </div>
-</div>
+          <!-- Apply Button -->
+          <NuxtLink
+            :to="job.link"
+            class="w-full sm:w-[109px] h-[32px] bg-[#844DDC] rounded-[6px] text-white text-sm sm:text-base leading-[18px] tracking-[-0.03em] flex items-center justify-center"
+          >
+            Apply
+          </NuxtLink>
+        </div>
+      </div>
 
       <!-- Chevron Navigation Buttons -->
       <div class="mt-8 flex justify-center w-full max-w-[1100px]">
@@ -117,7 +127,9 @@
         </button>
       </div>
 
-      <h2 class="mt-16 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center">
+      <h2
+        class="mt-16 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center"
+      >
         Find your dream job at IT Squarehub
       </h2>
 
