@@ -1,13 +1,13 @@
 <template>
   <div
-    class="bg-[url('@/assets/images/bg-careers.png')] bg-cover bg-center w-[1440] h-[1040] bg-no-repeat sm:bg-contain md:bg-cover"
+    class="bg-[url('@/assets/images/bg-careers.png')] bg-cover bg-center w-full h-auto bg-no-repeat sm:bg-contain md:bg-cover"
   >
     <!-- Main Content -->
     <div
       class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-20"
     >
-      <h1 class="text-6xl font-bold text-gray-900">Join us</h1>
-      <p class="mt-4 text-lg text-gray-600 text-center max-w-xl">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900">Join us</h1>
+      <p class="mt-4 text-base sm:text-lg text-gray-600 text-center max-w-xl">
         Discover a new era of outsourcing that focuses on excellence. Join the
         ITS Family.
       </p>
@@ -19,59 +19,59 @@
           <img
             src="~/assets/images/its-hiring.jpg"
             alt="Two people in a business meeting"
-            class="w-full h-[450px] object-cover"
+            class="w-full h-[200px] sm:h-[300px] md:h-[450px] object-cover"
           />
         </div>
       </div>
 
       <button
-        class="mt-7 px-9 py-2.5 text-m font-medium text-[#844DDC] bg-[rgba(132,77,220,0.19)] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors"
+        class="mt-7 px-6 sm:px-9 py-2.5 text-sm sm:text-base font-medium text-[#844DDC] bg-[rgba(132,77,220,0.19)] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors"
       >
         Join Us
       </button>
 
-      <h2 class="mt-16 text-5xl font-bold text-gray-900 text-center">
+      <h2 class="mt-16 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center">
         Explore our Job Openings
       </h2>
-      <p class="mt-4 text-lg text-gray-600 text-center max-w-xl">
+      <p class="mt-4 text-base sm:text-lg text-gray-600 text-center max-w-xl">
         Our talent experts will contact you once your profile has been submitted
         to us. Hurry and click the poster to apply!
       </p>
 
       <!-- Job Cards Container -->
-      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div
-          v-for="(job, index) in visibleJobs"
-          :key="index"
-          class="relative w-[537px] h-[273px] bg-white border border-[#844DDC] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[10px] p-8"
-        >
-          <div class="absolute left-[37px] top-[33px]">
-            <div class="bg-[#D2A517] rounded-[15px] px-4 py-1">
-              <span
-                class="text-white text-[18px] font-normal leading-[22px] tracking-[-0.03em]"
-              >
-                Available
-              </span>
-            </div>
-          </div>
-          <h2
-            class="absolute left-[37px] top-[91px] font-['lato'] font-normal text-[30px] leading-[36px] text-black"
-          >
-            {{ job.title }}
-          </h2>
-          <p
-            class="absolute left-[37px] top-[141px] w-[451px] font-['lato'] font-normal text-[15px] leading-[18px] text-[#565656]"
-          >
-            {{ job.description }}
-          </p>
-          <NuxtLink
-            :to="job.link"
-            class="absolute right-[37px] bottom-[25px] w-[109px] h-[32px] bg-[#844DDC] rounded-[6px] text-white text-[15px] leading-[18px] tracking-[-0.03em] flex items-center justify-center"
-          >
-            Apply
-          </NuxtLink>
-        </div>
-      </div>
+      <!-- Job Cards Container -->
+<div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+  <div
+    v-for="(job, index) in visibleJobs"
+    :key="index"
+    class="relative bg-white border border-[#844DDC] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[10px] p-6 sm:p-8 flex flex-col justify-between"
+  >
+    <!-- Available Badge -->
+    <div class="bg-[#D2A517] rounded-[15px] px-4 py-1 w-fit mb-4">
+      <span class="text-white text-sm sm:text-base font-normal leading-[22px] tracking-[-0.03em]">
+        Available
+      </span>
+    </div>
+
+    <!-- Job Title -->
+    <h2 class="font-['lato'] font-normal text-xl sm:text-2xl md:text-3xl text-black mb-4">
+      {{ job.title }}
+    </h2>
+
+    <!-- Job Description -->
+    <p class="font-['lato'] font-normal text-sm sm:text-base text-[#565656] mb-6">
+      {{ job.description }}
+    </p>
+
+    <!-- Apply Button -->
+    <NuxtLink
+      :to="job.link"
+      class="w-full sm:w-[109px] h-[32px] bg-[#844DDC] rounded-[6px] text-white text-sm sm:text-base leading-[18px] tracking-[-0.03em] flex items-center justify-center"
+    >
+      Apply
+    </NuxtLink>
+  </div>
+</div>
 
       <!-- Chevron Navigation Buttons -->
       <div class="mt-8 flex justify-center w-full max-w-[1100px]">
@@ -117,12 +117,12 @@
         </button>
       </div>
 
-      <h2 class="mt-16 text-5xl font-bold text-gray-900 text-center">
+      <h2 class="mt-16 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center">
         Find your dream job at IT Squarehub
       </h2>
 
       <button
-        class="mt-10 mb-10 px-8 py-2.5 text-sm font-medium text-white bg-[#844DDC] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors z-10"
+        class="mt-10 mb-10 px-6 sm:px-8 py-2.5 text-sm font-medium text-white bg-[#844DDC] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors z-10"
       >
         Apply Now!
       </button>
