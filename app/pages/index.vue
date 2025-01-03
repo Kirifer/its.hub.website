@@ -75,7 +75,7 @@
   </div>
 
   <!-- Features Section -->
-  <div class="container mx-auto px-4 pt-12">
+  <div class="container mx-auto px-4 pt-20">
     <div class="space-y-10">
       <!-- Feature Items -->
       <div

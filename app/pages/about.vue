@@ -7,9 +7,10 @@
       <!-- Header -->
 
       <div
-        class="flex items-center gap-2.5 px-4 py-1 justify-center text-center text-base sm:text-lg font-normal text-violet-500 bg-violet-500/20 rounded-full"
+        class="flex items-center gap-2.5  pb-2 py-1.5 justify-center text-center text-2xl font-normal text-violet-500 bg-violet-500/20 rounded-[70px] mx-auto"
+        style="width: 400px"
       >
-        <ChartBarIcon class="h-4 w-4 sm:h-5 sm:w-5 text-violet-500" />
+        <ChartBarIcon class="h-7 w-7 text-violet-500" />
         <span>Let's discover & grow</span>
       </div>
 
