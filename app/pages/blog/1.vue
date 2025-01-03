@@ -1,31 +1,33 @@
 <template>
-  <div class="relative">
+  <div
+    class="bg-[url('@/assets/images/bg-blog-details.png')] bg-cover bg-center w-full min-h-screen bg-no-repeat sm:bg-contain md:bg-cover"
+  >
     <!-- Hero Section -->
     <div
-      class="w-full h-[621px] bg-gradient-to-br from-[#272727] to-[#1a1a1a] flex flex-col items-center justify-start text-center px-4 pt-20 relative"
+      class="w-full h-[580px] bg-gradient-to-br from-[#272727] to-[#1a1a1a] flex flex-col items-center text-center px-4 pt-20 relative"
     >
       <!-- Title -->
       <h1
-        class="w-full max-w-[840px] font-medium text-[30px] sm:text-[50px] leading-[40px] sm:leading-[55px] text-white mb-10"
+        class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10"
       >
         Philippine Outsourcing Industry: Trends and Future Prospects
       </h1>
 
       <!-- Description -->
       <p
-        class="w-full max-w-[603px] font-normal text-[12px] sm:text-[15px] leading-[16px] sm:leading-[18px] text-white mb-8"
+        class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8"
       >
         Discover the growth potential of the Philippine outsourcing industry in
         this insightful overview. Learn about the latest trends and
         opportunities for businesses.
       </p>
 
-      <!-- Floating Featured Image - Positioned to overflow -->
+      <!-- Featured Image -->
       <div
-        class="w-full max-w-[648px] absolute bottom-[-100px] left-1/2 transform -translate-x-1/2"
+        class="relative w-full max-w-[648px] mx-auto mt-4 mb-8 sm:mt-4 sm:mb-12"
       >
         <div
-          class="relative w-full pt-[62.3%] rounded-[15px] border-[10px] border-[#606DF1] overflow-hidden"
+          class="relative w-full pt-[62.3%] rounded-[15px] border-[6px] sm:border-[10px] border-[#606DF1] overflow-hidden"
         >
           <img
             src="~/assets/images/blog.png"
@@ -38,18 +40,25 @@
 
     <!-- Content Section -->
     <div
-      class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-20 mt-16 text-[#565656]"
+      class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-8 sm:mt-16 text-[#565656]"
     >
-      <article class="space-y-12">
+      <article class="space-y-8 sm:space-y-12">
         <section>
-          <h2 class="font-semibold text-2xl sm:text-3xl mb-6">Introduction</h2>
+          <h2 class="font-semibold text-2xl sm:text-3xl mb-2 sm:mt-14 mt-0">
+            Introduction
+          </h2>
           <p class="text-base sm:text-xl">
-            The Philippine outsourcing industry has evolved into a global leader, renowned for its skilled workforce, cost-effective solutions, and strategic geographical advantage. This blog explores the current trends shaping the industry and outlines future prospects for sustained growth and innovation. Current Landscape of the Philippine Outsourcing Industry
+            The Philippine outsourcing industry has evolved into a global
+            leader, renowned for its skilled workforce, cost-effective
+            solutions, and strategic geographical advantage. This blog explores
+            the current trends shaping the industry and outlines future
+            prospects for sustained growth and innovation. Current Landscape of
+            the Philippine Outsourcing Industry
           </p>
         </section>
 
         <section>
-          <h2 class="font-semibold text-2xl sm:text-3xl mb-6">
+          <h2 class="font-semibold text-2xl sm:text-3xl mb-2">
             Current Landscape of the Philippine Outsourcing Industry
           </h2>
           <p class="text-base sm:text-xl">
@@ -65,7 +74,7 @@
         </section>
 
         <section>
-          <h2 class="font-semibold text-2xl sm:text-3xl mb-6">
+          <h2 class="font-semibold text-2xl sm:text-3xl mb-2">
             Key Trends Shaping the Industry
           </h2>
           <ol class="list-decimal list-inside space-y-6">
@@ -165,19 +174,20 @@
 
     <!-- Our Blogs Button -->
     <div class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="w-[245px] h-[55px] mb-8">
+      <div class="w-full sm:w-[245px] h-[55px] mb-8">
         <button class="w-full h-full bg-[#844DDC]/[0.19] rounded-[40px]">
-          <span class="font-normal text-[25px] leading-[37px] flex items-center justify-center text-center tracking-[-0.03em] text-[#844DDC]">
+          <span
+            class="font-normal text-[18px] sm:text-[20px] lg:text-[25px] leading-[26px] sm:leading-[30px] text-[#844DDC]"
+          >
             Our Blogs
           </span>
         </button>
       </div>
     </div>
 
-
     <!-- Blog Cards Container -->
     <div
-      class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 w-full max-w-4xl px-4 mx-auto"
+      class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 w-full max-w-4xl px-4 mx-auto mb-20"
     >
       <div
         v-for="(blog, index) in visibleBlogs"
@@ -243,6 +253,6 @@ const blogs = ref([
   },
 ]);
 
-// Define visibleBlogs as a computed property or a subset of blogs
-const visibleBlogs = computed(() => blogs.value.slice(0, 4)); // Show only the first 4 blogs
+// Define visibleBlogs as a computed property
+const visibleBlogs = computed(() => blogs.value.slice(0, 4));
 </script>
