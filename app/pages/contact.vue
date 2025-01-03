@@ -167,7 +167,7 @@
       <!-- Locations Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
         <div v-for="office in offices" :key="office.country" 
-             class="group bg-white rounded-xl overflow-hidden shadow-lg border-2 border-purple-500 transition-transform duration-300 hover:-translate-y-2">
+             class="group bg-white rounded-xl overflow-hidden shadow-lg border-2 border-white-500 transition-transform duration-300 hover:-translate-y-2">
           <!-- Image Container -->
           <div class="h-48 overflow-hidden">
             <img 
