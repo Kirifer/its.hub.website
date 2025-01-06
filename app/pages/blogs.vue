@@ -39,20 +39,19 @@
             <h2
               class="font-['lato'] font-normal text-lg sm:text-xl md:text-2xl leading-[28px] text-black"
             >
-            {{ blog?.section_1[0]?.heading }}
-
+              {{ blog?.section_1[0]?.heading }}
             </h2>
             <p
               class="mt-2 w-full font-['lato'] font-normal text-sm sm:text-base md:text-[17px] leading-[18px] text-[#565656]"
             >
-            {{ blog?.section_1[0]?.subheading }}
+              {{ blog?.section_1[0]?.subheading }}
             </p>
             <!-- Read More Button -->
             <NuxtLink
               :to="blog.link"
               class="mt-4 w-full sm:w-[109px] h-[32px] bg-[#606DF1] rounded-[6px] text-white text-sm sm:text-[15px] leading-[18px] tracking-[-0.03em] flex items-center justify-center"
             >
-            {{ blog?.section_1[0]?.button }}
+              {{ blog?.section_1[0]?.button }}
             </NuxtLink>
           </div>
         </div>
@@ -107,7 +106,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
 import sanityClient from "@/hooks/sanityClient";
-import { urlFor } from '@/hooks/sanityImageUrl';
+import { urlFor } from "@/hooks/sanityImageUrl";
 import { Link } from "#build/components";
 
 // const builder = imageUrlBuilder(sanityClient);
@@ -145,8 +144,6 @@ function resetAutoplay() {
   console.log("Autoplay reset");
 }
 
-
-
 onMounted(async () => {
   try {
     const data = await sanityClient.fetch('*[_type == "blog"]');
@@ -168,16 +165,11 @@ onMounted(async () => {
       };
     });
   } catch (error) {
-    console.error('Error fetching data from Sanity:', error);
+    console.error("Error fetching data from Sanity:", error);
   }
   resetAutoplay();
 });
 
-
-const links = ref([
-  { link: "/blog/1" },
-  { link: "/blog/2" },
-]);
-
+const links = ref([{ link: "/blog/1" }, { link: "/blog/2" }]);
 </script>
 <style scoped></style>
