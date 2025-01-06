@@ -11,16 +11,16 @@
         class="relative w-full max-w-[714px] max-h-[321px] mx-auto mt-[50px] bg-white border border-[#606DF1] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[20px] p-6 sm:p-8 flex flex-col items-center justify-center"
       >
         <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900">
-          Our Blog
+          {{ blogs[0]?.hero_title }}
         </h1>
         <p
           class="mt-4 text-sm sm:text-base md:text-lg text-gray-600 text-center max-w-xl"
         >
           Discover the newest trends, strategies, and valuable insights in
           outsourcing to enhance your business strategy.
+          {{ blogs[0]?.hero_subtitle }}
         </p>
       </div>
-
       <!-- Blog Cards Container -->
       <div
         class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 w-full max-w-4xl px-4"
@@ -32,33 +32,31 @@
         >
           <!-- Blog Image -->
           <div class="w-full h-48 sm:h-60 md:h-72">
-            <img :src="blog.image" class="w-full h-full object-cover" />
+            <img :src="blogs[0]?.icon" class="w-full h-full object-cover" />
           </div>
-
           <!-- Title, Description, and Read More Button -->
           <div class="p-4 sm:p-6">
             <h2
               class="font-['lato'] font-normal text-lg sm:text-xl md:text-2xl leading-[28px] text-black"
             >
-              {{ blog.title }}
+            {{ blog?.section_1[0]?.heading }}
+
             </h2>
             <p
               class="mt-2 w-full font-['lato'] font-normal text-sm sm:text-base md:text-[17px] leading-[18px] text-[#565656]"
             >
-              {{ blog.description }}
+            {{ blog?.section_1[0]?.subheading }}
             </p>
-
             <!-- Read More Button -->
             <NuxtLink
               :to="blog.link"
               class="mt-4 w-full sm:w-[109px] h-[32px] bg-[#606DF1] rounded-[6px] text-white text-sm sm:text-[15px] leading-[18px] tracking-[-0.03em] flex items-center justify-center"
             >
-              Read More
+            {{ blog?.section_1[0]?.button }}
             </NuxtLink>
           </div>
         </div>
       </div>
-
       <!-- Chevron Navigation Buttons -->
       <div class="mt-8 flex justify-center w-full max-w-[1100px]">
         <button
@@ -106,50 +104,80 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
 import sanityClient from "@/hooks/sanityClient";
 import { urlFor } from '@/hooks/sanityImageUrl';
-import { NuxtLink } from 'nuxt3';
+import { Link } from "#build/components";
+
+// const builder = imageUrlBuilder(sanityClient);
+
+// function urlFor(source) {
+//   return builder.image(source);
+// }
 
 interface BlogPost {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
+  heading: string;
+  subheading: string;
+  icon?: string;
+  link?: string;
+  hero_title?: string;
+  hero_subtitle?: string;
 }
 
 const blogs = ref<BlogPost[]>([]);
 const currentPage = ref(1);
 const itemsPerPage = ref(4);
-
-onMounted(async () => {
-  try {
-    const posts = await sanityClient.fetch<BlogPost[]>('*[_type == "blogPost"]');
-    blogs.value = posts.map(post => ({
-      title: post.title,
-      description: post.description,
-      image: urlFor(post.image).url(),
-      link: `/blog/${post._id}`
-    }));
-  } catch (error) {
-    console.error('Error fetching data from Sanity:', error);
-  }
-});
-
 const totalPages = computed(() => {
   return Math.ceil(blogs.value.length / itemsPerPage.value);
 });
-
 const visibleBlogs = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage.value;
   const end = start + itemsPerPage.value;
   return blogs.value.slice(start, end);
 });
 
-function navigate(direction) {
+function navigate(direction: number) {
   currentPage.value += direction;
 }
-</script>
 
+function resetAutoplay() {
+  console.log("Autoplay reset");
+}
+
+
+
+onMounted(async () => {
+  try {
+    const data = await sanityClient.fetch('*[_type == "blog"]');
+    blogs.value = data.map((item: any, index: number) => {
+      console.log(item.section_1[0].heading, "heto yosdsdn");
+      return {
+        title: item.title,
+        description: item.description,
+        icon: urlFor(item.section_1[0].icon),
+        link: links.value[index]?.link || "#",
+        hero_title: item.hero_title,
+        hero_subtitle: item.hero_subtitle,
+        section_1: item.section_1.map((section: any) => ({
+          heading: section.heading,
+          subheading: section.subheading,
+          icon: section.icon,
+          button: section.button,
+        })),
+      };
+    });
+  } catch (error) {
+    console.error('Error fetching data from Sanity:', error);
+  }
+  resetAutoplay();
+});
+
+
+const links = ref([
+  { link: "/blog/1" },
+  { link: "/blog/2" },
+]);
+
+</script>
 <style scoped></style>
