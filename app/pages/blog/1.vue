@@ -27,7 +27,7 @@
         class="relative w-full max-w-[648px] mx-auto mt-4 mb-8 sm:mt-4 sm:mb-12"
       >
         <div
-          class="relative w-full pt-[62.3%] rounded-[15px] border-[6px] sm:border-[10px] border-[#606DF1] overflow-hidden"
+          class="relative w-full pt-[62.3%] rounded-[15px] border-[6px] sm:border-[10px] border-[#606DF1] overflow-hidden mb-12"
         >
           <img
             src="~/assets/images/blog.png"
@@ -40,9 +40,9 @@
 
     <!-- Content Section -->
     <div
-      class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-8 sm:mt-16 text-[#565656]"
+      class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 sm:mt-16 text-[#565656]"
     >
-      <article class="space-y-8 sm:space-y-12">
+      <article class="space-y-8 sm:space-y-12 mt-16">
         <section>
           <h2 class="font-semibold text-2xl sm:text-3xl mb-2 sm:mt-14 mt-0">
             Introduction
@@ -174,7 +174,7 @@
 
     <!-- Our Blogs Button -->
     <div class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="w-full sm:w-[245px] h-[55px] mb-8">
+      <div class="w-full sm:w-[235px] h-[55px] mb-4">
         <button class="w-full h-full bg-[#844DDC]/[0.19] rounded-[40px]">
           <span
             class="font-normal text-[18px] sm:text-[20px] lg:text-[25px] leading-[26px] sm:leading-[30px] text-[#844DDC]"
@@ -187,7 +187,7 @@
 
     <!-- Blog Cards Container -->
     <div
-      class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 w-full max-w-4xl px-4 mx-auto mb-20"
+      class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 w-full max-w-4xl px-4 mx-auto mb-20"
     >
       <div
         v-for="(blog, index) in visibleBlogs"
@@ -202,12 +202,12 @@
         <!-- Title, Description, and Read More Button -->
         <div class="p-4 sm:p-6">
           <h2
-            class="font-['lato'] font-normal text-lg sm:text-xl md:text-2xl leading-[28px] text-black"
+            class=" font-normal text-lg sm:text-xl md:text-2xl leading-[28px] text-black"
           >
-            {{ blog.title }}
+            {{ blog.title }} 
           </h2>
           <p
-            class="mt-2 w-full font-['lato'] font-normal text-sm sm:text-base md:text-[17px] leading-[18px] text-[#565656]"
+            class="mt-2 w-full font-normal text-sm sm:text-base md:text-[17px] leading-[18px] text-[#565656]"
           >
             {{ blog.description }}
           </p>
