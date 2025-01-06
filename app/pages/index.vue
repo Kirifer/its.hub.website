@@ -10,25 +10,21 @@
         class="flex items-center gap-2.5 px-4 py-1 justify-center text-center text-base sm:text-lg font-normal text-violet-500 bg-violet-500/20 rounded-full"
       >
         <ChartBarIcon class="h-4 w-4 sm:h-5 sm:w-5 text-violet-500" />
-        <span>Let's discover & grow</span>
+        <span>{{ posts[0]?.hero_badge }}</span>
       </div>
 
       <!-- Heading -->
       <h1
-        class="mt-3 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight text-center text-black font-instrument-sans"
+        class="mt-3 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight text-center text-black font-instrument-sans max-w-[20ch] mx-auto"
       >
-        Innovate outsourcing
-        <br class="hidden sm:block" />
-        with a focus on quality.
+        {{ posts[0]?.hero_title }}
       </h1>
 
       <!-- Paragraph -->
       <p
-        class="mt-4 mb-6 font-normal text-sm sm:text-base md:text-lg leading-relaxed text-center text-gray-600 max-w-[800px] mx-auto"
+        class="mt-4 mb-6 font-normal text-sm sm:text-base md:text-lg leading-relaxed text-center text-gray-600 max-w-[45ch] mx-auto"
       >
-        Embrace quality-driven strategies to transform your
-        <br class="hidden md:block" />
-        operation and achieve unparalleled success.
+        {{ posts[0]?.hero_subtitle }}
       </p>
 
       <!-- Buttons -->
@@ -38,12 +34,12 @@
         <button
           class="w-full sm:w-auto z-10 max-w-[150px] px-4 py-2 text-sm md:text-base font-semibold text-white bg-[#6c63ff] rounded-md hover:-translate-y-0.5 transition-transform duration-300 hover:bg-[#6c63ff]/80"
         >
-          Let's get started
+          {{ posts[0]?.hero_button }}
         </button>
         <button
           class="w-full sm:w-auto z-10 max-w-[150px] px-4 py-2 text-sm md:text-base font-semibold text-[#6c63ff] border border-[#6c63ff] rounded-md hover:-translate-y-0.5 transition-transform duration-300 hover:bg-[#6c63ff]/10"
         >
-          Learn more
+          {{ posts[0]?.hero_button_2 }}
         </button>
       </div>
     </div>
@@ -53,9 +49,9 @@
       <div
         class="relative w-full h-[300px] sm:h-[450px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC]"
       >
-        <div
-          class="absolute inset-0 bg-[url('~/assets/images/pic-header.png')] bg-cover bg-center rounded-2xl rotate-180"
-          style="margin: 15px"
+      <div
+          class="absolute inset-0 bg-cover bg-center rounded-2xl rotate-180"
+          :style="{ backgroundImage: `url(${heroImageUrl})`, margin: '15px' }"
         ></div>
       </div>
       <!-- Additional Images - Hide on mobile -->
@@ -708,7 +704,7 @@
   <!-- <Footer /> -->
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
   ChartBarIcon,
   BarsArrowUpIcon,
@@ -721,6 +717,18 @@ import icon3 from "@/assets/images/icons/icon (3).png";
 import icon4 from "@/assets/images/icons/icon (4).png";
 import icon5 from "@/assets/images/icons/icon (5).png";
 import { ref, onMounted } from "vue";
+import sanityClient from "@/hooks/sanityClient";
+import { urlFor } from '@/hooks/sanityImageUrl';
+
+interface HomePost {
+  _id: string;
+  hero_title: string;
+  hero_subtitle: string;
+  hero_badge: string;
+  hero_button: string;
+  hero_button_2: string;
+  hero_image: any;
+}
 
 const activeIndex = ref(0);
 
@@ -782,9 +790,9 @@ const testimonials = [
 ];
 
 const currentIndex = ref(0);
-const autoplayInterval = ref(null);
+const autoplayInterval = ref<ReturnType<typeof setInterval> | null>(null);
 
-const setSlide = (index) => {
+const setSlide = (index: number) => {
   currentIndex.value = index;
   resetAutoplay();
 };
@@ -800,7 +808,19 @@ const resetAutoplay = () => {
   autoplayInterval.value = setInterval(nextSlide, 5000);
 };
 
-onMounted(() => {
+const posts = ref<HomePost[]>([]);
+const heroImageUrl = ref('');
+
+onMounted(async () => {
+  try {
+    posts.value = await sanityClient.fetch<HomePost[]>('*[_type == "home"]');
+    console.log(posts.value);
+    if (posts.value.length > 0) {
+      heroImageUrl.value = urlFor(posts.value[0].hero_image.asset._ref);
+    }
+  } catch (error) {
+    console.error('Error fetching data from Sanity:', error);
+  }
   resetAutoplay();
 });
 </script>
