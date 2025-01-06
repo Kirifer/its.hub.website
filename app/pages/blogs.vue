@@ -107,92 +107,35 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import blogimage1 from "@/assets/images/blog1.png";
+import { ref, computed, onMounted } from "vue";
+import sanityClient from "@/hooks/sanityClient";
+import { urlFor } from '@/hooks/sanityImageUrl';
+import { NuxtLink } from 'nuxt3';
 
-const blogs = ref([
-  {
-    title: "Philippine Outsourcing Industry: Trends and Future Prospects",
-    description:
-      "Discover the growth potential of the Philippine outsourcing industry in this insightful overview. Learn about the latest trends and opportunities for businesses.",
-    image: blogimage1,
-    link: "/blog/1",
-  },
-  {
-    title: "Sustainability in Tech",
-    description:
-      "Explore the latest green innovations transforming the tech industry.",
-    image: blogimage1,
-  },
-  {
-    title: "Remote Work Trends in 2024",
-    description:
-      "Learn about the evolving dynamics of remote work and its impact on productivity.",
-    image: blogimage1,
-  },
-  {
-    title: "The Rise of Blockchain Beyond Crypto",
-    description:
-      "Uncover how blockchain technology is being applied across industries.",
-    image: blogimage1,
-  },
-  {
-    title: "5 Tips for Staying Productive",
-    description:
-      "Simple and effective ways to maintain productivity throughout your day.",
-    image: blogimage1,
-  },
-  {
-    title: "Cybersecurity Essentials for 2024",
-    description:
-      "Stay protected with these key tips to enhance your digital security.",
-    image: blogimage1,
-  },
-  {
-    title: "Advancements in Renewable Energy",
-    description:
-      "Dive into the latest breakthroughs in renewable energy technologies.",
-    image: blogimage1,
-  },
-  {
-    title: "Digital Marketing in the Age of AI",
-    description:
-      "Understand how AI tools are revolutionizing the world of digital marketing.",
-    image: blogimage1,
-  },
-  {
-    title: "UX Design Best Practices",
-    description:
-      "Learn how to create user-friendly designs that drive engagement.",
-    image: blogimage1,
-  },
-  {
-    title: "Top Programming Languages to Learn",
-    description: "Find out which programming languages are in demand for 2024.",
-    image: blogimage1,
-  },
-  {
-    title: "Building Resilience in Leadership",
-    description:
-      "Learn how to navigate challenges with resilience and confidence.",
-    image: blogimage1,
-  },
-  {
-    title: "Health Tech Innovations",
-    description:
-      "Explore cutting-edge technologies revolutionizing the healthcare industry.",
-    image: blogimage1,
-  },
-  {
-    title: "Cloud Computing for Beginners",
-    description:
-      "An introduction to cloud computing and its transformative power.",
-    image: blogimage1,
-  },
-]);
+interface BlogPost {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+}
 
+const blogs = ref<BlogPost[]>([]);
 const currentPage = ref(1);
 const itemsPerPage = ref(4);
+
+onMounted(async () => {
+  try {
+    const posts = await sanityClient.fetch<BlogPost[]>('*[_type == "blogPost"]');
+    blogs.value = posts.map(post => ({
+      title: post.title,
+      description: post.description,
+      image: urlFor(post.image).url(),
+      link: `/blog/${post._id}`
+    }));
+  } catch (error) {
+    console.error('Error fetching data from Sanity:', error);
+  }
+});
 
 const totalPages = computed(() => {
   return Math.ceil(blogs.value.length / itemsPerPage.value);
