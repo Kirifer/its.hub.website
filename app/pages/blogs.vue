@@ -4,7 +4,7 @@
   >
     <!-- Main Content -->
     <div
-      class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-20"
+      class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-2"
     >
       <!-- Blog Header Card -->
       <div

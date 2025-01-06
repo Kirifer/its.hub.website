@@ -3,11 +3,11 @@
     class="bg-[url('@/assets/images/bg-about.png')] bg-cover bg-center w-full min-h-screen bg-no-repeat sm:bg-contain md:bg-cover"
   >
     <!-- Content -->
-    <div class="relative z-10 max-w-6xl mx-auto px-4 py-20 space-y-16">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 py-12 space-y-16">
       <!-- Header -->
 
       <div
-        class="flex items-center gap-2.5 px-5 pb-2 py-1.5 justify-center text-center text-2xl font-normal text-violet-500 bg-violet-500/20 rounded-[70px] mx-auto"
+        class="flex items-center gap-2.5  pb-2 py-1.5 justify-center text-center text-2xl font-normal text-violet-500 bg-violet-500/20 rounded-[70px] mx-auto"
         style="width: 400px"
       >
         <ChartBarIcon class="h-7 w-7 text-violet-500" />

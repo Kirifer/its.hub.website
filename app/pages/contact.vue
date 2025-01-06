@@ -156,13 +156,15 @@
     </div>
   </div>
 
-  <div class="container mx-auto px-4 pt-12">
+  <div class="container mx-auto px-4 pt-4">
     <div class="px-4 py-8">
     <div class="container mx-auto">
       <!-- Header -->
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-gray-800">Our Locations</h2>
-      </div>
+          <div class="inline-block px-4 py-1.5 bg-[#D1D4F6] text-[#616EF1] rounded-full text-base sm:text-lg font-normal mb-4">
+            <span>Our Locations</span>
+          </div>
+        </div>
 
       <!-- Locations Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -192,7 +194,7 @@
   </div>
     </div>
 
-  <Footer />
+  <!-- <Footer /> -->
 </template>
 
 <script setup lang="ts">
