@@ -110,32 +110,32 @@
 import { ref, computed, onMounted } from "vue";
 import sanityClient from "@/hooks/sanityClient";
 import { urlFor } from '@/hooks/sanityImageUrl';
-import { NuxtLink } from 'nuxt3';
+// import { NuxtLink } from 'nuxt3';
 
-interface BlogPost {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-}
+// interface BlogPost {
+//   title: string;
+//   description: string;
+//   image: string;
+//   link: string;
+// }
 
-const blogs = ref<BlogPost[]>([]);
+// const blogs = ref<BlogPost[]>([]);
 const currentPage = ref(1);
 const itemsPerPage = ref(4);
 
-onMounted(async () => {
-  try {
-    const posts = await sanityClient.fetch<BlogPost[]>('*[_type == "blogPost"]');
-    blogs.value = posts.map(post => ({
-      title: post.title,
-      description: post.description,
-      image: urlFor(post.image).url(),
-      link: `/blog/${post._id}`
-    }));
-  } catch (error) {
-    console.error('Error fetching data from Sanity:', error);
-  }
-});
+// onMounted(async () => {
+//   try {
+//     const posts = await sanityClient.fetch<BlogPost[]>('*[_type == "blogPost"]');
+//     blogs.value = posts.map(post => ({
+//       title: post.title,
+//       description: post.description,
+//       image: urlFor(post.image).url(),
+//       link: `/blog/${post._id}`
+//     }));
+//   } catch (error) {
+//     console.error('Error fetching data from Sanity:', error);
+//   }
+// });
 
 const totalPages = computed(() => {
   return Math.ceil(blogs.value.length / itemsPerPage.value);
