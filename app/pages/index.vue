@@ -71,7 +71,7 @@
   </div>
 
   <!-- Features Section -->
-  <div class="container mx-auto px-4 pt-20">
+  <div class="container mx-auto px-4 pt-28">
     <div class="space-y-10">
       <!-- Feature Items -->
       <div
@@ -120,7 +120,7 @@
   </div>
 
   <!-- Additional Features Section -->
-  <div class="container mx-auto px-4 py-12 sm:py-24 relative z-0">
+  <div class="container mx-auto px-4 py-12 sm:py-16 relative z-0">
     <div class="relative rounded-2xl p-8 sm:p-16 md:p-32 overflow-hidden">
       <!-- Border Container -->
       <div
@@ -400,7 +400,7 @@
     </div>
 
     <!-- Partnership Section -->
-    <div class="relative pb-16 sm:pb-32">
+    <div class="relative sm:pb-32">
       <!-- Partnership Content -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
         <!-- Team Images Grid -->
@@ -485,7 +485,7 @@
       </div>
     </div>
 
-    <div class="flex items-center justify-center w-full">
+    <div class="flex items-center pt-16 justify-center w-full">
       <div
         class="w-full max-w-8xl bg-white rounded-3xl p-6 sm:p-12 border border-violet-400"
       >

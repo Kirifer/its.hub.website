@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-[url('@/assets/images/bg-blogs.png')] bg-cover bg-center w-full min-h-screen bg-no-repeat sm:bg-contain md:bg-cover"
+    class="graph-paper-container"
   >
     <!-- Main Content -->
     <div
@@ -122,9 +122,15 @@ interface BlogPost {
   link?: string;
   hero_title?: string;
   hero_subtitle?: string;
+  section_1: {
+    heading: string;
+    subheading: string;
+    icon?: string;
+    button?: string;
+  }[];
 }
 
-// const blogs = ref<BlogPost[]>([]);
+const blogs = ref<BlogPost[]>([]);
 const currentPage = ref(1);
 const itemsPerPage = ref(4);
 const totalPages = computed(() => {
@@ -172,4 +178,16 @@ onMounted(async () => {
 
 const links = ref([{ link: "/blog/1" }, { link: "/blog/2" }]);
 </script>
-<style scoped></style>
+<style scoped>
+.graph-paper-container {
+  background-image: linear-gradient(
+      to right,
+      rgba(220, 220, 220, 0.6) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(220, 220, 220, 0.6) 1px, transparent 1px);
+  background-size: 80px 80px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}</style>

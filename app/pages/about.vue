@@ -1,22 +1,22 @@
 <template>
   <div
-    class="bg-[url('@/assets/images/bg-about.png')] bg-cover bg-center w-full min-h-screen bg-no-repeat sm:bg-contain md:bg-cover"
+    class="graph-paper-container"
   >
     <!-- Circles Container -->
     <div class="circles-container"></div>
 
     <!-- Content -->
-    <div class="relative z-10 max-w-6xl mx-auto px-4 py-12 space-y-16">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 py-8 space-y-16">
       <!-- Header -->
-      <div
-        class="flex items-center gap-2.5 pb-2 py-1.5 justify-center text-center text-xl font-normal text-violet-500 bg-violet-500/20 rounded-[70px] mx-auto w-full sm:w-[400px]"
-      >
-        <ChartBarIcon class="h-6 w-6 text-violet-500" />
-        <span>Let's discover & grow</span>
-      </div>
+      <div class="text-center">
+  <span class="inline-flex items-center gap-2.5 px-4 py-1 sm:text-lg font-normal text-violet-500 bg-violet-500/20 rounded-full">
+    <ChartBarIcon class="h-4 w-4 sm:h-5 sm:w-5 text-violet-500" /> Lets discover & grow!
+  </span>
+</div>
 
       <div class="text-center space-y-4">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">About Us</h1>
+        
+        <h1 class="text-3xl sm:text-4xl md:text-5xl -mt-8 font-bold">About Us</h1>
         <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
           We are a tech-driven IT company delivering innovative solutions in
           software development, cloud services, and IT consulting.
@@ -27,6 +27,7 @@
       <div
         class="overflow-hidden rounded-[40px] shadow-[0px_4px_75.1px_5px_rgba(0,_0,_0,_0.25)] bg-white"
       >
+      
         <div class="flex flex-col md:flex-row items-center">
           <div class="p-6 md:p-8 md:w-1/2 space-y-4 sm:space-y-6">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold ml-4">
@@ -405,6 +406,19 @@ export default {
 };
 </script>
 <style scoped>
+.graph-paper-container {
+  background-image: linear-gradient(
+      to right,
+      rgba(220, 220, 220, 0.6) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(220, 220, 220, 0.6) 1px, transparent 1px);
+  background-size: 80px 80px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
 .circles-container {
   position: absolute;
   top: 95%;
