@@ -1,22 +1,21 @@
 <template>
-  <div
-    class="graph-paper-container"
-  >
-    <!-- Circles Container -->
-    <div class="circles-container"></div>
-
+  <div class="graph-paper-container">
     <!-- Content -->
     <div class="relative z-10 max-w-6xl mx-auto px-4 py-8 space-y-16">
       <!-- Header -->
       <div class="text-center">
-  <span class="inline-flex items-center gap-2.5 px-4 py-1 sm:text-lg font-normal text-violet-500 bg-violet-500/20 rounded-full">
-    <ChartBarIcon class="h-4 w-4 sm:h-5 sm:w-5 text-violet-500" /> Lets discover & grow!
-  </span>
-</div>
+        <span
+          class="inline-flex items-center gap-2.5 px-4 py-1 sm:text-lg font-normal text-violet-500 bg-violet-500/20 rounded-full"
+        >
+          <ChartBarIcon class="h-4 w-4 sm:h-5 sm:w-5 text-violet-500" /> Lets
+          discover & grow!
+        </span>
+      </div>
 
       <div class="text-center space-y-4">
-        
-        <h1 class="text-3xl sm:text-4xl md:text-5xl -mt-8 font-bold">About Us</h1>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl -mt-8 font-bold">
+          About Us
+        </h1>
         <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
           We are a tech-driven IT company delivering innovative solutions in
           software development, cloud services, and IT consulting.
@@ -27,14 +26,15 @@
       <div
         class="overflow-hidden rounded-[40px] shadow-[0px_4px_75.1px_5px_rgba(0,_0,_0,_0.25)] bg-white"
       >
-      
         <div class="flex flex-col md:flex-row items-center">
           <div class="p-6 md:p-8 md:w-1/2 space-y-4 sm:space-y-6">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold ml-4">
               Why choose us for <br />
               Outsourcing?
             </h2>
-            <p class="text-gray-600 leading-relaxed text-lg sm:text-[25px] ml-4 pb-6">
+            <p
+              class="text-gray-600 leading-relaxed text-lg sm:text-[25px] ml-4 pb-6"
+            >
               IT Squarehub is a leading outsourcing company with a proven track
               record of helping businesses and organizations successfully attain
               their business objectives. We take pride in delivering first-class
@@ -67,10 +67,14 @@
               :key="index"
               class="text-center"
             >
-              <div class="text-[#606DF1] text-3xl sm:text-4xl md:text-5xl font-bold">
+              <div
+                class="text-[#606DF1] text-3xl sm:text-4xl md:text-5xl font-bold"
+              >
                 {{ stat.number }}
               </div>
-              <div class="text-gray-600 text-sm sm:text-base">{{ stat.label }}</div>
+              <div class="text-gray-600 text-sm sm:text-base">
+                {{ stat.label }}
+              </div>
             </div>
           </div>
         </div>
@@ -78,11 +82,13 @@
         <!-- Numbers Section -->
         <div class="space-y-4 w-full md:w-1/3">
           <div
-            class="inline-flex items-center gap-2 bg-purple-100 px-4 py-1 rounded-full text-center md:text-left mx-auto md:mx-0"
+            class="inline-flex items-center gap-2 bg-purple-100 px-4 py-1 rounded-full text-center mx-auto md:mx-0"
           >
             <span class="text-purple-600 text-sm sm:text-base">Numbers</span>
           </div>
-          <p class="text-gray-600 max-w-lg mx-auto md:mx-0 md:text-left text-sm sm:text-base">
+          <p
+            class="text-gray-600 max-w-lg mx-auto md:mx-0 text-center md:text-left text-sm sm:text-base"
+          >
             It's time to strengthen your team and boost business performance
             through our Professional Outsourcing Services.
           </p>
@@ -93,7 +99,9 @@
     <div class="bg-gradient-to-b from-gray-900 to-gray-800">
       <!-- Uniqueness Section -->
       <section class="max-w-7xl mx-auto px-4 py-16">
-        <div class="flex flex-col sm:flex-row justify-between items-center mb-12">
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center mb-12"
+        >
           <div class="text-center sm:text-left">
             <span
               class="bg-indigo-900/50 text-indigo-300 px-4 py-2 rounded-full text-sm"
@@ -114,7 +122,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Innovative Outsourcing Card -->
           <div
-            class="bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors"
+            class="group bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors"
           >
             <img
               src="@/assets/images/innovative.png"
@@ -122,16 +130,20 @@
               class="w-full h-48 object-cover"
             />
             <div class="p-6">
-              <h3 class="text-xl font-semibold text-black mb-2">
+              <h3
+                class="text-xl font-semibold text-black group-hover:text-white mb-2"
+              >
                 Innovative Outsourcing
               </h3>
-              <p class="text-gray-400">Dynamic Evolution</p>
+              <p class="text-gray-400 group-hover:text-white">
+                Dynamic Evolution
+              </p>
             </div>
           </div>
 
           <!-- Scalable and Flexible Card -->
           <div
-            class="bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors md:col-span-2"
+            class="group bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors md:col-span-2"
           >
             <img
               src="@/assets/images/scalable.png"
@@ -139,10 +151,12 @@
               class="w-full h-48 object-cover"
             />
             <div class="p-6">
-              <h3 class="text-xl font-semibold text-black mb-2">
+              <h3
+                class="text-xl font-semibold text-black group-hover:text-white mb-2"
+              >
                 Scalable and Flexible
               </h3>
-              <p class="text-gray-400">
+              <p class="text-gray-400 group-hover:text-white">
                 We have developed an efficient workflow system that has the
                 capacity to accommodate growth, increased workload and adapt to
                 evolving demands.
@@ -152,7 +166,7 @@
 
           <!-- Cost Efficient Card -->
           <div
-            class="bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors md:col-span-2"
+            class="group bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors md:col-span-2"
           >
             <img
               src="@/assets/images/cost-efficient.png"
@@ -160,10 +174,12 @@
               class="w-full h-48 object-cover"
             />
             <div class="p-6">
-              <h3 class="text-xl font-semibold text-black mb-2">
+              <h3
+                class="text-xl font-semibold text-black group-hover:text-white mb-2"
+              >
                 Cost Efficient
               </h3>
-              <p class="text-gray-400">
+              <p class="text-gray-400 group-hover:text-white">
                 We can help you gain access to a global workforce with highly
                 skilled experts without incurring high labor and operational
                 costs or increasing capital.
@@ -173,7 +189,7 @@
 
           <!-- Dedicated Team Card -->
           <div
-            class="bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors"
+            class="group bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors"
           >
             <img
               src="@/assets/images/team.png"
@@ -181,10 +197,14 @@
               class="w-full h-48 object-cover"
             />
             <div class="p-6">
-              <h3 class="text-xl font-semibold text-black mb-2">
+              <h3
+                class="text-xl font-semibold text-black group-hover:text-white mb-2"
+              >
                 Dedicated Team
               </h3>
-              <p class="text-gray-400">Experts. Positive Relationships</p>
+              <p class="text-gray-400 group-hover:text-white">
+                Experts. Positive Relationships
+              </p>
             </div>
           </div>
         </div>
@@ -209,7 +229,7 @@
         <div class="max-w-7xl mx-auto px-4">
           <div class="text-center mb-12">
             <span
-              class="bg-indigo-100 text-indigo-600 px-4 py-1 rounded-full text-sm"
+              class="inline-block px-8 py-2 rounded-full text-lg sm:text-xl font-medium bg-violet-100 text-violet-600 mb-4"
             >
               Our team
             </span>
@@ -217,26 +237,42 @@
               Meet the IT Squarehub<br />Family
             </h2>
           </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <!-- Team Members -->
+          <div class="relative">
             <div
-              v-for="(member, index) in teamMembers"
-              :key="index"
-              class="relative group"
+              class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
             >
-              <div class="bg-white rounded-xl p-4 shadow-lg">
-                <img
-                  :src="member.image"
-                  :alt="member.name"
-                  class="w-full aspect-square object-cover rounded-lg mb-4"
-                />
-                <div class="flex items-center justify-between">
-                  <div>
-                    <h3 class="font-medium text-sm sm:text-base">{{ member.name }}</h3>
-                    <p class="text-sm text-gray-500">{{ member.position }}</p>
+              <!-- Team Members -->
+              <div
+                v-for="(member, index) in teamMembers"
+                :key="index"
+                class="relative group col-span-1"
+              >
+                <div class="bg-white rounded-xl p-4 shadow-lg">
+                  <img
+                    :src="member.image"
+                    :alt="member.name"
+                    class="w-full aspect-square object-cover rounded-lg mb-4"
+                  />
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <h3 class="font-medium text-sm sm:text-base">
+                        {{ member.name }}
+                      </h3>
+                      <p class="text-sm text-gray-500">{{ member.position }}</p>
+                    </div>
                   </div>
                 </div>
+              </div>
+              <!-- Group 73 Image -->
+              <div
+                class="relative col-span-1 hidden md:block absolute left-0 top-1/2 transform -translate-y-1"
+              >
+                <img
+                  src="~/assets/images/group 97.svg"
+                  alt="Design Element"
+                  class="hidden md:block absolute left-[-52px] top-[-33px] transform -translate-y-1/2"
+                  style="height: 255x; width: auto"
+                />
               </div>
             </div>
           </div>
@@ -318,8 +354,9 @@
         >
           Let's shape the future success with innovative IT solutions!
         </p>
-        <button @click="$router.push('/contact')"
-          class="px-4 py-2 text-sm md:text-base font-semibold bg-violet-600 text-white rounded-md hover:bg-violet-700 transition-all duration-300 hover:scale-105 mb-14"  
+        <button
+          @click="$router.push('/contact')"
+          class="px-4 py-2 text-sm md:text-base font-semibold bg-violet-600 text-white rounded-md hover:bg-violet-700 transition-all duration-300 hover:scale-105 mb-14"
         >
           Let's get started
         </button>
@@ -355,7 +392,7 @@ export default {
         {
           name: "Name 1",
           position: "Position 1",
-          image: "@/assets/images/team1.png",
+          image: "@/assets/images/employee.png",
         },
         {
           name: "Name 2",
@@ -396,15 +433,35 @@ export default {
           role: "Operations Director",
         },
       ],
+      autoplayInterval: null, // Added for autoplay functionality
     };
   },
   methods: {
     setSlide(index) {
       this.currentIndex = index;
     },
+    nextSlide() {
+      this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
+    },
+    startAutoplay() {
+      this.autoplayInterval = setInterval(this.nextSlide, 5000); // Change slide every 5 seconds
+    },
+    stopAutoplay() {
+      if (this.autoplayInterval) {
+        clearInterval(this.autoplayInterval);
+        this.autoplayInterval = null;
+      }
+    },
+  },
+  mounted() {
+    this.startAutoplay(); // Start autoplay when the component is mounted
+  },
+  beforeUnmount() {
+    this.stopAutoplay(); // Stop autoplay when the component is destroyed
   },
 };
 </script>
+
 <style scoped>
 .graph-paper-container {
   background-image: linear-gradient(
@@ -484,5 +541,4 @@ export default {
   mix-blend-mode: overlay;
   pointer-events: none;
 }
-
 </style>
