@@ -20,6 +20,7 @@ export default {
       animation: {
         'pulse-once': 'pulse-once 2s ease-out forwards',
         'fade-in': 'fade-in 2s ease-out forwards',
+        'bounce-custom': 'bounce 0.1s infinite',
       },
     },
   },

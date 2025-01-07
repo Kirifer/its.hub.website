@@ -1,6 +1,6 @@
 <template>
   <!-- Section 1 -->
-  <div class="graph-paper-container relative">
+  <div class="graph-paper-container relative animate-fade-grid-in">
     <!-- Ellipses Container -->
     <div class="relative">
       <div class="overflow-hidden h-[800px] relative">
@@ -914,5 +914,33 @@ onMounted(async () => {
 .slide-leave-from {
   opacity: 1;
   transform: translateX(0);
+}
+
+.animate-fade-grid-in {
+  animation: grid-fade-in 5s ease-out;
+}
+
+@keyframes grid-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
