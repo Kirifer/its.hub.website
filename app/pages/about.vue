@@ -233,7 +233,7 @@
               Our team
             </span>
             <h2 class="text-3xl sm:text-4xl font-bold mt-4">
-              Meet the IT Squarehub<br />Family
+              {{ about?.section_4_heading }}
             </h2>
           </div>
           <div class="relative">
