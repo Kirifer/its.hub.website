@@ -142,7 +142,7 @@ onMounted(async () => {
                 class="absolute w-[382px] h-[386px] rounded-full left-[-200px] top-0 z-0"
                 :style="{
                   background:
-                    'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
+                    'radial-gradient(circle, rgba(145,77,176,0.6) 0%, rgba(145,77,176,0) 70%)',
                   transform: 'rotate(-116.85deg)',
                   filter: 'blur(50px)',
                 }"
@@ -152,7 +152,7 @@ onMounted(async () => {
                 class="absolute w-[382px] h-[386px] rounded-full left-[-200px] -top-32 z-0"
                 :style="{
                   background:
-                    'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
+                    'radial-gradient(circle, rgba(142,212,246,0.6) 0%, rgba(142,212,246,0) 70%)',
                   transform: 'rotate(-116.85deg)',
                   filter: 'blur(50px)',
                 }"
@@ -163,7 +163,7 @@ onMounted(async () => {
                 class="absolute w-[382px] h-[386px] rounded-full right-[-200px] top-0 z-0"
                 :style="{
                   background:
-                    'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
+                    'radial-gradient(circle, rgba(142,212,246,0.6) 0%, rgba(142,212,246,0) 70%)',
                   transform: 'rotate(-116.85deg)',
                   filter: 'blur(50px)',
                 }"
@@ -173,7 +173,7 @@ onMounted(async () => {
                 class="absolute w-[382px] h-[386px] rounded-full right-[-200px] -top-32 z-0"
                 :style="{
                   background:
-                    'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
+                    'radial-gradient(circle, rgba(145,77,176,0.6) 0%, rgba(145,77,176,0) 50%)',
                   transform: 'rotate(-116.85deg)',
                   filter: 'blur(50px)',
                 }"
@@ -595,109 +595,107 @@ onMounted(async () => {
       </div>
 
       <div class="flex items-center pt-8 justify-center w-full">
-  <div
-    class="w-full max-w-8xl bg-white rounded-3xl p-6 sm:p-12 border border-purple-400 relative"
-  >
-    <!-- Cyan gradient left-->
-    <div
-      class="absolute w-[382px] h-[386px] rounded-full left-[-100px] top-16 z-0"
-      :style="{
-        background:
-          'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
-        transform: 'rotate(-116.85deg)',
-        filter: 'blur(50px)',
-      }"
-    />
-    <!-- Blue gradient left-->
-    <div
-      class="absolute w-[382px] h-[386px] rounded-full left-[-100px] top-48 z-0"
-      :style="{
-        background:
-          'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
-        transform: 'rotate(-116.85deg)',
-        filter: 'blur(50px)',
-      }"
-    />
-
-    <!-- Blue gradient Right-->
-    <div
-      class="absolute w-[382px] h-[386px] rounded-full right-[-100px] top-1 z-0"
-      :style="{
-        background:
-          'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
-        transform: 'rotate(-116.85deg)',
-        filter: 'blur(50px)',
-      }"
-    />
-    <!-- Cyan gradient Right-->
-    <div
-      class="absolute w-[382px] h-[386px] rounded-full right-[-100px] top-24 z-0"
-      :style="{
-        background:
-          'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
-        transform: 'rotate(-116.85deg)',
-        filter: 'blur(50px)',
-      }"
-    />
-
-    <!-- Testimonial Tag -->
-    <div class="flex justify-center relative z-10">
-      <span
-        class="inline-block px-4 py-2 rounded-full text-lg sm:text-xl font-medium bg-purple-100 text-purple-600 mb-4"
-      >
-        Testimonials
-      </span>
-    </div>
-
-    <!-- Testimonial Content -->
-    <div class="relative overflow-hidden h-[220px] mx-auto z-10">
-      <TransitionGroup name="slide" class="relative">
         <div
-          v-for="(testimonial, index) in section6"
-          :key="testimonial._key"
-          v-show="currentIndex === index"
-          class="absolute w-full transition-all duration-500 ease-in-out"
+          class="w-full max-w-8xl bg-white rounded-3xl p-6 sm:p-12 border border-purple-400 relative"
         >
-          <h2
-            class="text-3xl sm:text-4xl md:text-5xl font-semibold text-left"
-          >
-            "{{ testimonial.message }}"
-          </h2>
-          <p
-            class="font-normal mt-10 text-sm sm:text-base md:text-2xl leading-relaxed text-gray-600 mx-auto text-end w-full"
-          >
-            - {{ testimonial.author }}, {{ testimonial.position }}
-          </p>
+          <!-- Cyan gradient left-->
+          <div
+            class="absolute w-[382px] h-[386px] rounded-full left-[-100px] top-16 z-0"
+            :style="{
+              background:
+                'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
+              transform: 'rotate(-116.85deg)',
+              filter: 'blur(50px)',
+            }"
+          />
+          <!-- Blue gradient left-->
+          <div
+            class="absolute w-[382px] h-[386px] rounded-full left-[-100px] top-48 z-0"
+            :style="{
+              background:
+                'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
+              transform: 'rotate(-116.85deg)',
+              filter: 'blur(50px)',
+            }"
+          />
+
+          <!-- Blue gradient Right-->
+          <div
+            class="absolute w-[382px] h-[386px] rounded-full right-[-100px] -top-14 z-0"
+            :style="{
+              background:
+                'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
+              transform: 'rotate(-116.85deg)',
+              filter: 'blur(50px)',
+            }"
+          />
+          <!-- Cyan gradient Right-->
+          <div
+            class="absolute w-[382px] h-[386px] rounded-full right-[-100px] top-24 z-0"
+            :style="{
+              background:
+                'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
+              transform: 'rotate(-116.85deg)',
+              filter: 'blur(50px)',
+            }"
+          />
+
+          <!-- Testimonial Tag -->
+          <div class="flex justify-center relative z-10">
+            <span
+              class="inline-block px-4 py-2 rounded-full text-lg sm:text-xl font-medium bg-purple-100 text-purple-600 mb-4"
+            >
+              Testimonials
+            </span>
+          </div>
+
+          <!-- Testimonial Content -->
+          <div class="relative overflow-hidden h-[220px] mx-auto z-10">
+            <TransitionGroup name="slide" class="relative">
+              <div
+                v-for="(testimonial, index) in section6"
+                :key="testimonial._key"
+                v-show="currentIndex === index"
+                class="absolute w-full transition-all duration-500 ease-in-out"
+              >
+                <h2
+                  class="text-3xl sm:text-4xl md:text-5xl font-semibold text-left"
+                >
+                  "{{ testimonial.message }}"
+                </h2>
+                <p
+                  class="font-normal mt-10 text-sm sm:text-base md:text-2xl leading-relaxed text-gray-600 mx-auto text-end w-full"
+                >
+                  - {{ testimonial.author }}, {{ testimonial.position }}
+                </p>
+              </div>
+            </TransitionGroup>
+          </div>
+
+          <!-- Dot Indicators -->
+          <div class="flex justify-center space-x-2 mt-2 relative z-10">
+            <button
+              v-for="(testimonial, index) in section6"
+              :key="testimonial._key"
+              @click="setSlide(index)"
+              class="group"
+              :aria-label="`Go to testimonial ${index + 1}`"
+              :aria-current="currentIndex === index"
+            >
+              <div
+                :class="[
+                  'w-3 h-3 rounded-full transition-all duration-300 transform',
+                  currentIndex === index
+                    ? 'bg-purple-800 scale-125'
+                    : 'bg-purple-200 group-hover:bg-purple-800',
+                ]"
+              />
+            </button>
+          </div>
         </div>
-      </TransitionGroup>
-    </div>
+      </div>
 
-    <!-- Dot Indicators -->
-    <div class="flex justify-center space-x-2 mt-2 relative z-10">
-      <button
-        v-for="(testimonial, index) in section6"
-        :key="testimonial._key"
-        @click="setSlide(index)"
-        class="group"
-        :aria-label="`Go to testimonial ${index + 1}`"
-        :aria-current="currentIndex === index"
-      >
-        <div
-          :class="[
-            'w-3 h-3 rounded-full transition-all duration-300 transform',
-            currentIndex === Number(testimonial._key)
-              ? 'bg-purple-800 scale-125'
-              : 'bg-purple-200 group-hover:bg-purple-800',
-          ]"
-        />
-      </button>
-    </div>
-  </div>
-</div>
-
-      <div
-        class="min-h-[500px] bg-gradient-to-br from-white to-purple-50/50 px-4 sm:px-6 lg:px-6 py-12"
-      >
+      <div class="min-h-[500px] px-4 sm:px-6 lg:px-6 py-12">
         <div class="max-w-8xl mx-auto p-5">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <!-- Left Content -->
@@ -795,7 +793,6 @@ onMounted(async () => {
           </div>
         </div>
       </div>
-      
     </div>
   </div>
 </template>
