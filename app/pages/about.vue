@@ -14,11 +14,10 @@
 
       <div class="text-center space-y-4">
         <h1 class="text-3xl sm:text-4xl md:text-5xl -mt-8 font-bold">
-          About Us
+          {{ about?.hero_title }}
         </h1>
         <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
-          We are a tech-driven IT company delivering innovative solutions in
-          software development, cloud services, and IT consulting.
+          {{ about?.hero_subtitle }}
         </p>
       </div>
 
@@ -29,21 +28,17 @@
         <div class="flex flex-col md:flex-row items-center">
           <div class="p-6 md:p-8 md:w-1/2 space-y-4 sm:space-y-6">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold ml-4">
-              Why choose us for <br />
-              Outsourcing?
+              {{ about?.section_1[0].heading }}
             </h2>
             <p
               class="text-gray-600 leading-relaxed text-lg sm:text-[25px] ml-4 pb-6"
             >
-              IT Squarehub is a leading outsourcing company with a proven track
-              record of helping businesses and organizations successfully attain
-              their business objectives. We take pride in delivering first-class
-              outsourcing services around the globe.
+              {{ about?.section_1[0].subheading }}
             </p>
             <button
               class="ml-4 px-4 py-2 sm:px-6 sm:py-2 bg-[#606DF1] text-white rounded-[15px] hover:bg-[#4F5CD8] transition-colors text-sm sm:text-base"
             >
-              Explore our Uniqueness
+              {{ about?.section_1[0].section_button1 }}
             </button>
           </div>
           <div class="md:w-1/2 p-6 sm:p-10">
@@ -63,17 +58,17 @@
         <div class="bg-white rounded-2xl shadow-lg p-6 w-full md:w-2/3">
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2">
             <div
-              v-for="(stat, index) in stats"
+              v-for="(stat, index) in about?.section_2_stats"
               :key="index"
               class="text-center"
             >
               <div
                 class="text-[#606DF1] text-3xl sm:text-4xl md:text-5xl font-bold"
               >
-                {{ stat.number }}
+                {{ stat.heading }}
               </div>
               <div class="text-gray-600 text-sm sm:text-base">
-                {{ stat.label }}
+                {{ stat.subheading }}
               </div>
             </div>
           </div>
@@ -89,8 +84,7 @@
           <p
             class="text-gray-600 max-w-lg mx-auto md:mx-0 text-center md:text-left text-sm sm:text-base"
           >
-            It's time to strengthen your team and boost business performance
-            through our Professional Outsourcing Services.
+            {{ about?.section_2_text }}
           </p>
         </div>
       </div>
@@ -109,101 +103,106 @@
               Showcases
             </span>
             <h2 class="text-3xl sm:text-4xl font-bold text-white mt-4">
-              The uniqueness of IT Squarehub
+              {{ about?.section_3_heading }}
             </h2>
           </div>
           <button
             class="bg-indigo-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-[14px] hover:bg-indigo-700 transition-colors mt-6 sm:mt-0 text-sm sm:text-base"
           >
-            Connect Now!
+            {{ about?.section_3_button }}
           </button>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Innovative Outsourcing Card -->
           <div
+            v-for="(card, index) in about?.section_3_card1"
+            :key="index"
             class="group bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors"
           >
             <img
-              src="@/assets/images/innovative.png"
-              alt="Innovative Outsourcing"
+              :src="urlFor(card.image.asset._ref)"
+              :alt="card.heading"
               class="w-full h-48 object-cover"
             />
             <div class="p-6">
               <h3
                 class="text-xl font-semibold text-black group-hover:text-white mb-2"
               >
-                Innovative Outsourcing
+                {{ card.heading }}
               </h3>
               <p class="text-gray-400 group-hover:text-white">
-                Dynamic Evolution
+                {{ card.subheading }}
               </p>
             </div>
           </div>
 
           <!-- Scalable and Flexible Card -->
           <div
+            v-for="(card, index) in about?.section_3_card2"
+            :key="index"
             class="group bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors md:col-span-2"
           >
             <img
-              src="@/assets/images/scalable.png"
-              alt="Scalable and Flexible"
+              :src="urlFor(card.image.asset._ref)"
+              :alt="card.heading"
               class="w-full h-48 object-cover"
             />
             <div class="p-6">
               <h3
                 class="text-xl font-semibold text-black group-hover:text-white mb-2"
               >
-                Scalable and Flexible
+                {{ card.heading }}
               </h3>
               <p class="text-gray-400 group-hover:text-white">
-                We have developed an efficient workflow system that has the
-                capacity to accommodate growth, increased workload and adapt to
-                evolving demands.
+                {{ card.subheading }}
               </p>
             </div>
           </div>
 
+          <!-- filepath: /c:/Users/Alaica/Documents/ITS/its.hub.website/app/pages/about.vue -->
           <!-- Cost Efficient Card -->
           <div
+            v-for="(card, index) in about?.section_3_card3"
+            :key="index"
             class="group bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors md:col-span-2"
           >
             <img
-              src="@/assets/images/cost-efficient.png"
-              alt="Scalable and Flexible"
+              :src="urlFor(card.image.asset._ref)"
+              :alt="card.heading"
               class="w-full h-48 object-cover"
             />
             <div class="p-6">
               <h3
                 class="text-xl font-semibold text-black group-hover:text-white mb-2"
               >
-                Cost Efficient
+                {{ card.heading }}
               </h3>
               <p class="text-gray-400 group-hover:text-white">
-                We can help you gain access to a global workforce with highly
-                skilled experts without incurring high labor and operational
-                costs or increasing capital.
+                {{ card.subheading }}
               </p>
             </div>
           </div>
 
           <!-- Dedicated Team Card -->
           <div
+            v-for="(card, index) in about?.section_3_card4"
+            :key="index"
             class="group bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors"
           >
             <img
-              src="@/assets/images/team.png"
-              alt="Dedicated Team"
+              :src="urlFor(card.image.asset._ref)"
+              :alt="card.heading"
               class="w-full h-48 object-cover"
             />
             <div class="p-6">
               <h3
                 class="text-xl font-semibold text-black group-hover:text-white mb-2"
               >
-                Dedicated Team
+                {{ card.heading }}
               </h3>
               <p class="text-gray-400 group-hover:text-white">
-                Experts. Positive Relationships
+                {{ card.subheading }}
               </p>
             </div>
           </div>
@@ -242,23 +241,21 @@
               class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
             >
               <!-- Team Members -->
-              <div
-                v-for="(member, index) in teamMembers"
-                :key="index"
+              <div v-for="(card, index) in about?.section_4_cards" :key="index" 
                 class="relative group col-span-1"
               >
                 <div class="bg-white rounded-xl p-4 shadow-lg">
                   <img
-                    :src="member.image"
-                    :alt="member.name"
+                    :src="urlFor(card.image.asset._ref)"
+                    :alt="card.heading"
                     class="w-full aspect-square object-cover rounded-lg mb-4"
                   />
                   <div class="flex items-center justify-between">
                     <div>
                       <h3 class="font-medium text-sm sm:text-base">
-                        {{ member.name }}
+                        {{ card.heading }}
                       </h3>
-                      <p class="text-sm text-gray-500">{{ member.position }}</p>
+                      <p class="text-sm text-gray-500">{{ card.subheading }}</p>
                     </div>
                   </div>
                 </div>
@@ -295,29 +292,28 @@
             </span>
           </div>
 
-          <!-- Testimonial Content -->
+                    <!-- filepath: /c:/Users/Alaica/Documents/ITS/its.hub.website/app/pages/about.vue -->
           <div class="relative overflow-hidden" style="height: 300px">
             <TransitionGroup name="slide" class="relative">
               <div
-                v-for="testimonial in testimonials"
-                :key="testimonial.id"
-                v-show="currentIndex === testimonial.id"
+                v-for="(testimonial, index) in about?.section_5_testimonials"
+                :key="index"
+                v-show="currentIndex === index"
                 class="absolute w-full transition-all duration-500 ease-in-out"
               >
                 <h2
                   class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 text-center sm:text-left"
                 >
-                  {{ testimonial.content }}
+                  {{ testimonial.message }}
                 </h2>
                 <p
                   class="font-normal mt-8 sm:mt-16 text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[700px] mx-auto text-center"
                 >
-                  {{ testimonial.author }}, {{ testimonial.role }}
+                  {{ testimonial.author }}, {{ testimonial.position }}
                 </p>
               </div>
             </TransitionGroup>
           </div>
-
           <!-- Dot Indicators -->
           <div class="flex justify-center space-x-2 mt-6">
             <button
@@ -347,118 +343,151 @@
         <h2
           class="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 whitespace-normal sm:whitespace-nowrap"
         >
-          Ready to transform your business?
+          {{ about?.section_6_heading }}
         </h2>
         <p
           class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 mb-16"
         >
-          Let's shape the future success with innovative IT solutions!
+          {{ about?.section_6_subheading }}
         </p>
         <button
           @click="$router.push('/contact')"
           class="px-4 py-2 text-sm md:text-base font-semibold bg-violet-600 text-white rounded-md hover:bg-violet-700 transition-all duration-300 hover:scale-105 mb-14"
         >
-          Let's get started
+          {{ about?.section_6_button }}
         </button>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ChartBarIcon } from "@heroicons/vue/24/outline";
-</script>
+import { ref, onMounted } from "vue";
+import sanityClient from "@/hooks/sanityClient";
+import { urlFor } from "@/hooks/sanityImageUrl";
 
-<script>
-export default {
-  name: "SolutionsSection",
-  data() {
-    return {
-      activeIndex: null,
-      currentIndex: 0, // Added currentIndex for testimonial slider
-      stats: [
-        { number: "100 +", label: "Projects completed" },
-        { number: "70%", label: "Reduce Cost" },
-        { number: "24/7", label: "Online support" },
-      ],
-      socialMediaLinks: [
-        { name: "Facebook", url: "https://facebook.com" },
-        { name: "Twitter", url: "https://twitter.com" },
-        { name: "LinkedIn", url: "https://linkedin.com" },
-        { name: "Instagram", url: "https://instagram.com" },
-        { name: "YouTube", url: "https://youtube.com" },
-      ],
-      teamMembers: [
-        {
-          name: "Name 1",
-          position: "Position 1",
-          image: "@/assets/images/employee.png",
-        },
-        {
-          name: "Name 2",
-          position: "Position 2",
-          image: "@/assets/images/team2.png",
-        },
-        {
-          name: "Name 3",
-          position: "Position 3",
-          image: "@/assets/images/team3.png",
-        },
-        {
-          name: "Name 4",
-          position: "Position 4",
-          image: "@/assets/images/team4.png",
-        },
-      ],
-      testimonials: [
-        {
-          id: 0,
-          content:
-            "IT Squarehub seamlessly improved our processes, boosting productivity and saving time. Their support is outstanding!",
-          author: "Ashley T.",
-          role: "Software Associate",
-        },
-        {
-          id: 1,
-          content:
-            "The implementation was smooth and the results were immediate. Highly recommended for any business looking to improve.",
-          author: "Michael R.",
-          role: "Project Manager",
-        },
-        {
-          id: 2,
-          content:
-            "Best decision we made this year. The team is responsive and the platform is intuitive and powerful.",
-          author: "Sarah L.",
-          role: "Operations Director",
-        },
-      ],
-      autoplayInterval: null, // Added for autoplay functionality
-    };
+interface AboutPost {
+  hero_title: string;
+  hero_subtitle: string;
+  section_1: {
+    heading: string;
+    subheading: string;
+    section_button1: string;
+    image: { asset: { _ref: string } };
+  }[];
+  section_2_stats: Array<{ heading: string; subheading: string }>;
+  section_2_text: string;
+  section_3_heading: string;
+  section_3_button: string;
+  section_3_card1: {
+    heading: string;
+    subheading: string;
+    image: { asset: { _ref: string } };
+  }[];
+  section_3_card2: {
+    heading: string;
+    subheading: string;
+    image: { asset: { _ref: string } };
+  }[];
+  section_3_card3: {
+    heading: string;
+    subheading: string;
+    image: { asset: { _ref: string } };
+  }[];
+  section_3_card4: {
+    heading: string;
+    subheading: string;
+    image: { asset: { _ref: string } };
+  }[];
+  section_4_heading: string;
+  section_4_cards: {
+    heading: string;
+    subheading: string;
+    image: { asset: { _ref: string } };
+  }[];
+  section_5_testimonials: {
+    message: string;
+    author: string;
+    position: string;
+  }[];
+  section_6_heading: string;
+  section_6_subheading: string;
+  section_6_button: string;
+}
+
+const about = ref<AboutPost | null>(null);
+
+onMounted(async () => {
+  try {
+    const data = await sanityClient.fetch<AboutPost[]>('*[_type == "about"]');
+    if (data && data.length > 0) {
+      about.value = data[0]; // Assign the first item from the fetched array
+      console.log(about.value, "about values:");
+      console.log(about.value.section_1[0].section_button1, "section_1_button");
+      console.log(
+        urlFor(about.value.section_3_card1[0].image.asset._ref),
+        "section_3_card1 image URL"
+      );
+    }
+  } catch (error) {
+    console.error("Error fetching data from Sanity:", error);
+  }
+});
+
+// Testimonials Autoplay Logic
+const currentIndex = ref(0);
+const autoplayInterval = ref<NodeJS.Timeout | null>(null);
+
+const nextSlide = () => {
+  currentIndex.value = (currentIndex.value + 1) % testimonials.value.length;
+};
+
+const startAutoplay = () => {
+  autoplayInterval.value = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+};
+
+const stopAutoplay = () => {
+  if (autoplayInterval.value) {
+    clearInterval(autoplayInterval.value);
+    autoplayInterval.value = null;
+  }
+};
+
+onMounted(() => {
+  startAutoplay();
+});
+
+onUnmounted(() => {
+  stopAutoplay();
+});
+
+const testimonials = ref([
+  {
+    id: 0,
+    content:
+      "IT Squarehub seamlessly improved our processes, boosting productivity and saving time. Their support is outstanding!",
+    author: "Ashley T.",
+    role: "Software Associate",
   },
-  methods: {
-    setSlide(index) {
-      this.currentIndex = index;
-    },
-    nextSlide() {
-      this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
-    },
-    startAutoplay() {
-      this.autoplayInterval = setInterval(this.nextSlide, 5000); // Change slide every 5 seconds
-    },
-    stopAutoplay() {
-      if (this.autoplayInterval) {
-        clearInterval(this.autoplayInterval);
-        this.autoplayInterval = null;
-      }
-    },
+  {
+    id: 1,
+    content:
+      "The implementation was smooth and the results were immediate. Highly recommended for any business looking to improve.",
+    author: "Michael R.",
+    role: "Project Manager",
   },
-  mounted() {
-    this.startAutoplay(); // Start autoplay when the component is mounted
+  {
+    id: 2,
+    content:
+      "Best decision we made this year. The team is responsive and the platform is intuitive and powerful.",
+    author: "Sarah L.",
+    role: "Operations Director",
   },
-  beforeUnmount() {
-    this.stopAutoplay(); // Stop autoplay when the component is destroyed
-  },
+]);
+
+const setSlide = (index: number) => {
+  currentIndex.value = index;
 };
 </script>
 
