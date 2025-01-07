@@ -5,40 +5,104 @@
     >
       <!-- Contact Section -->
 
-      <div class="container mx-auto px-4">
+      <div class="container mx-auto px-4 h-[750px]">
         <!-- Header Section -->
         <div
           class="flex flex-col items-center justify-center space-y-5 md:space-y-5"
         >
           <div class="mt-10">
             <span
-              class="inline-flex items-center px-3 py-0.5 rounded-full text-lg font-medium bg-purple-200 text-purple-800"
-              >Contact Us</span
+              class="inline-flex items-center px-3 py-0.5 rounded-full text-lg font-medium bg-blue-200 text-blue-800"
+              >{{ contact[0]?.hero_badge }}</span
             >
           </div>
           <h1
             class="font-bold text-center text-3xl md:text-5xl w-[350px] md:w-[550px]"
           >
-            Connect with Us
+            {{ contact[0]?.hero_title }}
           </h1>
           <p
             class="text-center text-lg md:text-xl text-gray-900 w-full md:w-[500px]"
           >
-            IT Squarehub combines the best practices and strategies to help you
-            achieve your company objectives.
+            {{ contact[0]?.hero_subtitle }}
           </p>
 
           <!-- Form Card -->
-          <div class="bg-white rounded-2xl shadow-xl p-8 mb-12">
+          <div
+            class="bg-white rounded-2xl shadow-xl p-8 mb-12 w-full md:w-[1200px]"
+          >
             <form @submit.prevent="handleSubmit">
-              
+              <div class="flex flex-col space-y-4">
+                <div class="flex flex-col md:flex-row justify-between gap-4">
+                  <div class="w-full">
+                    <label for="name" class="text-sm font-medium text-gray-700"
+                      >Name</label
+                    >
+                    <input
+                      v-model="formData.name"
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Your Name"
+                      class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <label for="email" class="text-sm font-medium text-gray-700"
+                      >Email</label
+                    >
+                    <input
+                      v-model="formData.email"
+                      type="text"
+                      id="email"
+                      name="email"
+                      placeholder="Your Email"
+                      class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <label for="phone" class="text-sm font-medium text-gray-700"
+                      >Phone Number</label
+                    >
+                    <input
+                      v-model="formData.phone"
+                      type="number"
+                      id="phone"
+                      name="phone"
+                      placeholder="Your Phone Number"
+                      class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    />
+                  </div>
+                </div>
+                <div class="w-full">
+                  <label for="message" class="text-sm font-medium text-gray-700"
+                    >Message</label
+                  >
+                  <textarea
+                    v-model="formData.message"
+                    type="text"
+                    id="message"
+                    name="message"
+                    placeholder="Your Message"
+                    class="mt-1 block w-full px-3 h-56 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  />
+                </div>
+                <div class="text-end">
+                  <button
+                    type="submit"
+                    class="bg-blue-500 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-600 transition-colors w-fit"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
             </form>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container mx-auto px-4 pt-12">
+    <div class="container mx-auto px-4 pt-12 mt-16 md:mt-0">
       <div class="p-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Apply Card -->
@@ -46,7 +110,7 @@
             class="rounded-2xl p-8 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white shadow-xl h-[300px] flex flex-col justify-between"
           >
             <h2 class="text-3xl font-bold mb-6 leading-tight">
-              Driving your success with exceptional IT positions.
+              {{ contact[0]?.card1_title }}
             </h2>
             <button
               class="bg-white text-gray-900 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors w-fit"
@@ -112,148 +176,95 @@
       <div class="flex flex-col md:flex-row items-center justify-center">
         <div class="w-full md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
           <div
-            class="inline-block px-4 py-1.5 bg-[#D1D4F6] text-[#616EF1] rounded-full text-base sm:text-lg font-normal mb-4"
+            class="inline-block px-4 py-1.5 bg-blue-200 text-blue-800 rounded-full text-base sm:text-lg font-semibold mb-4"
           >
             <span>Connecting</span>
           </div>
           <div class="space-y-2 md:space-y-4">
-            <h1 class="text-3xl md:text-6xl font-bold">How it works?</h1>
-            <h1 class="text-3xl md:text-6xl font-bold">ITS pretty easy.</h1>
+            <h1 class="text-3xl md:text-6xl font-bold w-full md:w-[500px]">
+              {{ contact[0]?.section2_title }}
+            </h1>
           </div>
           <div class="space-y-2 md:space-y-10 mt-5 max-w-lg">
             <p class="text-lg md:text-2xl text-gray-500 mb-5">
-              Our process is designed to be simple and efficient, ensuring that
-              you get the best candidates for your business.
+              {{ contact[0]?.section2_subtitle }}
             </p>
             <div
-              class="relative w-full h-[250px] md:h-[250px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[350px]"
+              class="relative w-full h-[250px] md:h-[250px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[350px] hidden md:block"
             ></div>
-            <img
+            <!-- <img
               src="~/assets/images/group 74.png"
               alt="Design Element"
               class="hidden md:block absolute right-[844px] top-[1670px]"
               style="height: 150px; width: auto"
-            />
+            /> -->
             <div class="flex justify-end">
               <div
-                class="relative w-full h-[250px] md:h-[300px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[400px]"
+                class="relative w-full h-[250px] md:h-[300px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[400px] hidden md:block"
               ></div>
             </div>
-            <img
+            <!-- <img
               src="~/assets/images/group 73.png"
               alt="Design Element"
               class="hidden md:block absolute right-[1193px] top-[2010px]"
               style="height: 150px; width: auto"
-            />
+            /> -->
             <div
-              class="relative w-full h-[250px] md:h-[400px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[450px]"
+              class="relative w-full h-[250px] md:h-[400px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[450px] hidden md:block"
             ></div>
           </div>
         </div>
         <div class="w-full md:w-1/2 space-y-10">
-          <div class="space-y-5">
-            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">01.</h1>
-            <h1
-              class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
-            >
-              Step 1 Communication
+          <div v-for="(step, index) in contact[0]?.section2_steps" :key="index" class="space-y-5">
+            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">0{{ step.step_no }}.</h1>
+            <h1 class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900">
+              {{ step.step_title }}
             </h1>
             <p class="text-lg md:text-2xl text-gray-500">
-              Connect with our dedicated team of experts to discuss your
-              business needs and requirements
-            </p>
-          </div>
-          <div class="space-y-5">
-            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">02.</h1>
-            <h1
-              class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
-            >
-              Step 2 Proposal
-            </h1>
-            <p class="text-lg md:text-2xl text-gray-500">
-              Our team will formulate a plan tailored to your individual needs
-              using our streamlined workflow system.
-            </p>
-          </div>
-          <div class="space-y-5">
-            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">03.</h1>
-            <h1
-              class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
-            >
-              Step 3 Selection
-            </h1>
-            <p class="text-lg md:text-2xl text-gray-500">
-              With a plan in place and your objectives in mind, our team will
-              source the most competent candidates best suited for you.
-            </p>
-          </div>
-          <div class="space-y-5">
-            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">04.</h1>
-            <h1
-              class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
-            >
-              Step 4 Agreement
-            </h1>
-            <p class="text-lg md:text-2xl text-gray-500">
-              Once you have selected your chosen candidates, we will facilitate
-              onboarding and present you with a comprehensive plane in place to
-              finalise our mutual agreement.
-            </p>
-          </div>
-          <div class="space-y-5">
-            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">05.</h1>
-            <h1
-              class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
-            >
-              Step 5 All Set
-            </h1>
-            <p class="text-lg md:text-2xl text-gray-500">
-              Your IT Squarehub staff is ready to thrive in the role!
+              {{ step.step_subtitle }}
             </p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container mx-auto px-4 pt-4">
-      <div class="px-4 py-8">
-        <div class="container mx-auto">
-          <!-- Header -->
-          <div class="text-center mb-12">
-            <div
-              class="inline-block px-4 py-1.5 bg-[#D1D4F6] text-[#616EF1] rounded-full text-base sm:text-lg font-normal mb-4"
-            >
-              <span>Our Locations</span>
-            </div>
-          </div>
-
-          <!-- Locations Grid -->
+    <div class="container mx-auto py-4 mt-16">
+      <div class="container mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
           <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+            class="inline-block px-4 py-1.5 bg-blue-200 text-blue-800 rounded-full text-base sm:text-lg font-semibold"
           >
-            <div
-              v-for="office in offices"
-              :key="office.country"
-              class="group bg-white rounded-xl overflow-hidden shadow-lg border-2 border-white-500 transition-transform duration-300 hover:-translate-y-2"
-            >
-              <!-- Image Container -->
-              <div class="h-48 overflow-hidden">
-                <img
-                  :src="office.image"
-                  :alt="office.country"
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
+            <span>Our Locations</span>
+          </div>
+        </div>
 
-              <!-- Content -->
-              <div class="p-6">
-                <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                  {{ office.country }}
-                </h3>
-                <p class="text-gray-600 text-sm leading-relaxed">
-                  {{ office.address }}
-                </p>
-              </div>
+        <!-- Locations Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[400px] md:max-w-[1200px] mx-auto mb-10"
+        >
+          <div
+            v-for="office in offices"
+            :key="office.country"
+            class="group bg-white rounded-xl overflow-hidden shadow-lg border-2 border-white-500 transition-transform duration-300 hover:-translate-y-2"
+          >
+            <!-- Image Container -->
+            <div class="h-48 overflow-hidden">
+              <img
+                :src="office.image"
+                :alt="office.country"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+
+            <!-- Content -->
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                {{ office.country }}
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                {{ office.address }}
+              </p>
             </div>
           </div>
         </div>
@@ -268,6 +279,23 @@
 import { ref } from "vue";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "vue-chartjs";
+import sanityClient from "~/hooks/sanityClient";
+import type { Contact } from "~/types/contact";
+
+const contact = ref<Contact[]>([]);
+
+onMounted(async () => {
+  try {
+    contact.value = await sanityClient.fetch<Contact[]>(
+      '*[_type == "contact"]'
+    );
+    if (contact.value.length > 0) {
+      console.log("Contact data fetched successfully:", contact.value);
+    }
+  } catch (error) {
+    console.error("Error fetching data from Sanity:", error);
+  }
+});
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
