@@ -1,6 +1,8 @@
 <template>
+  <!-- Section 1 -->
   <div class="graph-paper-container">
     <!-- <canvas ref="canvas" class="canvas-overlay"></canvas> -->
+
     <!-- Hero Section -->
     <div
       class="container mx-auto flex flex-col items-center justify-center px-4 pt-8 pb-12"
@@ -70,10 +72,10 @@
     </div>
   </div>
 
-  <!-- Features Section -->
+  <!-- Section 2 -->
   <div class="container mx-auto px-4 pt-28">
     <div class="space-y-10">
-      <!-- Feature Items -->
+      
       <div
         v-for="(feature, index) in section1"
         :key="index"
@@ -119,7 +121,7 @@
     </div>
   </div>
 
-  <!-- Additional Features Section -->
+  <!-- Section 3 / Features Section -->
   <div class="container mx-auto px-4 py-12 sm:py-16 relative z-0">
     <div class="relative rounded-2xl p-8 sm:p-16 md:p-32 overflow-hidden">
       <!-- Border Container -->
@@ -167,7 +169,6 @@
           >
             {{ card.subheading }}
           </p>
-          <!-- Replace the src with the appropriate icon URL if available -->
           <img
             v-if="card.icon && card.icon.asset"
             :src="urlFor(card.icon.asset._ref)"
@@ -233,7 +234,7 @@
     </div>
   </div>
 
-  <!-- Solutions & Partnership Section -->
+  <!-- Section 3 / Huge Image with Statistics -->
   <div class="container mx-auto px-4 py-12 sm:py-18">
     <!-- Banner Image with Stats -->
     <div class="relative rounded-3xl overflow-hidden mb-16 sm:mb-32">
@@ -332,6 +333,7 @@
       </div>
     </div>
 
+    <!-- Section 4 / Sliding Info -->
     <div class="container mx-auto px-4">
       <!-- Solutions Grid -->
       <div
@@ -399,7 +401,8 @@
       </div>
     </div>
 
-    <!-- Partnership Section -->
+
+    <!-- Section 5 / Partnership Section -->
     <div class="relative sm:pb-32">
       <!-- Partnership Content -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
@@ -430,7 +433,7 @@
             />
           </div>
           <div
-            class="relative transform translate-x-2 sm:translate-x-6 translate-y-3 sm:translate-y-6"
+            class="relative transform translate-x-2  sm:translate-x-1 translate-y-3 sm:translate-y-3"
           >
             <img
               v-if="
@@ -444,7 +447,7 @@
             />
           </div>
           <div
-            class="relative transform translate-x-1 translate-y-6 sm:translate-y-12"
+            class="relative transform translate-x-1 sm:translate-x-3  translate-y-8 sm:translate-y-12"
           >
             <img
               v-if="
@@ -485,6 +488,7 @@
       </div>
     </div>
 
+    <!-- Section 6 / Testimonials -->
     <div class="flex items-center pt-16 justify-center w-full">
       <div
         class="w-full max-w-8xl bg-white rounded-3xl p-6 sm:p-12 border border-violet-400"
@@ -544,6 +548,7 @@
       </div>
     </div>
 
+    <!-- Section 7 /  Join++-->
     <div
       class="min-h-[500px] bg-gradient-to-br from-white to-purple-50/50 px-4 sm:px-6 lg:px-6 py-12"
     >
