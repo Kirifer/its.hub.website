@@ -16,11 +16,13 @@ export default {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
+        
       },
       animation: {
         'pulse-once': 'pulse-once 0.5s ease-out forwards',
         'fade-in': 'fade-in 0.5s ease-out forwards',
         'bounce-custom': 'bounce 0.1s infinite',
+        
       },
     },
   },
