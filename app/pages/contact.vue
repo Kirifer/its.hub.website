@@ -1,152 +1,103 @@
 <template>
-  <div class="background-gradient">
+  <div>
     <div
-      class="graph-paper-container bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center px-4 pt-8 pb-12"
+      class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
     >
       <!-- Contact Section -->
 
-      <div class="w-full max-w-3xl text-center">
+      <div class="container mx-auto px-4">
         <!-- Header Section -->
         <div
-          class="inline-block px-4 py-1.5 bg-[#D1D4F6] text-[#616EF1] rounded-full text-base sm:text-lg font-normal mb-4"
+          class="flex flex-col items-center justify-center space-y-5 md:space-y-5"
         >
-          <span>Contact Us</span>
-        </div>
-        <h1
-          class="mt-3 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight text-center text-gray-900 mb-4"
-        >
-          Connect with Us
-        </h1>
-        <p
-          class="mt-4 mb-6 font-normal text-sm sm:text-base md:text-lg leading-relaxed text-center text-gray-600 max-w-xl mx-auto"
-        >
-          IT Squarehub combines the best practices and strategies to help you
-          achieve your company objectives.
-        </p>
+          <div class="mt-10">
+            <span
+              class="inline-flex items-center px-3 py-0.5 rounded-full text-lg font-medium bg-purple-200 text-purple-800"
+              >Contact Us</span
+            >
+          </div>
+          <h1
+            class="font-bold text-center text-3xl md:text-5xl w-[350px] md:w-[550px]"
+          >
+            Connect with Us
+          </h1>
+          <p
+            class="text-center text-lg md:text-xl text-gray-900 w-full md:w-[500px]"
+          >
+            IT Squarehub combines the best practices and strategies to help you
+            achieve your company objectives.
+          </p>
 
-        <!-- Form Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-8 mb-12">
-          <form @submit.prevent="handleSubmit" class="space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <!-- Name Input -->
-              <div>
-                <input
-                  v-model="formData.name"
-                  type="text"
-                  placeholder="Your name*"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
-                  required
-                />
-              </div>
-
-              <!-- Email Input -->
-              <div>
-                <input
-                  v-model="formData.email"
-                  type="email"
-                  placeholder="Your email*"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
-                  required
-                />
-              </div>
-
-              <!-- Phone Input -->
-              <div>
-                <input
-                  v-model="formData.phone"
-                  type="tel"
-                  placeholder="Phone number*"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
-                  required
-                />
-              </div>
-            </div>
-
-            <!-- Message Textarea -->
-            <div>
-              <textarea
-                v-model="formData.message"
-                placeholder="Message*"
-                rows="6"
-                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all resize-none"
-                required
-              ></textarea>
-            </div>
-
-            <!-- Submit Button -->
-            <div>
-              <button
-                type="submit"
-                class="bg-[#6c63ff] hover:bg-[#6c63ff]/80 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02]"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
+          <!-- Form Card -->
+          <div class="bg-white rounded-2xl shadow-xl p-8 mb-12">
+            <form @submit.prevent="handleSubmit">
+              
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="container mx-auto px-4 pt-12">
-    <div class="p-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Apply Card -->
-        <div
-          class="rounded-2xl p-8 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white shadow-xl h-[300px] flex flex-col justify-between"
-        >
-          <h2 class="text-3xl font-bold mb-6 leading-tight">
-            Driving your success with exceptional IT positions.
-          </h2>
-          <button
-            class="bg-white text-gray-900 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors w-fit"
+    <div class="container mx-auto px-4 pt-12">
+      <div class="p-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Apply Card -->
+          <div
+            class="rounded-2xl p-8 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white shadow-xl h-[300px] flex flex-col justify-between"
           >
-            Apply Now!
-          </button>
-        </div>
-
-        <!-- Meeting Card -->
-        <div class="rounded-2xl overflow-hidden shadow-xl h-[300px]">
-          <img
-            src="~/assets/images/pic-header2.png"
-            alt="Business meeting"
-            class="w-full h-full object-cover"
-          />
-        </div>
-
-        <!-- Stats Cards -->
-        <div class="space-y-4 h-[300px] flex flex-col">
-          <!-- Balance Card -->
-          <div class="bg-white rounded-2xl p-4 shadow-xl flex-1">
-            <div class="flex items-center justify-between h-full">
-              <div class="space-y-1">
-                <p class="text-sm text-gray-500">Your balance</p>
-                <p class="text-2xl font-bold">₱1,000</p>
-              </div>
-              <div class="w-8 h-8">
-                <PieChart :data="balanceData" />
-              </div>
-            </div>
+            <h2 class="text-3xl font-bold mb-6 leading-tight">
+              Driving your success with exceptional IT positions.
+            </h2>
+            <button
+              class="bg-white text-gray-900 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors w-fit"
+            >
+              Apply Now!
+            </button>
           </div>
 
-          <!-- Pie Chart Card -->
-          <div class="bg-white rounded-2xl p-4 shadow-xl flex-[2]">
-            <div class="h-full flex flex-col justify-between">
-              <div class="flex items-center justify-between">
-                <p class="font-medium">Your Pie Chart</p>
-                <button class="text-sm text-gray-500">Monthly ▼</button>
-              </div>
-              <div class="flex-1 min-h-0">
-                <PieChart :data="pieChartData" :options="chartOptions" />
-              </div>
-              <div class="flex justify-around text-sm pt-2">
-                <div class="flex items-center gap-2">
-                  <div class="w-3 h-3 rounded-full bg-purple-500"></div>
-                  <span>63%</span>
+          <!-- Meeting Card -->
+          <div class="rounded-2xl overflow-hidden shadow-xl h-[300px]">
+            <img
+              src="~/assets/images/pic-header2.png"
+              alt="Business meeting"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="space-y-4 h-[300px] flex flex-col">
+            <!-- Balance Card -->
+            <div class="bg-white rounded-2xl p-4 shadow-xl flex-1">
+              <div class="flex items-center justify-between h-full">
+                <div class="space-y-1">
+                  <p class="text-sm text-gray-500">Your balance</p>
+                  <p class="text-2xl font-bold">₱1,000</p>
                 </div>
-                <div class="flex items-center gap-2">
-                  <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <span>25%</span>
+                <div class="w-8 h-8">
+                  <PieChart :data="balanceData" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Pie Chart Card -->
+            <div class="bg-white rounded-2xl p-4 shadow-xl flex-[2]">
+              <div class="h-full flex flex-col justify-between">
+                <div class="flex items-center justify-between">
+                  <p class="font-medium">Your Pie Chart</p>
+                  <button class="text-sm text-gray-500">Monthly ▼</button>
+                </div>
+                <div class="flex-1 min-h-0">
+                  <PieChart :data="pieChartData" :options="chartOptions" />
+                </div>
+                <div class="flex justify-around text-sm pt-2">
+                  <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 rounded-full bg-purple-500"></div>
+                    <span>63%</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <span>25%</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -154,154 +105,155 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <div
-    class="container mx-auto max-w-[350px] md:max-w-[1185px] pt-4 px-4 md:px-0"
-  >
-    <div class="flex flex-col md:flex-row items-center justify-center">
-      <div class="w-full md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
-        <div
-          class="inline-block px-4 py-1.5 bg-[#D1D4F6] text-[#616EF1] rounded-full text-base sm:text-lg font-normal mb-4"
-        >
-          <span>Connecting</span>
-        </div>
-        <div class="space-y-2 md:space-y-4">
-          <h1 class="text-3xl md:text-6xl font-bold">How it works?</h1>
-          <h1 class="text-3xl md:text-6xl font-bold">ITS pretty easy.</h1>
-        </div>
-        <div class="space-y-2 md:space-y-10 mt-5 max-w-lg">
-          <p class="text-lg md:text-2xl text-gray-500 mb-5">
-            Our process is designed to be simple and efficient, ensuring that
-            you get the best candidates for your business.
-          </p>
-          <div
-            class="relative w-full h-[250px] md:h-[250px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[350px]"
-          ></div>
-          <img
-            src="~/assets/images/group 74.png"
-            alt="Design Element"
-            class="hidden md:block absolute right-[844px] top-[1670px]"
-            style="height: 150px; width: auto"
-          />
-          <div class="flex justify-end">
-            <div
-              class="relative w-full h-[250px] md:h-[300px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[400px]"
-            ></div>
-          </div> <img
-            src="~/assets/images/group 73.png"
-            alt="Design Element"
-            class="hidden md:block absolute right-[1193px] top-[2010px]"
-            style="height: 150px; width: auto"
-          />
-          <div
-            class="relative w-full h-[250px] md:h-[400px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[450px]"
-          ></div>
-        </div>
-      </div>
-      <div class="w-full md:w-1/2 space-y-10">
-        <div class="space-y-5">
-          <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">01.</h1>
-          <h1
-            class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
-          >
-            Step 1 Communication
-          </h1>
-          <p class="text-lg md:text-2xl text-gray-500">
-            Connect with our dedicated team of experts to discuss your business
-            needs and requirements
-          </p>
-        </div>
-        <div class="space-y-5">
-          <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">02.</h1>
-          <h1
-            class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
-          >
-            Step 2 Proposal
-          </h1>
-          <p class="text-lg md:text-2xl text-gray-500">
-            Our team will formulate a plan tailored to your individual needs
-            using our streamlined workflow system.
-          </p>
-        </div>
-        <div class="space-y-5">
-          <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">03.</h1>
-          <h1
-            class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
-          >
-            Step 3 Selection
-          </h1>
-          <p class="text-lg md:text-2xl text-gray-500">
-            With a plan in place and your objectives in mind, our team will
-            source the most competent candidates best suited for you.
-          </p>
-        </div>
-        <div class="space-y-5">
-          <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">04.</h1>
-          <h1
-            class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
-          >
-            Step 4 Agreement
-          </h1>
-          <p class="text-lg md:text-2xl text-gray-500">
-            Once you have selected your chosen candidates, we will facilitate
-            onboarding and present you with a comprehensive plane in place to
-            finalise our mutual agreement.
-          </p>
-        </div>
-        <div class="space-y-5">
-          <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">05.</h1>
-          <h1
-            class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
-          >
-            Step 5 All Set
-          </h1>
-          <p class="text-lg md:text-2xl text-gray-500">
-            Your IT Squarehub staff is ready to thrive in the role!
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container mx-auto px-4 pt-4">
-    <div class="px-4 py-8">
-      <div class="container mx-auto">
-        <!-- Header -->
-        <div class="text-center mb-12">
+    <div
+      class="container mx-auto max-w-[350px] md:max-w-[1185px] pt-4 px-4 md:px-0"
+    >
+      <div class="flex flex-col md:flex-row items-center justify-center">
+        <div class="w-full md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
           <div
             class="inline-block px-4 py-1.5 bg-[#D1D4F6] text-[#616EF1] rounded-full text-base sm:text-lg font-normal mb-4"
           >
-            <span>Our Locations</span>
+            <span>Connecting</span>
+          </div>
+          <div class="space-y-2 md:space-y-4">
+            <h1 class="text-3xl md:text-6xl font-bold">How it works?</h1>
+            <h1 class="text-3xl md:text-6xl font-bold">ITS pretty easy.</h1>
+          </div>
+          <div class="space-y-2 md:space-y-10 mt-5 max-w-lg">
+            <p class="text-lg md:text-2xl text-gray-500 mb-5">
+              Our process is designed to be simple and efficient, ensuring that
+              you get the best candidates for your business.
+            </p>
+            <div
+              class="relative w-full h-[250px] md:h-[250px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[350px]"
+            ></div>
+            <img
+              src="~/assets/images/group 74.png"
+              alt="Design Element"
+              class="hidden md:block absolute right-[844px] top-[1670px]"
+              style="height: 150px; width: auto"
+            />
+            <div class="flex justify-end">
+              <div
+                class="relative w-full h-[250px] md:h-[300px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[400px]"
+              ></div>
+            </div>
+            <img
+              src="~/assets/images/group 73.png"
+              alt="Design Element"
+              class="hidden md:block absolute right-[1193px] top-[2010px]"
+              style="height: 150px; width: auto"
+            />
+            <div
+              class="relative w-full h-[250px] md:h-[400px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[450px]"
+            ></div>
           </div>
         </div>
+        <div class="w-full md:w-1/2 space-y-10">
+          <div class="space-y-5">
+            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">01.</h1>
+            <h1
+              class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
+            >
+              Step 1 Communication
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-500">
+              Connect with our dedicated team of experts to discuss your
+              business needs and requirements
+            </p>
+          </div>
+          <div class="space-y-5">
+            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">02.</h1>
+            <h1
+              class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
+            >
+              Step 2 Proposal
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-500">
+              Our team will formulate a plan tailored to your individual needs
+              using our streamlined workflow system.
+            </p>
+          </div>
+          <div class="space-y-5">
+            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">03.</h1>
+            <h1
+              class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
+            >
+              Step 3 Selection
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-500">
+              With a plan in place and your objectives in mind, our team will
+              source the most competent candidates best suited for you.
+            </p>
+          </div>
+          <div class="space-y-5">
+            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">04.</h1>
+            <h1
+              class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
+            >
+              Step 4 Agreement
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-500">
+              Once you have selected your chosen candidates, we will facilitate
+              onboarding and present you with a comprehensive plane in place to
+              finalise our mutual agreement.
+            </p>
+          </div>
+          <div class="space-y-5">
+            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">05.</h1>
+            <h1
+              class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
+            >
+              Step 5 All Set
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-500">
+              Your IT Squarehub staff is ready to thrive in the role!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <!-- Locations Grid -->
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
-        >
-          <div
-            v-for="office in offices"
-            :key="office.country"
-            class="group bg-white rounded-xl overflow-hidden shadow-lg border-2 border-white-500 transition-transform duration-300 hover:-translate-y-2"
-          >
-            <!-- Image Container -->
-            <div class="h-48 overflow-hidden">
-              <img
-                :src="office.image"
-                :alt="office.country"
-                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
+    <div class="container mx-auto px-4 pt-4">
+      <div class="px-4 py-8">
+        <div class="container mx-auto">
+          <!-- Header -->
+          <div class="text-center mb-12">
+            <div
+              class="inline-block px-4 py-1.5 bg-[#D1D4F6] text-[#616EF1] rounded-full text-base sm:text-lg font-normal mb-4"
+            >
+              <span>Our Locations</span>
             </div>
+          </div>
 
-            <!-- Content -->
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                {{ office.country }}
-              </h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                {{ office.address }}
-              </p>
+          <!-- Locations Grid -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+          >
+            <div
+              v-for="office in offices"
+              :key="office.country"
+              class="group bg-white rounded-xl overflow-hidden shadow-lg border-2 border-white-500 transition-transform duration-300 hover:-translate-y-2"
+            >
+              <!-- Image Container -->
+              <div class="h-48 overflow-hidden">
+                <img
+                  :src="office.image"
+                  :alt="office.country"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+
+              <!-- Content -->
+              <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                  {{ office.country }}
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  {{ office.address }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
