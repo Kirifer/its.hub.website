@@ -1,81 +1,127 @@
 <template>
   <!-- Section 1 -->
-  <div class="graph-paper-container">
-    <!-- <canvas ref="canvas" class="canvas-overlay"></canvas> -->
-
-    <!-- Hero Section -->
-    <div
-      class="container mx-auto flex flex-col items-center justify-center px-4 pt-8 pb-12"
-    >
-      <!-- Custom subheading -->
-      <div
-        class="flex items-center gap-2.5 px-4 py-1 justify-center text-center text-base sm:text-lg font-normal text-violet-500 bg-violet-500/20 rounded-full"
-      >
-        <ChartBarIcon class="h-4 w-4 sm:h-5 sm:w-5 text-violet-500" />
-        <span>{{ home[0]?.hero_badge }}</span>
-      </div>
-
-      <!-- Heading -->
-      <h1
-        class="mt-3 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight text-center text-black font-instrument-sans max-w-[20ch] mx-auto"
-      >
-        {{ home[0]?.hero_title }}
-      </h1>
-
-      <!-- Paragraph -->
-      <p
-        class="mt-4 mb-6 font-normal text-sm sm:text-base md:text-lg leading-relaxed text-center text-gray-600 max-w-[45ch] mx-auto"
-      >
-        {{ home[0]?.hero_subtitle }}
-      </p>
-
-      <!-- Buttons -->
-      <div
-        class="flex flex-col sm:flex-row gap-4 sm:space-x-4 mt-2 w-full sm:w-auto justify-center items-center"
-      >
-        <button
-          class="w-full sm:w-auto z-10 max-w-[150px] px-4 py-2 text-sm md:text-base font-semibold text-white bg-[#6c63ff] rounded-md hover:-translate-y-0.5 transition-transform duration-300 hover:bg-[#6c63ff]/80"
-        >
-          {{ home[0]?.hero_button }}
-        </button>
-        <button
-          class="w-full sm:w-auto z-10 max-w-[150px] px-4 py-2 text-sm md:text-base font-semibold text-[#6c63ff] border border-[#6c63ff] rounded-md hover:-translate-y-0.5 transition-transform duration-300 hover:bg-[#6c63ff]/10"
-        >
-          {{ home[0]?.hero_button_2 }}
-        </button>
-      </div>
-    </div>
-
-    <!-- Image section -->
-    <div class="w-full max-w-[90vw] md:max-w-[900px] mx-auto px-4 relative">
-      <div
-        class="relative w-full h-[300px] sm:h-[450px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC]"
-      >
+  <div class="graph-paper-container relative animate-fade-grid-in">
+    <!-- Ellipses Container -->
+    <div class="relative">
+      <div class="overflow-hidden h-[800px] relative">
         <div
-          class="absolute inset-0 bg-cover bg-center rounded-2xl rotate-180"
-          :style="{ backgroundImage: `url(${heroImageUrl})`, margin: '15px' }"
-        ></div>
+          class="absolute inset-0 h-[500px] flex items-center justify-center z-0"
+        >
+          <!-- Ellipse 1 -->
+          <div class="absolute -top-[425px]">
+            <div
+              class="w-[950px] h-[950px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.1)] animate-pulse-once"
+            ></div>
+          </div>
+
+          <!-- Ellipse 3 -->
+          <div class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]">
+            <div
+              class="w-[750px] h-[750px] rounded-full border-2 border-[rgba(163,162,162,0.01)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse-once"
+            ></div>
+          </div>
+
+          <!-- Ellipse 5 -->
+          <div class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]">
+            <div
+              class="w-[550px] h-[550px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse-once"
+            ></div>
+          </div>
+        </div>
       </div>
-      <!-- Additional Images - Hide on mobile -->
-      <img
-        src="~/assets/images/group 74.png"
-        alt="Design Element"
-        class="hidden md:block absolute right-[-184px] top-[315px] transform -translate-y-1/2"
-        style="height: 270px; width: auto"
-      />
-      <img
-        src="~/assets/images/group 73.png"
-        alt="Design Element"
-        class="hidden md:block absolute left-[-180px] top-[315px] transform -translate-y-1/2"
-        style="height: 270px; width: auto"
-      />
+
+      <!-- Hero Section -->
+      <div
+        class="absolute inset-0 flex flex-col items-center justify-center px-4 pt-12 pb-12 md:pt-32 md:pb-16 z-10"
+      >
+        <!-- Custom subheading -->
+        <div
+          v-if="home.length > 0"
+          class="flex items-center gap-2.5 px-4 mt-24 py-1 justify-center text-center text-base sm:text-lg font-normal text-violet-500 bg-violet-500/20 rounded-full animate-fade-in"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 sm:h-5 sm:w-5 text-violet-500"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"
+            />
+          </svg>
+          <span>{{ home[0]?.hero_badge }}</span>
+        </div>
+
+        <!-- Heading -->
+        <h1
+          v-if="home.length > 0"
+          class="mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight text-center text-black font-instrument-sans max-w-[20ch] mx-auto animate-fade-in"
+        >
+          {{ home[0]?.hero_title }}
+        </h1>
+
+        <!-- Paragraph -->
+        <p
+          v-if="home.length > 0"
+          class="mt-4 mb-6 font-normal text-sm sm:text-base md:text-lg leading-relaxed text-center text-gray-600 max-w-[45ch] mx-auto animate-fade-in"
+        >
+          {{ home[0]?.hero_subtitle }}
+        </p>
+
+        <!-- Buttons -->
+        <div
+          v-if="home.length > 0"
+          class="flex flex-col sm:flex-row gap-4 sm:space-x-4 mt-5 mb-8 w-full sm:w-auto justify-center items-center animate-fade-in"
+        >
+          <button
+            class="w-full sm:w-auto z-10 max-w-[150px] px-4 py-2 text-sm md:text-base font-semibold text-white bg-[#6c63ff] rounded-md hover:-translate-y-0.5 transition-transform duration-300 hover:bg-[#6c63ff]/80 animate-fade-in"
+          >
+            {{ home[0]?.hero_button }}
+          </button>
+          <button
+            class="w-full sm:w-auto z-10 max-w-[150px] px-4 py-2 text-sm md:text-base font-semibold text-[#6c63ff] border border-[#6c63ff] rounded-md hover:-translate-y-0.5 transition-transform duration-300 hover:bg-[#6c63ff]/10 animate-fade-in"
+          >
+            {{ home[0]?.hero_button_2 }}
+          </button>
+        </div>
+
+        <!-- Image section -->
+        <div
+          v-if="home.length > 0"
+          class="w-full py-6 max-w-[90vw] md:max-w-[900px] mx-auto px-4 relative z-10 animate-fade-in"
+        >
+          <div
+            class="relative w-full h-[300px] sm:h-[450px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC]"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center rounded-2xl rotate-180"
+              :style="{
+                backgroundImage: `url(${heroImageUrl})`,
+                margin: '12px',
+              }"
+            ></div>
+          </div>
+          <!-- Additional Images - Hide on mobile -->
+          <img
+            src="~/assets/images/group 74.png"
+            alt="Design Element"
+            class="hidden md:block absolute right-[-184px] top-[315px] transform -translate-y-1/2"
+            style="height: 270px; width: auto"
+          />
+          <img
+            src="~/assets/images/group 73.png"
+            alt="Design Element"
+            class="hidden md:block absolute left-[-180px] top-[315px] transform -translate-y-1/2"
+            style="height: 270px; width: auto"
+          />
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Section 2 -->
-  <div class="container mx-auto px-4 pt-28">
+  <div class="container mx-auto px-4 pt-32">
     <div class="space-y-10">
-      
       <div
         v-for="(feature, index) in section1"
         :key="index"
@@ -126,12 +172,12 @@
     <div class="relative rounded-2xl p-8 sm:p-16 md:p-32 overflow-hidden">
       <!-- Border Container -->
       <div
-        class="absolute border-l-2 border-r-2 border-b-2 border-violet-300 rounded-b-2xl z-50"
+        class="absolute border-l-2 border-r-2 border-b-2 border-violet-300 rounded-b-2xl z-10"
         style="bottom: 0; left: 0; right: 0; height: calc(100% - 4rem)"
       ></div>
 
       <!-- Features Header -->
-      <div class="mb-12 relative z-10">
+      <div class="mb-12 relative z-20">
         <div
           class="inline-block px-4 py-2 text-lg sm:text-xl font-medium rounded-full bg-violet-100 text-violet-600 mb-8"
         >
@@ -155,7 +201,7 @@
       </div>
 
       <!-- Feature Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 relative z-20">
         <div
           v-for="card in home[0]?.section_2_cards"
           :key="card._key"
@@ -177,14 +223,14 @@
           />
         </div>
       </div>
-      <div class="circles-container">
+      <div class="circles-container relative z-0">
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
       </div>
       <!-- Statistics Section -->
-      <div class="relative z-10 mb-16">
+      <div class="relative z-20 mb-16">
         <div class="flex justify-center mb-8">
           <div
             class="inline-block px-4 py-2 text-lg sm:text-xl font-medium rounded-full bg-violet-100 text-violet-600 mb-8"
@@ -213,7 +259,7 @@
 
       <!-- Floating content -->
       <div
-        class="relative z-50 mx-auto max-w-4xl animate-float mt-24 sm:mt-48 text-center"
+        class="relative z-20 mx-auto max-w-4xl animate-float mt-24 sm:mt-48 text-center"
       >
         <h2
           class="text-2xl sm:text-3xl md:text-5xl font-semibold mb-3 whitespace-normal sm:whitespace-nowrap"
@@ -401,7 +447,6 @@
       </div>
     </div>
 
-
     <!-- Section 5 / Partnership Section -->
     <div class="relative sm:pb-32">
       <!-- Partnership Content -->
@@ -433,7 +478,7 @@
             />
           </div>
           <div
-            class="relative transform translate-x-2  sm:translate-x-1 translate-y-3 sm:translate-y-3"
+            class="relative transform translate-x-2 sm:translate-x-1 translate-y-3 sm:translate-y-3"
           >
             <img
               v-if="
@@ -447,7 +492,7 @@
             />
           </div>
           <div
-            class="relative transform translate-x-1 sm:translate-x-3  translate-y-8 sm:translate-y-12"
+            class="relative transform translate-x-1 sm:translate-x-3 translate-y-8 sm:translate-y-12"
           >
             <img
               v-if="
@@ -775,10 +820,10 @@ onMounted(async () => {
 .graph-paper-container {
   background-image: linear-gradient(
       to right,
-      rgba(220, 220, 220, 0.6) 1px,
-      transparent 1px
+      rgba(220, 220, 220, 0.2) 3px,
+      transparent 3px
     ),
-    linear-gradient(to bottom, rgba(220, 220, 220, 0.6) 1px, transparent 1px);
+    linear-gradient(to bottom, rgba(220, 220, 220, 0.2) 3px, transparent 3px);
   background-size: 80px 80px;
   width: 100%;
   height: 100%;
@@ -869,5 +914,33 @@ onMounted(async () => {
 .slide-leave-from {
   opacity: 1;
   transform: translateX(0);
+}
+
+.animate-fade-grid-in {
+  animation: grid-fade-in 5s ease-out;
+}
+
+@keyframes grid-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
