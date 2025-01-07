@@ -1,7 +1,9 @@
 <template>
   <div class="graph-paper-container">
     <!-- Main Content -->
-    <div class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-2">
+    <div
+      class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-2"
+    >
       <!-- Blog Header Card -->
       <div
         class="relative w-full max-w-[714px] max-h-[321px] mx-auto mt-[50px] bg-white border border-[#606DF1] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[20px] p-6 sm:p-8 flex flex-col items-center justify-center"
@@ -12,9 +14,64 @@
         <p
           class="mt-4 text-sm sm:text-base md:text-lg text-gray-600 text-center max-w-xl"
         >
-          {{ blogs?.hero_subtitle || "Discover the newest trends, strategies, and valuable insights in outsourcing to enhance your business strategy." }}
+          {{
+            blogs?.hero_subtitle ||
+            "Discover the newest trends, strategies, and valuable insights in outsourcing to enhance your business strategy."
+          }}
         </p>
       </div>
+
+      <!-- Cyan gradient left-->
+      <div
+        class="absolute w-[382px] h-[386px] rounded-full left-[-100px] top-16 z-0"
+        :style="{
+          background:
+            'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
+          transform: 'rotate(-116.85deg)',
+          filter: 'blur(50px)',
+        }"
+      />
+      <!-- Blue gradient left-->
+      <div
+        class="absolute w-[382px] h-[386px] rounded-full left-[-100px] top-56 z-0"
+        :style="{
+          background:
+            'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
+          transform: 'rotate(-116.85deg)',
+          filter: 'blur(50px)',
+        }"
+      />
+<!-- Yellow gradient smaller and positioned to the right -->
+<div
+  class="absolute w-[400px] h-[400px] rounded-full right-[-20px] top-12 z-0"
+  :style="{
+    background:
+      'radial-gradient(circle, rgba(254,223,59,0.3) 0%, rgba(254,223,59,0) 70%)',
+    transform: 'rotate(-116.85deg)',
+    filter: 'blur(50px)',
+  }"
+/>
+
+      <!-- Blue gradient Right-->
+      <div
+        class="absolute w-[382px] h-[386px] rounded-full right-[-100px] top-[30px] z-0"
+        :style="{
+          background:
+            'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
+          transform: 'rotate(-116.85deg)',
+          filter: 'blur(50px)',
+        }"
+      />
+      <!-- Cyan gradient Right -->
+      <div
+        class="absolute w-[382px] h-[386px] rounded-full right-[-100px] top-40 z-0"
+        :style="{
+          background:
+            'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
+          transform: 'rotate(-116.85deg)',
+          filter: 'blur(50px)',
+        }"
+      />
 
       <!-- Blog Cards Container -->
       <div
@@ -127,7 +184,9 @@ const blogs = ref<BlogPost | null>(null);
 const currentPage = ref(1);
 const itemsPerPage = ref(6);
 const totalPages = computed(() => {
-  return Math.ceil((blogs.value?.section1_cards?.length || 0) / itemsPerPage.value);
+  return Math.ceil(
+    (blogs.value?.section1_cards?.length || 0) / itemsPerPage.value
+  );
 });
 const visibleBlogs = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage.value;
