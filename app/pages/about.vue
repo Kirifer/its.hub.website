@@ -160,7 +160,6 @@
             </div>
           </div>
 
-          <!-- filepath: /c:/Users/Alaica/Documents/ITS/its.hub.website/app/pages/about.vue -->
           <!-- Cost Efficient Card -->
           <div
             v-for="(card, index) in about?.section_3_card3"
@@ -461,6 +460,13 @@ onMounted(() => {
 onUnmounted(() => {
   stopAutoplay();
 });
+
+const socialMediaLinks = ref([
+  { name: "Facebook", url: "https://facebook.com" },
+  { name: "Twitter", url: "https://twitter.com" },
+  { name: "LinkedIn", url: "https://linkedin.com" },
+  { name: "Instagram", url: "https://instagram.com" },
+]);
 
 const testimonials = ref([
   {
