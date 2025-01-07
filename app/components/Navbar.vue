@@ -1,6 +1,6 @@
 <template>
   <nav class="bg-white font-instrument relative">
-    <div class="container mx-auto flex justify-between items-center py-5 px-6 border-b-4 border-[#F0E5F3]">
+    <div class="container mx-auto flex justify-between items-center py-5 px-6 border-b-4 border-purple-300">
       <!-- Logo -->
       <div class="text-xl font-bold text-gray-800">
         <nuxt-link href="/">
