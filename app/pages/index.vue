@@ -820,10 +820,10 @@ onMounted(async () => {
 .graph-paper-container {
   background-image: linear-gradient(
       to right,
-      rgba(220, 220, 220, 0.6) 3px,
+      rgba(220, 220, 220, 0.2) 3px,
       transparent 3px
     ),
-    linear-gradient(to bottom, rgba(220, 220, 220, 0.6) 3px, transparent 3px);
+    linear-gradient(to bottom, rgba(220, 220, 220, 0.2) 3px, transparent 3px);
   background-size: 80px 80px;
   width: 100%;
   height: 100%;
