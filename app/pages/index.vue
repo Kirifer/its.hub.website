@@ -180,11 +180,11 @@ onMounted(async () => {
               />
 
               <div
-                class="relative w-full h-[300px] sm:h-[450px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] z-10"
+              class="relative w-full h-[300px] sm:h-[450px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] z-10 transition-transform duration-300 "
               >
                 <div
-                  class="absolute inset-0 bg-cover bg-center rounded-2xl rotate-180"
-                  :style="{
+                class="absolute inset-0 bg-cover bg-center rounded-2xl rotate-180 "
+                :style="{
                     backgroundImage: `url(${heroImage})`,
                     margin: '10px',
                   }"

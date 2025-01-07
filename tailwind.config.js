@@ -16,6 +16,7 @@ export default {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
+        
       },
       animation: {
         'pulse-once': 'pulse-once 0.5s ease-out forwards',
