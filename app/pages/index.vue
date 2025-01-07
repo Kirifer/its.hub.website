@@ -103,9 +103,9 @@ onMounted(async () => {
             v-if="home.length > 0"
             class="flex flex-col items-center justify-center space-y-5 md:space-y-10 animate-fade-in"
           >
-            <div class="mt-10">
+            <div class="mt-10 -mb-2">
               <span
-                class="inline-flex items-center px-3 py-0.5 rounded-full text-lg font-medium bg-purple-200 text-purple-800"
+                class="inline-flex items-center px-3 py-1 rounded-full text-lg font-medium bg-purple-200 text-purple-800"
               >
                 <ChartBarIcon class="h-5 w-5 mr-1" />{{ home[0]?.hero_badge }}
               </span>
@@ -137,8 +137,50 @@ onMounted(async () => {
             <div
               class="w-full max-w-[90vw] md:max-w-[900px] mx-auto px-4 pb-16 relative"
             >
+              <!-- Cyan gradient left-->
               <div
-                class="relative w-full h-[300px] sm:h-[450px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC]"
+                class="absolute w-[382px] h-[386px] rounded-full left-[-200px] top-0 z-0"
+                :style="{
+                  background:
+                    'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
+                  transform: 'rotate(-116.85deg)',
+                  filter: 'blur(50px)',
+                }"
+              />
+              <!-- Blue gradient left-->
+              <div
+                class="absolute w-[382px] h-[386px] rounded-full left-[-200px] -top-32 z-0"
+                :style="{
+                  background:
+                    'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
+                  transform: 'rotate(-116.85deg)',
+                  filter: 'blur(50px)',
+                }"
+              />
+
+              <!-- Blue gradient Right-->
+              <div
+                class="absolute w-[382px] h-[386px] rounded-full right-[-200px] top-0 z-0"
+                :style="{
+                  background:
+                    'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
+                  transform: 'rotate(-116.85deg)',
+                  filter: 'blur(50px)',
+                }"
+              />
+              <!-- Cyan gradient Right-->
+              <div
+                class="absolute w-[382px] h-[386px] rounded-full right-[-200px] -top-32 z-0"
+                :style="{
+                  background:
+                    'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
+                  transform: 'rotate(-116.85deg)',
+                  filter: 'blur(50px)',
+                }"
+              />
+
+              <div
+                class="relative w-full h-[300px] sm:h-[450px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] z-10"
               >
                 <div
                   class="absolute inset-0 bg-cover bg-center rounded-2xl rotate-180"
@@ -151,13 +193,13 @@ onMounted(async () => {
               <img
                 src="~/assets/images/group 74.png"
                 alt="Design Element"
-                class="hidden md:block absolute right-[-184px] top-[315px] transform -translate-y-1/2"
+                class="hidden md:block absolute right-[-184px] top-[315px] transform -translate-y-1/2 z-10"
                 style="height: 270px; width: auto"
               />
               <img
                 src="~/assets/images/group 73.png"
                 alt="Design Element"
-                class="hidden md:block absolute left-[-180px] top-[315px] transform -translate-y-1/2"
+                class="hidden md:block absolute left-[-180px] top-[315px] transform -translate-y-1/2 z-10"
                 style="height: 270px; width: auto"
               />
             </div>
@@ -177,7 +219,7 @@ onMounted(async () => {
             :class="[
               'w-[80px] h-[80px] border border-[#844ddc] rounded-lg flex items-center justify-center bg-white mb-4 sm:mb-0',
               index % 2 === 0
-                ? 'sm:absolute sm:left-[5%] lg:left-[15%]'
+                ? 'sm:absolute sm:left-[5%] md:left-[15%]'
                 : 'sm:absolute sm:right-[5%] lg:right-[15%]',
             ]"
           >
@@ -205,10 +247,10 @@ onMounted(async () => {
       <div class="relative z-0">
         <div class="relative rounded-2xl p-8 sm:p-16 md:p-32 overflow-hidden">
           <div
-            class="absolute border-l-2 border-r-2 border-b-2 border-purple-300 rounded-b-2xl z-50"
+            class="absolute border-l-2 border-r-2 border-b-2 border-purple-300 rounded-b-2xl z-10"
             style="bottom: 0; left: 0; right: 0; height: calc(100% - 4rem)"
           ></div>
-          <div class="mb-2 relative z-10">
+          <div class="mb-2 relative z-20">
             <div
               class="inline-block px-4 py-2 md:px-6 md:py-4 text-lg md:text-3xl font-medium rounded-full bg-purple-200 text-purple-800 mb-8"
             >
@@ -227,7 +269,7 @@ onMounted(async () => {
           </div>
 
           <div
-            class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-20 relative z-10"
+            class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-20 relative z-20"
           >
             <div
               v-for="card in home[0]?.section_2_cards"
@@ -250,13 +292,13 @@ onMounted(async () => {
               />
             </div>
           </div>
-          <div class="circles-container">
+          <div class="circles-container relative z-10">
             <div class="circle"></div>
             <div class="circle"></div>
             <div class="circle"></div>
             <div class="circle"></div>
           </div>
-          <div class="relative z-10 space-y-10 md:space-y-16">
+          <div class="relative z-20 space-y-10 md:space-y-16">
             <div class="flex justify-center">
               <div
                 class="inline-block px-4 py-2 md:px-6 md:py-4 text-lg md:text-3xl font-medium rounded-full bg-purple-200 text-purple-800"
@@ -283,7 +325,7 @@ onMounted(async () => {
             </div>
           </div>
           <div
-            class="relative z-50 mx-auto max-w-4xl animate-float mt-10 md:mt-28 text-center"
+            class="relative z-20 mx-auto max-w-4xl animate-float mt-10 md:mt-28 text-center"
           >
             <h2
               class="text-2xl sm:text-3xl md:text-5xl font-semibold mb-3 whitespace-normal sm:whitespace-nowrap"
@@ -303,7 +345,8 @@ onMounted(async () => {
           </div>
         </div>
       </div>
-      <div class="relative rounded-3xl overflow-hidden mb-16 sm:mb-32">
+
+      <div class="relative rounded-3xl overflow-hidden mb-16 pt-28 sm:mb-32">
         <div class="p-4 sm:p-8 rounded-3xl">
           <div class="w-full max-w-[90vw] md:max-w-[1250px] mx-auto px-4">
             <div
@@ -322,7 +365,7 @@ onMounted(async () => {
           <div class="hidden sm:block">
             <!-- Earnings -->
             <div
-              class="absolute top-16 left-8 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center"
+              class="absolute top-48 left-8 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center"
             >
               <BarsArrowUpIcon class="text-purple-500 w-8 h-8 mr-4" />
               <div>
@@ -360,7 +403,7 @@ onMounted(async () => {
 
             <!-- Your Balance -->
             <div
-              class="absolute top-16 right-8 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center justify-between"
+              class="absolute top-48 right-8 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center justify-between"
             >
               <div>
                 <div
@@ -552,63 +595,105 @@ onMounted(async () => {
       </div>
 
       <div class="flex items-center pt-8 justify-center w-full">
+  <div
+    class="w-full max-w-8xl bg-white rounded-3xl p-6 sm:p-12 border border-purple-400 relative"
+  >
+    <!-- Cyan gradient left-->
+    <div
+      class="absolute w-[382px] h-[386px] rounded-full left-[-100px] top-16 z-0"
+      :style="{
+        background:
+          'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
+        transform: 'rotate(-116.85deg)',
+        filter: 'blur(50px)',
+      }"
+    />
+    <!-- Blue gradient left-->
+    <div
+      class="absolute w-[382px] h-[386px] rounded-full left-[-100px] top-48 z-0"
+      :style="{
+        background:
+          'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
+        transform: 'rotate(-116.85deg)',
+        filter: 'blur(50px)',
+      }"
+    />
+
+    <!-- Blue gradient Right-->
+    <div
+      class="absolute w-[382px] h-[386px] rounded-full right-[-100px] top-1 z-0"
+      :style="{
+        background:
+          'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
+        transform: 'rotate(-116.85deg)',
+        filter: 'blur(50px)',
+      }"
+    />
+    <!-- Cyan gradient Right-->
+    <div
+      class="absolute w-[382px] h-[386px] rounded-full right-[-100px] top-24 z-0"
+      :style="{
+        background:
+          'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
+        transform: 'rotate(-116.85deg)',
+        filter: 'blur(50px)',
+      }"
+    />
+
+    <!-- Testimonial Tag -->
+    <div class="flex justify-center relative z-10">
+      <span
+        class="inline-block px-4 py-2 rounded-full text-lg sm:text-xl font-medium bg-purple-100 text-purple-600 mb-4"
+      >
+        Testimonials
+      </span>
+    </div>
+
+    <!-- Testimonial Content -->
+    <div class="relative overflow-hidden h-[220px] mx-auto z-10">
+      <TransitionGroup name="slide" class="relative">
         <div
-          class="w-full max-w-8xl bg-white rounded-3xl p-6 sm:p-12 border border-purple-400"
+          v-for="(testimonial, index) in section6"
+          :key="testimonial._key"
+          v-show="currentIndex === index"
+          class="absolute w-full transition-all duration-500 ease-in-out"
         >
-          <!-- Testimonial Tag -->
-          <div class="flex justify-center">
-            <span
-              class="inline-block px-4 py-2 rounded-full text-lg sm:text-xl font-medium bg-purple-100 text-purple-600 mb-4"
-            >
-              Testimonials
-            </span>
-          </div>
-
-          <!-- Testimonial Content -->
-          <div class="relative overflow-hidden h-[220px] mx-auto">
-            <TransitionGroup name="slide" class="relative">
-              <div
-                v-for="(testimonial, index) in section6"
-                :key="testimonial._key"
-                v-show="currentIndex === index"
-                class="absolute w-full transition-all duration-500 ease-in-out"
-              >
-                <h2
-                  class="text-3xl sm:text-4xl md:text-5xl font-semibold text-left"
-                >
-                  "{{ testimonial.message }}"
-                </h2>
-                <p
-                  class="font-normal mt-10 text-sm sm:text-base md:text-2xl leading-relaxed text-gray-600 mx-auto text-end w-full"
-                >
-                  - {{ testimonial.author }}, {{ testimonial.position }}
-                </p>
-              </div>
-            </TransitionGroup>
-          </div>
-
-          <!-- Dot Indicators -->
-          <div class="flex justify-center space-x-2 mt-2">
-            <button
-              v-for="(testimonial, index) in section6"
-              :key="testimonial._key"
-              @click="setSlide(index)"
-              class="group"
-              :aria-label="`Go to testimonial ${index + 1}`"
-              :aria-current="currentIndex === index"
-            >
-              <div
-                :class="[
-                  'w-3 h-3 rounded-full transition-all duration-300 transform',
-                  currentIndex === Number(testimonial._key)
-                    ? 'bg-purple-800 scale-125'
-                    : 'bg-purple-200 group-hover:bg-purple-800',
-                ]"
-              />
-            </button>
-          </div>
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-semibold text-left"
+          >
+            "{{ testimonial.message }}"
+          </h2>
+          <p
+            class="font-normal mt-10 text-sm sm:text-base md:text-2xl leading-relaxed text-gray-600 mx-auto text-end w-full"
+          >
+            - {{ testimonial.author }}, {{ testimonial.position }}
+          </p>
         </div>
-      </div>
+      </TransitionGroup>
+    </div>
+
+    <!-- Dot Indicators -->
+    <div class="flex justify-center space-x-2 mt-2 relative z-10">
+      <button
+        v-for="(testimonial, index) in section6"
+        :key="testimonial._key"
+        @click="setSlide(index)"
+        class="group"
+        :aria-label="`Go to testimonial ${index + 1}`"
+        :aria-current="currentIndex === index"
+      >
+        <div
+          :class="[
+            'w-3 h-3 rounded-full transition-all duration-300 transform',
+            currentIndex === Number(testimonial._key)
+              ? 'bg-purple-800 scale-125'
+              : 'bg-purple-200 group-hover:bg-purple-800',
+          ]"
+        />
+      </button>
+    </div>
+  </div>
+</div>
 
       <div
         class="min-h-[500px] bg-gradient-to-br from-white to-purple-50/50 px-4 sm:px-6 lg:px-6 py-12"
@@ -710,6 +795,7 @@ onMounted(async () => {
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </template>
@@ -797,7 +883,6 @@ onMounted(async () => {
   }
 }
 
-/* Add noise texture */
 .circles-container::before {
   content: "";
   position: absolute;
