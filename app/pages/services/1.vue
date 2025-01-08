@@ -251,23 +251,23 @@
                 />
               </div>
               <div class="flex justify-between items-center">
-  <!-- Contact Information on the Left -->
-  <div class="flex-col items-center space-y-2">
-    <p class="text-sm md:text-sm text-gray-900">
-      Phone: +63 906 001-0784 (Globe) <br />
-      Phone: +63 921 859-1348 (Smart)  <br />
-      Email: customercare@itsquarehub.com
-    </p>
-  </div>
+                <!-- Contact Information on the Left -->
+                <div class="flex-col items-center space-y-2">
+                  <p class="text-sm md:text-sm text-gray-900">
+                    Phone: +63 906 001-0784 (Globe) <br />
+                    Phone: +63 921 859-1348 (Smart) <br />
+                    Email: customercare@itsquarehub.com
+                  </p>
+                </div>
 
-  <!-- Submit Button on the Right -->
-  <button
-    type="submit"
-    class="bg-blue-500 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-600 transition-colors w-fit"
-  >
-    Submit
-  </button>
-</div>
+                <!-- Submit Button on the Right -->
+                <button
+                  type="submit"
+                  class="bg-blue-500 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-600 transition-colors w-fit"
+                >
+                  Submit
+                </button>
+              </div>
             </div>
           </form>
         </div>
