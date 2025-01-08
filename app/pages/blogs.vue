@@ -21,9 +21,9 @@
         </p>
       </div>
 
-      <!-- Cyan gradient left-->
+      <!-- Cyan gradient left -->
       <div
-        class="absolute w-[382px] h-[386px] rounded-full left-[-100px] top-16 z-0"
+        class="absolute w-[40vw] h-[40vw] rounded-full left-[-15vw] top-[5vh] z-0"
         :style="{
           background:
             'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
@@ -31,9 +31,9 @@
           filter: 'blur(50px)',
         }"
       />
-      <!-- Blue gradient left-->
+      <!-- Blue gradient left -->
       <div
-        class="absolute w-[382px] h-[386px] rounded-full left-[-100px] top-56 z-0"
+        class="absolute w-[40vw] h-[40vw] rounded-full left-[-15vw] top-[25vh] z-0"
         :style="{
           background:
             'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
@@ -41,37 +41,36 @@
           filter: 'blur(50px)',
         }"
       />
-<!-- Yellow gradient smaller and positioned to the right -->
-<div
-  class="absolute w-[400px] h-[400px] rounded-full right-[-20px] top-12 z-0"
-  :style="{
-    background:
-      'radial-gradient(circle, rgba(254,223,59,0.3) 0%, rgba(254,223,59,0) 70%)',
-    transform: 'rotate(-116.85deg)',
-    filter: 'blur(50px)',
-  }"
-/>
-
-      <!-- Blue gradient Right-->
-      <div
-        class="absolute w-[382px] h-[386px] rounded-full right-[-100px] top-[30px] z-0"
+      <!-- Yellow gradient smaller and positioned to the right -->
+      <!-- <div
+        class="absolute w-[35vw] h-[35vw] rounded-full right-[6vw] top-[10vh] z-0"
+        :style="{
+          background:
+            'radial-gradient(circle, rgba(254,223,59,0.3) 0%, rgba(254,223,59,0) 70%)',
+          transform: 'rotate(-116.85deg)',
+          filter: 'blur(50px)',
+        }"
+      /> -->
+      <!-- Blue gradient Right -->
+      <!-- <div
+        class="absolute w-[40vw] h-[40vw] rounded-full right-[-5vw] top-[-2vh] z-0"
         :style="{
           background:
             'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
           transform: 'rotate(-116.85deg)',
           filter: 'blur(50px)',
         }"
-      />
+      /> -->
       <!-- Cyan gradient Right -->
-      <div
-        class="absolute w-[382px] h-[386px] rounded-full right-[-100px] top-40 z-0"
+      <!-- <div
+        class="absolute w-[50vw] h-[40vw] rounded-full right-[-5vw] top-[35vh] z-0"
         :style="{
           background:
             'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
           transform: 'rotate(-116.85deg)',
           filter: 'blur(50px)',
         }"
-      />
+      /> -->
 
       <!-- Blog Cards Container -->
       <div
