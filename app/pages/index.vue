@@ -62,7 +62,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
+  <div class="overflow-x-hidden">
     <div
       class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] relative animate-fade-grid-in-2"
     >
@@ -74,7 +74,7 @@ onMounted(async () => {
             <!-- Ellipse 1 -->
             <div class="absolute -top-[425px]">
               <div
-                class="w-[950px] h-[950px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.1)] animate-pulse-once"
+                class="w-[950px] h-[950px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.1)] animate-pulse"
               ></div>
             </div>
 
@@ -83,7 +83,7 @@ onMounted(async () => {
               class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]"
             >
               <div
-                class="w-[750px] h-[750px] rounded-full border-2 border-[rgba(163,162,162,0.01)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse-once"
+                class="w-[750px] h-[750px] rounded-full border-2 border-[rgba(163,162,162,0.01)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse"
               ></div>
             </div>
 
@@ -92,7 +92,7 @@ onMounted(async () => {
               class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]"
             >
               <div
-                class="w-[550px] h-[550px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse-once"
+                class="w-[550px] h-[550px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse"
               ></div>
             </div>
           </div>
@@ -118,7 +118,7 @@ onMounted(async () => {
             <div
               class="text-center text-lg md:text-xl text-gray-900 w-full md:w-[500px]"
             >
-              {{ home[0]?.hero_subtitle }}
+              <TextGenerateEffect :words="home[0]?.hero_subtitle" class="" />
             </div>
             <div
               class="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-2"
@@ -134,6 +134,7 @@ onMounted(async () => {
                 Learn More
               </button>
             </div>
+
             <div
               class="w-full max-w-[90vw] md:max-w-[900px] mx-auto px-4 pb-16 relative"
             >
@@ -157,7 +158,6 @@ onMounted(async () => {
                   filter: 'blur(50px)',
                 }"
               />
-
               <!-- Blue gradient Right-->
               <div
                 class="absolute w-[382px] h-[386px] rounded-full right-[-200px] top-0 z-0"
@@ -178,18 +178,18 @@ onMounted(async () => {
                   filter: 'blur(50px)',
                 }"
               />
-
-              <div
-              class="relative w-full h-[300px] sm:h-[450px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] z-10 transition-transform duration-300 "
+              <GlowBorder
+                class="relative w-full h-[300px] sm:h-[450px] bg-transparent rounded-2xl rotate-180 p-2 z-10 transition-transform duration-300"
+                :color="['#844DDC', '#00B8D4', '#D2A517', '#044897']"
               >
                 <div
-                class="absolute inset-0 bg-cover bg-center rounded-2xl rotate-180 "
-                :style="{
+                  class="absolute inset-0 bg-cover bg-center rounded-2xl rotate-180"
+                  :style="{
                     backgroundImage: `url(${heroImage})`,
                     margin: '10px',
                   }"
                 ></div>
-              </div>
+              </GlowBorder>
               <img
                 src="~/assets/images/group 74.png"
                 alt="Design Element"
@@ -888,5 +888,21 @@ onMounted(async () => {
   opacity: 0.1;
   mix-blend-mode: overlay;
   pointer-events: none;
+}
+
+@keyframes hero-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse {
+  animation: hero-pulse 5s infinite;
 }
 </style>

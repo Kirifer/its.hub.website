@@ -6,12 +6,14 @@
     <div
       class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12"
     >
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900">
+    <div class="max-w-2xl mx-auto px-4 space-y-2 md:space-y-4">
+      <h1 class="text-3xl sm:text-6xl text-center md:text-6xl font-bold text-gray-900">
         {{ careers[0]?.hero_heading }}
       </h1>
-      <p class="mt-4 text-base sm:text-lg text-gray-600 text-center max-w-xl">
+      <p class="text-lg md:text-xl text-gray-900 text-center w-full md:w-[500px]">
         {{ careers[0]?.hero_subheading }}
       </p>
+    </div>
 
       <div
         class="mt-8 p-3 rounded-2xl bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 max-w-4xl w-full"
@@ -25,11 +27,16 @@
         </div>
       </div>
 
-      <button
-        class="mt-7 px-6 sm:px-9 py-2.5 text-sm sm:text-base font-medium text-[#844DDC] bg-[rgba(132,77,220,0.19)] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors"
-      >
-        {{ careers[0]?.hero_button }}
-      </button>
+  <ShimmerButton
+    class="mt-7 px-6 sm:px-9 py-2.5 text-sm sm:text-base font-medium text-[#844DDC] bg-[rgba(132,77,220,0.19)] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors shadow-2xl"
+    shimmer-size="2px"
+  >
+    <span
+      class="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg dark:from-white dark:to-slate-900/10"
+    >
+      {{ careers[0]?.hero_button }}
+    </span>
+  </ShimmerButton>
       <!--  -->
       <div class="container px-4">
         <h2
