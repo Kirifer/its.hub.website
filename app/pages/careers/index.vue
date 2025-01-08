@@ -6,14 +6,18 @@
     <div
       class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12"
     >
-    <div class="max-w-2xl mx-auto px-4 space-y-2 md:space-y-4">
-      <h1 class="text-3xl sm:text-6xl text-center md:text-6xl font-bold text-gray-900">
-        {{ careers[0]?.hero_heading }}
-      </h1>
-      <p class="text-lg md:text-xl text-gray-900 text-center w-full md:w-[500px]">
-        {{ careers[0]?.hero_subheading }}
-      </p>
-    </div>
+      <div class="max-w-2xl mx-auto px-4 space-y-2 md:space-y-4">
+        <h1
+          class="text-3xl sm:text-6xl text-center md:text-6xl font-bold text-gray-900"
+        >
+          {{ careers[0]?.hero_heading }}
+        </h1>
+        <p
+          class="text-lg md:text-xl text-gray-900 text-center w-full md:w-[500px]"
+        >
+          {{ careers[0]?.hero_subheading }}
+        </p>
+      </div>
 
       <div
         class="mt-8 p-3 rounded-2xl bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 max-w-4xl w-full"
@@ -27,28 +31,29 @@
         </div>
       </div>
 
-  <ShimmerButton
-    class="mt-7 px-6 sm:px-9 py-2.5 text-sm sm:text-base font-medium text-[#844DDC] bg-[rgba(132,77,220,0.19)] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors shadow-2xl"
-    shimmer-size="2px"
-  >
-    <span
-      class="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg dark:from-white dark:to-slate-900/10"
-    >
-      {{ careers[0]?.hero_button }}
-    </span>
-  </ShimmerButton>
-      <!--  -->
-      <div class="container px-4">
-        <h2
-          class="mt-16 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center"
+      <ShimmerButton
+        class="mt-7 px-6 sm:px-9 py-2.5 text-sm sm:text-base font-medium text-[#844DDC] bg-[rgba(132,77,220,0.19)] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors shadow-2xl"
+        shimmer-size="2px"
+      >
+        <span
+          class="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg dark:from-white dark:to-slate-900/10"
         >
-          {{ careers[0]?.section1_heading }}
-        </h2>
-        <p
-          class="mt-4 text-base sm:text-lg text-gray-600 text-center max-w-xl mx-auto"
-        >
-          {{ careers[0]?.section1_subheading }}
-        </p>
+          {{ careers[0]?.hero_button }}
+        </span>
+      </ShimmerButton>
+      
+      <!-- Explore Our Job Openings -->
+      <div class="container px-4 pt-16">
+        <div class="max-w-3xl mx-auto px-4 space-y-2 md:space-y-4 text-center">
+          <h2
+            class="mt-4 text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900"
+          >
+            {{ careers[0]?.section1_heading }}
+          </h2>
+          <p class="mt-4 text-lg md:text-xl text-gray-900">
+            {{ careers[0]?.section1_subheading }}
+          </p>
+        </div>
 
         <!-- Job Cards Container -->
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
@@ -58,37 +63,35 @@
             class="relative bg-white border border-[#844DDC] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[10px] p-6 sm:p-8 flex flex-col justify-between"
           >
             <!-- Available Badge -->
-            <div class="bg-[#D2A517] rounded-[15px] px-4 py-1 w-fit mb-4">
+            <div class="">
               <span
-                class="text-white text-sm sm:text-base font-normal leading-[22px] tracking-[-0.03em]"
+                class="inline-flex items-center px-3 mb-6 rounded-full text-lg font-medium bg-[#D2A517] text-white"
               >
                 Available
               </span>
-            </div>
 
-            <!-- Job Title -->
-            <h2
-              class="font-['lato'] font-normal text-xl sm:text-2xl md:text-3xl text-black mb-4"
-            >
-              {{ card.hero_heading }}
-            </h2>
+              <!-- Job Title -->
+              <h2 class="font-semibold text-2xl sm:text-3xl">
+                {{ card.hero_heading }}
+              </h2>
 
-            <!-- Job Description -->
-            <p
-              class="font-['lato'] font-normal text-sm sm:text-base text-[#565656] mb-6"
-            >
-              {{ card.hero_subheading }}
-            </p>
-
-            <button>
-              <!-- Apply Button -->
-              <NuxtLink
-                :to="`/careers/${card._id}`"
-                class="w-full sm:w-[109px] h-[32px] bg-[#844DDC] rounded-[6px] text-white text-sm sm:text-base leading-[18px] tracking-[-0.03em] flex items-center justify-center"
+              <!-- Job Description -->
+              <p
+                class="text-gray-600 text-sm sm:text-base font-normal mb-6 md:text-lg leading-relaxed mt-2"
               >
-                Apply
-              </NuxtLink>
-            </button>
+                {{ card.hero_subheading }}
+              </p>
+
+              <button>
+                <!-- Apply Button -->
+                <NuxtLink
+                  :to="`/careers/${card._id}`"
+                  class="bg-[#844DDC] text-white font-medium px-7 py-2 rounded-md hover:bg-purple-300 transition-colors"
+                >
+                  Apply
+                </NuxtLink>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -135,15 +138,15 @@
             </svg>
           </button>
         </div>
-        <div class="justify-center text-center">
+        <div class="justify-center text-center space-y-8 mt-16 mb-16">
           <h2
-            class="mt-16 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center"
+            class="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900"
           >
             {{ careers[0]?.section2_heading }}
           </h2>
 
           <button
-            class="mt-10 mb-10 px-6 sm:px-8 py-2.5 text-sm text-center justify-center font-medium text-white bg-[#844DDC] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors z-10 mx-auto"
+            class="bg-[#844DDC] border-white border text-white font-medium px-6 py-2 rounded-md hover:bg-violet-300 transition-colors"
           >
             {{ careers[0]?.section2_button }}
           </button>
