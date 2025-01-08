@@ -1,9 +1,9 @@
 <template>
   <footer class="bg-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 -space-x-24">
         <!-- Company Info -->
-        <div class="space-y-5 ">
+        <div class="space-y-5 col-span-1 md:col-span-1">
           <div>
             <img
               src="~/assets/images/its-logo-light.png"
@@ -54,10 +54,10 @@
         </div>
 
         <!-- Services -->
-        <div class="space-y-6"> 
+        <div class="space-y-6">
           <div>
             <h3 class="font-medium mb-4">Outsourcing Services</h3>
-            <div class="grid grid-cols-2 gap-x-8 gap-y-2">
+            <div class="grid grid-cols-2 gap-x-6 gap-y-2">
               <ul class="text-sm text-gray-600">
                 <li>Virtual Assistant</li>
                 <li>Healthcare Virtual Assistants</li>
@@ -80,130 +80,165 @@
               </ul>
             </div>
             <div class="mt-4">
-            <h3 class="font-medium ">Other Services:</h3>
-            <p class="text-sm text-gray-600">Software Development</p>
-          </div>
+              <h3 class="font-medium">Other Services:</h3>
+              <p class="text-sm text-gray-600">Software Development</p>
+            </div>
           </div>
         </div>
 
         <!-- Locations -->
-        <div class="space-y-2">
-          <div>
-            <h3 class="font-medium mb-2">Philippines</h3>
-            <div class="flex items-start space-x-2">
-              <svg
-                class="icon-fixed-size"
-                viewBox="0 0 24 24"
-                fill="black"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                />
-              </svg>
-              <p class="text-sm text-gray-600">
-                +63 906 001-0784 (Globe) / +63 921 559-1348(Smart)
-              </p>
-            </div>
-            <div class="flex items-start space-x-2">
-              <svg
-                class="icon-fixed-size"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              <p class="text-sm text-gray-600">
-                Unit 5, Clark Center 09, Jose Abad Santos, Clark Freeport Zone,
-                Central Luzon, Philippines
-              </p>
-            </div>
-          </div>
+        <div class="space-y-6">
+  <!-- USA Location -->
+  <div class="space-x-[45px]">
+    <h3 class="font-medium mb-2">USA</h3>
+    <div class="flex items-start space-x-2">
+      <svg
+        class="icon-fixed-size"
+        viewBox="0 0 24 24"
+        fill="black"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+        />
+      </svg>
+      <p class="text-sm text-gray-600">+1 207 241-5887</p>
+    </div>
+    <div class="flex items-start space-x-2 mt-2">
+      <svg
+        class="icon-fixed-size"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+      <p class="text-sm text-gray-600">
+        1150 NW 72nd Ave Tower 1 Ste 455 #14500, Miami FL 33126, US.
+      </p>
+    </div>
+  </div>
 
-          <div>
-            <h3 class="font-medium mb-2">USA</h3>
-            <div class="flex items-start space-x-2">
-              <svg
-                class="icon-fixed-size"
-                viewBox="0 0 24 24"
-                fill="black"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                />
-              </svg>
-              <p class="text-sm text-gray-600">+1 207 241-5887</p>
-            </div>
-            <div class="flex items-start space-x-2">
-              <svg
-                class="icon-fixed-size"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              <p class="text-sm text-gray-600">
-                1150 NW 72nd Ave Tower 1 Ste 455 #14500, Miami FL 33126, US.
-              </p>
-            </div>
-          </div>
+  <div class="space-x-[45px]">
+    <h3 class="font-medium mb-2">USA</h3>
+    <div class="flex items-start space-x-2">
+      <svg
+        class="icon-fixed-size"
+        viewBox="0 0 24 24"
+        fill="black"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+        />
+      </svg>
+      <p class="text-sm text-gray-600">+1 207 241-5887</p>
+    </div>
+    <div class="flex items-start space-x-2 mt-2">
+      <svg
+        class="icon-fixed-size"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+      <p class="text-sm text-gray-600">
+        1150 NW 72nd Ave Tower 1 Ste 455 #14500, Miami FL 33126, US.
+      </p>
+    </div>
+  </div>
 
-          <div>
-            <h3 class="font-medium mb-2">UK</h3>
-            <div class="flex items-start space-x-2">
-              <svg
-                class="icon-fixed-size"
-                viewBox="0 0 24 24"
-                fill="black"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                />
-              </svg>
-              <p class="text-sm text-gray-600">+44 748 885-9923</p>
-            </div>
-            <div class="flex items-start space-x-2">
-              <svg
-                class="icon-fixed-size"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              <p class="text-sm text-gray-600">
-                63-66 Hatton Garden, London, EC1N 8LE, United Kingdom.
-              </p>
-            </div>
-          </div>
-        </div>
+  <div class="space-x-[45px]">
+    <h3 class="font-medium mb-2">USA</h3>
+    <div class="flex items-start space-x-2">
+      <svg
+        class="icon-fixed-size"
+        viewBox="0 0 24 24"
+        fill="black"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+        />
+      </svg>
+      <p class="text-sm text-gray-600">+1 207 241-5887</p>
+    </div>
+    <div class="flex items-start space-x-2 mt-2">
+      <svg
+        class="icon-fixed-size"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+      <p class="text-sm text-gray-600">
+        1150 NW 72nd Ave Tower 1 Ste 455 #14500, Miami FL 33126, US.
+      </p>
+    </div>
+  </div>
+
+  <div class="space-x-[45px]">
+    <h3 class="font-medium mb-2">USA</h3>
+    <div class="flex items-start space-x-2">
+      <svg
+        class="icon-fixed-size"
+        viewBox="0 0 24 24"
+        fill="black"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+        />
+      </svg>
+      <p class="text-sm text-gray-600">+1 207 241-5887</p>
+    </div>
+    <div class="flex items-start space-x-2 mt-2">
+      <svg
+        class="icon-fixed-size"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+      <p class="text-sm text-gray-600">
+        1150 NW 72nd Ave Tower 1 Ste 455 #14500, Miami FL 33126, US.
+      </p>
+    </div>
+  </div>
+</div>
+
       </div>
-
       <!-- Certifications -->
       <div class="mt-12 flex flex-wrap justify-center items-center gap-8">
         <img src="" alt="WARD" class="h-[60px] w-auto" />
@@ -225,7 +260,7 @@ export default {
 
 <style scoped>
 .icon-fixed-size {
-  width: 16px;  
+  width: 16px;
   height: 16px;
   min-width: 16px;
   min-height: 16px;
