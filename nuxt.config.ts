@@ -5,8 +5,8 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "@nuxtjs/google-fonts"],
   googleFonts: {
     families: {
-      Futura: true, 
-      Lato: [400, 700], 
+      Futura: true,
+      Lato: [400, 700],
     },
   },
   srcDir: "app",
