@@ -252,7 +252,7 @@ onMounted(async () => {
           ></div>
           <div class="mb-2 relative z-20">
             <div
-              class="inline-block px-4 py-2 md:px-6 md:py-4 text-lg md:text-3xl font-medium rounded-full bg-purple-200 text-purple-800 mb-8"
+              class="inline-block px-4 py-2 text-lg sm:text-xl font-medium rounded-full bg-purple-200 text-purple-800 mb-8"
             >
               Features
             </div>
@@ -301,7 +301,7 @@ onMounted(async () => {
           <div class="relative z-20 space-y-10 md:space-y-16">
             <div class="flex justify-center">
               <div
-                class="inline-block px-4 py-2 md:px-6 md:py-4 text-lg md:text-3xl font-medium rounded-full bg-purple-200 text-purple-800"
+                class="inline-block px-4 py-2 text-lg sm:text-xl font-medium rounded-full bg-purple-200 text-purple-800 mb-4"
               >
                 {{ home[0]?.section_2_badge_2 }}
               </div>
