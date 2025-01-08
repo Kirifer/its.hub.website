@@ -62,7 +62,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
+  <div class="overflow-x-hidden">
     <div
       class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] relative animate-fade-grid-in-2"
     >

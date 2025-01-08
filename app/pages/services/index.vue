@@ -1,74 +1,248 @@
 <template>
-  <div>
-    <div>
-      <div class="container mx-auto py-4">
-        <div class="flex flex-col">
-          <div v-for="service in services" :key="service.id" class=" hover:bg-gray-100 max-h-[300px]">
-            <div class="space-y-2 py-5 px-10">
-              <div class="text-3xl font-bold hover:underline">
-                {{ service.title }}
-              </div>
-              <div class="text-lg text-gray-600">
-                {{ service.description }}
-              </div>
-              <div class="flex flex-wrap space-x-2">
-                <span
-                  v-for="tag in service.tags"
-                  :key="tag"
-                  class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-blue-200 text-blue-800"
-                >
-                  {{ tag }}
-                </span>
-              </div>
-            </div>
+  <div class="graph-paper-container">
+    <!-- Main Content -->
+    <div
+      class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-2"
+    >
+      <!-- Blog Header Card -->
+      <div
+        class="relative w-full max-w-[714px] max-h-[321px] mx-auto mt-[50px] bg-white border border-[#606DF1] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[20px] p-6 sm:p-8 flex flex-col items-center justify-center"
+      >
+        <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900">
+          {{ blogs?.hero_title || "Our Blog" }}
+        </h1>
+        <p
+          class="mt-4 text-sm sm:text-base md:text-lg text-gray-600 text-center max-w-xl"
+        >
+          {{
+            blogs?.hero_subtitle ||
+            "Discover the newest trends, strategies, and valuable insights in outsourcing to enhance your business strategy."
+          }}
+        </p>
+      </div>
+
+      <!-- Cyan gradient left -->
+      <div
+        class="absolute w-[40vw] h-[40vw] rounded-full left-[-15vw] top-[5vh] z-0"
+        :style="{
+          background:
+            'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
+          transform: 'rotate(-116.85deg)',
+          filter: 'blur(50px)',
+        }"
+      />
+      <!-- Blue gradient left -->
+      <div
+        class="absolute w-[40vw] h-[40vw] rounded-full left-[-15vw] top-[25vh] z-0"
+        :style="{
+          background:
+            'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
+          transform: 'rotate(-116.85deg)',
+          filter: 'blur(50px)',
+        }"
+      />
+      <!-- Yellow gradient smaller and positioned to the right -->
+      <!-- <div
+        class="absolute w-[35vw] h-[35vw] rounded-full right-[6vw] top-[10vh] z-0"
+        :style="{
+          background:
+            'radial-gradient(circle, rgba(254,223,59,0.3) 0%, rgba(254,223,59,0) 70%)',
+          transform: 'rotate(-116.85deg)',
+          filter: 'blur(50px)',
+        }"
+      /> -->
+      <!-- Blue gradient Right -->
+      <!-- <div
+        class="absolute w-[40vw] h-[40vw] rounded-full right-[-5vw] top-[-2vh] z-0"
+        :style="{
+          background:
+            'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
+          transform: 'rotate(-116.85deg)',
+          filter: 'blur(50px)',
+        }"
+      /> -->
+      <!-- Cyan gradient Right -->
+      <!-- <div
+        class="absolute w-[50vw] h-[40vw] rounded-full right-[-5vw] top-[35vh] z-0"
+        :style="{
+          background:
+            'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
+          transform: 'rotate(-116.85deg)',
+          filter: 'blur(50px)',
+        }"
+      /> -->
+
+      <!-- Blog Cards Container -->
+      <div
+        class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl px-4"
+      >
+        <!-- Blog Card -->
+        <div
+          v-for="(blog, index) in blogs?.section1_cards"
+          :key="index"
+          class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+        >
+          <!-- Blog Image -->
+          <div class="w-full h-48 sm:h-60 md:h-72">
+            <img
+              :src="urlFor(blog.icon)"
+              :alt="blog.heading"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <!-- Title, Description, and Read More Button -->
+          <div class="p-6">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-900">
+              {{ blog.heading }}
+            </h2>
+            <p class="mt-2 text-sm sm:text-base text-gray-600">
+              {{ blog.subheading }}
+            </p>
+            <!-- Read More Button -->
+            <NuxtLink
+              :to="`/blog/${blog.id}`"
+              class="mt-4 inline-block px-4 py-2 bg-[#606DF1] text-white rounded-md hover:bg-[#4F5CD8] transition-colors text-sm sm:text-base"
+            >
+              {{ blog.button || "Read More" }}
+            </NuxtLink>
           </div>
         </div>
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="mt-8 flex justify-center gap-4">
+        <button
+          v-if="currentPage > 1"
+          @click="navigate(-1)"
+          class="px-4 py-2 bg-transparent border border-[#606DF1] rounded-full hover:bg-[#606DF1] hover:text-white transition-colors"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <button
+          v-if="currentPage < totalPages"
+          @click="navigate(1)"
+          class="px-4 py-2 bg-transparent border border-[#606DF1] rounded-full hover:bg-[#606DF1] hover:text-white transition-colors"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-const services = [
-  {
-    id: 1,
-    title: "Build a Modern E-commerce Website",
-    description:
-      "A Virtual Assistant (VA) can remodel your commercial enterprise by means of taking on diverse administrative tasks that consume time and resources. They are excellent at handling emails, making appointments, and responding to consumer questions, which frees up your team's and your own valuable time to focus on more important work. Given that you can increase their services in accordance with your company objectives without having to commit to recruiting a full-time workforce, virtual assistants (VAs) can add flexibility to your operations. Their proficiency in optimizing tactics and enhancing efficacy can significantly boost output and ultimately aid in the expansion and success of your enterprise.",
-    budget: 2500,
-    tags: ["Next.js", "Shopify", "E-commerce"],
-    clientName: "John Smith",
-    clientAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=John",
-  },
-  {
-    id: 2,
-    title: "Design Mobile App UI/UX",
-    description:
-      "A Virtual Assistant (VA) can remodel your commercial enterprise by means of taking on diverse administrative tasks that consume time and resources. They are excellent at handling emails, making appointments, and responding to consumer questions, which frees up your team's and your own valuable time to focus on more important work. Given that you can increase their services in accordance with your company objectives without having to commit to recruiting a full-time workforce, virtual assistants (VAs) can add flexibility to your operations. Their proficiency in optimizing tactics and enhancing efficacy can significantly boost output and ultimately aid in the expansion and success of your enterprise.",
-    budget: 1800,
-    tags: ["UI/UX", "Mobile", "Figma"],
-    clientName: "Sarah Johnson",
-    clientAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
-  },
-  {
-    id: 3,
-    title: "Content Writing for Tech Blog",
-    description:
-      "A Virtual Assistant (VA) can remodel your commercial enterprise by means of taking on diverse administrative tasks that consume time and resources. They are excellent at handling emails, making appointments, and responding to consumer questions, which frees up your team's and your own valuable time to focus on more important work. Given that you can increase their services in accordance with your company objectives without having to commit to recruiting a full-time workforce, virtual assistants (VAs) can add flexibility to your operations. Their proficiency in optimizing tactics and enhancing efficacy can significantly boost output and ultimately aid in the expansion and success of your enterprise.",
-    budget: 500,
-    tags: ["Content Writing", "Technical", "Blog"],
-    clientName: "Mike Wilson",
-    clientAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Mike",
-  },
-  {
-    id: 4,
-    title: "Social Media Marketing Campaign",
-    description:
-      "A Virtual Assistant (VA) can remodel your commercial enterprise by means of taking on diverse administrative tasks that consume time and resources. They are excellent at handling emails, making appointments, and responding to consumer questions, which frees up your team's and your own valuable time to focus on more important work. Given that you can increase their services in accordance with your company objectives without having to commit to recruiting a full-time workforce, virtual assistants (VAs) can add flexibility to your operations. Their proficiency in optimizing tactics and enhancing efficacy can significantly boost output and ultimately aid in the expansion and success of your enterprise.",
-    budget: 1200,
-    tags: ["Marketing", "Social Media", "Strategy"],
-    clientName: "Emma Davis",
-    clientAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Emma",
-  },
-];
+<script setup lang="ts">
+import { ref, computed, onMounted } from "vue";
+import sanityClient from "@/hooks/sanityClient";
+import { urlFor } from "@/hooks/sanityImageUrl";
+
+interface BlogData {
+  id: string;
+  heading: string;
+  subheading: string;
+  icon: {
+    asset: {
+      _ref: string;
+    };
+  };
+  button: string;
+}
+
+interface BlogPost {
+  hero_title: string;
+  hero_subtitle: string;
+  section1_cards: BlogData[];
+}
+
+const blogs = ref<BlogPost | null>(null);
+const currentPage = ref(1);
+const itemsPerPage = ref(6);
+const totalPages = computed(() => {
+  return Math.ceil(
+    (blogs.value?.section1_cards?.length || 0) / itemsPerPage.value
+  );
+});
+const visibleBlogs = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage.value;
+  const end = start + itemsPerPage.value;
+  return blogs.value?.section1_cards?.slice(start, end) || [];
+});
+
+function navigate(direction: number) {
+  currentPage.value += direction;
+}
+
+onMounted(async () => {
+  try {
+    const data = await sanityClient.fetch(`
+      *[_type == "blogs"][0] {
+        hero_title,
+        hero_subtitle,
+        section1_cards[]-> {
+          _id,
+          heading,
+          subheading,
+          icon,
+          button
+        }
+      }
+    `);
+    console.log(data); // Debugging: Inspect the fetched data
+    if (data) {
+      blogs.value = {
+        hero_title: data.hero_title,
+        hero_subtitle: data.hero_subtitle,
+        section1_cards: data.section1_cards.map((card: any) => ({
+          id: card._id,
+          heading: card.heading,
+          subheading: card.subheading,
+          icon: card.icon,
+          button: card.button,
+        })),
+      };
+    }
+  } catch (error) {
+    console.error("Error fetching data from Sanity:", error);
+  }
+});
 </script>
+
+<style scoped>
+.graph-paper-container {
+  background-image: linear-gradient(
+      to right,
+      rgba(220, 220, 220, 0.6) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(220, 220, 220, 0.6) 1px, transparent 1px);
+  background-size: 80px 80px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+</style>
