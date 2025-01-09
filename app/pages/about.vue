@@ -10,10 +10,6 @@ import type { About } from "~/types/about";
 
 const about = ref<About[]>([]);
 const section1Image = ref("");
-const section3Card1Image = ref("");
-const section3Card2Image = ref("");
-const section3Card3Image = ref("");
-const section3Card4Image = ref("");
 
 console.log(about);
 
@@ -409,36 +405,22 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
           <!-- First Marquee -->
           <Marquee pause-on-hover class="[--duration:20s]">
             <ReviewCard
-              v-for="review in firstRow"
-              :key="review.username"
-              :img="review.img"
-              :name="review.name"
-              :username="review.username"
-              :body="review.body"
+              v-for="testimonial in about[0]?.section_5_testimonials"
+              :key="testimonial.author"
+              img="https://placehold.co/400"
+              :name="testimonial.author"
+              :body="testimonial.message"
             />
           </Marquee>
 
           <!-- Second Marquee (reverse) -->
           <Marquee reverse pause-on-hover class="[--duration:20s]">
             <ReviewCard
-              v-for="review in secondRow"
-              :key="review.username"
-              :img="review.img"
-              :name="review.name"
-              :username="review.username"
-              :body="review.body"
-            />
-          </Marquee>
-
-          <!-- Thirs Marquee -->
-          <Marquee pause-on-hover class="[--duration:20s]">
-            <ReviewCard
-              v-for="review in firstRow"
-              :key="review.username"
-              :img="review.img"
-              :name="review.name"
-              :username="review.username"
-              :body="review.body"
+              v-for="testimonial in about[0]?.section_5_testimonials"
+              :key="testimonial.author"
+              img="https://placehold.co/400"
+              :name="testimonial.author"
+              :body="testimonial.message"
             />
           </Marquee>
 

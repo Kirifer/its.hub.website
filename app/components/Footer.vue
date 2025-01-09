@@ -1,7 +1,9 @@
 <template>
   <footer class="bg-white py-12 border-t">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between gap-8 text-center md:text-left">
+      <div
+        class="flex flex-col md:flex-row justify-between gap-8 text-center md:text-left"
+      >
         <!-- Company Info -->
         <div class="space-y-5 w-full md:w-72">
           <div>
@@ -90,7 +92,9 @@
         <div class="flex flex-col space-y-4 w-full md:w-auto">
           <div>
             <h3 class="font-medium">USA</h3>
-            <div class="flex items-center justify-center md:justify-start space-x-2">
+            <div
+              class="flex items-center justify-center md:justify-start space-x-2"
+            >
               <svg
                 class="icon-fixed-size"
                 viewBox="0 0 24 24"
@@ -106,7 +110,9 @@
               </svg>
               <p class="text-sm text-gray-600">+1 207 241-5887</p>
             </div>
-            <div class="flex items-center justify-center md:justify-start space-x-2 mt-2">
+            <div
+              class="flex items-center justify-center md:justify-start space-x-2 mt-2"
+            >
               <svg
                 class="icon-fixed-size"
                 viewBox="0 0 24 24"
@@ -128,21 +134,34 @@
       </div>
       <!-- Certifications -->
       <div class="mt-12 flex flex-wrap justify-center items-center gap-8">
-        <img src="" alt="WARD" class="h-[60px] w-auto" />
-        <img src="" alt="AFID Certification" class="h-[60px] w-auto" />
-        <img src="" alt="Partnership Badge" class="h-[60px] w-auto" />
-        <img src="" alt="H Badge" class="h-[60px] w-auto" />
-        <img src="" alt="CCBP Badge" class="h-[60px] w-auto" />
-        <img src="" alt="SHRM Badge" class="h-[60px] w-auto" />
+        <img :src="urlFor(footer[0].images[0])" alt="WARD" class="h-[60px] w-auto" v-if="footer[0] && footer[0].images[0]" />
+        <img :src="urlFor(footer[0].images[1])" alt="AFID Certification" class="h-[60px] w-auto" v-if="footer[0] && footer[0].images[1]" />
+        <img :src="urlFor(footer[0].images[2])" alt="Partnership Badge" class="h-[60px] w-auto" v-if="footer[0] && footer[0].images[2]" />
+        <img :src="urlFor(footer[0].images[3])" alt="H Badge" class="h-[60px] w-auto" v-if="footer[0] && footer[0].images[3]" />
+        <img :src="urlFor(footer[0].images[4])" alt="CCBP Badge" class="h-[60px] w-auto" v-if="footer[0] && footer[0].images[4]" />
+        <img :src="urlFor(footer[0].images[5])" alt="SHRM Badge" class="h-[60px] w-auto" v-if="footer[0] && footer[0].images[5]" />
       </div>
     </div>
   </footer>
 </template>
 
-<script>
-export default {
-  name: "Footer",
-};
+<script setup lang="ts">
+import sanityClient from "~/hooks/sanityClient";
+import { urlFor } from "~/hooks/sanityImageUrl";
+import type { Footer } from "~/types/footer";
+
+const footer = ref<Footer[]>([]);
+
+onMounted(async () => {
+  try {
+    footer.value = await sanityClient.fetch<Footer[]>('*[_type == "footer"]');
+    if (footer.value.length > 0) {  
+      console.log("Footer data fetched successfully:", footer.value);
+    }
+  } catch (error) {
+    console.error("Error fetching data from Sanity:", error);
+  }
+});
 </script>
 
 <style scoped>

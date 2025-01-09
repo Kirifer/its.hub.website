@@ -12,7 +12,7 @@
           >Services</span
         >
       </div>
-      <!-- Blog Header Card -->
+
       <div class="p-6 sm:p-8 flex flex-col items-center justify-center">
         <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900">
           Services
@@ -46,17 +46,17 @@
         }"
       />
 
-      <!-- Blog Cards Container -->
+ 
       <div
         class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 w-full max-w-6xl px-4"
       >
-        <!-- Blog Card -->
+       
         <div
           v-for="(blog, index) in visibleBlogs"
           :key="index"
-          class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-[365px]"
+          class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-auto"
         >
-          <!-- Blog Image -->
+         
           <div class="w-full h-25 sm:h-30 md:h-48">
             <img
               :src="urlFor(blog.icon)"
@@ -76,21 +76,10 @@
               :to="`/blog/${blog.id}`"
               class="mt-2 inline-flex items-center text-[#606DF1] hover:text-[#4F5CD8] transition-colors"
             >
-              <span class="text-sm sm:text-base">Read More</span>
-              <svg
-                class="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+              <span
+                class="text-sm text-end sm:text-base absolute bottom-4 right-4"
+                >Read More</span
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
             </NuxtLink>
           </div>
         </div>
@@ -147,7 +136,7 @@ interface BlogPost {
 
 const blogs = ref<BlogPost | null>(null);
 const currentPage = ref(1);
-const itemsPerPage = ref(6);
+const itemsPerPage = ref(8);
 const totalPages = computed(() => {
   return Math.ceil(
     (blogs.value?.section1_cards?.length || 0) / itemsPerPage.value
