@@ -732,9 +732,9 @@ onMounted(async () => {
 
       <div class="min-h-[500px] px-4 sm:px-6 lg:px-6 py-12">
         <div class="max-w-8xl mx-auto p-5">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center ">
             <!-- Left Content -->
-            <div class="space-y-6">
+            <div class="space-y-6 z-10">
               <h1
                 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 leading-tight"
               >
@@ -817,7 +817,7 @@ onMounted(async () => {
             </div>
 
             <!-- Right Image -->
-            <div class="relative h-full w-full mt-8 sm:mt-0">
+            <div class="relative md:block hidden h-full w-full mt-8 sm:mt-0">
               <img
                 v-if="section7Image"
                 :src="section7Image"
