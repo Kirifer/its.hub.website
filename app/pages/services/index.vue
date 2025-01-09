@@ -54,32 +54,43 @@
         <div
           v-for="(blog, index) in visibleBlogs"
           :key="index"
-          class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+          class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-[365px]"
         >
           <!-- Blog Image -->
-          <div class="w-full h-32 sm:h-40 md:h-48">
+          <div class="w-full h-25 sm:h-30 md:h-48">
             <img
               :src="urlFor(blog.icon)"
               :alt="blog.heading"
               class="w-full h-full object-cover"
             />
           </div>
-          <!-- Title, Description, and Read More Button -->
+          <!-- Title and Read More Link -->
           <div class="p-4">
             <h2
               class="text-md sm:text-xl font-semibold text-gray-900 leading-snug"
             >
               {{ blog.heading }}
             </h2>
-            <!-- <p class="mt-2 text-xs sm:text-sm text-gray-600">
-              {{ blog.subheading }}
-            </p> -->
-            <!-- Read More Button -->
+            <!-- Read More Link with Chevron (After Heading) -->
             <NuxtLink
               :to="`/blog/${blog.id}`"
-              class="mt-3 inline-block px-3 py-1.5 bg-[#606DF1] text-white rounded-md hover:bg-[#4F5CD8] transition-colors text-xs sm:text-sm"
+              class="mt-2 inline-flex items-center text-[#606DF1] hover:text-[#4F5CD8] transition-colors"
             >
-              {{ blog.button || "Read More" }}
+              <span class="text-sm sm:text-base">Read More</span>
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
             </NuxtLink>
           </div>
         </div>
