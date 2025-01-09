@@ -28,7 +28,7 @@
           Back to Careers
         </button>
       </div>
-      <div class="max-w-7xl mx-auto px-10 py-15">
+      <div class="max-w-7xl mx-auto px-10 py-16">
         <!-- Hero Section -->
         <div
           class="relative flex flex-col md:flex-row justify-between items-center md:items-start space-y-16 md:space-y-0"
@@ -66,7 +66,7 @@
 
           <!-- Right Section: Gradient Image Container -->
           <div
-            class="relative w-full md:w-[355px] h-[334px] mt-16 md:mt-0 flex justify-center md:justify-end flex-shrink-0 " 
+            class="relative w-full md:w-[355px] h-[334px] mt-16 py-[12px] md:mt-0 flex justify-center md:justify-end flex-shrink-0"
           >
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#00B8D4] to-[#844DDC] rounded-[20px] transform rotate-180"
