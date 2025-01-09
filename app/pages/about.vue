@@ -1,514 +1,489 @@
-<template>
-  <div class="graph-paper-container">
-    <!-- Content -->
-    <div class="relative z-10 max-w-6xl mx-auto px-4 py-8 space-y-16">
-      <!-- Header -->
-      <div class="text-center">
-        <span
-          class="inline-flex items-center gap-2.5 px-4 py-1 sm:text-lg font-normal text-violet-500 bg-violet-500/20 rounded-full"
-        >
-          <ChartBarIcon class="h-4 w-4 sm:h-5 sm:w-5 text-violet-500" /> Lets
-          discover & grow!
-        </span>
-      </div>
-
-      <div class="text-center space-y-4">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl -mt-8 font-bold">
-          {{ about?.hero_title }}
-        </h1>
-        <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
-          {{ about?.hero_subtitle }}
-        </p>
-      </div>
-
-      <!-- Why Choose Us Card -->
-      <div
-        class="overflow-hidden rounded-[40px] shadow-[0px_4px_75.1px_5px_rgba(0,_0,_0,_0.25)] bg-white"
-      >
-        <div class="flex flex-col md:flex-row items-center">
-          <div class="p-6 md:p-8 md:w-1/2 space-y-4 sm:space-y-6">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold ml-4">
-              {{ about?.section_1[0].heading }}
-            </h2>
-            <p
-              class="text-gray-600 leading-relaxed text-lg sm:text-[25px] ml-4 pb-6"
-            >
-              {{ about?.section_1[0].subheading }}
-            </p>
-            <button
-              class="ml-4 px-4 py-2 sm:px-6 sm:py-2 bg-[#606DF1] text-white rounded-[15px] hover:bg-[#4F5CD8] transition-colors text-sm sm:text-base"
-            >
-              {{ about?.section_1[0].section_button1 }}
-            </button>
-          </div>
-          <div class="md:w-1/2 p-6 sm:p-10">
-            <img
-              src="@/assets/images/choose.png"
-              alt="Innovation concept"
-              class="w-full h-auto rounded-lg"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="flex flex-col md:flex-row items-center md:items-start justify-between gap-8"
-      >
-        <!-- Stats Section -->
-        <div class="bg-white rounded-2xl shadow-lg p-6 w-full md:w-2/3">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2">
-            <div
-              v-for="(stat, index) in about?.section_2_stats"
-              :key="index"
-              class="text-center"
-            >
-              <div
-                class="text-[#606DF1] text-3xl sm:text-4xl md:text-5xl font-bold"
-              >
-                {{ stat.heading }}
-              </div>
-              <div class="text-gray-600 text-sm sm:text-base">
-                {{ stat.subheading }}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Numbers Section -->
-        <div class="space-y-4 w-full md:w-1/3">
-          <div
-            class="inline-flex items-center gap-2 bg-purple-100 px-4 py-1 rounded-full text-center mx-auto md:mx-0"
-          >
-            <span class="text-purple-600 text-sm sm:text-base">Numbers</span>
-          </div>
-          <p
-            class="text-gray-600 max-w-lg mx-auto md:mx-0 text-center md:text-left text-sm sm:text-base"
-          >
-            {{ about?.section_2_text }}
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-gradient-to-b from-gray-900 to-gray-800">
-      <!-- Uniqueness Section -->
-      <section class="max-w-7xl mx-auto px-4 py-16">
-        <div
-          class="flex flex-col sm:flex-row justify-between items-center mb-12"
-        >
-          <div class="text-center sm:text-left">
-            <span
-              class="bg-indigo-900/50 text-indigo-300 px-4 py-2 rounded-full text-sm"
-            >
-              Showcases
-            </span>
-            <h2 class="text-3xl sm:text-4xl font-bold text-white mt-4">
-              {{ about?.section_3_heading }}
-            </h2>
-          </div>
-          <button
-            class="bg-indigo-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-[14px] hover:bg-indigo-700 transition-colors mt-6 sm:mt-0 text-sm sm:text-base"
-          >
-            {{ about?.section_3_button }}
-          </button>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Innovative Outsourcing Card -->
-          <div
-            v-for="(card, index) in about?.section_3_card1"
-            :key="index"
-            class="group bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors"
-          >
-            <img
-              :src="urlFor(card.image.asset._ref)"
-              :alt="card.heading"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6">
-              <h3
-                class="text-xl font-semibold text-black group-hover:text-white mb-2"
-              >
-                {{ card.heading }}
-              </h3>
-              <p class="text-gray-400 group-hover:text-white">
-                {{ card.subheading }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Scalable and Flexible Card -->
-          <div
-            v-for="(card, index) in about?.section_3_card2"
-            :key="index"
-            class="group bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors md:col-span-2"
-          >
-            <img
-              :src="urlFor(card.image.asset._ref)"
-              :alt="card.heading"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6">
-              <h3
-                class="text-xl font-semibold text-black group-hover:text-white mb-2"
-              >
-                {{ card.heading }}
-              </h3>
-              <p class="text-gray-400 group-hover:text-white">
-                {{ card.subheading }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Cost Efficient Card -->
-          <div
-            v-for="(card, index) in about?.section_3_card3"
-            :key="index"
-            class="group bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors md:col-span-2"
-          >
-            <img
-              :src="urlFor(card.image.asset._ref)"
-              :alt="card.heading"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6">
-              <h3
-                class="text-xl font-semibold text-black group-hover:text-white mb-2"
-              >
-                {{ card.heading }}
-              </h3>
-              <p class="text-gray-400 group-hover:text-white">
-                {{ card.subheading }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Dedicated Team Card -->
-          <div
-            v-for="(card, index) in about?.section_3_card4"
-            :key="index"
-            class="group bg-white text-black rounded-[10px] overflow-hidden hover:bg-gray-800/70 transition-colors"
-          >
-            <img
-              :src="urlFor(card.image.asset._ref)"
-              :alt="card.heading"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6">
-              <h3
-                class="text-xl font-semibold text-black group-hover:text-white mb-2"
-              >
-                {{ card.heading }}
-              </h3>
-              <p class="text-gray-400 group-hover:text-white">
-                {{ card.subheading }}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Social Media Links -->
-        <div class="flex justify-center gap-6 mt-12">
-          <a
-            v-for="(link, index) in socialMediaLinks"
-            :key="index"
-            :href="link.url"
-            class="text-gray-400 hover:text-gray-300 text-sm sm:text-base"
-          >
-            {{ link.name }}
-          </a>
-        </div>
-      </section>
-    </div>
-
-    <div class="container mx-auto px-4 pt-12">
-      <!-- Team Section -->
-      <section class="py-16">
-        <div class="max-w-7xl mx-auto px-4">
-          <div class="text-center mb-12">
-            <span
-              class="inline-block px-8 py-2 rounded-full text-lg sm:text-xl font-medium bg-violet-100 text-violet-600 mb-4"
-            >
-              Our team
-            </span>
-            <h2 class="text-3xl sm:text-4xl font-bold mt-4">
-              {{ about?.section_4_heading }}
-            </h2>
-          </div>
-          <div class="relative">
-            <div
-              class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            >
-              <!-- Team Members -->
-              <div v-for="(card, index) in about?.section_4_cards" :key="index" 
-                class="relative group col-span-1"
-              >
-                <div class="bg-white rounded-xl p-4 shadow-lg">
-                  <img
-                    :src="urlFor(card.image.asset._ref)"
-                    :alt="card.heading"
-                    class="w-full aspect-square object-cover rounded-lg mb-4"
-                  />
-                  <div class="flex items-center justify-between">
-                    <div>
-                      <h3 class="font-medium text-sm sm:text-base">
-                        {{ card.heading }}
-                      </h3>
-                      <p class="text-sm text-gray-500">{{ card.subheading }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Group 73 Image -->
-              <div
-                class="relative col-span-1 hidden md:block absolute left-0 top-1/2 transform -translate-y-1"
-              >
-                <img
-                  src="~/assets/images/group 97.svg"
-                  alt="Design Element"
-                  class="hidden md:block absolute left-[-52px] top-[-33px] transform -translate-y-1/2"
-                  style="height: 255x; width: auto"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- Testimonials Section -->
-    <div class="container mx-auto px-4 pt-12">
-      <div class="">
-        <div
-          class="w-full max-w-8xl bg-white rounded-3xl p-6 sm:p-12 border border-violet-400"
-        >
-          <!-- Testimonial Tag -->
-          <div class="flex justify-center">
-            <span
-              class="inline-block px-4 py-2 rounded-full text-lg sm:text-xl font-medium bg-violet-100 text-violet-600 mb-4"
-            >
-              Testimonials
-            </span>
-          </div>
-
-                    <!-- filepath: /c:/Users/Alaica/Documents/ITS/its.hub.website/app/pages/about.vue -->
-          <div class="relative overflow-hidden" style="height: 300px">
-            <TransitionGroup name="slide" class="relative">
-              <div
-                v-for="(testimonial, index) in about?.section_5_testimonials"
-                :key="index"
-                v-show="currentIndex === index"
-                class="absolute w-full transition-all duration-500 ease-in-out"
-              >
-                <h2
-                  class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 text-center sm:text-left"
-                >
-                  {{ testimonial.message }}
-                </h2>
-                <p
-                  class="font-normal mt-8 sm:mt-16 text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[700px] mx-auto text-center"
-                >
-                  {{ testimonial.author }}, {{ testimonial.position }}
-                </p>
-              </div>
-            </TransitionGroup>
-          </div>
-          <!-- Dot Indicators -->
-          <div class="flex justify-center space-x-2 mt-6">
-            <button
-              v-for="testimonial in testimonials"
-              :key="testimonial.id"
-              @click="setSlide(testimonial.id)"
-              class="group"
-              :aria-label="`Go to testimonial ${testimonial.id + 1}`"
-              :aria-current="currentIndex === testimonial.id"
-            >
-              <div
-                :class="[
-                  'w-3 h-3 rounded-full transition-all duration-300 transform',
-                  currentIndex === testimonial.id
-                    ? 'bg-violet-600 scale-125'
-                    : 'bg-gray-300 group-hover:bg-gray-400',
-                ]"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- Floating content -->
-      <div
-        class="relative z-50 mx-auto max-w-4xl animate-float sm:mt-48 text-center py-12 sm:py-24"
-      >
-        <h2
-          class="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 whitespace-normal sm:whitespace-nowrap"
-        >
-          {{ about?.section_6_heading }}
-        </h2>
-        <p
-          class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 mb-16"
-        >
-          {{ about?.section_6_subheading }}
-        </p>
-        <button
-          @click="$router.push('/contact')"
-          class="px-4 py-2 text-sm md:text-base font-semibold bg-violet-600 text-white rounded-md hover:bg-violet-700 transition-all duration-300 hover:scale-105 mb-14"
-        >
-          {{ about?.section_6_button }}
-        </button>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { ChartBarIcon } from "@heroicons/vue/24/outline";
-import { ref, onMounted } from "vue";
 import sanityClient from "@/hooks/sanityClient";
-import { urlFor } from "@/hooks/sanityImageUrl";
+import {
+  ChartBarIcon,
+  ChevronDoubleLeftIcon,
+  ChevronDoubleRightIcon,
+} from "@heroicons/vue/24/outline";
+import { urlFor } from "~/hooks/sanityImageUrl";
+import type { About } from "~/types/about";
 
-interface AboutPost {
-  hero_title: string;
-  hero_subtitle: string;
-  section_1: {
-    heading: string;
-    subheading: string;
-    section_button1: string;
-    image: { asset: { _ref: string } };
-  }[];
-  section_2_stats: Array<{ heading: string; subheading: string }>;
-  section_2_text: string;
-  section_3_heading: string;
-  section_3_button: string;
-  section_3_card1: {
-    heading: string;
-    subheading: string;
-    image: { asset: { _ref: string } };
-  }[];
-  section_3_card2: {
-    heading: string;
-    subheading: string;
-    image: { asset: { _ref: string } };
-  }[];
-  section_3_card3: {
-    heading: string;
-    subheading: string;
-    image: { asset: { _ref: string } };
-  }[];
-  section_3_card4: {
-    heading: string;
-    subheading: string;
-    image: { asset: { _ref: string } };
-  }[];
-  section_4_heading: string;
-  section_4_cards: {
-    heading: string;
-    subheading: string;
-    image: { asset: { _ref: string } };
-  }[];
-  section_5_testimonials: {
-    message: string;
-    author: string;
-    position: string;
-  }[];
-  section_6_heading: string;
-  section_6_subheading: string;
-  section_6_button: string;
-}
+const about = ref<About[]>([]);
+const section1Image = ref("");
+const section3Card1Image = ref("");
+const section3Card2Image = ref("");
+const section3Card3Image = ref("");
+const section3Card4Image = ref("");
 
-const about = ref<AboutPost | null>(null);
+console.log(about);
 
 onMounted(async () => {
   try {
-    const data = await sanityClient.fetch<AboutPost[]>('*[_type == "about"]');
-    if (data && data.length > 0) {
-      about.value = data[0]; // Assign the first item from the fetched array
-      console.log(about.value, "about values:");
-      console.log(about.value.section_1[0].section_button1, "section_1_button");
-      console.log(
-        urlFor(about.value.section_3_card1[0].image.asset._ref),
-        "section_3_card1 image URL"
+    about.value = await sanityClient.fetch<About[]>('*[_type == "about"]');
+    if (about.value.length > 0) {
+      section1Image.value = urlFor(
+        about.value[0]?.section_1[0].image.asset._ref
       );
+      console.log(about.value);
     }
   } catch (error) {
     console.error("Error fetching data from Sanity:", error);
   }
 });
 
-// Testimonials Autoplay Logic
-const currentIndex = ref(0);
-const autoplayInterval = ref<NodeJS.Timeout | null>(null);
+const currentSlide = ref(0);
 
-const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % testimonials.value.length;
-};
-
-const startAutoplay = () => {
-  autoplayInterval.value = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-};
-
-const stopAutoplay = () => {
-  if (autoplayInterval.value) {
-    clearInterval(autoplayInterval.value);
-    autoplayInterval.value = null;
+const prevSlide = () => {
+  if (currentSlide.value > 0) {
+    currentSlide.value--;
   }
 };
 
-onMounted(() => {
-  startAutoplay();
-});
-
-onUnmounted(() => {
-  stopAutoplay();
-});
-
-const socialMediaLinks = ref([
-  { name: "Facebook", url: "https://facebook.com" },
-  { name: "Twitter", url: "https://twitter.com" },
-  { name: "LinkedIn", url: "https://linkedin.com" },
-  { name: "Instagram", url: "https://instagram.com" },
-]);
-
-const testimonials = ref([
-  {
-    id: 0,
-    content:
-      "IT Squarehub seamlessly improved our processes, boosting productivity and saving time. Their support is outstanding!",
-    author: "Ashley T.",
-    role: "Software Associate",
-  },
-  {
-    id: 1,
-    content:
-      "The implementation was smooth and the results were immediate. Highly recommended for any business looking to improve.",
-    author: "Michael R.",
-    role: "Project Manager",
-  },
-  {
-    id: 2,
-    content:
-      "Best decision we made this year. The team is responsive and the platform is intuitive and powerful.",
-    author: "Sarah L.",
-    role: "Operations Director",
-  },
-]);
-
-const setSlide = (index: number) => {
-  currentIndex.value = index;
+const nextSlide = () => {
+  if (
+    currentSlide.value <
+    Math.ceil(about.value[0]?.section_4_cards.length / 8) - 1
+  ) {
+    currentSlide.value++;
+  }
 };
+
+const isPrevDisabled = computed(() => currentSlide.value === 0);
+const isNextDisabled = computed(
+  () =>
+    currentSlide.value >=
+    Math.ceil(about.value[0]?.section_4_cards.length / 8) - 1
+);
+
+const reviews = [
+  {
+    name: "Jack",
+    username: "@jack",
+    body: "I've never seen anything like this before. It's amazing. I love it.",
+    img: "https://avatar.vercel.sh/jack",
+  },
+  {
+    name: "Jill",
+    username: "@jill",
+    body: "I don't know what to say. I'm speechless. This is amazing.",
+    img: "https://avatar.vercel.sh/jill",
+  },
+  {
+    name: "John",
+    username: "@john",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/john",
+  },
+  {
+    name: "Jane",
+    username: "@jane",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jane",
+  },
+  {
+    name: "Jenny",
+    username: "@jenny",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jenny",
+  },
+  {
+    name: "James",
+    username: "@james",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/james",
+  },
+];
+
+// Split reviews into two rows
+const firstRow = ref(reviews.slice(0, reviews.length / 2));
+const secondRow = ref(reviews.slice(reviews.length / 2));
 </script>
 
+<template>
+  <div class="overflow-x-hidden">
+    <div
+      class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] relative animate-fade-grid-in-2"
+    >
+      <div class="relative">
+        <div class="h-[1200px] md:h-[1000px] relative">
+          <div
+            class="absolute inset-0 h-[500px] flex items-center justify-center z-0"
+          >
+            <!-- Ellipse 1 -->
+            <div class="absolute -top-[425px]">
+              <div
+                class="w-[950px] h-[950px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.1)] animate-pulse"
+              ></div>
+            </div>
+
+            <!-- Ellipse 3 -->
+            <div
+              class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]"
+            >
+              <div
+                class="w-[750px] h-[750px] rounded-full border-2 border-[rgba(163,162,162,0.01)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse"
+              ></div>
+            </div>
+
+            <!-- Ellipse 5 -->
+            <div
+              class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]"
+            >
+              <div
+                class="w-[550px] h-[550px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container mx-auto px-4 absolute inset-0">
+          <div
+            class="flex flex-col items-center justify-center space-y-5 md:space-y-10 animate-fade-in"
+          >
+            <div class="mt-10 -mb-2">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full text-lg font-medium bg-blue-200 text-blue-800"
+              >
+                <ChartBarIcon class="h-5 w-5 mr-1" />
+                Lets Discover and Grow
+              </span>
+            </div>
+            <div
+              class="font-bold text-center text-3xl md:text-6xl w-[350px] md:w-[650px]"
+            >
+              {{ about[0]?.hero_title }}
+            </div>
+            <div
+              class="text-center text-lg md:text-xl text-gray-900 w-full md:w-[500px]"
+            >
+              {{ about[0]?.hero_subtitle }}
+            </div>
+
+            <!-- Card  -->
+            <div
+              class="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden h-auto md:max-h-4xl md:max-w-4xl"
+            >
+              <div class="md:flex">
+                <div class="p-8">
+                  <div
+                    class="uppercase tracking-wide text-xl md:text-4xl font-bold"
+                  >
+                    {{ about[0]?.section_1[0].heading }}
+                  </div>
+                  <p class="mt-4 text-lg md:text-2xl text-gray-500">
+                    {{ about[0]?.section_1[0].subheading }}
+                  </p>
+                </div>
+                <div class="md:flex-shrink-0">
+                  <img
+                    class="h-48 w-full object-cover md:block hidden md:h-[400px] md:w-full"
+                    :src="section1Image"
+                    alt="Card Image"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-7 max-w-4xl">
+              <div class="w-full md:w-3/4">
+                <div
+                  class="mx-auto bg-white rounded-xl shadow-md overflow-hidden h-auto"
+                >
+                  <div class="flex flex-col md:flex-row gap-10 p-8">
+                    <div>
+                      <div
+                        class="uppercase tracking-wide text-3xl md:text-5xl text-blue-400 font-bold text-center"
+                      >
+                        {{ about[0]?.section_2_stats[0].heading }}
+                      </div>
+                      <div
+                        class="mt-4 text-lg md:text-xl font-semibold uppercase text-gray-500 text-center"
+                      >
+                        {{ about[0]?.section_2_stats[0].subheading }}
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="uppercase tracking-wide text-3xl md:text-5xl text-blue-400 font-bold text-center"
+                      >
+                        {{ about[0]?.section_2_stats[1].heading }}
+                      </div>
+                      <div
+                        class="mt-4 text-lg md:text-xl font-semibold uppercase text-gray-500 text-center"
+                      >
+                        {{ about[0]?.section_2_stats[1].subheading }}
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="uppercase tracking-wide text-3xl md:text-5xl text-blue-400 font-bold text-center"
+                      >
+                        {{ about[0]?.section_2_stats[2].heading }}
+                      </div>
+                      <div
+                        class="mt-4 text-lg md:text-xl font-semibold uppercase text-gray-500 text-center"
+                      >
+                        {{ about[0]?.section_2_stats[2].subheading }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="justify-center text-left w-full md:w-1/2">
+                <div
+                  class="text-center md:block hidden items-center px-5 py-3 rounded-full text-2xl md:text-4xl font-medium bg-blue-200 text-blue-800"
+                >
+                  Numbers
+                </div>
+                <div
+                  class="text-lg md:text-xl text-gray-500 mt-4 md:text-left text-center"
+                >
+                  It’s time to strengthen your team and boost business
+                  performance through our Professional Outsourcing Services.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bento Box -->
+    <div class="bg-black text-white">
+      <div class="bg-gradient-to-r from-fuchsia-500/30 to-cyan-500/50">
+        <div class="container mx-auto py-10 px-4">
+          <div
+            class="inline-flex items-center px-3 py-1 text-lg rounded-full font-medium bg-blue-200 text-blue-800"
+          >
+            Showcases
+          </div>
+          <div
+            class="flex flex-col md:flex-row w-full items-center justify-between mt-4"
+          >
+            <div
+              class="text-2xl md:text-4xl font-bold uppercase md:text-left text-center"
+            >
+              The uniqueness of IT Squarehub
+            </div>
+            <div
+              class="border px-4 py-2 rounded-full bg-blue-200 text-blue-800 font-semibold mt-4 md:mt-0"
+            >
+              <button>Connect Now!</button>
+            </div>
+          </div>
+
+          <!-- Bento Boxes -->
+          <div class="flex justify-center">
+            <div
+              class="container flex h-full w-full md:w-3/4 items-center justify-center mt-10"
+            >
+              <div
+                class="grid h-full w-full grid-cols-1 md:grid-cols-3 grid-rows-4 md:grid-rows-2 gap-4 p-2 rounded-lg"
+              >
+                <div
+                  v-for="(card, index) in about[0]?.section_3_cards"
+                  :key="index"
+                  :class="
+                    index === 1 || index === 2
+                      ? 'col-span-1 md:col-span-2 row-span-1'
+                      : 'col-span-1 row-span-1'
+                  "
+                  class="rounded-lg shadow-md shadow-gray-500/40 flex items-center justify-center h-72 md:h-64"
+                  :style="{
+                    backgroundImage: `url(${urlFor(card.image.asset._ref)})`,
+                  }"
+                >
+                  <div
+                    class="bg-white p-2 rounded-br-xl rounded-bl-xl shadow-md mt-auto w-full h-[150px] md:h-[90px] flex flex-col justify-start"
+                  >
+                    <h3
+                      class="text-lg font-bold mb-1 text-black text-center mx-2"
+                    >
+                      {{ card.heading }}
+                    </h3>
+                    <p class="text-gray-600 text-sm text-center mx-2">
+                      {{ card.subheading }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex md:flex-row justify-center gap-20 mt-6 text-gray-300 font-semibold uppercase"
+          >
+            <div v-for="index in 5" :key="index">@ITSquarehub</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mx-auto py-4">
+      <div class="flex justify-center">
+        <div
+          class="inline-flex items-center px-3 py-1 rounded-full text-lg font-medium bg-blue-200 text-blue-800 mt-5"
+        >
+          Our Team
+        </div>
+      </div>
+      <div class="flex flex-col justify-center text-center">
+        <div class="text-3xl font-bold uppercase mt-4">
+          {{ about[0]?.section_4_heading }}
+        </div>
+        <div>
+          <div class="relative mt-6 overflow-x-hidden">
+            <button
+              @click="prevSlide"
+              :disabled="isPrevDisabled"
+              :class="{
+                'bg-gray-300': isPrevDisabled,
+                'bg-blue-200': !isPrevDisabled,
+              }"
+              class="absolute left-0 top-1/2 transform -translate-y-1/2 text-blue-800 p-2 rounded-full"
+            >
+              <ChevronDoubleLeftIcon class="h-6 w-auto" />
+            </button>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div
+                v-for="(member, index) in about[0]?.section_4_cards.slice(
+                  currentSlide * 8,
+                  currentSlide * 8 + 8
+                )"
+                :key="index"
+                :class="[
+                  'rounded-lg shadow-md p-4 flex flex-col items-center w-[300px]',
+                  index % 4 === 0
+                    ? 'bg-blue-100/50'
+                    : index % 4 === 1
+                    ? 'bg-purple-100/50'
+                    : index % 4 === 2
+                    ? 'bg-yellow-100/50'
+                    : 'bg-cyan-100/50',
+                ]"
+                class="w-full sm:w-[300px]"
+              >
+                <img
+                  :src="urlFor(member.image.asset._ref)"
+                  alt="Team Member Image"
+                  class="w-full h-48 object-cover rounded-lg mb-2"
+                />
+                <div class="text-lg font-bold text-center">
+                  {{ member.heading }}
+                </div>
+                <div class="text-gray-500 text-center">
+                  {{ member.subheading }}
+                </div>
+              </div>
+            </div>
+            <button
+              @click="nextSlide"
+              :disabled="isNextDisabled"
+              :class="{
+                'bg-gray-300': isNextDisabled,
+                'bg-blue-200': !isNextDisabled,
+              }"
+              class="absolute right-0 top-1/2 transform -translate-y-1/2 text-blue-800 p-2 rounded-full"
+            >
+              <ChevronDoubleRightIcon class="h-6 w-auto" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="container mx-auto py-4">
+      <div class="flex flex-col items-center justify-center space-y-5">
+        <div
+          class="inline-flex items-center px-3 py-1 rounded-full text-lg font-medium bg-blue-200 text-blue-800 mt-5"
+        >
+          Testimonials
+        </div>
+        <div class="text-3xl font-bold uppercase mt-4">
+          hear it from our clients!
+        </div>
+
+        <div
+          class="relative flex h-[400px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background"
+        >
+          <!-- First Marquee -->
+          <Marquee pause-on-hover class="[--duration:20s]">
+            <ReviewCard
+              v-for="review in firstRow"
+              :key="review.username"
+              :img="review.img"
+              :name="review.name"
+              :username="review.username"
+              :body="review.body"
+            />
+          </Marquee>
+
+          <!-- Second Marquee (reverse) -->
+          <Marquee reverse pause-on-hover class="[--duration:20s]">
+            <ReviewCard
+              v-for="review in secondRow"
+              :key="review.username"
+              :img="review.img"
+              :name="review.name"
+              :username="review.username"
+              :body="review.body"
+            />
+          </Marquee>
+
+          <!-- Thirs Marquee -->
+          <Marquee pause-on-hover class="[--duration:20s]">
+            <ReviewCard
+              v-for="review in firstRow"
+              :key="review.username"
+              :img="review.img"
+              :name="review.name"
+              :username="review.username"
+              :body="review.body"
+            />
+          </Marquee>
+
+          <!-- Left Gradient -->
+          <div
+            class="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"
+          ></div>
+
+          <!-- Right Gradient -->
+          <div
+            class="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <style scoped>
-.graph-paper-container {
-  background-image: linear-gradient(
-      to right,
-      rgba(220, 220, 220, 0.6) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgba(220, 220, 220, 0.6) 1px, transparent 1px);
-  background-size: 80px 80px;
-  width: 100%;
-  height: 100%;
-  background-color: white;
+.animate-fade-grid-in-2 {
+  animation: grid-fade-in 2s ease-out;
+}
+
+@keyframes grid-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .circles-container {
@@ -518,7 +493,6 @@ const setSlide = (index: number) => {
   width: 800px;
   height: 800px;
   transform: translate(-50%, -50%);
-  z-index: -1; /* Move circles behind content */
 }
 
 .circle {
@@ -566,7 +540,6 @@ const setSlide = (index: number) => {
   }
 }
 
-/* Add noise texture */
 .circles-container::before {
   content: "";
   position: absolute;
@@ -575,5 +548,21 @@ const setSlide = (index: number) => {
   opacity: 0.1;
   mix-blend-mode: overlay;
   pointer-events: none;
+}
+
+@keyframes hero-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse {
+  animation: hero-pulse 5s infinite;
 }
 </style>
