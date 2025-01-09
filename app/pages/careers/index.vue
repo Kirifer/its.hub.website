@@ -20,43 +20,15 @@
         </p>
       </div>
 
-      <div class="relative w-full flex justify-center">
-        <div class="absolute inset-0 h-[500px] flex items-center justify-center z-0">
-          <!-- Ellipse 1 -->
-          <div class="absolute -top-[125px]">
-            <div
-              class="w-[950px] h-[950px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.1)] animate-pulse"
-            ></div>
-          </div>
-
-          <!-- Ellipse 3 -->
-          <div
-            class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]"
-          >
-            <div
-              class="w-[750px] h-[750px] rounded-full border-2 border-[rgba(163,162,162,0.01)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse"
-            ></div>
-          </div>
-
-          <!-- Ellipse 5 -->
-          <div
-            class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]"
-          >
-            <div
-              class="w-[550px] h-[550px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse"
-            ></div>
-          </div>
-        </div>
-        <div
-          class="mt-8 p-3 rounded-2xl bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 max-w-4xl w-full relative z-10"
-        >
-          <div class="rounded-xl overflow-hidden">
-            <img
-              src="~/assets/images/its-hiring.jpg"
-              alt="Two people in a business meeting"
-              class="w-full h-[200px] sm:h-[300px] md:h-[450px] object-cover"
-            />
-          </div>
+      <div
+        class="mt-8 p-3 rounded-2xl bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 max-w-4xl w-full"
+      >
+        <div class="rounded-xl overflow-hidden">
+          <img
+            src="~/assets/images/its-hiring.jpg"
+            alt="Two people in a business meeting"
+            class="w-full h-[200px] sm:h-[300px] md:h-[450px] object-cover"
+          />
         </div>
       </div>
 

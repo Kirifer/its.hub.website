@@ -1,33 +1,37 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import sanityClient from "@/hooks/sanityClient";
-import { urlFor } from "@/hooks/sanityImageUrl";
-import type { Home } from "@/types/home";
+import { ref, onMounted, nextTick } from 'vue';
+import sanityClient from '@/hooks/sanityClient';
+import { urlFor } from '@/hooks/sanityImageUrl';
+import type { Home } from '@/types/home';
 import {
   ChartBarIcon,
   BarsArrowUpIcon,
   FlagIcon,
   ChartPieIcon,
-} from "@heroicons/vue/24/outline";
+} from '@heroicons/vue/24/outline';
 
 const home = ref<Home[]>([]);
-const heroImage = ref("");
+const heroImage = ref('');
 const section_1 = ref<
   Array<{
     heading: string;
     subheading: string;
     _key: string;
     icon: { asset: { _ref: string } };
+    visible: boolean;
   }>
 >([]);
-const section3Image = ref("");
+const section3Image = ref('');
 const section6 = ref<
   Array<{ author: string; position: string; message: string; _key: string }>
 >([]);
-const section7Image = ref("");
+const section7Image = ref('');
 const activeIndex = ref(0);
 const currentIndex = ref(0);
 const autoplayInterval = ref<ReturnType<typeof setInterval> | null>(null);
+
+const featureRefs = ref<HTMLElement[]>([]);
+const isVisible = ref<boolean[]>([]);
 
 const setSlide = (index: number) => {
   currentIndex.value = index;
@@ -45,18 +49,43 @@ const resetAutoplay = () => {
   autoplayInterval.value = setInterval(nextSlide, 5000);
 };
 
+const setFeatureRef = (el: HTMLElement | null, index: number) => {
+  if (el) {
+    featureRefs.value[index] = el;
+  }
+};
+
 onMounted(async () => {
   try {
     home.value = await sanityClient.fetch<Home[]>('*[_type == "home"]');
     if (home.value.length > 0) {
       heroImage.value = urlFor(home.value[0].hero_image.asset._ref);
-      section_1.value = home.value[0].section_1;
+      section_1.value = home.value[0].section_1.map((feature) => ({
+        ...feature,
+        visible: false,
+      }));
       section3Image.value = urlFor(home.value[0].section_3_image.asset._ref);
       section6.value = home.value[0].section_6_testimonials;
       section7Image.value = urlFor(home.value[0].section_7_image.asset._ref);
     }
+
+    await nextTick();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = featureRefs.value.findIndex((el) => el === entry.target);
+          if (index !== -1) {
+            section_1.value[index].visible = entry.isIntersecting;
+          }
+        });
+      },
+      { threshold: 0.9 }
+    );
+
+    featureRefs.value.forEach((el) => observer.observe(el));
   } catch (error) {
-    console.error("Error fetching data from Sanity:", error);
+    console.error('Error fetching data from Sanity:', error);
   }
 });
 </script>
@@ -211,37 +240,43 @@ onMounted(async () => {
     <div class="container mx-auto px-4 mt-10 md:mt-72">
       <div class="space-y-8 md:space-y-10 mt-10">
         <div
-          v-for="(feature, index) in section_1"
-          :key="index"
-          class="flex flex-col items-center text-center relative"
-        >
-          <div
-            :class="[
-              'w-[80px] h-[80px] border border-[#844ddc] rounded-lg flex items-center justify-center bg-white mb-4 sm:mb-0',
-              index % 2 === 0
-                ? 'sm:absolute sm:left-[5%] md:left-[15%]'
-                : 'sm:absolute sm:right-[5%] lg:right-[15%]',
-            ]"
-          >
-            <img
-              v-if="feature.icon && feature.icon.asset"
-              :src="urlFor(feature.icon.asset._ref)"
-              alt="icon"
-              class="w-12 h-12"
-            />
-          </div>
+      v-for="(feature, index) in section_1"
+      :key="index"
+      class="flex flex-col items-center text-center relative"
+      ref="featureRefs"
+    >
+      <div
+        :class="[
+          'w-[80px] h-[80px] border border-[#844ddc] rounded-lg flex items-center justify-center bg-white mb-4 sm:mb-0 transition-opacity duration-500 ease-out',
+          { 'opacity-0': !feature.visible, 'opacity-100': feature.visible },
+          index % 2 === 0
+            ? 'sm:absolute sm:left-[5%] md:left-[15%]'
+            : 'sm:absolute sm:right-[5%] lg:right-[15%]',
+        ]"
+      >
+        <img
+          v-if="feature.icon && feature.icon.asset"
+          :src="urlFor(feature.icon.asset._ref)"
+          alt="icon"
+          class="w-12 h-12"
+        />
+      </div>
 
-          <div class="max-w-2xl mx-auto px-4 space-y-2 md:space-y-4">
-            <h3
-              class="text-3xl md:text-4xl font-bold leading-tight text-center text-black font-instrument-sans"
-            >
-              {{ feature.heading }}
-            </h3>
-            <p class="text-base md:text-lg text-black/60 text-center">
-              {{ feature.subheading }}
-            </p>
-          </div>
-        </div>
+      <div class="max-w-2xl mx-auto px-4 space-y-2 md:space-y-4">
+        <h3
+          class="text-3xl md:text-4xl font-bold leading-tight text-center text-black font-instrument-sans transition-opacity duration-500 ease-out"
+          :class="{ 'opacity-0': !feature.visible, 'opacity-100': feature.visible }"
+        >
+          {{ feature.heading }}
+        </h3>
+        <p
+          class="text-base md:text-lg text-black/60 text-center transition-opacity duration-500 ease-out"
+          :class="{ 'opacity-0': !feature.visible, 'opacity-100': feature.visible }"
+        >
+          {{ feature.subheading }}
+        </p>
+      </div>
+    </div>
       </div>
 
       <div class="relative z-0">
