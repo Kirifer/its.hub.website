@@ -168,7 +168,7 @@ interface BlogPost {
 
 const blogs = ref<BlogPost | null>(null);
 const currentPage = ref(1);
-const itemsPerPage = ref(6);
+const itemsPerPage = ref(8);
 const totalPages = computed(() => {
   return Math.ceil(
     (blogs.value?.section1_cards?.length || 0) / itemsPerPage.value
