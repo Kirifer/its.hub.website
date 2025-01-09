@@ -145,27 +145,25 @@ onMounted(async () => {
               {{ home[0]?.hero_title }}
             </div>
             <div
-              class="text-center text-lg md:text-xl text-gray-900 w-full md:w-[500px]"
+              class="text-center text-lg md:text-xl text-gray-900 w-[350px] md:w-[500px]"
             >
               <TextGenerateEffect :words="home[0]?.hero_subtitle" class="" />
             </div>
-            <div
-              class="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-2"
-            >
-              <button
-                class="bg-purple-200 text-purple-800 font-medium px-6 py-2 rounded-md hover:bg-purple-300 transition-colors"
-              >
-                Get Started
-              </button>
-              <button
-                class="bg-white border-gray border font-medium px-6 py-2 rounded-md hover:bg-gray-300 transition-colors"
-              >
-                Learn More
-              </button>
-            </div>
+            <div class="flex flex-row justify-center space-x-2">
+  <button
+    class="bg-purple-200 text-purple-800 font-medium px-6 py-2 rounded-md hover:bg-purple-300 transition-colors"
+  >
+    Get Started
+  </button>
+  <button
+    class="bg-white border-gray border font-medium px-6 py-2 rounded-md hover:bg-gray-300 transition-colors"
+  >
+    Learn More
+  </button>
+</div>
 
             <div
-              class="w-full max-w-[90vw] md:max-w-[900px] mx-auto px-4 pb-16 relative"
+              class="w-full max-w-[90vw] md:max-w-[900px] md:pt-1 pt-6 mx-auto px-4 pb-16 relative"
             >
               <!-- Cyan gradient left-->
               <div
@@ -280,7 +278,7 @@ onMounted(async () => {
       </div>
 
       <div class="relative z-0">
-        <div class="relative rounded-2xl p-8 sm:p-16 md:p-32 overflow-hidden">
+        <div class="relative rounded-2xl p-8 sm:p-16 md:p-32 md:mt-12 mt-16 overflow-hidden">
           <div
             class="absolute border-l-2 border-r-2 border-b-2 border-purple-300 rounded-b-2xl z-10"
             style="bottom: 0; left: 0; right: 0; height: calc(100% - 4rem)"
@@ -381,7 +379,7 @@ onMounted(async () => {
         </div>
       </div>
 
-      <div class="relative rounded-3xl overflow-hidden mb-16 pt-28 sm:mb-32">
+      <div class="relative rounded-3xl overflow-hidden mb-16 md:pt-28 pt-16 sm:mb-32">
         <div class="p-4 sm:p-8 rounded-3xl">
           <div class="w-full max-w-[90vw] md:max-w-[1250px] mx-auto px-4">
             <div
@@ -545,10 +543,10 @@ onMounted(async () => {
       <div class="relative sm:pb-32">
         <!-- Partnership Content -->
         <div
-          class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center"
+          class="grid grid-cols-1 md:grid-cols-2 md:mb-1 mb-12 gap-8 sm:gap-12 items-center"
         >
           <!-- Team Images Grid -->
-          <div class="relative grid grid-cols-2 gap-4">
+          <div class="relative grid grid-cols-2 md:mb-1 mb-16 gap-4">
             <div class="relative transform translate-y-2">
               <img
                 v-if="

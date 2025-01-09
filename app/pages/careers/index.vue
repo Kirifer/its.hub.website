@@ -1,12 +1,13 @@
 <template>
   <div
-    class="inset-0 overflow-x-hidden w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
+  class=" animate-fade-grid-in-2 inset-0 overflow-x-hidden overflow-y-hidden w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
   >
     <!-- Main Content -->
     <div
-      class="z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12"
+    
+      class="z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12 "
     >
-      <div class="relative">
+      <div v-if="careers.length > 0"  class="relative animate-fade-in ">
         <div class="overflow-hidden h-full z-0">
           <div
             class="absolute inset-0 h-[500px] flex items-center justify-center"
@@ -70,7 +71,7 @@
         </div>
         <!-- Cyan gradient Right-->
         <div
-          class="absolute  w-[682px] h-[686px] rounded-full right-[-250px] top-48 z-0"
+          class="absolute  md:h-[686px] md:w-[682px] w-[282px] h-[286px] rounded-full right-[-250px] top-48 z-0"
           :style="{
             background:
               'radial-gradient(circle, rgba(142,212,246,0.6) 0%, rgba(142,212,246,0) 70%)',
@@ -80,7 +81,7 @@
         />
         <!-- Violet gradient Right-->
         <div
-          class="absolute w-[682px] h-[686px] rounded-full right-[-250px] top-8 z-0"
+          class="absolute md:h-[686px] md:w-[682px] w-[282px] h-[286px] rounded-full right-[-250px] top-8 z-0"
           :style="{
             background:
               'radial-gradient(circle, rgba(145,77,176,0.6) 0%, rgba(145,77,176,0) 50%)',
@@ -90,7 +91,7 @@
         />
         <!-- Cyan gradient left-->
         <div
-          class="absolute w-[682px] h-[686px] rounded-full left-[-300px] top-48 z-0"
+          class="absolute md:h-[686px] md:w-[682px] w-[282px] h-[286px] rounded-full left-[-300px] top-48 z-0"
           :style="{
             background:
               'radial-gradient(circle, rgba(142,212,246,0.6) 0%, rgba(142,212,246,0) 70%)',
@@ -100,7 +101,7 @@
         />
         <!-- Violet gradient left-->
         <div
-          class="absolute w-[682px] h-[686px] rounded-full left-[-250px] top-8 z-0"
+          class="absolute md:h-[686px] md:w-[682px] w-[282px] h-[286px] rounded-full left-[-250px] top-8 z-0"
           :style="{
             background:
               'radial-gradient(circle, rgba(145,77,176,0.6) 0%, rgba(145,77,176,0) 50%)',
@@ -111,7 +112,7 @@
       </div>
 
       <!-- Explore Our Job Openings -->
-      <div class="container px-2 pt-12 z-10">
+      <div class="container px-2 pt-12 z-10 ">
         <div class="sm:p-6 md:p-8 z-10">
           <div class="mx-auto space-y-4 sm:space-y-6 md:space-y-6">
             <h2
@@ -158,7 +159,7 @@
                 <!-- Available Badge -->
                 <div class="space-y-4">
                   <span
-                    class="inline-flex items-center px-5 py-1 rounded-full text-sm font-medium bg-[#044897] text-white"
+                    class="inline-flex items-center px-5 py-1 rounded-full text-sm font-medium bg-green-400 text-white"
                   >
                     Available
                   </span>
@@ -193,7 +194,7 @@
               <button
                 v-if="currentPage > 1"
                 @click="navigate(-1)"
-                class="mx-2 p-2 rounded-full border-2 border-purple-500 text-purple-500 hover:bg-purple-100 transition-colors"
+                class="px-4 p-2 rounded-full border-2 border-purple-500 text-purple-500 hover:bg-purple-100 transition-colors"
                 aria-label="Previous page"
               >
                 <ChevronLeftIcon class="w-6 h-6" />
@@ -201,7 +202,7 @@
               <button
                 v-if="currentPage < totalFilteredPages"
                 @click="navigate(1)"
-                class="mx-2 p-2 rounded-full border-2 border-purple-500 text-purple-500 hover:bg-purple-100 transition-colors"
+                class="px-4 p-2 rounded-full border-2 border-purple-500 text-purple-500 hover:bg-purple-100 transition-colors"
                 aria-label="Next page"
               >
                 <ChevronRightIcon class="w-6 h-6" />
@@ -291,4 +292,46 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.animate-fade-grid-in-2 {
+  animation: grid-fade-in 2s ease-out;
+}
+
+@keyframes grid-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.animate-fade-in-2ndcontainer {
+  animation: fade-in-2ndcontainer 3s ease;
+}
+
+@keyframes fade-in-2ndcontainer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>

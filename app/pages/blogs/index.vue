@@ -22,6 +22,13 @@
                 class="w-[750px] h-[750px] rounded-full border-2 border-[rgba(163,162,162,0.01)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse-once"
               ></div>
             </div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]"
+            >
+              <div
+                class="w-[550px] h-[550px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse-once"
+              ></div>
+            </div>
           </div>
         </div>
 
@@ -54,32 +61,33 @@
     <!-- Blog Cards Section -->
     <div class="container mx-auto py-4">
       <!-- Sticky Search Bar Section -->
-      <div
-        class="md:flex flex-row justify-center gap-2 md:space-y-0 space-y-3 mx-3 mt-5 py-5 px-6 rounded-none md:rounded-full bg-white md:bg-blue-300 text-blue-800 sticky z-10 transition-all duration-300 ease-in-out"
-        :class="{ 'md:shadow-lg md:top-[20px]': isScrolled, 'top-0': !isScrolled }"
-      
-      >
-        <div class="w-full md:w-3/4">
-          <input
-            v-model="searchQuery"
-            type="text"
-            placeholder="Search blogs..."
-            class="w-full p-2 rounded-full border text-blue-800 placeholder-blue-800 placeholder:font-semibold focus:border-blue-800"
-          />
-        </div>
-        <div class="w-full md:w-1/4">
-          
-          <select
-            v-model="selectedTag"
-            class="w-full p-2 rounded-full border border-gray-300"
-          >
-            <option value="">All Tags</option>
-            <option v-for="tag in uniqueTags" :key="tag" :value="tag">
-              {{ tag }}
-            </option>
-          </select>
-        </div>
-      </div>
+      <div class="relative flex p-4 w-full flex-row justify-center gap-2 overflow-hidden rounded-lg border bg-white text-blue-800 sticky z-10 transition-all duration-300 ease-in-out md:shadow-xl">
+  <BorderBeam
+    :size="250"
+    :duration="12"
+    :delay="9"
+    :border-width="2"
+  />
+  <div class="w-full md:w-3/4">
+    <input
+      v-model="searchQuery"
+      type="text"
+      placeholder="Search blogs..."
+      class="w-full p-2 pl-6 rounded-full border text-black placeholder-black placeholder:font-semibold focus:border-blue-800"
+      />
+  </div>
+  <div class="w-full md:w-1/4">
+  <select
+    v-model="selectedTag"
+    class="w-full p-2 rounded-full pl-4 pr-18 font-semibold border text-black border-gray-300"
+  >
+    <option value="">All Tags</option>
+    <option v-for="tag in uniqueTags" :key="tag" :value="tag">
+      {{ tag }}
+    </option>
+  </select>
+</div>
+</div>
 
       <transition-group name="fade" class="flex flex-col mb-10" tag="div">
         <div
