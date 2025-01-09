@@ -131,6 +131,15 @@
           </li>
           <li>
             <nuxt-link
+              href="/services"
+              class="hover:text-gray-900 transition-colors"
+              @click="toggleMenu"
+            >
+              Services
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link
               href="/blogs"
               class="hover:text-gray-900 transition-colors"
               @click="toggleMenu"

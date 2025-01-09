@@ -2,7 +2,7 @@
   <div class="min-h-screen">
     <!-- Main container with background -->
     <div
-      class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] relative animate-fade-grid-in-2"
+      class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] md:bg-[size:50px_50px] relative animate-fade-grid-in-2"
     >
       <!-- Back to Careers Button -->
       <div class="max-w-7xl mx-auto px-10 pt-10">
@@ -66,15 +66,16 @@
 
           <!-- Right Section: Gradient Image Container -->
           <div
-            class="relative w-full md:w-[355px] h-[334px] mt-16 py-[12px] md:mt-0 flex justify-center md:justify-end flex-shrink-0"
+            class="relative w-full max-w-[355px] mx-auto min-h-[334px] py-3 mt-4 md:mt-0"
           >
             <div
-              class="absolute inset-0 bg-gradient-to-br from-[#00B8D4] to-[#844DDC] rounded-[20px] transform rotate-180"
+              class="absolute inset-0 bg-gradient-to-br from-[#00B8D4] to-[#844DDC] rounded-[20px] overflow-hidden shadow-lg"
             >
               <img
-                src="~/assets/images/finance.png"
+                v-if="jobs?.hero_image"
+                :src="urlFor(jobs?.hero_image)"
                 alt="Finance illustration"
-                class="absolute top-4 right-4 rounded-[15px] w-[320px] h-[301px] object-cover"
+                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:left-auto md:right-4 md:top-4 md:translate-y-0 md:translate-x-0 rounded-[15px] w-[calc(100%-32px)] md:w-[320px] h-[301px] object-cover"
               />
             </div>
           </div>
@@ -179,6 +180,7 @@ import { defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 import sanityClient from "~/hooks/sanityClient";
 import type { Jobs } from "~/types/jobs";
+import { urlFor } from "@/hooks/sanityImageUrl";
 
 const jobs = ref<Jobs>();
 console.log(jobs);
