@@ -2,22 +2,51 @@
   <div class="min-h-screen">
     <!-- Main container with background -->
     <div
-      class="bg-[url('@/assets/images/bg-careers_details.png')] bg-cover bg-center min-h-screen w-full bg-no-repeat sm:bg-contain md:bg-cover p-10"
+      class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] relative animate-fade-grid-in-2"
     >
-      <div class="max-w-7xl mx-auto">
+      <!-- Back to Careers Button -->
+      <div class="max-w-7xl mx-auto px-10 pt-10">
+        <button
+          class="flex items-center text-[#844DDC] hover:text-purple-700 transition-colors md:hidden"
+          @click="goBackToCareers"
+        >
+          <!-- Chevron icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+          Back to Careers
+        </button>
+      </div>
+      <div class="max-w-7xl mx-auto px-10 py-15">
         <!-- Hero Section -->
         <div
-          class="relative flex flex-col md:flex-row justify-between items-center md:items-start"
+          class="relative flex flex-col md:flex-row justify-between items-center md:items-start space-y-16 md:space-y-0"
         >
-          <div class="space-y-6 mt-16 ml-8 text-center md:text-left">
+          <!-- Left Section: Title, Tag, Description -->
+          <div
+            class="space-y-8 text-center md:text-left mx-auto md:mx-0 flex-1"
+          >
             <!-- Tag Button -->
             <div class="inline-block">
-              <div class="bg-purple-100 rounded-[30px] px-12 py-3">
-                <span
-                  class="text-[#7321F6] text-[16px] sm:text-[20px] font-normal"
-                  >{{ jobs?.hero_badge }}</span
-                >
-              </div>
+              <ShimmerButton
+                class="mt-7 px-6 sm:px-9 py-2.5 text-sm sm:text-base font-medium text-white bg-[#844DDC] bg-opacity-10 rounded-full hover:bg-opacity-50 transition-colors shadow-2xl"
+                shimmer-size="2px"
+              >
+                <span class="text-white text-[16px] sm:text-[20px] font-normal">
+                  {{ jobs?.hero_badge }}
+                </span>
+              </ShimmerButton>
             </div>
 
             <!-- Title -->
@@ -34,21 +63,22 @@
               {{ jobs?.hero_subheading }}
             </p>
           </div>
-          <!-- Finance Image -->
+
+          <!-- Right Section: Gradient Image Container -->
           <div
-            class="relative w-[377px] h-[354px] mt-16 mr-8 md:mr-8 mx-8 flex justify-center md:justify-end"
+            class="relative w-full md:w-[355px] h-[334px] mt-16 md:mt-0 flex justify-center md:justify-end flex-shrink-0 " 
           >
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#00B8D4] to-[#844DDC] rounded-[20px] transform rotate-180"
-            ></div>
-            <img
-              src="~/assets/images/finance.png"
-              alt="Finance illustration"
-              class="absolute top-4 right-4 rounded-[15px] w-[340px] h-[321px] object-cover"
-            />
+            >
+              <img
+                src="~/assets/images/finance.png"
+                alt="Finance illustration"
+                class="absolute top-4 right-4 rounded-[15px] w-[320px] h-[301px] object-cover"
+              />
+            </div>
           </div>
         </div>
-
         <!-- Job Description Section -->
         <div class="mt-3 sm:mt-4 p-0">
           <h2
@@ -59,11 +89,14 @@
           <div
             class="text-[18px] sm:text-[25px] text-gray-600 space-y-4 max-w-[728px] mx-auto md:mx-0"
           >
-          <ul class="space-y-4 list-disc list-inside">
-            <li v-for="(description, index) in jobs?.job_descriptions" :key="index">
-              {{ description }}
-            </li>
-          </ul>
+            <ul class="space-y-4 list-disc list-inside">
+              <li
+                v-for="(description, index) in jobs?.job_descriptions"
+                :key="index"
+              >
+                {{ description }}
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -149,6 +182,7 @@ import type { Jobs } from "~/types/jobs";
 
 const jobs = ref<Jobs>();
 console.log(jobs);
+const router = useRouter();
 
 onMounted(async () => {
   const router = useRouter();
@@ -157,4 +191,8 @@ onMounted(async () => {
     `*[_type == "jobs" && _id == "${id}"][0]`
   );
 });
+
+const goBackToCareers = () => {
+  router.push("/careers");
+};
 </script>
