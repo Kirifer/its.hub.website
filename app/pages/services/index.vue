@@ -1,27 +1,32 @@
 <template>
-  <div class="graph-paper-container">
+  <div
+    class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] animate-fade-grid-in-2"
+  >
     <!-- Main Content -->
     <div
-      class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-2"
+      class="relative z-10 flex flex-col items-center animate-fade-in justify-center min-h-screen px-4 py-12"
     >
+      <div class="mt-2">
+        <span
+          class="inline-flex items-center px-3 py-0.5 rounded-full text-lg font-medium bg-blue-200 text-blue-800"
+          >Services</span
+        >
+      </div>
       <!-- Blog Header Card -->
-      <div
-        class="relative w-full max-w-[714px] max-h-[321px] mx-auto mt-[50px] bg-white border border-[#606DF1] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[20px] p-6 sm:p-8 flex flex-col items-center justify-center"
-      >
+      <div class="p-6 sm:p-8 flex flex-col items-center justify-center">
         <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900">
-          {{ blogs?.hero_title || "Our Blog" }}
+          Services
         </h1>
         <p
           class="mt-4 text-sm sm:text-base md:text-lg text-gray-600 text-center max-w-xl"
         >
-          {{
-            blogs?.hero_subtitle ||
-            "Discover the newest trends, strategies, and valuable insights in outsourcing to enhance your business strategy."
-          }}
+          Explore innovative solutions tailored to your needs, from cutting-edge
+          technology integration to expert consulting services, designed to
+          empower your business, streamline operations, and drive growth in
+          today's competitive landscape.
         </p>
       </div>
-
-      <!-- Cyan gradient left -->
+      <!-- Gradients (unchanged) -->
       <div
         class="absolute w-[40vw] h-[40vw] rounded-full left-[-15vw] top-[5vh] z-0"
         :style="{
@@ -31,7 +36,6 @@
           filter: 'blur(50px)',
         }"
       />
-      <!-- Blue gradient left -->
       <div
         class="absolute w-[40vw] h-[40vw] rounded-full left-[-15vw] top-[25vh] z-0"
         :style="{
@@ -41,49 +45,19 @@
           filter: 'blur(50px)',
         }"
       />
-      <!-- Yellow gradient smaller and positioned to the right -->
-      <!-- <div
-        class="absolute w-[35vw] h-[35vw] rounded-full right-[6vw] top-[10vh] z-0"
-        :style="{
-          background:
-            'radial-gradient(circle, rgba(254,223,59,0.3) 0%, rgba(254,223,59,0) 70%)',
-          transform: 'rotate(-116.85deg)',
-          filter: 'blur(50px)',
-        }"
-      /> -->
-      <!-- Blue gradient Right -->
-      <!-- <div
-        class="absolute w-[40vw] h-[40vw] rounded-full right-[-5vw] top-[-2vh] z-0"
-        :style="{
-          background:
-            'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 70%)',
-          transform: 'rotate(-116.85deg)',
-          filter: 'blur(50px)',
-        }"
-      /> -->
-      <!-- Cyan gradient Right -->
-      <!-- <div
-        class="absolute w-[50vw] h-[40vw] rounded-full right-[-5vw] top-[35vh] z-0"
-        :style="{
-          background:
-            'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 70%)',
-          transform: 'rotate(-116.85deg)',
-          filter: 'blur(50px)',
-        }"
-      /> -->
 
       <!-- Blog Cards Container -->
       <div
-        class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl px-4"
+        class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 w-full max-w-6xl px-4"
       >
         <!-- Blog Card -->
         <div
-          v-for="(blog, index) in blogs?.section1_cards"
+          v-for="(blog, index) in visibleBlogs"
           :key="index"
           class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
         >
           <!-- Blog Image -->
-          <div class="w-full h-48 sm:h-60 md:h-72">
+          <div class="w-full h-32 sm:h-40 md:h-48">
             <img
               :src="urlFor(blog.icon)"
               :alt="blog.heading"
@@ -91,17 +65,19 @@
             />
           </div>
           <!-- Title, Description, and Read More Button -->
-          <div class="p-6">
-            <h2 class="text-xl sm:text-2xl font-semibold text-gray-900">
+          <div class="p-4">
+            <h2
+              class="text-md sm:text-xl font-semibold text-gray-900 leading-snug"
+            >
               {{ blog.heading }}
             </h2>
-            <p class="mt-2 text-sm sm:text-base text-gray-600">
+            <!-- <p class="mt-2 text-xs sm:text-sm text-gray-600">
               {{ blog.subheading }}
-            </p>
+            </p> -->
             <!-- Read More Button -->
             <NuxtLink
               :to="`/blog/${blog.id}`"
-              class="mt-4 inline-block px-4 py-2 bg-[#606DF1] text-white rounded-md hover:bg-[#4F5CD8] transition-colors text-sm sm:text-base"
+              class="mt-3 inline-block px-3 py-1.5 bg-[#606DF1] text-white rounded-md hover:bg-[#4F5CD8] transition-colors text-xs sm:text-sm"
             >
               {{ blog.button || "Read More" }}
             </NuxtLink>
@@ -244,5 +220,33 @@ onMounted(async () => {
   width: 100%;
   height: 100%;
   background-color: white;
+}
+
+.animate-fade-grid-in-2 {
+  animation: grid-fade-in 2s ease-out;
+}
+
+@keyframes grid-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
