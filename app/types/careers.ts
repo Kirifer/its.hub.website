@@ -2,7 +2,7 @@ export interface Careers {
     date_created: string;
     hero_button: string;
     hero_heading: string;
-    hero_image: string;
+    hero_image: any;
     hero_subheading: string;
     section1_cards: Array<any>;
     section1_heading: string;

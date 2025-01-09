@@ -2,6 +2,7 @@ export interface Jobs {
     hero_badge: string;
     hero_heading: string;
     hero_subheading: string;
+    hero_image: any;
     id: string;
     job_descriptions: string[];
     section1_heading: string;
