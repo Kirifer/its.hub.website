@@ -55,18 +55,19 @@
     <div class="container mx-auto py-4">
       <!-- Sticky Search Bar Section -->
       <div
-        class="md:flex flex-row justify-center gap-2 mx-3 mt-5 py-5 px-6 rounded-none md:rounded-full bg-white md:bg-blue-300 text-blue-800 sticky top-0 z-10 transition-all duration-300 ease-in-out hidden"
-        :class="{ 'md:shadow-lg': isScrolled }" 
+        class="md:flex flex-row justify-center gap-2 md:space-y-0 space-y-3 mx-3 mt-5 py-5 px-6 rounded-none md:rounded-full bg-white md:bg-blue-300 text-blue-800 sticky z-10 transition-all duration-300 ease-in-out"
+        :class="{ 'md:shadow-lg md:top-[20px]': isScrolled, 'top-0': !isScrolled }"
+      
       >
-        <div class="w-3/4">
+        <div class="w-full md:w-3/4">
           <input
             v-model="searchQuery"
             type="text"
             placeholder="Search blogs..."
-            class="w-full p-2 rounded-full border border-blue-300 text-blue-800 placeholder-blue-800 placeholder:font-semibold focus:border-blue-800"
+            class="w-full p-2 rounded-full border text-blue-800 placeholder-blue-800 placeholder:font-semibold focus:border-blue-800"
           />
         </div>
-        <div class="w-1/4">
+        <div class="w-full md:w-1/4">
           
           <select
             v-model="selectedTag"
@@ -221,8 +222,5 @@ const uniqueTags = computed(() => {
   transform: translateY(10px);
 }
 
-.sticky {
-  position: sticky;
-  top: 20px;
-}
+
 </style>

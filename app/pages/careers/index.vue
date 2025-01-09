@@ -1,149 +1,154 @@
 <template>
   <div
-    class="bg-[url('@/assets/images/bg-careers.png')] bg-cover bg-center w-full h-auto bg-no-repeat sm:bg-contain md:bg-cover"
+    class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
   >
+  
     <!-- Main Content -->
     <div
       class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12"
     >
-    <div class="max-w-2xl mx-auto px-4 space-y-2 md:space-y-4">
-      <h1 class="text-3xl sm:text-6xl text-center md:text-6xl font-bold text-gray-900">
-        {{ careers[0]?.hero_heading }}
-      </h1>
-      <p class="text-lg md:text-xl text-gray-900 text-center w-full md:w-[500px]">
-        {{ careers[0]?.hero_subheading }}
-      </p>
-    </div>
+      <div class="max-w-2xl mx-auto px-4 space-y-2 md:space-y-4">
+        <h1
+          class="text-3xl sm:text-6xl text-center md:text-6xl font-bold text-gray-900"
+        >
+          {{ careers[0]?.hero_heading }}
+        </h1>
+        <p
+          class="text-lg md:text-xl text-gray-900 text-center w-full md:w-[500px]"
+        >
+          {{ careers[0]?.hero_subheading }}
+        </p>
+      </div>
 
-      <div
-        class="mt-8 p-3 rounded-2xl bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 max-w-4xl w-full"
-      >
-        <div class="rounded-xl overflow-hidden">
-          <img
-            src="~/assets/images/its-hiring.jpg"
-            alt="Two people in a business meeting"
-            class="w-full h-[200px] sm:h-[300px] md:h-[450px] object-cover"
-          />
+      <div class="relative w-full flex justify-center">
+        <div class="absolute inset-0 h-[500px] flex items-center justify-center z-0">
+          <!-- Ellipse 1 -->
+          <div class="absolute -top-[125px]">
+            <div
+              class="w-[950px] h-[950px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.1)] animate-pulse"
+            ></div>
+          </div>
+
+          <!-- Ellipse 3 -->
+          <div
+            class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]"
+          >
+            <div
+              class="w-[750px] h-[750px] rounded-full border-2 border-[rgba(163,162,162,0.01)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse"
+            ></div>
+          </div>
+
+          <!-- Ellipse 5 -->
+          <div
+            class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]"
+          >
+            <div
+              class="w-[550px] h-[550px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-pulse"
+            ></div>
+          </div>
+        </div>
+        <div
+          class="mt-8 p-3 rounded-2xl bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 max-w-4xl w-full relative z-10"
+        >
+          <div class="rounded-xl overflow-hidden">
+            <img
+              src="~/assets/images/its-hiring.jpg"
+              alt="Two people in a business meeting"
+              class="w-full h-[200px] sm:h-[300px] md:h-[450px] object-cover"
+            />
+          </div>
         </div>
       </div>
 
-  <ShimmerButton
-    class="mt-7 px-6 sm:px-9 py-2.5 text-sm sm:text-base font-medium text-[#844DDC] bg-[rgba(132,77,220,0.19)] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors shadow-2xl"
-    shimmer-size="2px"
-  >
-    <span
-      class="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg dark:from-white dark:to-slate-900/10"
-    >
-      {{ careers[0]?.hero_button }}
-    </span>
-  </ShimmerButton>
-      <!--  -->
-      <div class="container px-4">
-        <h2
-          class="mt-16 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center"
+      <ShimmerButton
+        class="mt-7 px-6 sm:px-9 py-2.5 text-sm sm:text-base font-medium text-[#844DDC] bg-[rgba(132,77,220,0.19)] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors shadow-2xl"
+        shimmer-size="2px"
+      >
+        <span
+          class="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg dark:from-white dark:to-slate-900/10"
         >
-          {{ careers[0]?.section1_heading }}
-        </h2>
-        <p
-          class="mt-4 text-base sm:text-lg text-gray-600 text-center max-w-xl mx-auto"
-        >
-          {{ careers[0]?.section1_subheading }}
-        </p>
+          {{ careers[0]?.hero_button }}
+        </span>
+      </ShimmerButton>
 
-        <!-- Job Cards Container -->
-        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-          <div
-            v-for="(card, index) in careers[0]?.section1_cards"
-            :key="index"
-            class="relative bg-white border border-[#844DDC] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[10px] p-6 sm:p-8 flex flex-col justify-between"
+      <!-- Explore Our Job Openings -->
+      <div class="container px-4 pt-12">
+        <div class="p-4 ">
+    <div class="max-w-7xl mx-auto px-4 space-y-2 md:space-y-4 text-center">
+      <h2 class="mt-4 text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+        {{ careers[0]?.section1_heading }}
+      </h2>
+      <p class="mt-4 text-lg md:text-xl text-gray-700">
+        {{ careers[0]?.section1_subheading }}
+      </p>
+    </div>
+
+    <!-- Job Cards Container -->
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div
+        v-for="(card, index) in paginatedCards"
+        :key="index"
+        class="relative bg-white border border-purple-300 shadow-lg rounded-lg p-6 sm:p-8 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl"
+      >
+        <!-- Available Badge -->
+        <div>
+          <span
+            class="inline-flex items-center px-3 mb-6 rounded-full text-lg font-medium bg-[#D2A517] text-white"
           >
-            <!-- Available Badge -->
-            <div class="bg-[#D2A517] rounded-[15px] px-4 py-1 w-fit mb-4">
-              <span
-                class="text-white text-sm sm:text-base font-normal leading-[22px] tracking-[-0.03em]"
-              >
-                Available
-              </span>
-            </div>
+            Available
+          </span>
 
-            <!-- Job Title -->
-            <h2
-              class="font-['lato'] font-normal text-xl sm:text-2xl md:text-3xl text-black mb-4"
-            >
-              {{ card.hero_heading }}
-            </h2>
+          <!-- Job Title -->
+          <h3 class="font-semibold text-2xl sm:text-3xl text-gray-900 mb-3">
+            {{ card.hero_heading }}
+          </h3>
 
-            <!-- Job Description -->
-            <p
-              class="font-['lato'] font-normal text-sm sm:text-base text-[#565656] mb-6"
-            >
-              {{ card.hero_subheading }}
-            </p>
-
-            <button>
-              <!-- Apply Button -->
-              <NuxtLink
-                :to="`/careers/${card._id}`"
-                class="w-full sm:w-[109px] h-[32px] bg-[#844DDC] rounded-[6px] text-white text-sm sm:text-base leading-[18px] tracking-[-0.03em] flex items-center justify-center"
-              >
-                Apply
-              </NuxtLink>
-            </button>
-          </div>
+          <!-- Job Description -->
+          <p class="text-gray-600 text-sm sm:text-base font-normal mb-6 leading-relaxed">
+            {{ card.hero_subheading }}
+          </p>
         </div>
 
-        <!-- Chevron Navigation Buttons -->
-        <div class="mt-8 flex justify-center w-full max-w-[1100px]">
-          <button
-            v-if="currentPage > 1"
-            @click="navigate(-1)"
-            class="px-2 py-2 bg-transparent border-purple-500 border-2 rounded-full hover:bg-gray-300 transition mx-2"
+        <!-- Apply Button -->
+        <div>
+          <NuxtLink
+            :to="`/careers/${card._id}`"
+            class="bg-[#844DDC] border border-[#844DDC] text-white font-medium px-7 py-2 rounded-md hover:bg-violet-300 transition-colors"
           >
-            <svg
-              class="w-6 h-6 text-gray-600"
-              fill="none"
-              stroke="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15 19l-7-7 7-7"
-              ></path>
-            </svg>
-          </button>
-          <button
-            v-if="currentPage < totalPages"
-            @click="navigate(1)"
-            class="px-2 py-2 bg-transparent border-purple-500 border-2 rounded-full hover:bg-gray-300 transition mx-2"
-          >
-            <svg
-              class="w-6 h-6 text-gray-600"
-              fill="none"
-              stroke="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 5l7 7-7 7"
-              ></path>
-            </svg>
-          </button>
+            Apply
+            <!-- <ArrowRightIcon class="ml-2 -mr-1 h-5 w-5" /> -->
+          </NuxtLink>
         </div>
-        <div class="justify-center text-center">
-          <h2
-            class="mt-16 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center"
-          >
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="mt-12 flex justify-center">
+      <button
+        v-if="currentPage > 1"
+        @click="navigate(-1)"
+        class="mx-2 p-2 rounded-full border-2 border-purple-500 text-purple-500 hover:bg-purple-100 transition-colors"
+        aria-label="Previous page"
+      >
+        <ChevronLeftIcon class="w-6 h-6" />
+      </button>
+      <button
+        v-if="currentPage < totalPages"
+        @click="navigate(1)"
+        class="mx-2 p-2 rounded-full border-2 border-purple-500 text-purple-500 hover:bg-purple-100 transition-colors"
+        aria-label="Next page"
+      >
+        <ChevronRightIcon class="w-6 h-6" />
+      </button>
+    </div>
+  </div>
+        <div class="justify-center text-center space-y-8 mt-16 mb-16">
+          <h2 class="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900">
             {{ careers[0]?.section2_heading }}
           </h2>
 
           <button
-            class="mt-10 mb-10 px-6 sm:px-8 py-2.5 text-sm text-center justify-center font-medium text-white bg-[#844DDC] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors z-10 mx-auto"
+            class="bg-[#844DDC] border-white border text-white font-medium px-6 py-2 rounded-md hover:bg-violet-300 transition-colors"
           >
             {{ careers[0]?.section2_button }}
           </button>
@@ -154,42 +159,47 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import sanityClient from "@/hooks/sanityClient";
 import { urlFor } from "@/hooks/sanityImageUrl";
 import type { Careers } from "~/types/careers";
+import {
+  ArrowRightIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "lucide-vue-next";
 
 const careers = ref<Careers[]>([]);
-console.log(careers);
+const currentPage = ref(1);
+const itemsPerPage = 3;
+
+const totalPages = computed(() => {
+  return Math.ceil(careers.value[0]?.section1_cards.length / itemsPerPage);
+});
+
+const paginatedCards = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  return careers.value[0]?.section1_cards.slice(start, end);
+});
+
+const navigate = (direction: number) => {
+  if (direction === -1 && currentPage.value > 1) {
+    currentPage.value--;
+  } else if (direction === 1 && currentPage.value < totalPages.value) {
+    currentPage.value++;
+  }
+};
 
 onMounted(async () => {
   try {
     careers.value = await sanityClient.fetch<Careers[]>(
       '*[_type == "careers"]{..., "section1_cards" : section1_cards[]->}'
     );
-    if (careers.value.length > 0) {
-    }
   } catch (error) {
     console.error("Error fetching data from Sanity:", error);
   }
 });
-
-const currentPage = ref(1);
-const itemsPerPage = ref(4);
-
-const totalPages = computed((): number => {
-  return Math.ceil(careers.value.length / itemsPerPage.value);
-});
-
-const visibleJobs = computed(() => {
-  const start = (currentPage.value - 1) * itemsPerPage.value;
-  const end = start + itemsPerPage.value;
-  return careers.value.slice(start, end);
-});
-
-function navigate(direction: number) {
-  currentPage.value += direction;
-}
 </script>
 
 <style scoped></style>
