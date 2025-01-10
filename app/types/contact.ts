@@ -8,6 +8,9 @@ export interface SectionStep {
     step_no: number;
     step_subtitle: string;
     step_title: string;
+    section2_image1: any;
+    section2_image2: any;
+    section2_image3: any;
     _key: string;
 }
 
@@ -21,6 +24,9 @@ export interface Contact {
     section2_steps: SectionStep[];
     section2_subtitle: string;
     section2_title: string;
+    section2_image1: any;
+    section2_image2: any;
+    section2_image3: any;
     _createdAt: string;
     _id: string;
     _rev: string;
