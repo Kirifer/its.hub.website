@@ -9,21 +9,18 @@
       <div class="mt-2">
         <span
           class="inline-flex items-center px-3 py-0.5 rounded-full text-lg font-medium bg-blue-200 text-blue-800"
-          >Services</span
+          >{{ services[0]?.hero_title }}</span
         >
       </div>
 
       <div class="p-6 sm:p-8 flex flex-col items-center justify-center">
         <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900">
-          Services
+          {{ services[0]?.hero_title }}
         </h1>
         <p
           class="mt-4 text-sm sm:text-base md:text-lg text-gray-600 text-center max-w-xl"
         >
-          Explore innovative solutions tailored to your needs, from cutting-edge
-          technology integration to expert consulting services, designed to
-          empower your business, streamline operations, and drive growth in
-          today's competitive landscape.
+          {{ services[0]?.hero_subtitle }}
         </p>
       </div>
       <!-- Gradients (unchanged) -->
@@ -50,14 +47,14 @@
         class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 w-full max-w-6xl px-4"
       >
         <div
-          v-for="(blog, index) in visibleBlogs"
+          v-for="(services, index) in services[0]?.section1_cards"
           :key="index"
           class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-auto"
         >
           <div class="w-full h-25 sm:h-30 md:h-48">
             <img
-              :src="urlFor(blog.icon)"
-              :alt="blog.heading"
+              :src="urlFor(services.image)"
+              :alt="services.heading"
               class="w-full h-full object-cover"
             />
           </div>
@@ -66,11 +63,11 @@
             <h2
               class="text-md sm:text-xl font-semibold text-gray-900 leading-snug"
             >
-              {{ blog.heading }}
+              {{ services.heading }}
             </h2>
             <!-- Read More Link with Chevron (After Heading) -->
             <NuxtLink
-              :to="`/blog/${blog.id}`"
+              :to="`/services/${services.id}`"
               class="mt-2 inline-flex items-center text-[#606DF1] hover:text-[#4F5CD8] transition-colors"
             >
               <span
@@ -81,25 +78,8 @@
           </div>
         </div>
       </div>
-
-      <!-- Pagination Buttons -->
-      <div class="mt-8 flex justify-center gap-4">
-  <button
-    v-if="currentPage > 1"
-    @click="navigate(-1)"
-    class="px-4 py-2 bg-transparent border border-[#606DF1] rounded-full hover:bg-[#606DF1] hover:text-white transition-colors"
-  >
-    <ChevronLeftIcon class="w-6 h-6 stroke-[#606DF1] hover:stroke-white transition-colors" />
-  </button>
-  <button
-    v-if="currentPage < totalPages"
-    @click="navigate(1)"
-    class="px-4 py-2 bg-transparent border border-[#606DF1] rounded-full hover:bg-[#606DF1] hover:text-white transition-colors"
-  >
-    <ChevronRightIcon class="w-6 h-6 stroke-[#606DF1] hover:stroke-white transition-colors" />
-  </button>
-</div>
     </div>
+    <!-- Pagination Buttons -->
   </div>
 </template>
 
@@ -112,69 +92,18 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "lucide-vue-next";
+import type { Services } from "~/types/service";
 
-interface BlogData {
-  id: string;
-  heading: string;
-  subheading: string;
-  icon: {
-    asset: {
-      _ref: string;
-    };
-  };
-  button: string;
-}
-
-interface BlogPost {
-  hero_title: string;
-  hero_subtitle: string;
-  section1_cards: BlogData[];
-}
-
-const blogs = ref<BlogPost | null>(null);
-const currentPage = ref(1);
-const itemsPerPage = ref(8);
-const totalPages = computed(() => {
-  return Math.ceil(
-    (blogs.value?.section1_cards?.length || 0) / itemsPerPage.value
-  );
-});
-const visibleBlogs = computed(() => {
-  const start = (currentPage.value - 1) * itemsPerPage.value;
-  const end = start + itemsPerPage.value;
-  return blogs.value?.section1_cards?.slice(start, end) || [];
-});
-
-function navigate(direction: number) {
-  currentPage.value += direction;
-}
+const services = ref<Services[]>([]);
+console.log(services);
 
 onMounted(async () => {
-  try {
-    const data = await sanityClient.fetch(`
-      *[_type == "services"][0] {
-        ...,
-        section1_cards[]-> {
-        }
-      }
-    `);
-    console.log(data); // Debugging: Inspect the fetched data
-    if (data) {
-      blogs.value = {
-        hero_title: data.hero_title,
-        hero_subtitle: data.hero_subtitle,
-        section1_cards: data.section1_cards.map((card: any) => ({
-          id: card._id,
-          heading: card.heading,
-          subheading: card.subheading,
-          icon: card.icon,
-          button: card.button,
-        })),
-      };
-    }
-  } catch (error) {
-    console.error("Error fetching data from Sanity:", error);
-  }
+  const query = `*[_type == "services"]  {
+ ..., 
+ section1_cards[]->
+
+  }`;
+  services.value = await sanityClient.fetch<Services[]>(query);
 });
 </script>
 
