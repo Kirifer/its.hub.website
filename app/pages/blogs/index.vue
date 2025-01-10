@@ -61,33 +61,30 @@
     <!-- Blog Cards Section -->
     <div class="container mx-auto py-4">
       <!-- Sticky Search Bar Section -->
-      <div class="relative flex p-4 w-full flex-row justify-center gap-2 overflow-hidden rounded-lg border bg-white text-blue-800 sticky z-10 transition-all duration-300 ease-in-out md:shadow-xl">
-  <BorderBeam
-    :size="250"
-    :duration="12"
-    :delay="9"
-    :border-width="2"
-  />
-  <div class="w-full md:w-3/4">
-    <input
-      v-model="searchQuery"
-      type="text"
-      placeholder="Search blogs..."
-      class="w-full p-2 pl-6 rounded-full border text-black placeholder-black placeholder:font-semibold focus:border-blue-800"
-      />
-  </div>
-  <div class="w-full md:w-1/4">
-  <select
-    v-model="selectedTag"
-    class="w-full p-2 rounded-full pl-4 pr-18 font-semibold border text-black border-gray-300"
-  >
-    <option value="">All Tags</option>
-    <option v-for="tag in uniqueTags" :key="tag" :value="tag">
-      {{ tag }}
-    </option>
-  </select>
-</div>
-</div>
+      <div
+        class="flex p-4 w-full flex-row justify-center gap-2 overflow-hidden rounded-lg border bg-white text-blue-800 sticky z-10 transition-all duration-300 ease-in-out md:shadow-xl"
+      >
+        <BorderBeam :size="250" :duration="12" :delay="9" :border-width="2" />
+        <div class="w-full md:w-3/4">
+          <input
+            v-model="searchQuery"
+            type="text"
+            placeholder="Search blogs..."
+            class="w-full p-2 pl-6 rounded-full border text-black placeholder-black placeholder:font-semibold focus:border-blue-800"
+          />
+        </div>
+        <div class="w-full md:w-1/4">
+          <select
+            v-model="selectedTag"
+            class="w-full p-2 rounded-full pl-4 pr-18 font-semibold border text-black border-gray-300"
+          >
+            <option value="">All Tags</option>
+            <option v-for="tag in uniqueTags" :key="tag" :value="tag">
+              {{ tag }}
+            </option>
+          </select>
+        </div>
+      </div>
 
       <transition-group name="fade" class="flex flex-col mb-10" tag="div">
         <div
@@ -199,14 +196,21 @@ function setupObserver() {
 }
 
 const filteredBlogs = computed(() => {
-  return blogs.value[0]?.section1_cards.filter((blog) => {
-    const matchesSearch = blog.heading
-      .toLowerCase()
-      .includes(searchQuery.value.toLowerCase());
-    const matchesTag =
-      !selectedTag.value || blog.tags.includes(selectedTag.value);
-    return matchesSearch && matchesTag;
-  });
+  if (selectedTag.value) {
+    searchQuery.value = "";
+    return blogs.value.flatMap(blog => blog.section1_cards).filter((blog) => {
+      return blog.tags.includes(selectedTag.value);
+    });
+  } else if (searchQuery.value) {
+    selectedTag.value = "";
+    return blogs.value.flatMap(blog => blog.section1_cards).filter((blog) => {
+      return blog.heading
+        .toLowerCase()
+        .includes(searchQuery.value.toLowerCase());
+    });
+  } else {
+    return blogs.value.flatMap(blog => blog.section1_cards);
+  }
 });
 
 const uniqueTags = computed(() => {
@@ -230,5 +234,10 @@ const uniqueTags = computed(() => {
   transform: translateY(10px);
 }
 
-
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+.animate-fade-in-2ndcontainer {
+  animation: fade-in-2ndcontainer 3s ease;
+}
 </style>
