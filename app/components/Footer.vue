@@ -133,13 +133,11 @@
         </div>
       </div>
       <!-- Certifications -->
-      <div class="mt-12 flex flex-wrap justify-center items-center gap-8">
-        <img :src="urlFor(footer[0].images[0])" alt="WARD" class="h-[60px] w-auto" v-if="footer[0] && footer[0].images[0]" />
-        <img :src="urlFor(footer[0].images[1])" alt="AFID Certification" class="h-[60px] w-auto" v-if="footer[0] && footer[0].images[1]" />
-        <img :src="urlFor(footer[0].images[2])" alt="Partnership Badge" class="h-[60px] w-auto" v-if="footer[0] && footer[0].images[2]" />
-        <img :src="urlFor(footer[0].images[3])" alt="H Badge" class="h-[60px] w-auto" v-if="footer[0] && footer[0].images[3]" />
-        <img :src="urlFor(footer[0].images[4])" alt="CCBP Badge" class="h-[60px] w-auto" v-if="footer[0] && footer[0].images[4]" />
-        <img :src="urlFor(footer[0].images[5])" alt="SHRM Badge" class="h-[60px] w-auto" v-if="footer[0] && footer[0].images[5]" />
+      <div class="-mt-4 flex flex-wrap justify-center items-center gap-8">
+        <AnimatedLogoCloud
+        :logos
+        title="Certified Professionals"
+      />
       </div>
     </div>
   </footer>
@@ -149,19 +147,53 @@
 import sanityClient from "~/hooks/sanityClient";
 import { urlFor } from "~/hooks/sanityImageUrl";
 import type { Footer } from "~/types/footer";
+import AnimatedLogoCloud from '@/components/AnimateLogo/AnimatedLogoCloud.vue';
 
 const footer = ref<Footer[]>([]);
+
+const logo = ref<{ path: string }[]>([]);
+
+const imageUrl = computed(() => footer.value.length > 0 && footer.value[0].images ? urlFor(footer.value[0].images[0]) : '');
+
+const logos = ref([
+  {
+    name: "WARD",
+    path: "",
+  },
+  {
+    name: "Prime",
+    path: "",
+  },
+  {
+    name: "Trustpilot",
+    path: "",
+  },
+  {
+    name: "Webflow",
+    path: "",
+  },
+  {
+    name: "Airbnb",
+    path: "",
+  }
+]);
 
 onMounted(async () => {
   try {
     footer.value = await sanityClient.fetch<Footer[]>('*[_type == "footer"]');
-    if (footer.value.length > 0) {  
-      console.log("Footer data fetched successfully:", footer.value);
+    if (footer.value.length > 0 && footer.value[0].images) {
+      footer.value[0].images.forEach((image, index) => {
+        if (logos.value[index]) {
+          logos.value[index].path = urlFor(image.asset._ref);
+        }
+      });
+      console.log(logos.value);
     }
   } catch (error) {
     console.error("Error fetching data from Sanity:", error);
   }
 });
+
 </script>
 
 <style scoped>

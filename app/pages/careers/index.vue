@@ -159,7 +159,7 @@
                 <!-- Available Badge -->
                 <div class="space-y-4">
                   <span
-                    class="inline-flex items-center px-5 py-1 rounded-full text-sm font-medium bg-green-400 text-white"
+                    class="inline-flex items-center px-5 py-1 rounded-full text-sm font-medium bg-blue-900 text-white"
                   >
                     Available
                   </span>

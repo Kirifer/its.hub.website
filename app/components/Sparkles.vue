@@ -12,7 +12,7 @@
   </template>
   
   <script setup lang="ts">
-  import { useRafFn } from "@vueuse/core";
+  import { templateRef, useRafFn } from "@vueuse/core";
   
   interface Props {
     background?: string;
