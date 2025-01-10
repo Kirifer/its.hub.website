@@ -159,31 +159,31 @@
                 <!-- Available Badge -->
                 <div class="space-y-4">
                   <span
-                    class="inline-flex items-center px-5 py-1 rounded-full text-sm font-medium bg-green-400 text-white"
+                    class="inline-flex items-center px-5 py-1 rounded-full text-sm font-medium bg-blue-900 text-white"
                   >
                     Available
                   </span>
 
                   <!-- Job Title -->
                   <h3 class="font-semibold text-xl sm:text-2xl text-gray-900">
-                    {{ card.hero_heading }}
+                    {{ card.job_title }}
                   </h3>
 
                   <!-- Job Description -->
                   <p
-                    class="text-gray-600 text-sm sm:text-base font-normal leading-relaxed"
+                    class="text-gray-600 text-sm sm:text-base font-normal leading-relaxed line-clamp-3"
                   >
-                    {{ card.hero_subheading }}
+                    {{ card.job_description }}
                   </p>
                 </div>
 
                 <!-- Apply Button -->
-                <div class="mt-6">
+                <div class="mt-6 justify-end flex">
                   <NuxtLink
                     :to="`/careers/${card._id}`"
-                    class="inline-block bg-[#844DDC] border border-[#844DDC] text-white font-medium px-6 py-2 rounded-md hover:bg-violet-300 transition-colors"
+                    class="inline-block bg-[#844DDC] border border-[#844DDC] text-white font-medium px-6 py-2 rounded-full hover:bg-violet-300 transition-colors"
                   >
-                    Apply
+                 Learn More
                   </NuxtLink>
                 </div>
               </div>
@@ -251,10 +251,10 @@ const filteredAndSearchedCards = computed(() => {
 
   return careers.value[0].section1_cards.filter((card) => {
     const matchesSearch =
-      card.hero_heading
+      card.job_title
         .toLowerCase()
         .includes(searchQuery.value.toLowerCase()) ||
-      card.hero_subheading
+      card.job_description
         .toLowerCase()
         .includes(searchQuery.value.toLowerCase());
     const matchesFilter =
