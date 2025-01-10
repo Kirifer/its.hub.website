@@ -1,11 +1,10 @@
 export interface Jobs {
-    hero_badge: string;
-    hero_heading: string;
-    hero_subheading: string;
-    hero_image: any;
+    job_badges: string[];
+    job_title: string;
+    job_description: string;
     id: string;
-    job_descriptions: string[];
-    section1_heading: string;
+    job_qualifications: string[];
+    job_responsibilities: string[];
     _createdAt: string;
     _id: string;
     _rev: string;
