@@ -26,7 +26,7 @@
       delay?: number;
       class: HTMLAttributes["class"];
     }>(),
-    { duration: 0.7, delay: 0, filter: true },
+    { duration: 1, delay: 0, filter: true },
   );
   
   const scope = ref(null);
