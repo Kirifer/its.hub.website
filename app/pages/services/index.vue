@@ -46,17 +46,14 @@
         }"
       />
 
- 
       <div
         class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 w-full max-w-6xl px-4"
       >
-       
         <div
           v-for="(blog, index) in visibleBlogs"
           :key="index"
           class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-auto"
         >
-         
           <div class="w-full h-25 sm:h-30 md:h-48">
             <img
               :src="urlFor(blog.icon)"
@@ -176,15 +173,9 @@ function navigate(direction: number) {
 onMounted(async () => {
   try {
     const data = await sanityClient.fetch(`
-      *[_type == "blogs"][0] {
-        hero_title,
-        hero_subtitle,
+      *[_type == "services"][0] {
+        ...,
         section1_cards[]-> {
-          _id,
-          heading,
-          subheading,
-          icon,
-          button
         }
       }
     `);
