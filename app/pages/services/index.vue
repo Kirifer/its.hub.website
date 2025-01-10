@@ -84,47 +84,21 @@
 
       <!-- Pagination Buttons -->
       <div class="mt-8 flex justify-center gap-4">
-        <button
-          v-if="currentPage > 1"
-          @click="navigate(-1)"
-          class="px-4 py-2 bg-transparent border border-[#606DF1] rounded-full hover:bg-[#606DF1] hover:text-white transition-colors"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-        <button
-          v-if="currentPage < totalPages"
-          @click="navigate(1)"
-          class="px-4 py-2 bg-transparent border border-[#606DF1] rounded-full hover:bg-[#606DF1] hover:text-white transition-colors"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
-      </div>
+  <button
+    v-if="currentPage > 1"
+    @click="navigate(-1)"
+    class="px-4 py-2 bg-transparent border border-[#606DF1] rounded-full hover:bg-[#606DF1] hover:text-white transition-colors"
+  >
+    <ChevronLeftIcon class="w-6 h-6 stroke-[#606DF1] hover:stroke-white transition-colors" />
+  </button>
+  <button
+    v-if="currentPage < totalPages"
+    @click="navigate(1)"
+    class="px-4 py-2 bg-transparent border border-[#606DF1] rounded-full hover:bg-[#606DF1] hover:text-white transition-colors"
+  >
+    <ChevronRightIcon class="w-6 h-6 stroke-[#606DF1] hover:stroke-white transition-colors" />
+  </button>
+</div>
     </div>
   </div>
 </template>
@@ -133,6 +107,11 @@
 import { ref, computed, onMounted } from "vue";
 import sanityClient from "@/hooks/sanityClient";
 import { urlFor } from "@/hooks/sanityImageUrl";
+import {
+  ArrowRightIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "lucide-vue-next";
 
 interface BlogData {
   id: string;
