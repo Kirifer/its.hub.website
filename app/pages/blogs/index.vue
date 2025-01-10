@@ -257,14 +257,21 @@ function setupObserver() {
 }
 
 const filteredBlogs = computed(() => {
-  return blogs.value[0]?.section1_cards.filter((blog) => {
-    const matchesSearch = blog.heading
-      .toLowerCase()
-      .includes(searchQuery.value.toLowerCase());
-    const matchesTag =
-      !selectedTag.value || blog.tags.includes(selectedTag.value);
-    return matchesSearch && matchesTag;
-  });
+  if (selectedTag.value) {
+    searchQuery.value = "";
+    return blogs.value.flatMap(blog => blog.section1_cards).filter((blog) => {
+      return blog.tags.includes(selectedTag.value);
+    });
+  } else if (searchQuery.value) {
+    selectedTag.value = "";
+    return blogs.value.flatMap(blog => blog.section1_cards).filter((blog) => {
+      return blog.heading
+        .toLowerCase()
+        .includes(searchQuery.value.toLowerCase());
+    });
+  } else {
+    return blogs.value.flatMap(blog => blog.section1_cards);
+  }
 });
 
 const uniqueTags = computed(() => {
