@@ -263,7 +263,7 @@ const filteredAndSearchedCards = computed(() => {
   });
 });
 
-const jobOpenings = ref(null);
+const jobOpenings = ref<HTMLElement | null>(null);
 
 const scrollToJobOpenings = () => {
   if (jobOpenings.value) {
