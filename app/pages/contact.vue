@@ -200,13 +200,7 @@
                   class="w-full h-full object-cover"
                 />
               </div>
-              <div class="ml-4 relative">
-                <img
-                  src="~/assets/images/Design.png"
-                  alt="Design Element"
-                  class="w-auto h-180"
-                />
-              </div>
+             
             </div>
             <!-- <img
               src="~/assets/images/group 74.png"
