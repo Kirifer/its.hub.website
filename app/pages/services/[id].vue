@@ -5,8 +5,10 @@
   >
     <!-- Hero Section -->
     <div
-      class="w-full h-[580px] bg-gradient-to-br from-[#272727] to-[#1a1a1a] flex flex-col items-center text-center px-4 pt-20 relative"
+      
+      class="w-full h-[580px] bg-gradient-to-br from-[#272727] animate-fade-grid-in-3 to-[#1a1a1a] flex flex-col items-center text-center px-4 pt-20 relative "
     >
+    <div v-if="contact.length > 0" class="animate-fade-in">
       <!-- Title -->
       <h1
         class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10"
@@ -171,6 +173,7 @@
           </ol>
         </section>
       </article>
+      </div>
     </div>
 
     <!-- Contact Section -->
@@ -330,5 +333,46 @@ const handleSubmit = () => {
   width: 100%;
   height: 100%;
   background-color: white;
+}
+
+.animate-fade-grid-in-3 {
+  animation: grid-fade-in2 0.8s ease-out;
+}
+
+@keyframes grid-fade-in2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-grid-in-2 {
+  animation: grid-fade-in 2s ease-out;
+}
+
+@keyframes grid-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

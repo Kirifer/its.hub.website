@@ -4,15 +4,17 @@
       <!-- Hero Section -->
       <div class="inset-0 h-full w-full bg-white">
         <!-- Hero Section -->
-        <div v-if="blogs.length > 0" class="relative">
+        <div v-if="blogs.length > 0" class="relative ">
+          
           <div
             class="overflow-hidden h-[450px] relative bg-center bg-cover 
-            bg-[url('~/assets/images/its-hiring.jpg')]"
+            bg-[url('~/assets/images/its-hiring.jpg')] animate-fade-grid-in-3 "
           >
-            <div class="absolute inset-0 bg-black opacity-60 z-5"></div>
-            <div class="h-[550px] relative bg-cover rounded-2xl">
+            <div class="absolute inset-0 bg-black opacity-60 z-5 animate-fade-grid-in-2"></div>
+            <div class="animate-fade-in">
+            <div class="h-[550px] relative bg-cover rounded-2xl  ">
               <div
-                class="absolute inset-0 h-[500px] flex items-center justify-center z-20"
+                class="absolute inset-0 h-[500px] flex items-center justify-center z-20 "
               >
                 <div class="absolute top-[225px]">
                   <div
@@ -108,17 +110,18 @@
                     v-model="searchQuery"
                     type="text"
                     placeholder="Search blogs..."
-                    class="px-4 py-2 pr-48 border-2 border-purple-400 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 w-full sm:w-auto"
+                    class="px-4 py-2 md:w-[400px] border-2 border-purple-400 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 w-full mx-auto"
                   />
                   <select
                     v-model="selectedTag"
-                    class="p-2 py-2 text-left border-2 font-semibold border-purple-400 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 w-full sm:w-auto"
+                    class="p-2 py-2 text-left border-2 font-light border-purple-400 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 md:w-[200px] w-full mx-auto"
                   >
                     <option value="">All Categories</option>
                     <option class="" v-for="tag in uniqueTags" :key="tag" :value="tag">
                       {{ tag }}
                     </option>
                   </select>
+                </div>
                 </div>
               </div>
             </div>
@@ -139,7 +142,7 @@
 
     <!-- Blog Cards Section -->
     <div class="container mx-auto py-4">
-      <transition-group name="fade" class="flex flex-col mb-10" tag="div">
+      <transition-group name="fade" class="flex flex-col mb-10 md:-mt-4 -mt-10" tag="div">
         <div
           v-for="(blog, index) in filteredBlogs"
           :key="blog.id"
@@ -294,4 +297,45 @@ const uniqueTags = computed(() => {
   opacity: 0;
   transform: translateY(10px);
 }
+.animate-fade-grid-in-3 {
+  animation: grid-fade-in2 0.8s ease-out;
+}
+
+@keyframes grid-fade-in2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-grid-in-2 {
+  animation: grid-fade-in 2s ease-out;
+}
+
+@keyframes grid-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 </style>
