@@ -47,14 +47,14 @@
         class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 w-full max-w-6xl px-4"
       >
         <div
-          v-for="(services, index) in services[0]?.section1_cards"
+          v-for="(service, index) in paginatedServices"
           :key="index"
           class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-auto"
         >
           <div class="w-full h-25 sm:h-30 md:h-48">
             <img
-              :src="urlFor(services.image)"
-              :alt="services.heading"
+              :src="urlFor(service.image)"
+              :alt="service.heading"
               class="w-full h-full object-cover"
             />
           </div>
@@ -63,11 +63,11 @@
             <h2
               class="text-md sm:text-xl font-semibold text-gray-900 leading-snug"
             >
-              {{ services.heading }}
+              {{ service.heading }}
             </h2>
             <!-- Read More Link with Chevron (After Heading) -->
             <NuxtLink
-              :to="`/services/${services.id}`"
+              :to="`/services/${service.id}`"
               class="mt-2 inline-flex items-center text-[#606DF1] hover:text-[#4F5CD8] transition-colors"
             >
               <span
@@ -78,8 +78,27 @@
           </div>
         </div>
       </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex justify-center mt-8">
+        <button
+          v-if="currentPage > 1"
+          @click="navigate(-1)"
+          class="px-4 p-2 rounded-full border-2 border-purple-500 text-purple-500 hover:bg-purple-100 transition-colors"
+          aria-label="Previous page"
+        >
+          <ChevronLeftIcon class="w-6 h-6" />
+        </button>
+        <button
+          v-if="currentPage < totalPages"
+          @click="navigate(1)"
+          class="px-4 p-2 rounded-full border-2 border-purple-500 text-purple-500 hover:bg-purple-100 transition-colors"
+          aria-label="Next page"
+        >
+          <ChevronRightIcon class="w-6 h-6" />
+        </button>
+      </div>
     </div>
-    <!-- Pagination Buttons -->
   </div>
 </template>
 
@@ -88,14 +107,14 @@ import { ref, computed, onMounted } from "vue";
 import sanityClient from "@/hooks/sanityClient";
 import { urlFor } from "@/hooks/sanityImageUrl";
 import {
-  ArrowRightIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "lucide-vue-next";
 import type { Services } from "~/types/service";
 
 const services = ref<Services[]>([]);
-console.log(services);
+const currentPage = ref(1);
+const itemsPerPage = 8;
 
 onMounted(async () => {
   const query = `*[_type == "services"]  {
@@ -105,6 +124,20 @@ onMounted(async () => {
   }`;
   services.value = await sanityClient.fetch<Services[]>(query);
 });
+
+const paginatedServices = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  return services.value[0]?.section1_cards.slice(start, end) || [];
+});
+
+const totalPages = computed(() => {
+  return Math.ceil((services.value[0]?.section1_cards.length || 0) / itemsPerPage);
+});
+
+const navigate = (direction: number) => {
+  currentPage.value += direction;
+};
 </script>
 
 <style scoped>

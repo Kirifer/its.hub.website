@@ -46,7 +46,7 @@
             {{ careers[0]?.hero_subheading }}
           </p>
         </div>
-        <div class="relative z-10 flex justify-center mt-7">
+        <div class="relative z-10 flex justify-center mt-7"  @click="scrollToJobOpenings">
           <ShimmerButton
             class="px-6 sm:px-9 py-2.5 text-sm sm:text-base font-medium text-[#844DDC] bg-[rgba(132,77,220,0.19)] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors shadow-2xl"
             shimmer-size="2px"
@@ -112,7 +112,7 @@
       </div>
 
       <!-- Explore Our Job Openings -->
-      <div class="container px-2 pt-12 z-10 ">
+      <div class="container px-2 pt-12 z-10 "  ref="jobOpenings">
         <div class="sm:p-6 md:p-8 z-10">
           <div class="mx-auto space-y-4 sm:space-y-6 md:space-y-6">
             <h2
@@ -148,7 +148,7 @@
             </div>
 
             <!-- Job Cards Container -->
-            <div
+            <div 
               class="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
             >
               <div
@@ -263,6 +263,14 @@ const filteredAndSearchedCards = computed(() => {
   });
 });
 
+const jobOpenings = ref(null);
+
+const scrollToJobOpenings = () => {
+  if (jobOpenings.value) {
+    jobOpenings.value.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 const totalFilteredPages = computed(() =>
   Math.ceil(filteredAndSearchedCards.value.length / itemsPerPage)
 );
@@ -334,4 +342,5 @@ onMounted(async () => {
     transform: translateY(0);
   }
 }
+
 </style>

@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue';
-import sanityClient from '@/hooks/sanityClient';
-import { urlFor } from '@/hooks/sanityImageUrl';
-import type { Home } from '@/types/home';
+import { ref, onMounted, nextTick } from "vue";
+import sanityClient from "@/hooks/sanityClient";
+import { urlFor } from "@/hooks/sanityImageUrl";
+import type { Home } from "@/types/home";
 import {
   ChartBarIcon,
   BarsArrowUpIcon,
   FlagIcon,
   ChartPieIcon,
-} from '@heroicons/vue/24/outline';
+} from "@heroicons/vue/24/outline";
 
 const home = ref<Home[]>([]);
-const heroImage = ref('');
+const heroImage = ref("");
 const section_1 = ref<
   Array<{
     heading: string;
@@ -21,11 +21,11 @@ const section_1 = ref<
     visible: boolean;
   }>
 >([]);
-const section3Image = ref('');
+const section3Image = ref("");
 const section6 = ref<
   Array<{ author: string; position: string; message: string; _key: string }>
 >([]);
-const section7Image = ref('');
+const section7Image = ref("");
 const activeIndex = ref(0);
 const currentIndex = ref(0);
 const autoplayInterval = ref<ReturnType<typeof setInterval> | null>(null);
@@ -74,7 +74,9 @@ onMounted(async () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const index = featureRefs.value.findIndex((el) => el === entry.target);
+          const index = featureRefs.value.findIndex(
+            (el) => el === entry.target
+          );
           if (index !== -1) {
             section_1.value[index].visible = entry.isIntersecting;
           }
@@ -85,7 +87,7 @@ onMounted(async () => {
 
     featureRefs.value.forEach((el) => observer.observe(el));
   } catch (error) {
-    console.error('Error fetching data from Sanity:', error);
+    console.error("Error fetching data from Sanity:", error);
   }
 });
 </script>
@@ -150,17 +152,17 @@ onMounted(async () => {
               <TextGenerateEffect :words="home[0]?.hero_subtitle" class="" />
             </div>
             <div class="flex flex-row justify-center space-x-2">
-  <button
-    class="bg-purple-200 text-purple-800 font-medium px-6 py-2 rounded-md hover:bg-purple-300 transition-colors"
-  >
-    Get Started
-  </button>
-  <button
-    class="bg-white border-gray border font-medium px-6 py-2 rounded-md hover:bg-gray-300 transition-colors"
-  >
-    Learn More
-  </button>
-</div>
+              <button
+                class="bg-purple-200 text-purple-800 font-medium px-6 py-2 rounded-md hover:bg-purple-300 transition-colors"
+              >
+                Get Started
+              </button>
+              <button
+                class="bg-white border-gray border font-medium px-6 py-2 rounded-md hover:bg-gray-300 transition-colors"
+              >
+                Learn More
+              </button>
+            </div>
 
             <div
               class="w-full max-w-[90vw] md:max-w-[900px] md:pt-1 pt-6 mx-auto px-4 pb-16 relative"
@@ -238,47 +240,55 @@ onMounted(async () => {
     <div class="container mx-auto px-4 mt-10 md:mt-72">
       <div class="space-y-8 md:space-y-10 mt-10">
         <div
-      v-for="(feature, index) in section_1"
-      :key="index"
-      class="flex flex-col items-center text-center relative"
-      ref="featureRefs"
-    >
-      <div
-        :class="[
-          'w-[80px] h-[80px] border border-[#844ddc] rounded-lg flex items-center justify-center bg-white mb-4 sm:mb-0 transition-opacity duration-500 ease-out',
-          { 'opacity-0': !feature.visible, 'opacity-100': feature.visible },
-          index % 2 === 0
-            ? 'sm:absolute sm:left-[5%] md:left-[15%]'
-            : 'sm:absolute sm:right-[5%] lg:right-[15%]',
-        ]"
-      >
-        <img
-          v-if="feature.icon && feature.icon.asset"
-          :src="urlFor(feature.icon.asset._ref)"
-          alt="icon"
-          class="w-12 h-12"
-        />
-      </div>
+          v-for="(feature, index) in section_1"
+          :key="index"
+          class="flex flex-col items-center text-center relative"
+          ref="featureRefs"
+        >
+          <div
+            :class="[
+              'w-[80px] h-[80px] border border-[#844ddc] rounded-lg flex items-center justify-center bg-white mb-4 sm:mb-0 transition-opacity duration-500 ease-out',
+              { 'opacity-0': !feature.visible, 'opacity-100': feature.visible },
+              index % 2 === 0
+                ? 'sm:absolute sm:left-[5%] md:left-[15%]'
+                : 'sm:absolute sm:right-[5%] lg:right-[15%]',
+            ]"
+          >
+            <img
+              v-if="feature.icon && feature.icon.asset"
+              :src="urlFor(feature.icon.asset._ref)"
+              alt="icon"
+              class="w-12 h-12"
+            />
+          </div>
 
-      <div class="max-w-2xl mx-auto px-4 space-y-2 md:space-y-4">
-        <h3
-          class="text-3xl md:text-4xl font-bold leading-tight text-center text-black font-instrument-sans transition-opacity duration-500 ease-out"
-          :class="{ 'opacity-0': !feature.visible, 'opacity-100': feature.visible }"
-        >
-          {{ feature.heading }}
-        </h3>
-        <p
-          class="text-base md:text-lg text-black/60 text-center transition-opacity duration-500 ease-out"
-          :class="{ 'opacity-0': !feature.visible, 'opacity-100': feature.visible }"
-        >
-          {{ feature.subheading }}
-        </p>
-      </div>
-    </div>
+          <div class="max-w-2xl mx-auto px-4 space-y-2 md:space-y-4">
+            <h3
+              class="text-3xl md:text-4xl font-bold leading-tight text-center text-black font-instrument-sans transition-opacity duration-500 ease-out"
+              :class="{
+                'opacity-0': !feature.visible,
+                'opacity-100': feature.visible,
+              }"
+            >
+              {{ feature.heading }}
+            </h3>
+            <p
+              class="text-base md:text-lg text-black/60 text-center transition-opacity duration-500 ease-out"
+              :class="{
+                'opacity-0': !feature.visible,
+                'opacity-100': feature.visible,
+              }"
+            >
+              {{ feature.subheading }}
+            </p>
+          </div>
+        </div>
       </div>
 
       <div class="relative z-0">
-        <div class="relative rounded-2xl p-8 sm:p-16 md:p-32 md:mt-12 mt-16 overflow-hidden">
+        <div
+          class="relative rounded-2xl p-8 sm:p-16 md:p-32 md:mt-12 mt-16 overflow-hidden"
+        >
           <div
             class="absolute border-l-2 border-r-2 border-b-2 border-purple-300 rounded-b-2xl z-10"
             style="bottom: 0; left: 0; right: 0; height: calc(100% - 4rem)"
@@ -379,7 +389,9 @@ onMounted(async () => {
         </div>
       </div>
 
-      <div class="relative rounded-3xl overflow-hidden mb-16 md:pt-28 pt-16 sm:mb-32">
+      <div
+        class="relative rounded-3xl overflow-hidden mb-16 md:pt-28 pt-16 sm:mb-32"
+      >
         <div class="p-4 sm:p-8 rounded-3xl">
           <div class="w-full max-w-[90vw] md:max-w-[1250px] mx-auto px-4">
             <div
@@ -730,7 +742,7 @@ onMounted(async () => {
 
       <div class="min-h-[500px] px-4 sm:px-6 lg:px-6 py-12">
         <div class="max-w-8xl mx-auto p-5">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center ">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <!-- Left Content -->
             <div class="space-y-6 z-10">
               <h1
@@ -801,16 +813,20 @@ onMounted(async () => {
               <div
                 class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4"
               >
-                <button
-                  class="bg-white border-gray border font-medium px-6 py-2 rounded-md hover:bg-gray-300 transition-colors"
-                >
-                  Get Started
-                </button>
-                <button
-                  class="bg-purple-200 text-purple-800 font-medium px-6 py-2 rounded-md hover:bg-purple-300 transition-colors"
-                >
-                  Learn More
-                </button>
+                <router-link to="/contact">
+                  <button
+                    class="bg-white border-gray border font-medium px-6 py-2 rounded-md hover:bg-gray-300 transition-colors"
+                  >
+                    Get Started
+                  </button>
+                </router-link>
+                <router-link to="/about">
+                  <button
+                    class="bg-purple-200 text-purple-800 font-medium px-6 py-2 rounded-md hover:bg-purple-300 transition-colors"
+                  >
+                    Learn More
+                  </button>
+                </router-link>
               </div>
             </div>
 

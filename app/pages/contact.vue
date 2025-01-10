@@ -189,9 +189,19 @@
             <p class="text-lg md:text-2xl text-gray-500 mb-5">
               {{ contact[0]?.section2_subtitle }}
             </p>
-            <div
-              class="relative w-full h-[250px] md:h-[250px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl rotate-180 p-2 border border-[#844DDC] md:w-[350px] hidden md:block"
-            ></div>
+            <div class="flex items-center justify-center">
+              <div
+                class="relative w-full h-[250px] md:h-[250px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl p-2 border border-[#844DDC] md:w-[350px] hidden md:block"
+              >
+                <img
+                  v-if="contact[0]?.section2_image3"
+                  :src="urlFor(contact[0]?.section2_image3)"
+                  alt="Section 2 Image 3"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+             
+            </div>
             <!-- <img
               src="~/assets/images/group 74.png"
               alt="Design Element"
@@ -215,9 +225,17 @@
           </div>
         </div>
         <div class="w-full md:w-1/2 space-y-10">
-          <div v-for="(step, index) in contact[0]?.section2_steps" :key="index" class="space-y-5">
-            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">0{{ step.step_no }}.</h1>
-            <h1 class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900">
+          <div
+            v-for="(step, index) in contact[0]?.section2_steps"
+            :key="index"
+            class="space-y-5"
+          >
+            <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">
+              0{{ step.step_no }}.
+            </h1>
+            <h1
+              class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
+            >
               {{ step.step_title }}
             </h1>
             <p class="text-lg md:text-2xl text-gray-500">
@@ -281,6 +299,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "vue-chartjs";
 import sanityClient from "~/hooks/sanityClient";
 import type { Contact } from "~/types/contact";
+import { urlFor } from "@/hooks/sanityImageUrl";
 
 const contact = ref<Contact[]>([]);
 
