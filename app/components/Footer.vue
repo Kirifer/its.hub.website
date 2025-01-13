@@ -84,16 +84,17 @@
                     >Virtual Assistant</a
                   >
                 </li>
+              
+                <li>
+                  <a href="/services/0bab131a-2602-44a0-9dac-742e00c4563f" class="hover:text-black"
+                    >Cloud Engineers</a
+                  >
+                </li>
                 <li>
                   <a
                     href="/healthcare-virtual-assistants"
                     class="hover:text-black"
                     >Healthcare Virtual Assistants</a
-                  >
-                </li>
-                <li>
-                  <a href="/cloud-engineers" class="hover:text-black"
-                    >Cloud Engineers</a
                   >
                 </li>
                 <li>
