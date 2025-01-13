@@ -2,7 +2,7 @@
   <div
     class="inset-0 h-lg w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
   >
-    <div class="container mx-auto my-4 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto my-4 px-4 sm:px-6 lg:px-8 animate-fade-in">
       <div class="flex flex-col lg:flex-row justify-stretch gap-10">
         <div class="w-full lg:w-[70%]">
           <div class="text-2xl lg:text-4xl font-bold">{{ jobs?.job_title }}</div>
@@ -106,3 +106,46 @@ onMounted(async () => {
   similarJobs.value = shuffleArray(allJobs).slice(0, 5);
 });
 </script>
+
+<style scoped>
+.animate-fade-grid-in-3 {
+  animation: grid-fade-in2 0.8s ease-out;
+}
+
+@keyframes grid-fade-in2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-grid-in-2 {
+  animation: grid-fade-in 2s ease-out;
+}
+
+@keyframes grid-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>

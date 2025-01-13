@@ -5,10 +5,11 @@
     >
       <!-- Contact Section -->
 
-      <div class="container mx-auto px-4 h-[750px]">
+      <div class="container mx-auto px-4 h-[750px] animate-fade-grid-in-3">
         <!-- Header Section -->
         <div
-          class="flex flex-col items-center justify-center space-y-5 md:space-y-5"
+        v-if="contact.length > 0" 
+          class="flex flex-col items-center justify-center space-y-5 md:space-y-5 animate-fade-in"
         >
           <div class="mt-10">
             <span
@@ -441,5 +442,45 @@ const offices: Office[] = [
     linear-gradient(to bottom, rgba(220, 220, 220, 0.6) 1px, transparent 1px),
     linear-gradient(to bottom right, #ebf8ff, #f3e8ff, #ffe4e6); */
   background-color: white;
+}
+.animate-fade-grid-in-3 {
+  animation: grid-fade-in2 0.8s ease-out;
+}
+
+@keyframes grid-fade-in2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-grid-in-2 {
+  animation: grid-fade-in 2s ease-out;
+}
+
+@keyframes grid-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
