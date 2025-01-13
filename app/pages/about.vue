@@ -4,6 +4,7 @@ import {
   ChartBarIcon,
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
+  InformationCircleIcon, 
 } from "@heroicons/vue/24/outline";
 import { urlFor } from "~/hooks/sanityImageUrl";
 import type { About } from "~/types/about";
@@ -134,14 +135,14 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
 
         <div class="container mx-auto px-4 absolute inset-0">
           <div
-            class="flex flex-col items-center justify-center space-y-5 md:space-y-10 animate-fade-in"
+            class="flex flex-col items-center justify-center space-y-4 md:space-y-8 animate-fade-in"
           >
             <div class="mt-10 -mb-2">
               <span
-                class="inline-flex items-center px-3 py-1 rounded-full text-lg font-medium bg-blue-200 text-blue-800"
+                class="inline-flex items-center px-3 py-1 gap-2  rounded-full text-lg font-medium bg-blue-200 text-blue-800"
               >
-                <ChartBarIcon class="h-5 w-5 mr-1" />
-                Lets Discover and Grow
+              <InformationCircleIcon class="h-6 w-6 text-blue-500" />
+                {{ about[0]?.hero_badge }}
               </span>
             </div>
             <div

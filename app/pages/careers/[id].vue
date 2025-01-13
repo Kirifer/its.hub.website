@@ -1,29 +1,30 @@
 <template>
   <div
-
     class="inset-0 h-lg w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
   >
     <div class="container mx-auto mt-0 px-4 sm:px-6 lg:px-8 animate-fade-in">
       <div class="flex flex-col lg:flex-row justify-stretch gap-0">
         <div class="w-full mt-5 mb-5 lg:w-[70%]">
-          <div class="text-2xl lg:text-4xl font-bold">{{ jobs?.job_title }}</div>
+          <div class="text-2xl lg:text-4xl font-bold">
+            {{ jobs?.job_title }}
+          </div>
           <div class="mt-1 space-x-1">
             <div
               v-for="(badge, index) in jobs?.job_badges"
               :key="index"
-              class="inline-block bg-gray-400 text-white text-[10px] px-1 font-bold uppercase py-0.5 rounded-md"
+              class="inline-block bg-blue-300 text-white text-[10px] px-1 font-bold uppercase py-0.5 rounded-md"
             >
               {{ badge }}
             </div>
           </div>
           <div class="space-y-5 mt-0">
             <div class="font-bold text-lg mt-5 lg:text-xl">Description</div>
-            <div class="text-gray-500 text-sm lg:text-md">
+            <div class="text-black text-sm lg:text-md">
               {{ jobs?.job_description }}
             </div>
 
             <div class="font-bold text-lg lg:text-xl">Qualification</div>
-            <div class="text-gray-500 text-sm lg:text-md">
+            <div class="text-black text-sm lg:text-md">
               <ul class="list-disc pl-5">
                 <li
                   v-for="(qualifications, index) in jobs?.job_qualifications"
@@ -35,10 +36,12 @@
             </div>
 
             <div class="font-bold text-lg lg:text-xl">Responsibility</div>
-            <div class="text-gray-500 text-sm lg:text-md">
+            <div class="text-black text-sm lg:text-md">
               <ul class="list-disc pl-5">
                 <li
-                  v-for="(responsibilities, index) in jobs?.job_responsibilities"
+                  v-for="(
+                    responsibilities, index
+                  ) in jobs?.job_responsibilities"
                   :key="index"
                 >
                   {{ responsibilities }}
@@ -49,26 +52,28 @@
         </div>
         <div class="w-full lg:w-[30%] mt-0 mb-5 lg:mt-0">
           <div class="text-xl mt-5 lg:text-2xl font-bold">Similar Jobs</div>
+
           <div class="flex flex-col mt-2 gap-2">
-            <div
+            <NuxtLink
               v-for="(job, index) in similarJobs"
               :key="index"
-              class="border rounded-lg p-4 shadow-sm bg-white"
+              :to="`/careers/${job._id}`"
+              class="border rounded-lg p-4 shadow-sm bg-white transition-shadow duration-300 hover:shadow-md hover:shadow-blue-900"
             >
               <div class="font-bold text-lg">{{ job.job_title }}</div>
               <div class="space-x-1">
                 <div
                   v-for="(badge, badgeIndex) in job.job_badges"
                   :key="badgeIndex"
-                  class="inline-block bg-gray-400 text-white text-[10px] px-1 font-bold uppercase py-0.5 rounded-md"
+                  class="inline-block bg-blue-300 text-white text-[10px] px-1 font-bold uppercase py-0.5 rounded-md"
                 >
                   {{ badge }}
                 </div>
               </div>
-              <div class="mt-2 text-gray-500 text-sm line-clamp-2">
+              <div class="mt-2 text-black text-sm line-clamp-2">
                 {{ job.job_description }}
               </div>
-            </div>
+            </NuxtLink>
           </div>
         </div>
       </div>

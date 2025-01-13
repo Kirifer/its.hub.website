@@ -818,7 +818,7 @@ onMounted(async () => {
               >
                 <router-link to="/contact">
                   <button
-                    class="bg-white border-gray border font-medium px-6 py-2 rounded-md hover:bg-gray-300 transition-colors"
+                    class="bg-white border-gray border font-medium px-6 py-2 rounded-md hover:bg-purple-300 hover:text-purple-900 transition-colors"
                   >
                     Get Started
                   </button>

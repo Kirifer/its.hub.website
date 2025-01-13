@@ -84,15 +84,17 @@
               >
                 <div class="mt-10">
                   <span
-                    class="inline-flex items-center px-3 py-0.5 rounded-full text-lg font-medium bg-purple-200 text-purple-800"
+                    class="inline-flex items-center px-3 gap-2 py-1 rounded-full text-lg font-medium bg-purple-200 text-purple-800"
                   >
-                    {{ blogs[0]?.hero_title }}
+                  <FileTextIcon class="w-6 h-6 text-purple-800" />
+                  Fuel Your Curiosity
                   </span>
                 </div>
                 <div
                   class="font-bold text-center text-3xl md:text-6xl w-[350px] md:w-[700px] text-white"
                 >
-                  Explore the Latest Blogs
+                 
+                  {{ blogs[0]?.hero_title }}
                 </div>
                 <div
                   class="text-center text-lg md:text-xl text-gray-100 w-full md:w-[700px]"
@@ -110,11 +112,11 @@
                     v-model="searchQuery"
                     type="text"
                     placeholder="Search blogs..."
-                    class="px-4 py-2 md:w-[400px] border-2 border-purple-400 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 w-full mx-auto"
+                    class="px-4 py-2 md:w-[400px] border-2 border-purple-400 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 w-full mx-auto"
                   />
                   <select
                     v-model="selectedTag"
-                    class="p-2 py-2 text-left border-2 font-light border-purple-400 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 md:w-[200px] w-full mx-auto"
+                    class="p-2 py-2 text-left border-2 font-light border-purple-400 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 md:w-[135px] w-full mx-auto"
                   >
                     <option value="">All Categories</option>
                     <option class="" v-for="tag in uniqueTags" :key="tag" :value="tag">
@@ -194,6 +196,7 @@ import type { Blogs } from "~/types/blogs";
 import sanityClient from "~/hooks/sanityClient";
 import { ref, onMounted, nextTick, computed } from "vue";
 import { urlFor } from "@/hooks/sanityImageUrl";
+import { FileTextIcon } from "lucide-vue-next"; // Import the FileTextIcon
 
 // const backgroundImages = [
 //   "bg-[url('~/assets/images/its-hiring.jpg')]",

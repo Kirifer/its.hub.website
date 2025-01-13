@@ -47,16 +47,11 @@
           </p>
         </div>
         <div class="relative z-10 flex justify-center mt-7" @click="scrollToJobOpenings">
-  <ShimmerButton
-    class="text-purple-800 font-medium px-4 py-1.5 rounded-md hover:bg-purple-300 transition-colors"
-    shimmer-size="2px"
-  >
-    <span
-      class="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg dark:from-white dark:to-slate-900/10"
-    >
-      {{ careers[0]?.hero_button }}
-    </span>
-  </ShimmerButton>
+           <ShimmerButton
+               shimmer-size="2px"
+              class="bg-[rgba(132,77,220,0.9)] text-white font-medium px-5 py-1.5 rounded-md hover:bg-purple-300 hover:text-white transition-colors"              >
+              {{ careers[0]?.hero_button }}
+              </ShimmerButton>
 </div>
         <div
           class="relative z-10 mt-8 p-3 rounded-2xl bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 max-w-4xl w-full mx-auto"

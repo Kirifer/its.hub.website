@@ -4,21 +4,21 @@
   >
     <!-- Main Content -->
     <div
-      class="relative z-10 flex flex-col items-center animate-fade-in justify-center min-h-screen px-4 py-12"
+      class="relative z-10 flex flex-col items-center animate-fade-in justify-center min-h-screen px-4 py-10"
     >
-      <div class="mt-2">
-        <span
-          class="inline-flex items-center px-3 py-0.5 rounded-full text-lg font-medium bg-blue-200 text-blue-800"
-          >{{ services[0]?.hero_title }}</span
-        >
-      </div>
+    <div class=" flex items-center space-x-2">
+
+  <span class="inline-flex items-center px-3 py-1 gap-2 rounded-full text-lg font-medium bg-blue-200 text-blue-800">
+    <BriefcaseIcon class="w-6 h-6 text-blue-800" /> Your Needs, Our Mission
+  </span>
+</div>
 
       <div class="p-6 sm:p-8 flex flex-col items-center justify-center">
-        <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900">
-          {{ services[0]?.hero_title }}
-        </h1>
+        <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 w-full max-w-xl text-center">
+  {{ services[0]?.hero_title }}
+</h1>
         <p
-          class="mt-4 text-sm sm:text-base md:text-lg text-gray-600 text-center max-w-xl"
+          class="mt-4 text-sm sm:text-base md:text-xl text-gray-600 text-center max-w-2xl"
         >
           {{ services[0]?.hero_subtitle }}
         </p>
@@ -84,7 +84,7 @@
         <button
           v-if="currentPage > 1"
           @click="navigate(-1)"
-          class="px-4 p-2 rounded-full border-2 border-purple-500 text-purple-500 hover:bg-purple-100 transition-colors"
+          class="px-4 p-2 rounded-full border-2 border-blue-500 text-blue-500 hover:bg-blue-100 transition-colors"
           aria-label="Previous page"
         >
           <ChevronLeftIcon class="w-6 h-6" />
@@ -92,7 +92,7 @@
         <button
           v-if="currentPage < totalPages"
           @click="navigate(1)"
-          class="px-4 p-2 rounded-full border-2 border-purple-500 text-purple-500 hover:bg-purple-100 transition-colors"
+          class="px-4 p-2 rounded-full border-2 border-blue-500 text-blue-500 hover:bg-blue-100 transition-colors"
           aria-label="Next page"
         >
           <ChevronRightIcon class="w-6 h-6" />
@@ -109,6 +109,7 @@ import { urlFor } from "@/hooks/sanityImageUrl";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
+  BriefcaseIcon,
 } from "lucide-vue-next";
 import type { Services } from "~/types/service";
 
