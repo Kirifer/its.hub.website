@@ -4,26 +4,33 @@
   >
     <!-- Hero Section -->
     <div
-      class="bg-black w-full h-[580px] animate-fade-grid-in-3 to-[#2a2a2a] flex flex-col items-center text-center px-4 pt-20 relative"
+      :style="{
+        backgroundImage: servicesData?.image
+          ? `url(${urlFor(servicesData.image)})`
+          : '',
+      }"
+      class="bg-cover bg-center w-full h-[580px] animate-fade-grid-in-3 to-[#2a2a2a] flex flex-col items-center text-center px-4 pt-20 relative"
     >
       <div
         v-if="contact.length > 0"
-        class="animate-fade-in flex flex-col items-center justify-center"
+        class="animate-fade-in-3 flex flex-col items-center justify-center"
       >
         <!-- Title -->
         <h1
-          class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[60px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10 text-center"
+          class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[60px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10 text-center z-10"
         >
           {{ servicesData?.heading }}
         </h1>
 
         <!-- Description -->
         <p
-          class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8 text-center"
+          class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8 text-center z-10"
         >
           {{ servicesData?.subheading }}
         </p>
-
+        <div
+          class="absolute inset-0 bg-black opacity-80 z-5 animate-fade-grid-in-2"
+        ></div>
         <!-- Featured Image -->
         <div
           v-if="servicesData?.image"
