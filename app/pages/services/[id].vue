@@ -4,9 +4,12 @@
   >
     <!-- Hero Section -->
     <div
-      class="w-full h-[580px] bg-gradient-to-br from-[#272727] animate-fade-grid-in-3 to-[#1a1a1a] flex flex-col items-center text-center px-4 pt-20 relative"
+      class="bg-black w-full h-[580px] animate-fade-grid-in-3 to-[#2a2a2a] flex flex-col items-center text-center px-4 pt-20 relative"
     >
-      <div v-if="contact.length > 0" class="animate-fade-in flex flex-col items-center justify-center">
+      <div
+        v-if="contact.length > 0"
+        class="animate-fade-in flex flex-col items-center justify-center"
+      >
         <!-- Title -->
         <h1
           class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[60px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10 text-center"
@@ -27,13 +30,15 @@
           class="relative w-full max-w-[648px] mx-auto mt-4 mb-8 sm:mt-4 sm:mb-12"
         >
           <div
-            class="relative w-full pt-[62.3%] rounded-[15px] border-[6px] sm:border-[10px] border-[#606DF1] overflow-hidden mb-12"
+            class="relative z-10 p-3 rounded-2xl bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400"
           >
-            <img
-              :src="urlFor(servicesData.image)"
-              alt="Philippine Outsourcing"
-              class="absolute top-0 left-0 w-full h-full object-cover"
-            />
+            <div class="relative w-full pt-[62.3%] rounded-xl overflow-hidden">
+              <img
+                :src="urlFor(servicesData.image)"
+                alt="Philippine Outsourcing"
+                class="absolute top-0 left-0 w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -49,228 +54,54 @@
             {{ servicesData?.introTitle }}
           </h2>
           <p class="text-base sm:text-xl">
-            A Virtual Assistant (VA) can remodel your commercial enterprise by
-            means of taking on diverse administrative tasks that consume time
-            and resources. They are excellent at handling emails, making
-            appointments, and responding to consumer questions, which frees up
-            your team's and your own valuable time to focus on more important
-            work. Given that you can increase their services in accordance with
-            your company objectives without having to commit to recruiting a
-            full-time workforce, virtual assistants (VAs) can add flexibility to
-            your operations. Their proficiency in optimizing tactics and
-            enhancing efficacy can significantly boost output and ultimately aid
-            in the expansion and success of your enterprise.
+            {{ servicesData?.introDescription }}
           </p>
         </section>
 
-        <section>
+        <section
+          v-for="(section, index) in servicesData?.bodyTitle?.sections"
+          :key="index"
+        >
           <h2 class="font-semibold text-2xl sm:text-3xl mb-2">
-            Things You Can Assign to an Outsourced Virtual Assistant
+            {{ section.miniTitle }}
           </h2>
-          <p class="text-base sm:text-xl mb-6">
-            Virtual assistants, once used in particular for admin obligations,
-            now manage an extensive variety of responsibilities traditionally
-            managed in-house. Today, agencies delegate duties like admin tasks,
-            customer support, digital advertising and marketing, and specialized
-            initiatives to virtual assistants.
+          <p class="text-base sm:text-xl mb-4">
+            {{ section.description }}
           </p>
-          <ol class="list-decimal list-inside space-y-6">
-            <li>
-              <strong class="text-lg sm:text-xl"> Administrative Tasks</strong>
-              <p class="mt-2 text-base sm:text-xl">
-                Most digital assistants excel in administrative obligations
-                inclusive of statistics access, calendar control, file
-                corporation, document era, telephone handling, and internet
-                studies. You can delegate tasks like appointment scheduling,
-                email management, file employer, lead technology, and PowerPoint
-                presentation advent to a digital assistant (VA).
-              </p>
-            </li>
-            <li>
-              <strong class="text-lg sm:text-xl">Technical Support</strong>
-              <p class="mt-2 text-base sm:text-xl">
-                As they can handle a wide range of technological jobs, including
-                database design, server control, audio document purification,
-                mobile app development, and touchdown page construction, virtual
-                assistants are a valuable resource for small business owners
-                searching for cost-effective tech solutions.
-              </p>
-            </li>
-            <li>
-              <strong class="text-lg sm:text-xl">Customer Support</strong>
-              <p class="mt-2 text-base sm:text-xl">
-                A virtual assistant may take care of crucial customer support
-                tasks including responding to posts about your company on social
-                media or discussion boards, updating statistics, responding to
-                questions from potential customers, and managing comments.
-              </p>
-            </li>
-            <li>
-              <strong class="text-lg sm:text-xl">Digital Marketing</strong>
-              <p class="mt-2 text-base sm:text-xl">
-                Some of the most important digital advertising and marketing
-                responsibilities for businesses are blog authoring, photo
-                layout, video editing, social media management, press releases,
-                and email advertising. Although many people do these
-                responsibilities in-house, hiring specialized helpers seems to
-                be more effective and cost-effective. Competent virtual
-                assistants complete those tasks more quickly and accurately than
-                less experienced team members or company owners.
-              </p>
-            </li>
-          </ol>
-        </section>
-
-        <section>
-          <h2 class="font-semibold text-2xl sm:text-3xl mb-6">
-            Benefits of an Outsourced Virtual Assistant
-          </h2>
-          <p class="text-base sm:text-xl">
-            Virtual assistants have simplified operations and increased
-            productivity for firms by enabling remote work and multitasking.
-            Here are some reasons why you should outsource a Virtual Assistant:
-          </p>
-          <ol class="list-decimal list-inside space-y-6">
-            <li>
-              <strong class="text-lg sm:text-xl">Increases productivity</strong>
-              <p class="mt-2 text-base sm:text-xl">
-                By delegating routine duties like basic bookkeeping and calendar
-                management to a virtual office assistant, you and your team can
-                focus on taking on more important roles in different business
-                activities.
-              </p>
-            </li>
-            <li>
-              <strong class="text-lg sm:text-xl">Reduces overhead costs</strong>
-              <p class="mt-2 text-base sm:text-xl">
-                Virtual assistants operate remotely, so you won't need to invest
-                more money in equipment and office space.
-              </p>
-            </li>
-            <li>
-              <strong class="text-lg sm:text-xl">
-                Scale your business easily</strong
-              >
-              <p class="mt-2 text-base sm:text-xl">
-                Get on-demand support to address staffing problems right away.
-                Compared to hiring full-time experts who need office supplies
-                and training, as well as a fixed salary and benefits, this is
-                simpler and less expensive.
-              </p>
-            </li>
-            <li>
-              <strong class="text-lg sm:text-xl">
-                Enjoy work-life balance</strong
-              >
-              <p class="mt-2 text-base sm:text-xl">
-                Virtual assistants do the time-consuming tasks for your business
-                so you may focus on your work and avoid taking time away from
-                other pursuits.
-              </p>
-            </li>
-          </ol>
         </section>
       </article>
     </div>
-
     <!-- Contact Section -->
-    <div class="container mx-auto px-4 h-[750px]">
+    <div
+      class="w-full max-w-[1145px] mx-auto px-2 sm:px-6 lg:px-10 py-12 sm:py-14 mt-0"
+    >
       <!-- Header Section -->
       <div
-        class="flex flex-col items-center justify-center space-y-5 md:space-y-5"
+        class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-12"
       >
-        <h1 v-if="contact.length > 0"
-          class="font-bold text-center text-3xl md:text-5xl w-[350px] md:w-[550px]"
-        >
-          {{ contact[0]?.hero_title }}
-        </h1>
-        <p v-if="contact.length > 0"
-          class="text-center text-lg md:text-xl text-gray-900 w-full md:w-[500px]"
-        >
-          {{ contact[0]?.hero_subtitle }}
-        </p>
-
-        <!-- Form Card -->
-        <div
-          class="bg-white rounded-2xl shadow-xl p-8 mb-12 w-full md:w-[1200px]"
-        >
-          <form @submit.prevent="handleSubmit">
-            <div class="flex flex-col space-y-4">
-              <div class="flex flex-col md:flex-row justify-between gap-4">
-                <div class="w-full">
-                  <label for="name" class="text-sm font-medium text-gray-700"
-                    >Name</label
-                  >
-                  <input
-                    v-model="formData.name"
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Your Name"
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  />
-                </div>
-                <div class="w-full">
-                  <label for="email" class="text-sm font-medium text-gray-700"
-                    >Email</label
-                  >
-                  <input
-                    v-model="formData.email"
-                    type="text"
-                    id="email"
-                    name="email"
-                    placeholder="Your Email"
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  />
-                </div>
-                <div class="w-full">
-                  <label for="phone" class="text-sm font-medium text-gray-700"
-                    >Phone Number</label
-                  >
-                  <input
-                    v-model="formData.phone"
-                    type="number"
-                    id="phone"
-                    name="phone"
-                    placeholder="Your Phone Number"
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  />
-                </div>
-              </div>
-              <div class="w-full">
-                <label for="message" class="text-sm font-medium text-gray-700"
-                  >Message</label
-                >
-                <textarea
-                  v-model="formData.message"
-                  type="text"
-                  id="message"
-                  name="message"
-                  placeholder="Your Message"
-                  class="mt-1 block w-full px-3 h-56 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                />
-              </div>
-              <div class="flex justify-between items-center">
-                <!-- Contact Information on the Left -->
-                <div class="flex-col items-center space-y-2">
-                  <p class="text-sm md:text-sm text-gray-900">
-                    Phone: +63 906 001-0784 (Globe) <br />
-                    Phone: +63 921 859-1348 (Smart) <br />
-                    Email: customercare@itsquarehub.com
-                  </p>
-                </div>
-
-                <!-- Submit Button on the Right -->
-                <button
-                  type="submit"
-                  class="bg-blue-500 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-600 transition-colors w-fit"
-                >
-                  Submit
-                </button>
-              </div>
-            </div>
-          </form>
+        <div class="flex flex-col space-y-5 flex-1">
+          <h1
+            v-if="contact.length > 0"
+            class="font-medium text-[28px] sm:text-[40px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-center md:text-left"
+          >
+            {{ contact[0]?.hero_title }}
+          </h1>
+          <p
+            v-if="contact.length > 0"
+            class="font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-center md:text-left text-gray-900"
+          >
+            {{ contact[0]?.hero_subtitle }}
+          </p>
         </div>
+
+        <!-- Button -->
+        <router-link to="/contact" class="flex-shrink-0">
+          <button
+            class="bg-purple-300 border-gray border font-medium px-6 py-2 rounded-md hover:bg-white hover:text-purple-800 transition-colors"
+          >
+            Contact Us
+          </button>
+        </router-link>
       </div>
     </div>
   </div>
