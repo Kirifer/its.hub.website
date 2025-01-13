@@ -1,10 +1,11 @@
 <template>
   <div
+
     class="inset-0 h-lg w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
   >
-    <div class="container mx-auto my-4 px-4 sm:px-6 lg:px-8 animate-fade-in">
-      <div class="flex flex-col lg:flex-row justify-stretch gap-10">
-        <div class="w-full lg:w-[70%]">
+    <div class="container mx-auto mt-0 px-4 sm:px-6 lg:px-8 animate-fade-in">
+      <div class="flex flex-col lg:flex-row justify-stretch gap-0">
+        <div class="w-full mt-5 mb-5 lg:w-[70%]">
           <div class="text-2xl lg:text-4xl font-bold">{{ jobs?.job_title }}</div>
           <div class="mt-1 space-x-1">
             <div
@@ -15,8 +16,8 @@
               {{ badge }}
             </div>
           </div>
-          <div class="space-y-5 mt-6">
-            <div class="font-bold text-lg lg:text-xl">Description</div>
+          <div class="space-y-5 mt-0">
+            <div class="font-bold text-lg mt-5 lg:text-xl">Description</div>
             <div class="text-gray-500 text-sm lg:text-md">
               {{ jobs?.job_description }}
             </div>
@@ -46,8 +47,8 @@
             </div>
           </div>
         </div>
-        <div class="w-full lg:w-[30%] mt-6 lg:mt-0">
-          <div class="text-xl lg:text-2xl font-bold">Similar Jobs</div>
+        <div class="w-full lg:w-[30%] mt-0 mb-5 lg:mt-0">
+          <div class="text-xl mt-5 lg:text-2xl font-bold">Similar Jobs</div>
           <div class="flex flex-col mt-2 gap-2">
             <div
               v-for="(job, index) in similarJobs"

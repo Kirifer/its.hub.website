@@ -46,18 +46,18 @@
             {{ careers[0]?.hero_subheading }}
           </p>
         </div>
-        <div class="relative z-10 flex justify-center mt-7"  @click="scrollToJobOpenings">
-          <ShimmerButton
-            class="px-6 sm:px-9 py-2.5 text-sm sm:text-base font-medium text-[#844DDC] bg-[rgba(132,77,220,0.19)] rounded-full hover:bg-[rgba(132,77,220,0.5)] transition-colors shadow-2xl"
-            shimmer-size="2px"
-          >
-            <span
-              class="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg dark:from-white dark:to-slate-900/10"
-            >
-              {{ careers[0]?.hero_button }}
-            </span>
-          </ShimmerButton>
-        </div>
+        <div class="relative z-10 flex justify-center mt-7" @click="scrollToJobOpenings">
+  <ShimmerButton
+    class="text-purple-800 font-medium px-4 py-1.5 rounded-md hover:bg-purple-300 transition-colors"
+    shimmer-size="2px"
+  >
+    <span
+      class="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg dark:from-white dark:to-slate-900/10"
+    >
+      {{ careers[0]?.hero_button }}
+    </span>
+  </ShimmerButton>
+</div>
         <div
           class="relative z-10 mt-8 p-3 rounded-2xl bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 max-w-4xl w-full mx-auto"
         >
@@ -74,7 +74,7 @@
           class="absolute  md:h-[686px] md:w-[682px] w-[282px] h-[286px] rounded-full right-[-250px] top-48 z-0"
           :style="{
             background:
-              'radial-gradient(circle, rgba(142,212,246,0.6) 0%, rgba(142,212,246,0) 70%)',
+              'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 50%)',
             transform: 'rotate(-116.85deg)',
             filter: 'blur(50px)',
           }"
@@ -84,7 +84,7 @@
           class="absolute md:h-[686px] md:w-[682px] w-[282px] h-[286px] rounded-full right-[-250px] top-8 z-0"
           :style="{
             background:
-              'radial-gradient(circle, rgba(145,77,176,0.6) 0%, rgba(145,77,176,0) 50%)',
+              'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 50%)',
             transform: 'rotate(-116.85deg)',
             filter: 'blur(50px)',
           }"
@@ -94,7 +94,7 @@
           class="absolute md:h-[686px] md:w-[682px] w-[282px] h-[286px] rounded-full left-[-300px] top-48 z-0"
           :style="{
             background:
-              'radial-gradient(circle, rgba(142,212,246,0.6) 0%, rgba(142,212,246,0) 70%)',
+              'radial-gradient(circle, rgba(142,212,246,0.3) 0%, rgba(142,212,246,0) 50%)',
             transform: 'rotate(-116.85deg)',
             filter: 'blur(50px)',
           }"
@@ -104,7 +104,7 @@
           class="absolute md:h-[686px] md:w-[682px] w-[282px] h-[286px] rounded-full left-[-250px] top-8 z-0"
           :style="{
             background:
-              'radial-gradient(circle, rgba(145,77,176,0.6) 0%, rgba(145,77,176,0) 50%)',
+              'radial-gradient(circle, rgba(145,77,176,0.3) 0%, rgba(145,77,176,0) 50%)',
             transform: 'rotate(-116.85deg)',
             filter: 'blur(50px)',
           }"
@@ -158,11 +158,13 @@
               >
                 <!-- Available Badge -->
                 <div class="space-y-4">
-                  <span
-                    class="inline-flex items-center px-5 py-1 rounded-full text-sm font-medium bg-blue-900 text-white"
-                  >
-                    Available
-                  </span>
+                  
+                  <div class="flex items-center space-x-2">
+  <CheckIcon class="w-5 h-5 text-purple-900" />
+  <span class="inline-block text-lg sm:text-xl font-medium text-violet-600">
+    Available
+  </span>
+</div>
 
                   <!-- Job Title -->
                   <h3 class="font-semibold text-xl sm:text-2xl text-gray-900">
@@ -181,8 +183,8 @@
                 <div class="mt-6 justify-end flex">
                   <NuxtLink
                     :to="`/careers/${card._id}`"
-                    class="inline-block bg-[#844DDC] border border-[#844DDC] text-white font-medium px-6 py-2 rounded-full hover:bg-violet-300 transition-colors"
-                  >
+                    class="px-4 py-2 text-sm md:text-base font-semibold bg-purple-200 text-purple-800 rounded-md hover:bg-purple-300 transition-all duration-300 hover:scale-105"
+                    >
                  Learn More
                   </NuxtLink>
                 </div>
@@ -217,7 +219,7 @@
           </h2>
 
           <button
-            class="bg-[#844DDC] border-white border text-white font-medium px-6 py-2 rounded-md hover:bg-violet-300 transition-colors"
+          class="px-4 py-2 text-sm md:text-base font-semibold bg-purple-200 text-purple-800 rounded-md hover:bg-purple-300 transition-all duration-300 hover:scale-105"
           >
             {{ careers[0]?.section2_button }}
           </button>
@@ -238,6 +240,7 @@ import {
   ArrowRightIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  CheckIcon,
 } from "lucide-vue-next";
 
 const careers = ref<Careers[]>([]);
@@ -263,7 +266,7 @@ const filteredAndSearchedCards = computed(() => {
   });
 });
 
-const jobOpenings = ref(null);
+const jobOpenings = ref<HTMLElement | null>(null);
 
 const scrollToJobOpenings = () => {
   if (jobOpenings.value) {
@@ -293,7 +296,9 @@ onMounted(async () => {
   try {
     careers.value = await sanityClient.fetch<Careers[]>(
       '*[_type == "careers"]{..., "section1_cards": section1_cards[]->}'
+     
     );
+    console.log(careers);
   } catch (error) {
     console.error("Error fetching data from Sanity:", error);
   }
