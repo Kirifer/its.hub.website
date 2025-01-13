@@ -1,54 +1,52 @@
-<!-- filepath: /c:/Users/Alaica/Documents/ITS/its.hub.website/app/pages/services/1.vue -->
 <template>
   <div
     class="bg-[url('@/assets/images/bg-blog-details.png')] bg-cover bg-center w-full min-h-screen bg-no-repeat sm:bg-contain md:bg-cover"
   >
     <!-- Hero Section -->
     <div
-      
-      class="w-full h-[580px] bg-gradient-to-br from-[#272727] animate-fade-grid-in-3 to-[#1a1a1a] flex flex-col items-center text-center px-4 pt-20 relative "
+      class="w-full h-[580px] bg-gradient-to-br from-[#272727] animate-fade-grid-in-3 to-[#1a1a1a] flex flex-col items-center text-center px-4 pt-20 relative"
     >
-    <div v-if="contact.length > 0" class="animate-fade-in">
-      <!-- Title -->
-      <h1
-        class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10"
-      >
-        Virtual Assistant | IT Squarehub
-      </h1>
-
-      <!-- Description -->
-      <p
-        class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8"
-      >
-        Looking to streamline your operations? Our virtual assistant services
-        provide skilled support for administrative tasks. Save time, reduce
-        stress, and focus on growing your business while we handle the details!
-      </p>
-
-      <!-- Featured Image -->
-      <div
-        class="relative w-full max-w-[648px] mx-auto mt-4 mb-8 sm:mt-4 sm:mb-12"
-      >
-        <div
-          class="relative w-full pt-[62.3%] rounded-[15px] border-[6px] sm:border-[10px] border-[#606DF1] overflow-hidden mb-12"
+      <div v-if="contact.length > 0" class="animate-fade-in flex flex-col items-center justify-center">
+        <!-- Title -->
+        <h1
+          class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[60px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10 text-center"
         >
-          <img
-            src="~/assets/images/vi.png"
-            alt="Philippine Outsourcing"
-            class="absolute top-0 left-0 w-full h-full object-cover"
-          />
+          {{ servicesData?.heading }}
+        </h1>
+
+        <!-- Description -->
+        <p
+          class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8 text-center"
+        >
+          {{ servicesData?.subheading }}
+        </p>
+
+        <!-- Featured Image -->
+        <div
+          v-if="servicesData?.image"
+          class="relative w-full max-w-[648px] mx-auto mt-4 mb-8 sm:mt-4 sm:mb-12"
+        >
+          <div
+            class="relative w-full pt-[62.3%] rounded-[15px] border-[6px] sm:border-[10px] border-[#606DF1] overflow-hidden mb-12"
+          >
+            <img
+              :src="urlFor(servicesData.image)"
+              alt="Philippine Outsourcing"
+              class="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Content Section -->
     <div
-      class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 sm:mt-16 text-black"
+      class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 text-black mt-0 sm:mt-16"
     >
-      <article class="space-y-8 sm:space-y-12 mt-16">
+      <article class="space-y-8 sm:space-y-12">
         <section>
           <h2 class="font-semibold text-2xl sm:text-3xl mb-0 sm:mt-14 mt-0">
-            The Role of Outsourced Virtual Assistants in Business Growth
+            {{ servicesData?.introTitle }}
           </h2>
           <p class="text-base sm:text-xl">
             A Virtual Assistant (VA) can remodel your commercial enterprise by
@@ -173,7 +171,6 @@
           </ol>
         </section>
       </article>
-      </div>
     </div>
 
     <!-- Contact Section -->
@@ -182,12 +179,12 @@
       <div
         class="flex flex-col items-center justify-center space-y-5 md:space-y-5"
       >
-        <h1
+        <h1 v-if="contact.length > 0"
           class="font-bold text-center text-3xl md:text-5xl w-[350px] md:w-[550px]"
         >
           {{ contact[0]?.hero_title }}
         </h1>
-        <p
+        <p v-if="contact.length > 0"
           class="text-center text-lg md:text-xl text-gray-900 w-full md:w-[500px]"
         >
           {{ contact[0]?.hero_subtitle }}
@@ -281,22 +278,46 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router"; // Changed from useRouter
 import sanityClient from "@/hooks/sanityClient";
 import { urlFor } from "@/hooks/sanityImageUrl";
 import type { Contact } from "@/types/contact";
+import type { ServicesData } from "@/types/servicesData";
 
 const contact = ref<Contact[]>([]);
+const servicesData = ref<ServicesData | null>(null);
+const servicesImage = ref("");
+console.log(servicesImage);
 
 onMounted(async () => {
+  const route = useRoute();
+  const id = route.params.id as string;
+
   try {
-    contact.value = await sanityClient.fetch<Contact[]>(
-      '*[_type == "contact"]'
+    // Fetch contact data
+    const contactData = await sanityClient.fetch<Contact[]>(
+      `*[_type == "contact"]`
     );
-    if (contact.value.length > 0) {
-      console.log("Contact data fetched successfully:", contact.value);
+    contact.value = contactData;
+
+    // Fetch services data with proper query
+    const servicesQuery = `*[_type == "servicesData" && id == $id][0]`;
+    const services = await sanityClient.fetch<ServicesData>(servicesQuery, {
+      id,
+    });
+
+    if (services) {
+      servicesData.value = services;
+      // Make sure image exists before trying to generate URL
+      if (services.icon) {
+        servicesImage.value = urlFor(services.icon).url();
+      }
+      console.log("Services data loaded:", services);
+    } else {
+      console.warn("No services data found for id:", id);
     }
   } catch (error) {
-    console.error("Error fetching data from Sanity:", error);
+    console.error("Error fetching data:", error);
   }
 });
 
