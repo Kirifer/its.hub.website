@@ -399,7 +399,6 @@ onMounted(async () => {
   if (image2Ref.value) createObserver(image2Ref.value, 'image2', 800);
   if (image3Ref.value) createObserver(image3Ref.value, 'image3', 1000);
 
-  // Initialize observers for steps with a slight delay
   setTimeout(() => {
     stepsRefs.value.forEach((ref, index) => {
       if (ref) {
@@ -419,10 +418,9 @@ const formData = ref({
 });
 
 const handleSubmit = () => {
-  // Handle form submission here
+  // Handle form submission 
   console.log("Form submitted:", formData.value);
 
-  // Reset form after submission
   formData.value = {
     name: "",
     email: "",
@@ -463,7 +461,7 @@ const chartOptions = {
   },
 };
 
-// Create a component for the pie charts
+// Component for the pie charts
 const PieChart = defineComponent({
   extends: Pie,
   props: {
