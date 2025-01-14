@@ -40,7 +40,7 @@
     <div
       class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 sm:mt-16 text-[#565656]"
     >
-      <article class="space-y-8 sm:space-y-12 mt-16">
+      <article class="space-y-8 sm:space-y-12">
         <section>
           <h2 class="font-semibold text-2xl sm:text-3xl mb-2 sm:mt-14 mt-0">
             {{ blogData?.introTitle }}
