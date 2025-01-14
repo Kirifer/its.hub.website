@@ -102,7 +102,7 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
       class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] relative animate-fade-grid-in-2"
     >
       <div class="relative">
-        <div class="h-[1200px] md:h-[1000px] relative">
+        <div class="h-[885px] md:h-[900px] relative">
           <div
             class="absolute inset-0 h-[500px] flex items-center justify-center z-0"
           >
@@ -133,9 +133,9 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
           </div>
         </div>
 
-        <div class="container mx-auto px-4 absolute inset-0">
+        <div class="container  mx-auto px-4 absolute inset-0">
           <div
-            class="flex flex-col items-center justify-center space-y-4 md:space-y-8 animate-fade-in"
+            class="flex flex-col items-center justify-center space-y-6 md:space-y-8 animate-fade-in"
           >
             <div class="mt-10 -mb-2">
               <span
@@ -151,23 +151,23 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
               {{ about[0]?.hero_title }}
             </div>
             <div
-              class="text-center text-lg md:text-xl text-gray-900 w-full md:w-[500px]"
+              class="text-center text-lg md:text-xl text-gray-900 w-[450px] md:w-[600px]"
             >
               {{ about[0]?.hero_subtitle }}
             </div>
 
             <!-- Card  -->
             <div
-              class="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden h-auto md:max-h-4xl md:max-w-4xl"
+              class="max-w-full mx-auto bg-white rounded-xl shadow-md overflow-hidden h-auto md:max-h-4xl md:max-w-4xl"
             >
               <div class="md:flex">
                 <div class="p-8">
                   <div
-                    class="uppercase tracking-wide text-xl md:text-4xl font-bold"
+                    class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-left text-black font-instrument-sans mb-4"
                   >
                     {{ about[0]?.section_1[0].heading }}
                   </div>
-                  <p class="mt-4 text-lg md:text-2xl text-gray-500">
+                  <p class="mt-4 mb-6 text-left text-lg md:text-xl text-gray-900 w-full leading-relaxed ">
                     {{ about[0]?.section_1[0].subheading }}
                   </p>
                 </div>
@@ -186,39 +186,39 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
                 <div
                   class="mx-auto bg-white rounded-xl shadow-md overflow-hidden h-auto"
                 >
-                  <div class="flex flex-col md:flex-row gap-10 p-8">
+                  <div class="flex flex-row md:flex-row gap-10 p-8">
                     <div>
                       <div
-                        class="uppercase tracking-wide text-3xl md:text-5xl text-blue-400 font-bold text-center"
+                        class="uppercase text-3xl md:text-5xl text-blue-400 font-bold text-center"
                       >
                         {{ about[0]?.section_2_stats[0].heading }}
                       </div>
                       <div
-                        class="mt-4 text-lg md:text-xl font-semibold uppercase text-gray-500 text-center"
+                        class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 text-center"
                       >
                         {{ about[0]?.section_2_stats[0].subheading }}
                       </div>
                     </div>
                     <div>
                       <div
-                        class="uppercase tracking-wide text-3xl md:text-5xl text-blue-400 font-bold text-center"
+                        class="uppercase  text-3xl md:text-5xl text-blue-400 font-bold text-center"
                       >
                         {{ about[0]?.section_2_stats[1].heading }}
                       </div>
                       <div
-                        class="mt-4 text-lg md:text-xl font-semibold uppercase text-gray-500 text-center"
+                        class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 text-center"
                       >
                         {{ about[0]?.section_2_stats[1].subheading }}
                       </div>
                     </div>
                     <div>
                       <div
-                        class="uppercase tracking-wide text-3xl md:text-5xl text-blue-400 font-bold text-center"
+                        class="uppercase  text-3xl md:text-5xl text-blue-400 font-bold text-center"
                       >
                         {{ about[0]?.section_2_stats[2].heading }}
                       </div>
                       <div
-                        class="mt-4 text-lg md:text-xl font-semibold uppercase text-gray-500 text-center"
+                        class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 text-center"
                       >
                         {{ about[0]?.section_2_stats[2].subheading }}
                       </div>
@@ -226,14 +226,14 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
                   </div>
                 </div>
               </div>
-              <div class="justify-center text-left w-full md:w-1/2">
+              <div class="justify-center text-center w-full md:w-1/2">
                 <div
-                  class="text-center md:block hidden items-center px-5 py-3 rounded-full text-2xl md:text-4xl font-medium bg-blue-200 text-blue-800"
+                  class="inline-block px-4 py-2 text-lg max-w-full mx-auto sm:text-xl font-medium rounded-full bg-blue-100 text-blue-600"
                 >
                   Numbers
                 </div>
                 <div
-                  class="text-lg md:text-xl text-gray-500 mt-4 md:text-left text-center"
+                  class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 text-center mt-3"
                 >
                   It’s time to strengthen your team and boost business
                   performance through our Professional Outsourcing Services.
@@ -248,24 +248,12 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
     <!-- Bento Box -->
     <div class="bg-black text-white">
       <div class="bg-gradient-to-r from-fuchsia-500/30 to-cyan-500/50">
-        <div class="container mx-auto py-10 px-4">
-          <div
-            class="inline-flex items-center px-3 py-1 text-lg rounded-full font-medium bg-blue-200 text-blue-800"
-          >
-            Showcases
-          </div>
-          <div
-            class="flex flex-col md:flex-row w-full items-center justify-between mt-4"
-          >
-            <div
-              class="text-2xl md:text-4xl font-bold uppercase md:text-left text-center"
-            >
-              The uniqueness of IT Squarehub
-            </div>
-            <div
-              class="border px-4 py-2 rounded-full bg-blue-200 text-blue-800 font-semibold mt-4 md:mt-0"
-            >
-              <button>Connect Now!</button>
+        <div class="container mx-auto py-6 px-4">
+         
+             <!-- Showcases Section -->
+             <div class="flex flex-col items-center justify-center mt-2">
+            <div class="text-2xl md:text-4xl font-bold  text-center">
+              <p class="font-semibold">The uniqueness of IT Squarehub</p>
             </div>
           </div>
 
@@ -324,7 +312,7 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
         </div>
       </div>
       <div class="flex flex-col justify-center text-center">
-        <div class="text-3xl font-bold uppercase mt-4">
+        <div class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-center text-black font-instrument-sans mb-4 mt-6">
           {{ about[0]?.section_4_heading }}
         </div>
         <div>
@@ -396,8 +384,8 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
         >
           Testimonials
         </div>
-        <div class="text-3xl font-bold uppercase mt-4">
-          hear it from our clients!
+        <div class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-center text-black font-instrument-sans mb-4 mt-6">
+          Hear it from our clients!
         </div>
 
         <div
