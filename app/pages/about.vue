@@ -101,8 +101,8 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
     <div
       class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] relative animate-fade-grid-in-2"
     >
-      <div class="relative">
-        <div class="h-[885px] md:h-[900px] relative">
+      <div class="relative ">
+        <div class="h-[865px] md:h-[950px] relative">
           <div
             class="absolute inset-0 h-[500px] flex items-center justify-center z-0"
           >
@@ -133,11 +133,11 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
           </div>
         </div>
 
-        <div class="container  mx-auto px-4 absolute inset-0">
+        <div class="container  mx-auto absolute  inset-0 ">
           <div
             class="flex flex-col items-center justify-center space-y-6 md:space-y-8 animate-fade-in"
           >
-            <div class="mt-10 -mb-2">
+            <div class="mt-10 -mb-2 ">
               <span
                 class="inline-flex items-center px-3 py-1 gap-2  rounded-full text-lg font-medium bg-blue-200 text-blue-800"
               >
@@ -158,10 +158,10 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
 
             <!-- Card  -->
             <div
-              class="max-w-full mx-auto bg-white rounded-xl shadow-md overflow-hidden h-auto md:max-h-4xl md:max-w-4xl"
+              class="max-w-full mx-auto bg-white rounded-xl shadow-md overflow-hiddenh md:max-h-4xl md:max-w-4xl"
             >
               <div class="md:flex">
-                <div class="p-8">
+                <div class="p-8 ">
                   <div
                     class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-left text-black font-instrument-sans mb-4"
                   >
@@ -173,7 +173,7 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
                 </div>
                 <div class="md:flex-shrink-0">
                   <img
-                    class="h-48 w-full object-cover md:block hidden md:h-[400px] md:w-full"
+                    class="h-48 w-full object-cover md:block hidden md:h-[450px] md:w-full"
                     :src="section1Image"
                     alt="Card Image"
                   />
@@ -182,11 +182,11 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
             </div>
 
             <div class="flex flex-col md:flex-row gap-7 max-w-4xl">
-              <div class="w-full md:w-3/4">
+              <div class="w-full md:w-3/4 ">
                 <div
                   class="mx-auto bg-white rounded-xl shadow-md overflow-hidden h-auto"
                 >
-                  <div class="flex flex-row md:flex-row gap-10 p-8">
+                  <div class="flex flex-row md:flex-row text-center justify-center gap-10 p-8">
                     <div>
                       <div
                         class="uppercase text-3xl md:text-5xl text-blue-400 font-bold text-center"
@@ -233,7 +233,7 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
                   Numbers
                 </div>
                 <div
-                  class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 text-center mt-3"
+                  class="font-regular text-sm sm:text-lg md:text-lg w-3/4 mx-auto md:w-full leading-relaxed text-gray-600 text-center mt-3"
                 >
                   It’s time to strengthen your team and boost business
                   performance through our Professional Outsourcing Services.
@@ -248,7 +248,7 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
     <!-- Bento Box -->
     <div class="bg-black text-white">
       <div class="bg-gradient-to-r from-fuchsia-500/30 to-cyan-500/50">
-        <div class="container mx-auto py-6 px-4">
+        <div class="container mx-auto py-6 px-8">
          
              <!-- Showcases Section -->
              <div class="flex flex-col items-center justify-center mt-2">
@@ -265,45 +265,45 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
               <div
                 class="grid h-full w-full grid-cols-1 md:grid-cols-3 grid-rows-4 md:grid-rows-2 gap-4 p-2 rounded-lg"
               >
-                <div
-                  v-for="(card, index) in about[0]?.section_3_cards"
-                  :key="index"
-                  :class="
-                    index === 1 || index === 2
-                      ? 'col-span-1 md:col-span-2 row-span-1'
-                      : 'col-span-1 row-span-1'
-                  "
-                  class="rounded-lg shadow-md shadow-gray-500/40 flex items-center justify-center h-72 md:h-64"
-                  :style="{
-                    backgroundImage: `url(${urlFor(card.image.asset._ref)})`,
-                  }"
-                >
-                  <div
-                    class="bg-white p-2 rounded-br-xl rounded-bl-xl shadow-md mt-auto w-full h-[150px] md:h-[90px] flex flex-col justify-start"
-                  >
-                    <h3
-                      class="text-lg font-bold mb-1 text-black text-center mx-2"
-                    >
-                      {{ card.heading }}
-                    </h3>
-                    <p class="text-gray-600 text-sm text-center mx-2">
-                      {{ card.subheading }}
-                    </p>
-                  </div>
-                </div>
+              <div
+  v-for="(card, index) in about[0]?.section_3_cards"
+  :key="index"
+  :class="
+    index === 1 || index === 2
+      ? 'col-span-1 md:col-span-2 row-span-1'
+      : 'col-span-1 row-span-1'
+  "
+  class="rounded-lg shadow-md shadow-gray-500/40 flex items-center justify-center h-72 md:h-64"
+  :style="{
+    backgroundImage: `url(${urlFor(card.image.asset._ref)})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
+  }"
+>
+  <div
+    class="bg-white p-2 rounded-br-xl rounded-bl-xl shadow-md mt-auto w-full h-[150px] md:h-[90px] flex flex-col justify-start"
+  >
+    <h3 class="text-lg font-bold mb-1 text-black text-center mx-2">
+      {{ card.heading }}
+    </h3>
+    <p class="text-gray-600 text-sm text-center mx-2">
+      {{ card.subheading }}
+    </p>
+  </div>
+</div>
               </div>
             </div>
           </div>
-          <div
+          <!-- <div
             class="flex md:flex-row justify-center gap-20 mt-6 text-gray-300 font-semibold uppercase"
           >
             <div v-for="index in 5" :key="index">@ITSquarehub</div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
 
-    <div class="container mx-auto py-4">
+    <div class="container mx-auto py-4 px-12">
       <div class="flex justify-center">
         <div
           class="inline-flex items-center px-3 py-1 rounded-full text-lg font-medium bg-blue-200 text-blue-800 mt-5"
@@ -317,7 +317,7 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
         </div>
         <div>
           <div class="relative mt-6 overflow-x-hidden">
-            <button
+            <!-- <button
               @click="prevSlide"
               :disabled="isPrevDisabled"
               :class="{
@@ -327,7 +327,7 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
               class="absolute left-0 top-1/2 transform -translate-y-1/2 text-blue-800 p-2 rounded-full"
             >
               <ChevronDoubleLeftIcon class="h-6 w-auto" />
-            </button>
+            </button> -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div
                 v-for="(member, index) in about[0]?.section_4_cards.slice(
@@ -336,14 +336,9 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
                 )"
                 :key="index"
                 :class="[
-                  'rounded-lg shadow-md p-4 flex flex-col items-center w-[300px]',
-                  index % 4 === 0
-                    ? 'bg-blue-100/50'
-                    : index % 4 === 1
-                    ? 'bg-purple-100/50'
-                    : index % 4 === 2
-                    ? 'bg-yellow-100/50'
-                    : 'bg-cyan-100/50',
+                  'rounded-lg  p-4 flex flex-col items-center w-[300px]',
+               
+
                 ]"
                 class="w-full sm:w-[300px]"
               >
@@ -360,7 +355,7 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
                 </div>
               </div>
             </div>
-            <button
+            <!-- <button
               @click="nextSlide"
               :disabled="isNextDisabled"
               :class="{
@@ -370,7 +365,7 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
               class="absolute right-0 top-1/2 transform -translate-y-1/2 text-blue-800 p-2 rounded-full"
             >
               <ChevronDoubleRightIcon class="h-6 w-auto" />
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
@@ -378,7 +373,7 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
 
     <!-- Testimonials -->
     <div class="container mx-auto py-4">
-      <div class="flex flex-col items-center justify-center space-y-5">
+      <div class="flex flex-col items-center justify-center ">
         <div
           class="inline-flex items-center px-3 py-1 rounded-full text-lg font-medium bg-blue-200 text-blue-800 mt-5"
         >
