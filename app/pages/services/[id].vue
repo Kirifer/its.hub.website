@@ -24,7 +24,7 @@
 
         <!-- Description -->
         <p
-          class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8 border-2 border-black text-center z-10"
+          class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8 text-center z-10"
         >
           {{ servicesData?.subheading }}
         </p>
@@ -53,7 +53,7 @@
 
     <!-- Content Section -->
     <div
-      class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 border-2 border-black sm:py-20 mt-0 text-black mt-0 sm:mt-16"
+      class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 text-black mt-0 sm:mt-16"
     >
       <article class="space-y-8 sm:space-y-12">
         <section>
