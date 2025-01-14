@@ -1,4 +1,5 @@
 export interface About {
+  hero_badge: string;
   hero_title: string;
   hero_subtitle: string;
   section_1: {
