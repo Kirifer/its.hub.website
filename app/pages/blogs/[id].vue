@@ -40,7 +40,7 @@
     <div
       class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 sm:mt-16 text-[#565656]"
     >
-      <article class="space-y-8 sm:space-y-12 mt-16">
+      <article class="space-y-8 sm:space-y-12">
         <section>
           <h2 class="font-semibold text-2xl sm:text-3xl mb-2 sm:mt-14 mt-0">
             {{ blogData?.introTitle }}
@@ -72,56 +72,6 @@
         </section>
       </article>
     </div>
-
-    <!-- Our Blogs Button -->
-    <!-- <div class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="w-full sm:w-[235px] h-[55px] mb-4">
-        <button class="w-full h-full bg-[#844DDC]/[0.19] rounded-[40px]">
-          <span
-            class="font-normal text-[18px] sm:text-[20px] lg:text-[25px] leading-[26px] sm:leading-[30px] text-[#844DDC]"
-          >
-            Our Blogs
-          </span>
-        </button>
-      </div>
-    </div> -->
-
-    <!-- <div
-      class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 w-full max-w-4xl px-4 mx-auto mb-20"
-    >
-      <div
-        v-for="(blog, index) in visibleBlogs"
-        :key="index"
-        class="relative box-border w-full h-auto bg-white border border-[#844DDC] shadow-[0px_4px_12.1px_rgba(0,0,0,0.25)] rounded-[10px] overflow-hidden"
-      >
-      
-        <div class="w-full h-48 sm:h-60 md:h-72">
-          <img :src="blog.image" class="w-full h-full object-cover" />
-        </div>
-
-       
-        <div class="p-4 sm:p-6">
-          <h2
-            class="font-normal text-lg sm:text-xl md:text-2xl leading-[28px] text-black"
-          >
-            {{ blog.title }}
-          </h2>
-          <p
-            class="mt-2 w-full font-normal text-sm sm:text-base md:text-[17px] leading-[18px] text-[#565656]"
-          >
-            {{ blog.description }}
-          </p>
-
-   
-          <NuxtLink
-            :to="blog.link"
-            class="mt-4 w-full sm:w-[109px] h-[32px] bg-[#606DF1] rounded-[6px] text-white text-sm sm:text-[15px] leading-[18px] tracking-[-0.03em] flex items-center justify-center"
-          >
-            Read More
-          </NuxtLink>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 

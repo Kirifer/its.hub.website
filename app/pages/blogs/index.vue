@@ -128,16 +128,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Dot Indicators -->
-          <!-- <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-          <span
-            v-for="(image, index) in backgroundImages"
-            :key="index"
-            @click="currentSlide = index"
-            :class="['h-3 w-3 rounded-full cursor-pointer', { 'bg-white': currentSlide === index, 'bg-gray-400': currentSlide !== index }]"
-          ></span>
-        </div> -->
         </div>
       </div>
     </div>

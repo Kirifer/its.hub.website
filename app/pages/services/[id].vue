@@ -134,13 +134,12 @@ onMounted(async () => {
   const id = route.params.id as string;
 
   try {
-    // Fetch contact data
+
     const contactData = await sanityClient.fetch<Contact[]>(
       `*[_type == "contact"]`
     );
     contact.value = contactData;
 
-    // Fetch services data with proper query
     const servicesQuery = `*[_type == "servicesData" && id == $id][0]`;
     const services = await sanityClient.fetch<ServicesData>(servicesQuery, {
       id,
