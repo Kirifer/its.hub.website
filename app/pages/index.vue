@@ -211,7 +211,7 @@ onMounted(async () => {
                 }"
               />
               <GlowBorder
-                class="relative w-full h-[300px] sm:h-[450px] bg-transparent rounded-2xl rotate-180 p-2 z-10 transition-transform duration-300"
+                class="relative w-full h-[300px] md:h-[450px] bg-transparent rounded-2xl rotate-180 p-2 z-10 transition-transform duration-300"
                 :color="['#844DDC', '#00B8D4', '#D2A517', '#044897']"
               >
                 <div
@@ -240,7 +240,7 @@ onMounted(async () => {
       </div>
     </div>
 
-    <div class="container mx-auto px-4 mt-10 md:mt-72">
+    <div class="container mx-auto px-4 sm:mt-10 md:mt-72">
       <div class="space-y-8 md:space-y-10 mt-10">
         <div
           v-for="(feature, index) in section_1"
@@ -290,7 +290,7 @@ onMounted(async () => {
 
       <div class="relative z-0">
         <div
-          class="relative rounded-2xl p-8 sm:p-16 md:p-32 md:mt-12 mt-16 overflow-hidden"
+          class="relative rounded-2xl p-8 sm:p-16 md:p-32 md:mt-6 mt-12 overflow-hidden"
         >
           <div
             class="absolute border-l-2 border-r-2 border-b-2 border-purple-300 rounded-b-2xl z-10"
@@ -450,6 +450,7 @@ onMounted(async () => {
             </div>
 
             <!-- Your Balance -->
+             <!--  -->
             <div
               class="absolute top-48 right-8 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center justify-between"
             >
@@ -631,7 +632,7 @@ onMounted(async () => {
             >
               {{ home[0]?.section_5_subheading }}
             </p>
-            <div class="flex justify-end">
+            <div class="flex justify-center md:justify-end">
               <button
                 class="mt-4 px-4 py-2 text-sm md:text-base font-semibold bg-purple-200 text-purple-800 rounded-md hover:bg-purple-300 transition-colors"
               >
@@ -743,7 +744,7 @@ onMounted(async () => {
         </div>
       </div>
 
-      <div class="min-h-[500px] px-4 sm:px-6 lg:px-6 py-12">
+      <div class="min-h-[250px] px-4 sm:px-6 lg:px-6 py-12">
         <div class="max-w-8xl mx-auto p-5">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <!-- Left Content -->
@@ -814,18 +815,18 @@ onMounted(async () => {
               </div>
 
               <div
-                class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4"
+                class="flex flex-col mx-auto max-w-full w-full sm:flex-row  space-y-4 sm:space-y-0 sm:space-x-4"
               >
                 <router-link to="/contact">
                   <button
-                    class="bg-white border-gray border font-medium px-6 py-2 rounded-md hover:bg-purple-300 hover:text-purple-900 transition-colors"
+                    class="bg-white border-gray border mx-auto max-w-full w-full  font-medium px-6 py-2 rounded-md hover:bg-purple-300 hover:text-purple-900 transition-colors"
                   >
                     Get Started
                   </button>
                 </router-link>
                 <router-link to="/about">
                   <button
-                    class="bg-purple-200 text-purple-800 font-medium px-6 py-2 rounded-md hover:bg-purple-300 transition-colors"
+                    class="bg-purple-200 text-purple-800 mx-auto max-w-full w-full font-medium px-6 py-2 rounded-md hover:bg-purple-300 transition-colors"
                   >
                     Learn More
                   </button>

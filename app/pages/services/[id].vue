@@ -76,11 +76,9 @@
             {{ section.description }}
           </p>
         </section>
-      </article>
-    </div>
-    <!-- Contact Section -->
+        <!-- Contact Section -->
     <div
-      class="w-full max-w-[1145px] mx-auto px-2 sm:px-6 lg:px-10 py-12 sm:py-14 mt-0"
+      class="w-full max-w-full mx-auto px-0 sm:px-0 lg:px-0 py-12 sm:py-0  mt-0"
     >
       <!-- Header Section -->
       <div
@@ -95,14 +93,14 @@
           </h1>
           <p
             v-if="contact.length > 0"
-            class="font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-center md:text-left text-gray-900"
+            class="text-base sm:text-xl text-center"
           >
             {{ contact[0]?.hero_subtitle }}
           </p>
         </div>
 
         <!-- Button -->
-        <router-link to="/contact" class="flex-shrink-0">
+        <router-link to="/contact" class="flex-shrink-0 ">
           <button
             class="bg-purple-300 border-gray border font-medium px-6 py-2 rounded-md hover:bg-white hover:text-purple-800 transition-colors"
           >
@@ -111,6 +109,10 @@
         </router-link>
       </div>
     </div>
+
+      </article>
+    </div>
+    
   </div>
 </template>
 
