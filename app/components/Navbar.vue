@@ -8,7 +8,8 @@
         <nuxt-link href="/">
           <img
             class="w-[170px] h-auto"
-            src="~/assets/images/its-logo-light.png"
+            :src="imageUrl"
+            alt="IT Squarehub Logo"
           />
         </nuxt-link>
       </div>
@@ -171,14 +172,30 @@
   </nav>
 </template>
 
-<script setup>
-import { ref } from "vue";
-
+<script setup lang="ts">
+import { ref, computed, onMounted } from 'vue';
+import sanityClient from "~/hooks/sanityClient";
+import type { Navbar } from "~/types/navbar";
+import { urlFor } from "~/hooks/sanityImageUrl";
 const isMenuOpen = ref(false);
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
+const navbar = ref<Navbar[]>([]);
+
+const imageUrl = computed(() =>
+  navbar.value.length > 0 && navbar.value[0].logo
+    ? urlFor(navbar.value[0].logo)
+    : ""
+);
+
+onMounted(async () => {
+  navbar.value = await sanityClient.fetch<Navbar[]>('*[_type == "navbar"]');
+  console.log(navbar.value);
+});
+
 </script>
 
 <style scoped></style>
