@@ -23,7 +23,7 @@
           {{ services[0]?.hero_subtitle }}
         </p>
       </div>
-      <!-- Gradients (unchanged) -->
+      <!-- Gradients -->
       <div
         class="absolute w-[40vw] h-[40vw] rounded-full left-[-15vw] top-[5vh] z-0"
         :style="{

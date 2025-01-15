@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-[url('@/assets/images/bg-blog-details.png')] bg-cover bg-center w-full min-h-screen bg-no-repeat sm:bg-contain md:bg-cover"
+    class="animate-fade-grid-in-2 inset-0 overflow-x-hidden overflow-y-hidden w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
   >
     <!-- Hero Section -->
     <div
@@ -72,7 +72,7 @@
           <h2 class="font-semibold text-2xl sm:text-3xl mb-2">
             {{ section.miniTitle }}
           </h2>
-          <p class="text-base sm:text-xl mb-4">
+          <p :class="{'text-base sm:text-xl mb-4': true, 'mt-0': !section.miniTitle, 'mt-2': section.miniTitle}">
             {{ section.description }}
           </p>
         </section>
@@ -215,7 +215,7 @@ const handleSubmit = () => {
     opacity: 0;
   }
   to {
-    opacity: 0.6;
+    opacity: 1;
   }
 }
 
