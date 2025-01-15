@@ -118,11 +118,13 @@
           <h2 class="text-3xl font-bold mb-6 leading-tight">
             {{ contact[0]?.card1_title }}
           </h2>
+          <router-link to="/careers">
           <button
             class="bg-white text-black font-medium px-6 py-2 rounded-md hover:bg-gray-100 hover:text-gray-800 transition-colors w-fit"
           >
             Apply Now!
           </button>
+        </router-link>
         </div>
 
         <!-- Meeting Card -->
