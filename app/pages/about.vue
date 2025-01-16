@@ -91,7 +91,6 @@ const reviews = [
   },
 ];
 
-// Split reviews into two rows
 const firstRow = ref(reviews.slice(0, reviews.length / 2));
 const secondRow = ref(reviews.slice(reviews.length / 2));
 </script>
@@ -102,7 +101,7 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
       class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] relative animate-fade-grid-in-2"
     >
       <div class="relative ">
-        <div class="h-[865px] md:h-[950px] relative">
+        <div class="h-[950px] md:h-[950px] ">
           <div
             class="absolute inset-0 h-[500px] flex items-center justify-center z-0"
           >
@@ -186,39 +185,39 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
                 <div
                   class="mx-auto bg-white rounded-xl shadow-md overflow-hidden h-auto"
                 >
-                  <div class="flex flex-row md:flex-row text-center justify-center gap-10 p-8">
-                    <div>
+                  <div class="flex flex-row md:flex-row text-center justify-center gap-16 p-8">
+                    <div class=" w-full ">
                       <div
                         class="uppercase text-3xl md:text-5xl text-blue-400 font-bold text-center"
                       >
                         {{ about[0]?.section_2_stats[0].heading }}
                       </div>
                       <div
-                        class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 text-center"
+                        class="md:text-left text-center  text-lg md:text-xl text-gray-900 w-full leading-relaxed "
                       >
                         {{ about[0]?.section_2_stats[0].subheading }}
                       </div>
                     </div>
-                    <div>
+                    <div  class=" w-full ">
                       <div
                         class="uppercase  text-3xl md:text-5xl text-blue-400 font-bold text-center"
                       >
                         {{ about[0]?.section_2_stats[1].heading }}
                       </div>
                       <div
-                        class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 text-center"
+                        class="md:text-left text-center text-lg md:text-xl text-gray-900 w-full leading-relaxed "
                       >
                         {{ about[0]?.section_2_stats[1].subheading }}
                       </div>
                     </div>
-                    <div>
+                    <div  class=" w-full ">
                       <div
                         class="uppercase  text-3xl md:text-5xl text-blue-400 font-bold text-center"
                       >
                         {{ about[0]?.section_2_stats[2].heading }}
                       </div>
                       <div
-                        class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 text-center"
+                        class="md:text-left text-center text-lg md:text-xl text-gray-900 w-full leading-relaxed "
                       >
                         {{ about[0]?.section_2_stats[2].subheading }}
                       </div>
@@ -233,7 +232,7 @@ const secondRow = ref(reviews.slice(reviews.length / 2));
                   Numbers
                 </div>
                 <div
-                  class="font-regular text-sm sm:text-lg md:text-lg w-3/4 mx-auto md:w-full leading-relaxed text-gray-600 text-center mt-3"
+                  class="font-regular text-lg md:text-xl w-3/4 mx-auto md:w-full leading-relaxed text-gray-600 text-center mt-3"
                 >
                   It’s time to strengthen your team and boost business
                   performance through our Professional Outsourcing Services.

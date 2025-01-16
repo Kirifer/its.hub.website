@@ -3,12 +3,9 @@
     <div
       class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
     >
-      <!-- Contact Section -->
-
       <div
         class="container mx-auto max-w-full px-4 h-full animate-fade-grid-in-3"
       >
-        <!-- Header Section -->
         <div
           v-if="contact.length > 0"
           class="flex flex-col items-center justify-center space-y-5 md:space-y-5 animate-fade-in"
@@ -32,7 +29,6 @@
             {{ contact[0]?.hero_subtitle }}
           </p>
 
-          <!-- Form Card -->
           <div
             class="bg-white rounded-2xl shadow-xl p-8 mb-12 w-full md:w-[1200px]"
           >
@@ -111,7 +107,6 @@
       class="container mx-auto max-w-full md:max-w-[1185px] pt-4 px-4 md:px-0 mb-12"
     >
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Apply Card -->
         <div
           class="rounded-2xl p-8 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white shadow-xl h-auto md:h-[300px] flex flex-col justify-between"
         >
@@ -125,7 +120,6 @@
           </button>
         </div>
 
-        <!-- Meeting Card -->
         <div class="rounded-2xl overflow-hidden shadow-xl h-auto md:h-[300px]">
           <img
             src="~/assets/images/pic-header2.png"
@@ -134,9 +128,7 @@
           />
         </div>
 
-        <!-- Stats Cards -->
         <div class="space-y-4 h-auto md:h-[300px] flex flex-col">
-          <!-- Balance Card -->
           <div class="bg-white rounded-2xl p-4 shadow-xl flex-1">
             <div class="flex items-center justify-between h-full">
               <div class="space-y-1">
@@ -149,7 +141,6 @@
             </div>
           </div>
 
-          <!-- Pie Chart Card -->
           <div class="bg-white rounded-2xl p-4 shadow-xl flex-[2]">
             <div class="h-full flex flex-col justify-between">
               <div class="flex items-center justify-between">
@@ -236,7 +227,6 @@
           </div>
         </div>
       </div>
-       <!-- Steps Section -->
     <div class="w-full md:w-1/2 space-y-10">
       <template v-for="(step, index) in contact[0]?.section2_steps" :key="index">
         <div
@@ -262,7 +252,6 @@
 
     <div class="container mx-auto sm:max-w-full px-4 mt-12 md:max-w-[1185px]">
       <div class="container  mx-auto max-w-full">
-        <!-- Header -->
         <div class="text-center  mb-12">
           <div
             class="inline-block px-4 py-1 bg-blue-200 text-blue-800 rounded-full text-base sm:text-lg font-semibold"
@@ -271,7 +260,6 @@
           </div>
         </div>
 
-        <!-- Locations Grid -->
         <div
           class="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-full md:max-w-[1200px] mx-auto mb-10"
         >
@@ -280,7 +268,6 @@
             :key="office.country"
             class="group bg-white rounded-xl   overflow-hidden shadow-lg border-2 border-white-500 transition-transform duration-300 hover:-translate-y-2"
           >
-            <!-- Image Container -->
             <div class="h-48  overflow-hidden">
               <img
                 :src="office.image"
@@ -288,8 +275,6 @@
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-
-            <!-- Content -->
             <div class="p-6">
               <h3 class="text-xl  font-semibold text-gray-800 mb-2">
                 {{ office.country }}
@@ -303,8 +288,6 @@
       </div>
     </div>
   </div>
-
-  <!-- <Footer /> -->
 </template>
 
 <script setup lang="ts">
@@ -328,7 +311,6 @@ const image1Ref = ref<HTMLElement | null>(null);
 const image2Ref = ref<HTMLElement | null>(null);
 const image3Ref = ref<HTMLElement | null>(null);
 
-// Visibility states
 const isVisible = ref<Record<string, boolean>>({
   connecting: false,
   title: false,
@@ -338,7 +320,6 @@ const isVisible = ref<Record<string, boolean>>({
   image3: false,
 });
 
-// Create observer for regular elements
 const createObserver = (element: HTMLElement, key: string, delay: number = 0) => {
   const observer = new IntersectionObserver(
     ([entry]) => {
@@ -356,7 +337,6 @@ const createObserver = (element: HTMLElement, key: string, delay: number = 0) =>
   observer.observe(element);
 };
 
-// Create observer for steps
 const createStepObserver = (element: HTMLElement, index: number, delay: number = 0) => {
   const observer = new IntersectionObserver(
     ([entry]) => {
@@ -418,7 +398,6 @@ const formData = ref({
 });
 
 const handleSubmit = () => {
-  // Handle form submission 
   console.log("Form submitted:", formData.value);
 
   formData.value = {
@@ -439,7 +418,6 @@ const balanceData = {
   ],
 };
 
-// Main pie chart data
 const pieChartData = {
   datasets: [
     {
@@ -450,7 +428,6 @@ const pieChartData = {
   ],
 };
 
-// Chart options
 const chartOptions = {
   responsive: true,
   maintainAspectRatio: false,
@@ -461,7 +438,6 @@ const chartOptions = {
   },
 };
 
-// Component for the pie charts
 const PieChart = defineComponent({
   extends: Pie,
   props: {
@@ -528,9 +504,6 @@ const offices: Office[] = [
 }
 
 .background-gradient {
-  /* background: 
-    linear-gradient(to bottom, rgba(220, 220, 220, 0.6) 1px, transparent 1px),
-    linear-gradient(to bottom right, #ebf8ff, #f3e8ff, #ffe4e6); */
   background-color: white;
 }
 .animate-fade-grid-in-3 {
