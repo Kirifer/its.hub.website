@@ -102,14 +102,12 @@ onMounted(async () => {
           <div
             class="absolute inset-0 h-[500px] flex items-center justify-center z-0"
           >
-            <!-- Ellipse 1 -->
             <div class="absolute -top-[425px]">
               <div
                 class="w-[950px] h-[950px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.1)] animate-pulse"
               ></div>
             </div>
 
-            <!-- Ellipse 3 -->
             <div
               class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]"
             >
@@ -118,7 +116,6 @@ onMounted(async () => {
               ></div>
             </div>
 
-            <!-- Ellipse 5 -->
             <div
               class="absolute left-1/2 -translate-x-1/2 -translate-y-[200px]"
             >
@@ -170,7 +167,6 @@ onMounted(async () => {
             <div
               class="w-full max-w-[90vw] md:max-w-[900px] md:pt-1 pt-6 mx-auto px-4 pb-16 relative"
             >
-              <!-- Cyan gradient left-->
               <div
                 class="absolute w-[382px] h-[386px] rounded-full left-[-200px] top-0 z-0"
                 :style="{
@@ -180,7 +176,6 @@ onMounted(async () => {
                   filter: 'blur(50px)',
                 }"
               />
-              <!-- Blue gradient left-->
               <div
                 class="absolute w-[382px] h-[386px] rounded-full left-[-200px] -top-32 z-0"
                 :style="{
@@ -190,7 +185,6 @@ onMounted(async () => {
                   filter: 'blur(50px)',
                 }"
               />
-              <!-- Blue gradient Right-->
               <div
                 class="absolute w-[382px] h-[386px] rounded-full right-[-200px] top-0 z-0"
                 :style="{
@@ -200,7 +194,6 @@ onMounted(async () => {
                   filter: 'blur(50px)',
                 }"
               />
-              <!-- Cyan gradient Right-->
               <div
                 class="absolute w-[382px] h-[386px] rounded-full right-[-200px] -top-32 z-0"
                 :style="{
@@ -411,9 +404,7 @@ onMounted(async () => {
               ></div>
             </div>
           </div>
-          <!-- Stat Overlays - Hide on mobile -->
           <div class="hidden sm:block">
-            <!-- Earnings -->
             <div
               class="absolute top-48 left-8 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center"
             >
@@ -432,7 +423,6 @@ onMounted(async () => {
               </div>
             </div>
 
-            <!-- Daily Traffic/Visitors -->
             <div
               class="absolute bottom-16 left-24 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center"
             >
@@ -450,9 +440,6 @@ onMounted(async () => {
                 </div>
               </div>
             </div>
-
-            <!-- Your Balance -->
-             <!--  -->
             <div
               class="absolute top-48 right-8 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center justify-between"
             >
@@ -471,7 +458,6 @@ onMounted(async () => {
               <FlagIcon class="text-purple-500 w-8 h-8" />
             </div>
 
-            <!-- Pie Chart -->
             <div
               class="absolute bottom-16 right-24 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center justify-between"
             >
@@ -493,13 +479,10 @@ onMounted(async () => {
         </div>
       </div>
 
-      <!-- Solutions Grid -->
       <div
         class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 sm:mb-24 relative -mt-16 md:mt-0"
       >
-        <!-- Line Container -->
         <div class="absolute -top-8 w-full h-[4px] bg-gray-200 hidden md:block">
-          <!-- Animated Purple Bar -->
           <div
             class="h-full w-1/3 bg-[#844DDC] transition-all duration-300 ease-in-out"
             :style="{
@@ -509,7 +492,6 @@ onMounted(async () => {
           ></div>
         </div>
 
-        <!-- Innovative Solutions -->
         <div
           class="text-center cursor-pointer mt-10"
           @mouseenter="activeIndex = 0"
@@ -524,8 +506,6 @@ onMounted(async () => {
             {{ home[0]?.section_4[0].subheading }}
           </p>
         </div>
-
-        <!-- Customized Approach -->
         <div
           class="text-center cursor-pointer mt-10"
           @mouseenter="activeIndex = 1"
@@ -541,7 +521,6 @@ onMounted(async () => {
           </p>
         </div>
 
-        <!-- Enduring Partnerships -->
         <div
           class="text-center cursor-pointer mt-10"
           @mouseenter="activeIndex = 2"
@@ -558,12 +537,10 @@ onMounted(async () => {
         </div>
       </div>
 
-      <div class="relative sm:pb-32">
-        <!-- Partnership Content -->
+      <div class="relative md:pb-32">
         <div
           class="grid grid-cols-1 md:grid-cols-2 md:mb-1 mb-12 gap-8 sm:gap-12 items-center"
         >
-          <!-- Team Images Grid -->
           <div class="relative grid grid-cols-2 md:mb-1 mb-16 gap-4">
             <div class="relative transform translate-y-2">
               <img
@@ -619,7 +596,6 @@ onMounted(async () => {
             </div>
           </div>
 
-          <!-- Text Content -->
           <div>
             <div
               class="inline-block px-4 py-2 text-lg sm:text-xl font-medium rounded-full bg-purple-200 text-purple-800 mb-4"
@@ -651,7 +627,6 @@ onMounted(async () => {
         <div
           class="w-full max-w-8xl bg-white rounded-3xl p-6 sm:p-12 border border-purple-400 relative"
         >
-          <!-- Cyan gradient left-->
           <div
             class="absolute w-[382px] h-[386px] rounded-full left-[-100px] top-16 z-0"
             :style="{
@@ -661,7 +636,6 @@ onMounted(async () => {
               filter: 'blur(50px)',
             }"
           />
-          <!-- Blue gradient left-->
           <div
             class="absolute w-[382px] h-[386px] rounded-full left-[-100px] top-48 z-0"
             :style="{
@@ -672,7 +646,6 @@ onMounted(async () => {
             }"
           />
 
-          <!-- Blue gradient Right-->
           <div
             class="absolute w-[382px] h-[386px] rounded-full right-[-100px] -top-14 z-0"
             :style="{
@@ -682,7 +655,6 @@ onMounted(async () => {
               filter: 'blur(50px)',
             }"
           />
-          <!-- Cyan gradient Right-->
           <div
             class="absolute w-[382px] h-[386px] rounded-full right-[-100px] top-24 z-0"
             :style="{
@@ -693,7 +665,6 @@ onMounted(async () => {
             }"
           />
 
-          <!-- Testimonial Tag -->
           <div class="flex justify-center relative z-10">
             <span
               class="inline-block px-4 py-2 rounded-full text-lg sm:text-xl font-medium bg-purple-100 text-purple-600 mb-4"
@@ -702,7 +673,6 @@ onMounted(async () => {
             </span>
           </div>
 
-          <!-- Testimonial Content -->
           <div class="relative overflow-hidden h-[220px] mx-auto z-10">
             <TransitionGroup name="slide" class="relative">
               <div
@@ -724,8 +694,6 @@ onMounted(async () => {
               </div>
             </TransitionGroup>
           </div>
-
-          <!-- Dot Indicators -->
           <div class="flex justify-center space-x-2 mt-2 relative z-10">
             <button
               v-for="(testimonial, index) in section6"
@@ -751,14 +719,12 @@ onMounted(async () => {
       <div class="min-h-[250px] px-4 sm:px-6 lg:px-6 py-12">
         <div class="max-w-8xl mx-auto p-5">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <!-- Left Content -->
             <div class="space-y-6 z-10">
               <h1
                 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 leading-tight"
               >
                 {{ home[0]?.section_7_heading }}
               </h1>
-
               <div class="space-y-4">
                 <div class="flex items-center space-x-2">
                   <svg
@@ -778,7 +744,6 @@ onMounted(async () => {
                     home[0]?.section_7_subheadings[0]
                   }}</span>
                 </div>
-
                 <div class="flex items-center space-x-2">
                   <svg
                     class="w-5 h-5 text-yellow-500"
@@ -797,7 +762,6 @@ onMounted(async () => {
                     home[0]?.section_7_subheadings[1]
                   }}</span>
                 </div>
-
                 <div class="flex items-center space-x-2">
                   <svg
                     class="w-5 h-5 text-blue-500"
@@ -817,7 +781,6 @@ onMounted(async () => {
                   }}</span>
                 </div>
               </div>
-
               <div
                 class="flex flex-col mx-auto max-w-full w-full sm:flex-row  space-y-4 sm:space-y-0 sm:space-x-4"
               >
@@ -837,8 +800,6 @@ onMounted(async () => {
                 </router-link>
               </div>
             </div>
-
-            <!-- Right Image -->
             <div class="relative md:block hidden h-full w-full mt-8 sm:mt-0">
               <img
                 v-if="section7Image"

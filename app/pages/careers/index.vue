@@ -2,7 +2,6 @@
   <div
     class="animate-fade-grid-in-2 inset-0 overflow-x-hidden overflow-y-hidden w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
   >
-    <!-- Main Content -->
     <div
       class="z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12"
     >
@@ -11,21 +10,18 @@
           <div
             class="absolute inset-0 h-[500px] flex items-center justify-center"
           >
-            <!-- Ellipse 1 -->
             <div class="absolute -top-[225px]">
               <div
                 class="w-[950px] h-[950px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.1)] animate-ellipse-scale-1"
               ></div>
             </div>
 
-            <!-- Ellipse 3 -->
             <div class="absolute left-1/2 -translate-x-1/2 -translate-y-[0px]">
               <div
                 class="w-[750px] h-[750px] rounded-full border-2 border-[rgba(163,162,162,0.01)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-ellipse-scale-2"
               ></div>
             </div>
 
-            <!-- Ellipse 5 -->
             <div class="absolute left-1/2 -translate-x-1/2 -translate-y-[0px]">
               <div
                 class="w-[550px] h-[550px] rounded-full border-2 border-[rgba(163,162,162,0.005)] shadow-[0px_4px_116.8px_5px_rgba(0,0,0,0.13)] animate-ellipse-scale-3"
@@ -45,17 +41,13 @@
             {{ careers[0]?.hero_subheading }}
           </p>
         </div>
-        <div
-          class="relative z-10 flex justify-center mt-7"
-          @click="scrollToJobOpenings"
-        >
-          <ShimmerButton
-            shimmer-size="2px"
-            class="bg-[rgba(132,77,220,0.9)] text-white font-medium px-5 py-1.5 rounded-md hover:bg-purple-300 hover:text-white transition-colors"
-          >
-            {{ careers[0]?.hero_button }}
-          </ShimmerButton>
-        </div>
+        <div class="relative z-10 flex justify-center mt-7" @click="scrollToJobOpenings">
+           <ShimmerButton
+               shimmer-size="2px"
+              class="bg-[rgba(132,77,220,0.9)] text-white font-medium px-5 py-2 rounded-md hover:bg-purple-300 hover:text-white transition-colors"              >
+              {{ careers[0]?.hero_button }}
+              </ShimmerButton>
+</div>
         <div
           class="relative z-10 mt-8 p-3 rounded-2xl bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 max-w-4xl w-full mx-auto"
         >
@@ -67,7 +59,6 @@
             />
           </div>
         </div>
-        <!-- Cyan gradient Right-->
         <div
           class="absolute md:h-[686px] md:w-[682px] w-[282px] h-[286px] rounded-full right-[-250px] top-48 z-0"
           :style="{
@@ -77,7 +68,6 @@
             filter: 'blur(50px)',
           }"
         />
-        <!-- Violet gradient Right-->
         <div
           class="absolute md:h-[686px] md:w-[682px] w-[282px] h-[286px] rounded-full right-[-250px] top-8 z-0"
           :style="{
@@ -87,7 +77,6 @@
             filter: 'blur(50px)',
           }"
         />
-        <!-- Cyan gradient left-->
         <div
           class="absolute md:h-[686px] md:w-[682px] w-[282px] h-[286px] rounded-full left-[-300px] top-48 z-0"
           :style="{
@@ -97,7 +86,6 @@
             filter: 'blur(50px)',
           }"
         />
-        <!-- Violet gradient left-->
         <div
           class="absolute md:h-[686px] md:w-[682px] w-[282px] h-[286px] rounded-full left-[-250px] top-8 z-0"
           :style="{
@@ -108,9 +96,7 @@
           }"
         />
       </div>
-
-      <!-- Explore Our Job Openings -->
-      <div class="container px-2 pt-12 z-10" ref="jobOpenings">
+      <div class="container px-2 pt-12 z-10 "  ref="jobOpenings">
         <div class="sm:p-6 md:p-8 z-10">
           <div class="mx-auto space-y-4 sm:space-y-6 md:space-y-6">
             <h2
@@ -144,9 +130,7 @@
                 </select>
               </div>
             </div>
-
-            <!-- Job Cards Container -->
-            <div
+            <div 
               class="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
             >
               <div
@@ -154,7 +138,6 @@
                 :key="index"
                 class="relative bg-white border border-purple-300 shadow-lg rounded-lg p-6 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-purple-500"
               >
-                <!-- Available Badge -->
                 <div class="space-y-4">
                   <div class="flex items-center space-x-2">
                     <CheckIcon class="w-5 h-5 text-purple-900" />
@@ -165,12 +148,10 @@
                     </span>
                   </div>
 
-                  <!-- Job Title -->
                   <h3 class="font-semibold text-xl sm:text-2xl text-gray-900">
                     {{ card.job_title }}
                   </h3>
 
-                  <!-- Job Description -->
                   <p
                     class="text-gray-600 text-sm sm:text-base font-normal leading-relaxed line-clamp-3"
                   >
@@ -178,7 +159,6 @@
                   </p>
                 </div>
 
-                <!-- Apply Button -->
                 <div class="mt-6 justify-end flex">
                   <NuxtLink
                     :to="`/careers/${card._id}`"
@@ -190,7 +170,6 @@
               </div>
             </div>
 
-            <!-- Pagination -->
             <div class="mt-8 sm:mt-12 flex justify-center">
               <button
                 v-if="currentPage > 1"
