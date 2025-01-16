@@ -149,7 +149,7 @@ onMounted(async () => {
       servicesData.value = services;
       // Make sure image exists before trying to generate URL
       if (services.icon) {
-        servicesImage.value = urlFor(services.icon).url();
+        servicesImage.value = urlFor(services.icon);
       }
       console.log("Services data loaded:", services);
     } else {

@@ -4,7 +4,6 @@
       <div
         class="flex flex-col md:flex-row justify-between gap-10 text-center md:text-left"
       >
-        <!-- Company Info -->
         <div class="space-y-6 w-full md:w-96">
           <div>
             <router-link to="/">
@@ -85,9 +84,7 @@
             <div class="mt-4 w-full md:w-1/2">
               <h3 class="font-medium">Other Services:</h3>
               <p class="text-sm text-gray-600">
-                <!-- <a :href="footer[0]?.otherServicesLink" class="hover:text-black"> -->
                   Software Development
-                <!-- </a> -->
               </p>
             </div>
           </div>
@@ -121,6 +118,8 @@
     </div>
   </footer>
 </template>
+
+
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
