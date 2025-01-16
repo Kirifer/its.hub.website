@@ -4,8 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        instrument: ['"Instrument Sans"', "sans-serif"],
-        inter: ["Inter", "sans-serif"],
+        // instrument: ['"Instrument Sans"', "sans-serif"],
+        // inter: ["Inter", "sans-serif"],
+        futura: ['"Futura"', "sans-serif"],
+        lato: ['"Lato"', "sans-serif"],
       },
       keyframes: {
         'pulse-once': {
