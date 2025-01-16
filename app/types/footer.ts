@@ -13,7 +13,9 @@ export interface Footer {
     facebook: string;
     linkedin: string;
     twitter: string;
-    country1: string; // Add this line
+    country1: string;
+    country2: string;
+    country3: string;
   };
   services: {
     _ref: string;
