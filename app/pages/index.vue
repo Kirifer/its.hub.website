@@ -100,7 +100,7 @@ onMounted(async () => {
       <div class="relative">
         <div class="overflow-hidden h-[700px] relative">
           <div
-            class="absolute inset-0 h-[500px] flex items-center justify-center z-0"
+            class="absolute inset-0 h-[500px] flex items-center justify-center z-0 animate-pulse-once "
           >
             <div class="absolute -top-[425px]">
               <div
@@ -218,13 +218,13 @@ onMounted(async () => {
               <img
                 src="~/assets/images/group 74.png"
                 alt="Design Element"
-                class="hidden md:block absolute right-[-184px] top-[315px] transform -translate-y-1/2 z-10"
+                class="hidden lg:block absolute right-[-184px] top-[315px] transform -translate-y-1/2 z-10"
                 style="height: 270px; width: auto"
               />
               <img
                 src="~/assets/images/group 73.png"
                 alt="Design Element"
-                class="hidden md:block absolute left-[-180px] top-[315px] transform -translate-y-1/2 z-10"
+                class="hidden lg:block absolute left-[-180px] top-[315px] transform -translate-y-1/2 z-10"
                 style="height: 270px; width: auto"
               />
             </div>
@@ -674,7 +674,7 @@ onMounted(async () => {
           </div>
 
           <div class="relative overflow-hidden h-[220px] mx-auto z-10">
-            <TransitionGroup name="slide" class="relative">
+            <TransitionGroup name="slide" :class="['relative']">
               <div
                 v-for="(testimonial, index) in section6"
                 :key="testimonial._key"

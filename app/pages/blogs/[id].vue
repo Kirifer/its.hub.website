@@ -3,6 +3,7 @@
     class="inset-0 h-lg w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
   >
     <div
+ 
       :style="{
         backgroundImage: blogImage ? `url(${blogImage})` : '',
       }"
@@ -35,6 +36,7 @@
           class="relative w-full pt-[62.3%] rounded-[15px] border-[6px] sm:border-[10px] border-[#606DF1] overflow-hidden mb-12"
         >
           <img
+           v-if="blogImage.length > 0"
             :src="blogImage"
             alt="Philippine Outsourcing"
             class="absolute top-0 left-0 w-full h-full object-cover"

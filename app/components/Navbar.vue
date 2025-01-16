@@ -1,9 +1,9 @@
 <template>
   <nav class="bg-white font-instrument relative">
     <div
+      v-if="navbar.length > 0"
       class="container mx-auto flex justify-between items-center py-5 px-6 border-b-4 border-purple-300"
     >
-      <!-- Logo -->
       <div class="text-xl font-bold text-gray-800">
         <nuxt-link href="/">
           <img
@@ -13,7 +13,6 @@
           />
         </nuxt-link>
       </div>
-      <!-- Navigation Links -->
       <ul
         class="hidden md:flex md:flex-row md:space-x-9 text-gray-600 text-sm md:ml-auto"
       >
@@ -63,7 +62,6 @@
           </nuxt-link>
         </li>
       </ul>
-      <!-- Hamburger Icon -->
       <div class="md:hidden ml-auto">
         <button @click="toggleMenu" class="focus:outline-none">
           <svg
@@ -83,7 +81,6 @@
         </button>
       </div>
     </div>
-    <!-- Floating Side Nav -->
     <div
       v-if="isMenuOpen"
       class="fixed inset-0 bg-black bg-opacity-50 z-50"

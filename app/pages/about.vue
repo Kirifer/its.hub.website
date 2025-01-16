@@ -32,7 +32,7 @@ const currentSlide = ref(0);
       class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] relative animate-fade-grid-in-2"
     >
       <div class="relative">
-        <div class="h-[865px] md:h-[950px] relative">
+        <div class="h-[950px] md:h-[990px] relative">
           <div
             class="absolute inset-0 h-[500px] flex items-center justify-center z-0"
           >
