@@ -376,11 +376,13 @@ onMounted(async () => {
             >
               {{ home[0]?.section_2_footer_subheading }}
             </p>
+            <router-link to="/contact">
             <button
               class="px-4 py-2 text-sm md:text-base font-semibold bg-purple-200 text-purple-800 rounded-md hover:bg-purple-300 transition-all duration-300 hover:scale-105"
             >
               {{ home[0]?.section_2_footer_button }}
             </button>
+          </router-link>
           </div>
         </div>
       </div>
@@ -609,11 +611,13 @@ onMounted(async () => {
               {{ home[0]?.section_5_subheading }}
             </p>
             <div class="flex justify-center md:justify-end">
+              <router-link to="/services"> 
               <button
                 class="mt-4 px-4 py-2 text-sm md:text-base font-semibold bg-purple-200 text-purple-800 rounded-md hover:bg-purple-300 transition-colors"
               >
                 {{ home[0]?.section_5_button }}
               </button>
+            </router-link>
             </div>
           </div>
         </div>

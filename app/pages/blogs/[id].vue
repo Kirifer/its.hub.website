@@ -1,26 +1,33 @@
 <template>
   <div
-    class="bg-[url('@/assets/images/bg-blog-details.png')] bg-cover bg-center w-full min-h-screen bg-no-repeat sm:bg-contain md:bg-cover"
+    class="inset-0 h-lg w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
   >
-    <!-- Hero Section -->
     <div
-      class="w-full h-[580px] bg-gradient-to-br from-[#272727] to-[#1a1a1a] flex flex-col items-center text-center px-4 pt-20 relative"
+      :style="{
+        backgroundImage: blogImage ? `url(${blogImage})` : '',
+      }"
+      class="bg-cover bg-center w-full h-[580px] animate-fade-grid-in-3 to-[#2a2a2a] flex flex-col items-center text-center px-4 pt-20 relative"
     >
-      <!-- Title -->
-      <h1
-        class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10"
+      <div
+        class="absolute inset-0 bg-black opacity-80 z-5 animate-fade-grid-in-2"
+      ></div>
+      <div
+        v-if="blogData"
+        class="animate-fade-in-3 flex flex-col items-center justify-center z-10"
       >
-        {{ blogData?.heading }}
-      </h1>
+        <h1
+          class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10"
+        >
+          {{ blogData?.heading }}
+        </h1>
 
-      <!-- Description -->
-      <p
-        class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8"
-      >
-        {{ blogData?.subheading }}
-      </p>
+        <p
+          class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8"
+        >
+          {{ blogData?.subheading }}
+        </p>
+      </div>
 
-      <!-- Featured Image -->
       <div
         class="relative w-full max-w-[648px] mx-auto mt-4 mb-8 sm:mt-4 sm:mb-12"
       >
@@ -36,9 +43,8 @@
       </div>
     </div>
 
-    <!-- Content Section -->
     <div
-      class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 sm:mt-16 text-[#565656]"
+      class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 sm:mt-16 text-black"
     >
       <article class="space-y-8 sm:space-y-12">
         <section>
@@ -76,8 +82,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import blogimage1 from "@/assets/images/blog1.png";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import sanityClient from "~/hooks/sanityClient";
 import type { BlogData } from "~/types/blogData";
@@ -103,3 +108,46 @@ onMounted(async () => {
   }
 });
 </script>
+
+<style scoped>
+.animate-fade-grid-in-3 {
+  animation: grid-fade-in2 0.8s ease-out;
+}
+
+@keyframes grid-fade-in2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-grid-in-2 {
+  animation: grid-fade-in 2s ease-out;
+}
+
+@keyframes grid-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
