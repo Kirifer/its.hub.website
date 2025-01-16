@@ -93,7 +93,7 @@
           </h1>
           <p
             v-if="contact.length > 0"
-            class="text-base sm:text-xl text-center"
+            class="text-base sm:text-xl "
           >
             {{ contact[0]?.hero_subtitle }}
           </p>
