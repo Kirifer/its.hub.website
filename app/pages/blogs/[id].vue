@@ -2,7 +2,6 @@
   <div
     class="inset-0 h-lg w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
   >
-    <!-- Hero Section -->
     <div
       :style="{
         backgroundImage: blogImage ? `url(${blogImage})` : '',
@@ -16,14 +15,12 @@
         v-if="blogData"
         class="animate-fade-in-3 flex flex-col items-center justify-center z-10"
       >
-        <!-- Title -->
         <h1
           class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10"
         >
           {{ blogData?.heading }}
         </h1>
 
-        <!-- Description -->
         <p
           class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8"
         >
@@ -31,7 +28,6 @@
         </p>
       </div>
 
-      <!-- Featured Image -->
       <div
         class="relative w-full max-w-[648px] mx-auto mt-4 mb-8 sm:mt-4 sm:mb-12"
       >
@@ -47,7 +43,6 @@
       </div>
     </div>
 
-    <!-- Content Section -->
     <div
       class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 sm:mt-16 text-black"
     >

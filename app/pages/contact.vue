@@ -3,12 +3,9 @@
     <div
       class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px]"
     >
-      <!-- Contact Section -->
-
       <div
         class="container mx-auto max-w-full px-4 h-full animate-fade-grid-in-3"
       >
-        <!-- Header Section -->
         <div
           v-if="contact.length > 0"
           class="flex flex-col items-center justify-center space-y-5 md:space-y-5 animate-fade-in"
@@ -32,7 +29,6 @@
             {{ contact[0]?.hero_subtitle }}
           </p>
 
-          <!-- Form Card -->
           <div
             class="bg-white rounded-2xl shadow-xl p-8 mb-12 w-full md:w-[1200px]"
           >
@@ -111,7 +107,6 @@
       class="container mx-auto max-w-full md:max-w-[1185px] pt-4 px-4 md:px-0 mb-12"
     >
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Apply Card -->
         <div
           class="rounded-2xl p-8 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white shadow-xl h-auto md:h-[300px] flex flex-col justify-between"
         >
@@ -119,15 +114,14 @@
             {{ contact[0]?.card1_title }}
           </h2>
           <router-link to="/careers">
-          <button
-            class="bg-white text-black font-medium px-6 py-2 rounded-md hover:bg-gray-100 hover:text-gray-800 transition-colors w-fit"
-          >
-            Apply Now!
-          </button>
-        </router-link>
+            <button
+              class="bg-white text-black font-medium px-6 py-2 rounded-md hover:bg-gray-100 hover:text-gray-800 transition-colors w-fit"
+            >
+              Apply Now!
+            </button>
+          </router-link>
         </div>
 
-        <!-- Meeting Card -->
         <div class="rounded-2xl overflow-hidden shadow-xl h-auto md:h-[300px]">
           <img
             src="~/assets/images/pic-header2.png"
@@ -136,9 +130,7 @@
           />
         </div>
 
-        <!-- Stats Cards -->
         <div class="space-y-4 h-auto md:h-[300px] flex flex-col">
-          <!-- Balance Card -->
           <div class="bg-white rounded-2xl p-4 shadow-xl flex-1">
             <div class="flex items-center justify-between h-full">
               <div class="space-y-1">
@@ -151,7 +143,6 @@
             </div>
           </div>
 
-          <!-- Pie Chart Card -->
           <div class="bg-white rounded-2xl p-4 shadow-xl flex-[2]">
             <div class="h-full flex flex-col justify-between">
               <div class="flex items-center justify-between">
@@ -177,95 +168,130 @@
       </div>
     </div>
 
-    <div class="container mx-auto max-w-full md:max-w-[1185px] pt-4 px-4 md:px-0">
-    <div class="flex flex-col md:flex-row items-center justify-center">
-      <div class="w-full md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
-        <div
-          class="inline-block px-4 py-1 bg-blue-200 text-blue-800 rounded-full text-base sm:text-lg font-semibold mb-4 transition-opacity duration-500"
-          :class="{ 'opacity-0': !isVisible.connecting, 'opacity-100': isVisible.connecting }"
-          ref="connectingRef"
-        >
-          <span>Connecting</span>
-        </div>
-        <div class="space-y-2 md:space-y-4">
-          <h1 class="text-3xl md:text-6xl font-bold w-full md:w-[500px] transition-opacity duration-500" :class="{ 'opacity-0': !isVisible.title, 'opacity-100': isVisible.title }" ref="titleRef">
-            {{ contact[0]?.section2_title }}
-          </h1>
-        </div>
-        <div class="space-y-2 md:space-y-10 mt-5 max-w-lg">
-          <p class="text-lg md:text-2xl text-gray-500 mb-5 transition-opacity duration-500" :class="{ 'opacity-0': !isVisible.subtitle, 'opacity-100': isVisible.subtitle }" ref="subtitleRef">
-            {{ contact[0]?.section2_subtitle }}
-          </p>
-          <div class="flex items-center justify-center">
-            <div
-              class="relative w-full h-[250px] md:h-[250px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl p-2 border border-[#844DDC] md:w-[350px] hidden md:block transition-opacity duration-500"
-              :class="{ 'opacity-0': !isVisible.image1, 'opacity-100': isVisible.image1 }"
-              ref="image1Ref"
-            >
-              <img
-                v-if="contact[0]?.section2_image1"
-                :src="urlFor(contact[0]?.section2_image1)"
-                alt="Section 2 Image 3"
-                class="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-          </div>
-          <div class="flex justify-end">
-            <div
-              class="relative w-full h-[250px] md:h-[300px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl p-2 border border-[#844DDC] md:w-[400px] hidden md:block transition-opacity duration-500"
-              :class="{ 'opacity-0': !isVisible.image2, 'opacity-100': isVisible.image2 }"
-              ref="image2Ref"
-            >
-              <img
-                v-if="contact[0]?.section2_image2"
-                :src="urlFor(contact[0]?.section2_image2)"
-                alt="Section 2 Image 3"
-                class="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-          </div>
+    <div
+      class="container mx-auto max-w-full md:max-w-[1185px] pt-4 px-4 md:px-0"
+    >
+      <div class="flex flex-col md:flex-row items-center justify-center">
+        <div class="w-full md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
           <div
-            class="relative w-full h-[250px] md:h-[400px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl p-2 border border-[#844DDC] md:w-[450px] hidden md:block transition-opacity duration-500"
-            :class="{ 'opacity-0': !isVisible.image3, 'opacity-100': isVisible.image3 }"
-            ref="image3Ref"
+            class="inline-block px-4 py-1 bg-blue-200 text-blue-800 rounded-full text-base sm:text-lg font-semibold mb-4 transition-opacity duration-500"
+            :class="{
+              'opacity-0': !isVisible.connecting,
+              'opacity-100': isVisible.connecting,
+            }"
+            ref="connectingRef"
           >
-            <img
-              v-if="contact[0]?.section2_image3"
-              :src="urlFor(contact[0]?.section2_image3)"
-              alt="Section 2 Image 3"
-              class="w-full h-full object-cover rounded-lg"
-            />
+            <span>Connecting</span>
           </div>
+          <div class="space-y-2 md:space-y-4">
+            <h1
+              class="text-3xl md:text-6xl font-bold w-full md:w-[500px] transition-opacity duration-500"
+              :class="{
+                'opacity-0': !isVisible.title,
+                'opacity-100': isVisible.title,
+              }"
+              ref="titleRef"
+            >
+              {{ contact[0]?.section2_title }}
+            </h1>
+          </div>
+          <div class="space-y-2 md:space-y-10 mt-5 max-w-lg">
+            <p
+              class="text-lg md:text-2xl text-gray-500 mb-5 transition-opacity duration-500"
+              :class="{
+                'opacity-0': !isVisible.subtitle,
+                'opacity-100': isVisible.subtitle,
+              }"
+              ref="subtitleRef"
+            >
+              {{ contact[0]?.section2_subtitle }}
+            </p>
+            <div class="flex items-center justify-center">
+              <div
+                class="relative w-full h-[250px] md:h-[250px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl p-2 border border-[#844DDC] md:w-[350px] hidden md:block transition-opacity duration-500"
+                :class="{
+                  'opacity-0': !isVisible.image1,
+                  'opacity-100': isVisible.image1,
+                }"
+                ref="image1Ref"
+              >
+                <img
+                  v-if="contact[0]?.section2_image1"
+                  :src="urlFor(contact[0]?.section2_image1)"
+                  alt="Section 2 Image 3"
+                  class="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+            </div>
+            <div class="flex justify-end">
+              <div
+                class="relative w-full h-[250px] md:h-[300px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl p-2 border border-[#844DDC] md:w-[400px] hidden md:block transition-opacity duration-500"
+                :class="{
+                  'opacity-0': !isVisible.image2,
+                  'opacity-100': isVisible.image2,
+                }"
+                ref="image2Ref"
+              >
+                <img
+                  v-if="contact[0]?.section2_image2"
+                  :src="urlFor(contact[0]?.section2_image2)"
+                  alt="Section 2 Image 3"
+                  class="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+            </div>
+            <div
+              class="relative w-full h-[250px] md:h-[400px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-2xl p-2 border border-[#844DDC] md:w-[450px] hidden md:block transition-opacity duration-500"
+              :class="{
+                'opacity-0': !isVisible.image3,
+                'opacity-100': isVisible.image3,
+              }"
+              ref="image3Ref"
+            >
+              <img
+                v-if="contact[0]?.section2_image3"
+                :src="urlFor(contact[0]?.section2_image3)"
+                alt="Section 2 Image 3"
+                class="w-full h-full object-cover rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 space-y-10">
+          <template
+            v-for="(step, index) in contact[0]?.section2_steps"
+            :key="index"
+          >
+            <div
+              :ref="(el) => { if (el) stepsRefs[index] = el as HTMLElement }"
+              :class="[
+                'space-y-5 transition-all duration-500 transform',
+                stepsVisible[index]
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-8',
+              ]"
+            >
+              <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">
+                0{{ step.step_no }}.
+              </h1>
+              <h1
+                class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900"
+              >
+                {{ step.step_title }}
+              </h1>
+              <p class="text-lg md:text-2xl text-gray-500">
+                {{ step.step_subtitle }}
+              </p>
+            </div>
+          </template>
         </div>
       </div>
-       <!-- Steps Section -->
-    <div class="w-full md:w-1/2 space-y-10">
-      <template v-for="(step, index) in contact[0]?.section2_steps" :key="index">
-        <div
-          :ref="(el) => { if (el) stepsRefs[index] = el as HTMLElement }"
-          :class="['space-y-5 transition-all duration-500 transform', 
-            stepsVisible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          ]"
-        >
-          <h1 class="text-blue-900 text-4xl md:text-6xl font-bold">
-            0{{ step.step_no }}.
-          </h1>
-          <h1 class="text-xl md:text-3xl font-semibold pb-5 border-b border-blue-900">
-            {{ step.step_title }}
-          </h1>
-          <p class="text-lg md:text-2xl text-gray-500">
-            {{ step.step_subtitle }}
-          </p>
-        </div>
-      </template>
     </div>
-    </div>
-  </div>
 
     <div class="container mx-auto sm:max-w-full px-4 mt-12 md:max-w-[1185px]">
-      <div class="container  mx-auto max-w-full">
-        <!-- Header -->
-        <div class="text-center  mb-12">
+      <div class="container mx-auto max-w-full">
+        <div class="text-center mb-12">
           <div
             class="inline-block px-4 py-1 bg-blue-200 text-blue-800 rounded-full text-base sm:text-lg font-semibold"
           >
@@ -273,17 +299,15 @@
           </div>
         </div>
 
-        <!-- Locations Grid -->
         <div
-          class="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-full md:max-w-[1200px] mx-auto mb-10"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-full md:max-w-[1200px] mx-auto mb-10"
         >
           <div
             v-for="office in offices"
             :key="office.country"
-            class="group bg-white rounded-xl   overflow-hidden shadow-lg border-2 border-white-500 transition-transform duration-300 hover:-translate-y-2"
+            class="group bg-white rounded-xl overflow-hidden shadow-lg border-2 border-white-500 transition-transform duration-300 hover:-translate-y-2"
           >
-            <!-- Image Container -->
-            <div class="h-48  overflow-hidden">
+            <div class="h-48 overflow-hidden">
               <img
                 :src="office.image"
                 :alt="office.country"
@@ -291,9 +315,8 @@
               />
             </div>
 
-            <!-- Content -->
             <div class="p-6">
-              <h3 class="text-xl  font-semibold text-gray-800 mb-2">
+              <h3 class="text-xl font-semibold text-gray-800 mb-2">
                 {{ office.country }}
               </h3>
               <p class="text-gray-600 text-sm leading-relaxed">
@@ -322,7 +345,6 @@ const contact = ref<Contact[]>([]);
 const stepsRefs = ref<(HTMLElement | null)[]>([]);
 const stepsVisible = ref<boolean[]>([]);
 
-// Previous refs remain the same
 const connectingRef = ref<HTMLElement | null>(null);
 const titleRef = ref<HTMLElement | null>(null);
 const subtitleRef = ref<HTMLElement | null>(null);
@@ -330,7 +352,6 @@ const image1Ref = ref<HTMLElement | null>(null);
 const image2Ref = ref<HTMLElement | null>(null);
 const image3Ref = ref<HTMLElement | null>(null);
 
-// Visibility states
 const isVisible = ref<Record<string, boolean>>({
   connecting: false,
   title: false,
@@ -340,8 +361,11 @@ const isVisible = ref<Record<string, boolean>>({
   image3: false,
 });
 
-// Create observer for regular elements
-const createObserver = (element: HTMLElement, key: string, delay: number = 0) => {
+const createObserver = (
+  element: HTMLElement,
+  key: string,
+  delay: number = 0
+) => {
   const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
@@ -358,8 +382,11 @@ const createObserver = (element: HTMLElement, key: string, delay: number = 0) =>
   observer.observe(element);
 };
 
-// Create observer for steps
-const createStepObserver = (element: HTMLElement, index: number, delay: number = 0) => {
+const createStepObserver = (
+  element: HTMLElement,
+  index: number,
+  delay: number = 0
+) => {
   const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
@@ -383,8 +410,7 @@ onMounted(async () => {
     );
     if (contact.value.length > 0) {
       console.log("Contact data fetched successfully:", contact.value);
-      
-      // Initialize steps visibility array
+
       const stepsCount = contact.value[0]?.section2_steps?.length || 0;
       stepsVisible.value = new Array(stepsCount).fill(false);
       stepsRefs.value = new Array(stepsCount).fill(null);
@@ -393,13 +419,12 @@ onMounted(async () => {
     console.error("Error fetching data from Sanity:", error);
   }
 
-  // Initialize observers with delays for main sections
-  if (connectingRef.value) createObserver(connectingRef.value, 'connecting', 0);
-  if (titleRef.value) createObserver(titleRef.value, 'title', 200);
-  if (subtitleRef.value) createObserver(subtitleRef.value, 'subtitle', 400);
-  if (image1Ref.value) createObserver(image1Ref.value, 'image1', 600);
-  if (image2Ref.value) createObserver(image2Ref.value, 'image2', 800);
-  if (image3Ref.value) createObserver(image3Ref.value, 'image3', 1000);
+  if (connectingRef.value) createObserver(connectingRef.value, "connecting", 0);
+  if (titleRef.value) createObserver(titleRef.value, "title", 200);
+  if (subtitleRef.value) createObserver(subtitleRef.value, "subtitle", 400);
+  if (image1Ref.value) createObserver(image1Ref.value, "image1", 600);
+  if (image2Ref.value) createObserver(image2Ref.value, "image2", 800);
+  if (image3Ref.value) createObserver(image3Ref.value, "image3", 1000);
 
   setTimeout(() => {
     stepsRefs.value.forEach((ref, index) => {
@@ -420,7 +445,6 @@ const formData = ref({
 });
 
 const handleSubmit = () => {
-  // Handle form submission 
   console.log("Form submitted:", formData.value);
 
   formData.value = {
@@ -441,7 +465,6 @@ const balanceData = {
   ],
 };
 
-// Main pie chart data
 const pieChartData = {
   datasets: [
     {
@@ -452,7 +475,6 @@ const pieChartData = {
   ],
 };
 
-// Chart options
 const chartOptions = {
   responsive: true,
   maintainAspectRatio: false,
@@ -463,7 +485,6 @@ const chartOptions = {
   },
 };
 
-// Component for the pie charts
 const PieChart = defineComponent({
   extends: Pie,
   props: {
@@ -530,9 +551,6 @@ const offices: Office[] = [
 }
 
 .background-gradient {
-  /* background: 
-    linear-gradient(to bottom, rgba(220, 220, 220, 0.6) 1px, transparent 1px),
-    linear-gradient(to bottom right, #ebf8ff, #f3e8ff, #ffe4e6); */
   background-color: white;
 }
 .animate-fade-grid-in-3 {
