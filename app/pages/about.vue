@@ -124,7 +124,7 @@ const currentSlide = ref(0);
                         {{ about[0]?.section_2_stats[0].heading }}
                       </div>
                       <div
-                        class="md:text-left text-center  text-lg md:text-xl text-gray-900 w-full leading-relaxed "
+                        class="md:text-center text-center  text-lg md:text-xl text-gray-900 w-full leading-relaxed "
                       >
                         {{ about[0]?.section_2_stats[0].subheading }}
                       </div>
@@ -136,7 +136,7 @@ const currentSlide = ref(0);
                         {{ about[0]?.section_2_stats[1].heading }}
                       </div>
                       <div
-                        class="md:text-left text-center text-lg md:text-xl text-gray-900 w-full leading-relaxed "
+                        class="md:text-center text-center text-lg md:text-xl text-gray-900 w-full leading-relaxed "
                       >
                         {{ about[0]?.section_2_stats[1].subheading }}
                       </div>
@@ -148,7 +148,7 @@ const currentSlide = ref(0);
                         {{ about[0]?.section_2_stats[2].heading }}
                       </div>
                       <div
-                        class="md:text-left text-center text-lg md:text-xl text-gray-900 w-full leading-relaxed "
+                        class="md:text-center text-center text-lg md:text-xl text-gray-900 w-full leading-relaxed "
                       >
                         {{ about[0]?.section_2_stats[2].subheading }}
                       </div>
