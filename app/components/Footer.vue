@@ -21,7 +21,7 @@
           </p>
           <div class="space-y-2">
             <p class="font-medium">Contact and Follow Us on:</p>
-            <p class="text-sm">:email: {{ footer[0]?.contactInfo.email }}</p>
+            <p class="text-sm"> {{ footer[0]?.contactInfo.email }}</p>
             <div class="flex justify-center md:justify-start space-x-4">
               <a
                 :href="footer[0]?.contactInfo.facebook"
