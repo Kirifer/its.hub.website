@@ -27,6 +27,7 @@ export interface About {
     message: string;
     author: string;
     position: string;
+    stars: number;
   }[];
   section_6_heading: string;
   section_6_subheading: string;

@@ -72,47 +72,48 @@
           <h2 class="font-semibold text-2xl sm:text-3xl mb-2">
             {{ section.miniTitle }}
           </h2>
-          <p :class="{'text-base sm:text-xl mb-4': true, 'mt-0': !section.miniTitle, 'mt-2': section.miniTitle}">
+          <p
+            :class="{
+              'text-base sm:text-xl mb-4': true,
+              'mt-0': !section.miniTitle,
+              'mt-2': section.miniTitle,
+            }"
+          >
             {{ section.description }}
           </p>
         </section>
         <!-- Contact Section -->
-    <div
-      class="w-full max-w-full mx-auto px-0 sm:px-0 lg:px-0 py-12 sm:py-0  mt-0"
-    >
-      <!-- Header Section -->
-      <div
-        class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-12"
-      >
-        <div class="flex flex-col space-y-5 flex-1">
-          <h1
-            v-if="contact.length > 0"
-            class="font-medium text-[28px] sm:text-[40px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-center md:text-left"
+        <div
+          class="w-full max-w-full mx-auto px-0 sm:px-0 lg:px-0 py-12 sm:py-0 mt-0"
+        >
+          <!-- Header Section -->
+          <div
+            class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-12"
           >
-            {{ contact[0]?.hero_title }}
-          </h1>
-          <p
-            v-if="contact.length > 0"
-            class="text-base sm:text-xl "
-          >
-            {{ contact[0]?.hero_subtitle }}
-          </p>
+            <div class="flex flex-col space-y-5 flex-1">
+              <h1
+                v-if="contact.length > 0"
+                class="font-medium text-[28px] sm:text-[40px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-center md:text-left"
+              >
+                {{ contact[0]?.hero_title }}
+              </h1>
+              <p v-if="contact.length > 0" class="text-base sm:text-xl">
+                {{ contact[0]?.hero_subtitle }}
+              </p>
+            </div>
+
+            <!-- Button -->
+            <router-link to="/contact" class="flex-shrink-0">
+              <button
+                class="bg-purple-300 border-gray border font-medium px-6 py-2 rounded-md hover:bg-white hover:text-purple-800 transition-colors"
+              >
+                Contact Us
+              </button>
+            </router-link>
+          </div>
         </div>
-
-        <!-- Button -->
-        <router-link to="/contact" class="flex-shrink-0 ">
-          <button
-            class="bg-purple-300 border-gray border font-medium px-6 py-2 rounded-md hover:bg-white hover:text-purple-800 transition-colors"
-          >
-            Contact Us
-          </button>
-        </router-link>
-      </div>
-    </div>
-
       </article>
     </div>
-    
   </div>
 </template>
 
@@ -134,7 +135,6 @@ onMounted(async () => {
   const id = route.params.id as string;
 
   try {
-
     const contactData = await sanityClient.fetch<Contact[]>(
       `*[_type == "contact"]`
     );

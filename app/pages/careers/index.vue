@@ -124,9 +124,9 @@
                   class="px-4 py-2 border border-purple-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 w-full sm:w-auto"
                 >
                   <option value="">All Jobs</option>
-                  <option value="fulltime">Full Time</option>
-                  <option value="parttime">Part Time</option>
-                  <option value="remote">Remote</option>
+                  <option value="Data Analyst">Analyst</option>
+                  <option value="manager">Manager</option>
+                  <option value="developer">Developer</option>
                 </select>
               </div>
             </div>
@@ -232,15 +232,14 @@ const filteredAndSearchedCards = computed(() => {
   if (!careers.value[0]?.section1_cards) return [];
 
   return careers.value[0].section1_cards.filter((card) => {
-    const matchesSearch =
-      card.job_title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      card.job_description
-        .toLowerCase()
-        .includes(searchQuery.value.toLowerCase());
-    const matchesFilter =
-      selectedFilter.value === "" || card.jobType === selectedFilter.value;
-    return matchesSearch && matchesFilter;
-  });
+  const matchesSearch =
+    card.job_title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+    card.job_description.toLowerCase().includes(searchQuery.value.toLowerCase());
+  const matchesFilter =
+    selectedFilter.value === "" || card.jobType === selectedFilter.value;
+
+  return matchesSearch && matchesFilter;
+});
 });
 
 const jobOpenings = ref<HTMLElement | null>(null);

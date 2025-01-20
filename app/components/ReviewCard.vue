@@ -8,6 +8,9 @@
         <span class="text-sm font-medium dark:text-white">
           {{ name }}
         </span>
+        <div class="stars">
+          <span v-for="n in stars" :key="n" class="star">★</span>
+        </div>
       </div>
     </div>
     <blockquote class="mt-2 text-sm">{{ body }}</blockquote>
@@ -18,9 +21,15 @@
 interface Props {
   img: string;
   name: string;
-
   body: string;
+  stars: number;
 }
 
 defineProps<Props>();
 </script>
+
+<style>
+.star {
+  color: gold;
+}
+</style>

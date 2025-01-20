@@ -226,7 +226,7 @@ const currentSlide = ref(0);
       </div>
     </div>
 
-    <div class="container mx-auto py-4 px-12">
+    <!-- <div class="container mx-auto py-4 px-12">
       <div class="flex justify-center">
         <div
           class="inline-flex items-center px-3 py-1 rounded-full text-lg font-medium bg-blue-200 text-blue-800 mt-5"
@@ -270,7 +270,7 @@ const currentSlide = ref(0);
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="container mx-auto py-4">
       <div class="flex flex-col items-center justify-center">
         <div
@@ -287,25 +287,28 @@ const currentSlide = ref(0);
         <div
           class="relative flex h-[400px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background"
         >
-          <Marquee pause-on-hover class="[--duration:20s]">
-            <ReviewCard
-              v-for="testimonial in about[0]?.section_5_testimonials"
-              :key="testimonial.author"
-              img="https://placehold.co/400"
-              :name="testimonial.author"
-              :body="testimonial.message"
-            />
-          </Marquee>
+        <Marquee pause-on-hover class="[--duration:20s]">
+  <ReviewCard
+    v-for="testimonial in about[0]?.section_5_testimonials"
+    :key="testimonial.author"
+    img="https://placehold.co/400"
+    :name="testimonial.author"
+    :body="testimonial.message"
+    :stars="Math.floor(Math.random() * 5) + 1"
+  />
+</Marquee>
 
-          <Marquee reverse pause-on-hover class="[--duration:20s]">
-            <ReviewCard
-              v-for="testimonial in about[0]?.section_5_testimonials"
-              :key="testimonial.author"
-              img="https://placehold.co/400"
-              :name="testimonial.author"
-              :body="testimonial.message"
-            />
-          </Marquee>
+<Marquee reverse pause-on-hover class="[--duration:20s]">
+  <ReviewCard
+    v-for="testimonial in about[0]?.section_5_testimonials"
+    :key="testimonial.author"
+    img="https://placehold.co/400"
+    :name="testimonial.author"
+    :body="testimonial.message"
+    :stars="Math.floor(Math.random() * 5) + 1" 
+  />
+</Marquee>
+
           <div
             class="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"
           ></div>
