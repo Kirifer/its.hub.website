@@ -65,7 +65,7 @@
           <h2 class="font-semibold text-2xl sm:text-3xl mb-2">
             {{ section.miniTitle }}
           </h2>
-          <p class="text-base sm:text-xl">
+          <p class="text-lg sm:text-xl">
             {{ section.description }}
           </p>
         </section>

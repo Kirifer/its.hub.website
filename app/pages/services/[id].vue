@@ -55,33 +55,67 @@
     <div
       class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 text-black mt-0 sm:mt-16"
     >
-      <article class="space-y-8 sm:space-y-12">
-        <section>
-          <h2 class="font-semibold text-2xl sm:text-3xl mb-0 sm:mt-14 mt-0">
-            {{ servicesData?.introTitle }}
+      <article class="space-y-6 md:space-y-8">
+        <div class="max-w-full mx-auto">
+      
+        <!-- Intro Section -->
+        <div class="space-y-6 mt-8">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900" v-if="servicesData?.introTitle">
+            {{ servicesData.introTitle }}
           </h2>
-          <p class="text-base sm:text-xl">
-            {{ servicesData?.introDescription }}
+          <p class="text-lg text-gray-900 font-medium" v-if="servicesData?.introDescription">
+            {{ servicesData.introDescription }}
           </p>
-        </section>
-
-        <section
-          v-for="(section, index) in servicesData?.bodyTitle?.sections"
-          :key="index"
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Featured Image -->
+        <!-- <div 
+          v-if="servicesData?.image" 
+          class="relative rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out"
         >
-          <h2 class="font-semibold text-2xl sm:text-3xl mb-2">
-            {{ section.miniTitle }}
-          </h2>
-          <p
-            :class="{
-              'text-base sm:text-xl mb-4': true,
-              'mt-0': !section.miniTitle,
-              'mt-2': section.miniTitle,
-            }"
-          >
-            {{ section.description }}
-          </p>
-        </section>
+          <img 
+            :src="urlFor(servicesData.image)" 
+            alt="Featured Service" 
+            class="w-full h-full object-cover"
+          />
+        </div> -->
+      </div>
+
+      <!-- Service Sections -->
+      <div class="mt-10 space-y-10">
+        <div 
+          v-for="(section, index) in servicesData?.bodyTitle?.sections" 
+          :key="index"
+          class="flex flex-col md:flex-row items-center gap-12"
+        >
+          <div class="md:w-1/2 space-y-4">
+            <h3 class="text-2xl sm:text-3xl font-bold text-gray-900">
+              {{ section.miniTitle }}
+            </h3>
+            <p class="text-lg text-gray-900 font-medium">
+              {{ section.description }}
+            </p>
+          </div>
+          <div class="md:w-1/2">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out">
+              <!-- You can add an icon or image here related to the section -->
+              <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-2">Key Features</h4>
+              <!-- <ul class="list-disc list-inside text-gray-700">
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
+              </ul> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
         <!-- Contact Section -->
         <div
           class="w-full max-w-full mx-auto px-0 sm:px-0 lg:px-0 py-12 sm:py-0 mt-0"
