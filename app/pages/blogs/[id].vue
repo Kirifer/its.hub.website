@@ -19,13 +19,13 @@
         <h1
           class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10"
         >
-          <!-- {{ blogData?.heading }} -->
+          {{ blogData?.heading }}
         </h1>
 
         <p
           class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8"
         >
-          <!-- {{ blogData?.subheading }} -->
+          {{ blogData?.subheading }}
         </p>
       </div>
 
@@ -66,7 +66,7 @@
             {{ section.miniTitle }}
           </h2>
           <p class="text-lg sm:text-xl">
-            {{ section.description }} sadsa
+            {{ section.description }}
           </p>
         </section>
 

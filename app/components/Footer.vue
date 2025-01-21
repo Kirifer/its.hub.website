@@ -21,7 +21,7 @@
           </p>
           <div class="space-y-2">
             <p class="font-medium">Contact and Follow Us on:</p>
-            <p class="text-sm"> {{ footer[0]?.contactInfo.email }}</p>
+            <p class="text-sm">{{ footer[0]?.contactInfo.email }}</p>
             <div class="flex justify-center md:justify-start space-x-4">
               <a
                 :href="footer[0]?.contactInfo.facebook"
@@ -77,7 +77,7 @@
         <div class="space-y-6 col-span-1 w-full md:w-1/2">
           <div>
             <h3 class="font-medium mb-4">Outsourcing Services</h3>
-            <div class="flex flex-col md:flex-row gap-x-12 gap-y-2">
+            <div class="flex flex-col md:flex-row gap-y-2">
               <ul
                 v-if="services[0]?.section1_cards"
                 class="text-sm text-gray-600"
@@ -99,9 +99,21 @@
                 </li>
               </ul>
             </div>
-            <div class="mt-4 w-full md:w-1/2">
+            <div
+              class="mt-4 w-full md:w-1/2"
+              v-if="footer[0]?.other_services?.length > 0"
+            >
               <h3 class="font-medium">Other Services:</h3>
-              <p class="text-sm text-gray-600">Software Development</p>
+              <ul>
+                <li
+                  v-for="service in footer[0]?.other_services"
+                  :key="service.name"
+                >
+                  <a :href="service.link" class="  text-sm text-gray-600 hover:text-black">
+                    {{ service.name }}
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -147,7 +159,11 @@
         </div>
       </div>
       <div class="-mt-4 flex flex-wrap justify-center items-center gap-8">
-        <AnimatedLogoCloud :logos="logos" class="md:mr-28" title="Certified Professionals" />
+        <AnimatedLogoCloud
+          :logos="logos"
+          class="md:mr-28"
+          title="Certified Professionals"
+        />
       </div>
     </div>
   </footer>
@@ -208,7 +224,12 @@ const logos = ref([
 ]);
 onMounted(async () => {
   try {
-    footer.value = await sanityClient.fetch<Footer[]>('*[_type == "footer"]');
+    footer.value = await sanityClient.fetch<Footer[]>(
+      '*[_type == "footer"]{..., contactInfo{email, phone1, phone2, phone3, address1, address2, address3, facebook, linkedin, twitter, country1, country2, country3}, otherServices{name, link}, link, otherServices}'
+    );
+
+    // console.log(footer.value[0]?.other_services);
+
     const servicesQuery = `*[_type == "services"] {
       ...,
       section1_cards[]->
