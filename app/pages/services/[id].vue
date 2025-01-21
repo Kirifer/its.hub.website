@@ -92,63 +92,56 @@
 
           <!-- Service Sections -->
           <div class="mt-10 space-y-10">
-            <div
-              v-for="(section, index) in servicesData?.body"
-              :key="index"
-              class="flex flex-col md:flex-row items-center gap-12"
+  <div 
+    v-for="(section, index) in servicesData?.body" 
+    :key="index"
+    class="flex flex-col md:flex-row items-center gap-12"
+  >
+    <div class="md:w-1/2 space-y-4">
+      <h3 class="text-2xl sm:text-3xl font-bold text-gray-900">
+        {{ section.title }}
+      </h3>
+      <p class="text-lg sm:text-xl">
+        {{ section.description }}
+      </p>
+      <ul class="list-disc list-inside pl-4 space-y-4 text-gray-900 text-lg sm:text-xl">
+        <li v-for="(item, itemIndex) in section.list" :key="itemIndex">
+          <strong>{{ item.title }}</strong>
+          <p v-for="(desc, descIndex) in item.description" :key="descIndex">{{ desc }}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="md:w-1/2 space-y-4">
+      <!-- <div 
+        v-for="(item, itemIndex) in section.list" 
+        :key="itemIndex"
+        class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out"
+      >
+        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+          <img 
+            :src="urlFor(item?.image_1)" 
+            alt="Item Image" 
+            class="w-8 h-8 object-cover"
+          />
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+          
+          <div class="mt-10 space-y-4">
+            <h2
+              class="text-3xl sm:text-4xl font-bold text-gray-900"
+              v-if="servicesData?.collaboration_title"
             >
-              <div class="md:w-1/2 space-y-4">
-                <h3 class="text-2xl sm:text-3xl font-bold text-gray-900">
-                  {{ section.title }}
-                </h3>
-                <p class="text-lg sm:text-xl">
-                  {{ section.description }}
-                </p>
-                <ul
-                  class="list-disc list-inside space-y-4 text-gray-900 text-lg sm:text-xl"
-                >
-                  <li
-                    v-for="(item, itemIndex) in section.list"
-                    :key="itemIndex"
-                  >
-                    <strong>{{ item.title }}</strong>
-                    <ul class="space-y-4">
-                      <li
-                        v-for="(desc, descIndex) in item.description"
-                        :key="descIndex"
-                      >
-                        <p>{{ desc }}</p>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <div class="md:w-1/2">
-                <div
-                  class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out"
-                >
-                  <!-- You can add an icon or image here related to the section -->
-                  <div
-                    class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4"
-                  >
-                    <svg
-                      class="w-8 h-8 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
+              {{ servicesData.collaboration_title }}
+            </h2>
+            <p
+              class="text-lg sm:text-xl"
+              v-if="servicesData?.collaboration_description"
+            >
+              {{ servicesData.collaboration_description }}
+            </p>
           </div>
         </div>
 

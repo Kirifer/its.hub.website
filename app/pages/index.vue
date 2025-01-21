@@ -14,8 +14,8 @@ const home = ref<Home[]>([]);
 const heroImage = ref("");
 const section_1 = ref<
   Array<{
-    heading: string;
-    subheading: string;
+    title: string;
+    subtitle: string;
     _key: string;
     icon: { asset: { _ref: string } };
     visible: boolean;
@@ -61,7 +61,10 @@ onMounted(async () => {
     if (home.value.length > 0) {
       heroImage.value = urlFor(home.value[0].hero_image.asset._ref);
       section_1.value = home.value[0].section_1.map((feature) => ({
-        ...feature,
+        title: feature.title,
+        subtitle: feature.subtitle,
+        _key: feature._key,
+        icon: feature.icon,
         visible: false,
       }));
       section3Image.value = urlFor(home.value[0].section_3_image.asset._ref);
@@ -69,6 +72,7 @@ onMounted(async () => {
       section7Image.value = urlFor(home.value[0].section_7_image.asset._ref);
     }
 
+    console.log('HOME TO', home.value)
     await nextTick();
 
     const observer = new IntersectionObserver(
@@ -266,7 +270,7 @@ onMounted(async () => {
                 'opacity-100': feature.visible,
               }"
             >
-              {{ feature.heading }}
+              {{ feature.title }}
             </h3>
             <p
               class="text-base md:text-lg text-black/60 text-center transition-opacity duration-500 ease-out"
@@ -275,7 +279,7 @@ onMounted(async () => {
                 'opacity-100': feature.visible,
               }"
             >
-              {{ feature.subheading }}
+              {{ feature.subtitle }}
             </p>
           </div>
         </div>
@@ -296,13 +300,13 @@ onMounted(async () => {
               Features
             </div>
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3">
-              {{ home[0]?.section_2_heading }}
+              {{ home[0]?.section_2_title }}
             </h2>
             <div class="flex flex-col md:flex-row justify-between items-center">
               <p
                 class="mt-5 mb-6 font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[900px]"
               >
-                {{ home[0]?.section_2_subheading }}
+                {{ home[0]?.section_2_subtitle }} iloveyousomuch and forever my love
               </p>
             </div>
           </div>
@@ -316,12 +320,12 @@ onMounted(async () => {
               class="relative bg-purple-200 border border-purple-300 p-8 sm:p-12 rounded-2xl shadow-sm"
             >
               <h3 class="font-semibold text-2xl sm:text-3xl mb-3">
-                <span v-html="card.heading"></span>
+                <span v-html="card.Title"></span>
               </h3>
               <p
                 class="mt-4 text-gray-600 pb-16 sm:mb-32 text-sm sm:text-base font-normal md:text-lg leading-relaxed max-w-[290px]"
               >
-                {{ card.subheading }}
+                {{ card.Subtitle }}
               </p>
               <img
                 v-if="card.icon && card.icon.asset"
@@ -349,16 +353,16 @@ onMounted(async () => {
             <div class="grid grid-cols-2 gap-2 md:gap-0 md:grid-cols-4">
               <div
                 v-for="stat in home[0]?.section_2_stats"
-                :key="stat.heading"
+                :key="stat.title"
                 class="text-center border-r-2 border-l-2 rounded-full border-b-2 border-purple-200 sm:p-5"
               >
                 <div class="text-3xl sm:text-5xl font-semibold">
-                  {{ stat.heading }}
+                  {{ stat.title }}
                 </div>
                 <div
                   class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600"
                 >
-                  {{ stat.subheading }}
+                  {{ stat.subtitle }}
                 </div>
               </div>
             </div>
@@ -369,12 +373,12 @@ onMounted(async () => {
             <h2
               class="text-2xl sm:text-3xl md:text-5xl font-semibold mb-3 whitespace-normal sm:whitespace-nowrap"
             >
-              {{ home[0]?.section_2_footer_heading }}
+              {{ home[0]?.section_2_footer_title }}
             </h2>
             <p
               class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 mb-8"
             >
-              {{ home[0]?.section_2_footer_subheading }}
+              {{ home[0]?.section_2_footer_subtitle }}
             </p>
             <router-link to="/contact">
             <button
@@ -413,12 +417,12 @@ onMounted(async () => {
                 <div
                   class="text-[18px] leading-[22px] font-normal text-purple-500/67 font-instrument-sans"
                 >
-                  {{ home[0]?.section_3_cards[0].heading }}
+                  {{ home[0]?.section_3_cards[0].title }}
                 </div>
                 <div
                   class="text-[28px] leading-[32px] font-bold text-black font-instrument-sans"
                 >
-                  {{ home[0]?.section_3_cards[0].subheading }}
+                  {{ home[0]?.section_3_cards[0].subtitle }}
                 </div>
               </div>
             </div>
@@ -431,12 +435,12 @@ onMounted(async () => {
                 <div
                   class="text-[18px] leading-[22px] font-normal text-purple-500/67 font-instrument-sans"
                 >
-                  {{ home[0]?.section_3_cards[1].heading }}
+                  {{ home[0]?.section_3_cards[1].title }}
                 </div>
                 <div
                   class="text-[28px] leading-[32px] font-bold text-black font-instrument-sans"
                 >
-                  {{ home[0]?.section_3_cards[1].subheading }}
+                  {{ home[0]?.section_3_cards[1].subtitle }}
                 </div>
               </div>
             </div>
@@ -447,12 +451,12 @@ onMounted(async () => {
                 <div
                   class="text-[18px] leading-[22px] font-normal text-purple-500/67 font-instrument-sans"
                 >
-                  {{ home[0]?.section_3_cards[2].heading }}
+                  {{ home[0]?.section_3_cards[2].title }}
                 </div>
                 <div
                   class="text-[28px] leading-[32px] font-bold text-black font-instrument-sans"
                 >
-                  {{ home[0]?.section_3_cards[2].subheading }}
+                  {{ home[0]?.section_3_cards[2].subtitle }}
                 </div>
               </div>
               <FlagIcon class="text-purple-500 w-8 h-8" />
@@ -465,12 +469,12 @@ onMounted(async () => {
                 <div
                   class="text-[18px] leading-[22px] font-normal text-purple-500/67 font-instrument-sans"
                 >
-                  {{ home[0]?.section_3_cards[3].heading }}
+                  {{ home[0]?.section_3_cards[3].title }}
                 </div>
                 <div
                   class="text-[28px] leading-[32px] font-bold text-black font-instrument-sans"
                 >
-                  {{ home[0]?.section_3_cards[3].subheading }}
+                  {{ home[0]?.section_3_cards[3].subtitle }}
                 </div>
               </div>
               <ChartPieIcon class="text-purple-500 w-8 h-8" />
@@ -498,12 +502,12 @@ onMounted(async () => {
           @mouseleave="activeIndex = 0"
         >
           <h3 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4">
-            {{ home[0]?.section_4[0].heading }}
+            {{ home[0]?.section_4[0].title }}
           </h3>
           <p
             class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[700px] mx-auto"
           >
-            {{ home[0]?.section_4[0].subheading }}
+            {{ home[0]?.section_4[0].subtitle }}
           </p>
         </div>
         <div
@@ -512,12 +516,12 @@ onMounted(async () => {
           @mouseleave="activeIndex = 0"
         >
           <h3 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4">
-            {{ home[0]?.section_4[1].heading }}
+            {{ home[0]?.section_4[1].title }}
           </h3>
           <p
             class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[700px] mx-auto"
           >
-            {{ home[0]?.section_4[1].subheading }}
+            {{ home[0]?.section_4[1].subtitle }}
           </p>
         </div>
 
@@ -527,12 +531,12 @@ onMounted(async () => {
           @mouseleave="activeIndex = 0"
         >
           <h3 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4">
-            {{ home[0]?.section_4[2].heading }}
+            {{ home[0]?.section_4[2].title }}
           </h3>
           <p
             class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[700px] mx-auto"
           >
-            {{ home[0]?.section_4[2].subheading }}
+            {{ home[0]?.section_4[2].subtitle }}
           </p>
         </div>
       </div>
@@ -603,12 +607,12 @@ onMounted(async () => {
               {{ home[0]?.section_5_badge }}
             </div>
             <h2 class="text-3xl sm:text-4xl font-semibold mb-6">
-              {{ home[0]?.section_5_heading }}
+              {{ home[0]?.section_5_title }}
             </h2>
             <p
               class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[900px] mb-8"
             >
-              {{ home[0]?.section_5_subheading }}
+              {{ home[0]?.section_5_subtitle }}
             </p>
             <div class="flex justify-center md:justify-end">
               <router-link to="/services"> 
@@ -723,7 +727,7 @@ onMounted(async () => {
               <h1
                 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 leading-tight"
               >
-                {{ home[0]?.section_7_heading }}
+                {{ home[0]?.section_7_title }}
               </h1>
               <div class="space-y-4">
                 <div class="flex items-center space-x-2">
@@ -741,7 +745,7 @@ onMounted(async () => {
                     />
                   </svg>
                   <span class="text-base sm:text-lg text-gray-600">{{
-                    home[0]?.section_7_subheadings[0]
+                    home[0]?.section_7_subtitle[0]
                   }}</span>
                 </div>
                 <div class="flex items-center space-x-2">
@@ -759,7 +763,7 @@ onMounted(async () => {
                     />
                   </svg>
                   <span class="text-base sm:text-lg text-gray-600">{{
-                    home[0]?.section_7_subheadings[1]
+                    home[0]?.section_7_subtitle[1]
                   }}</span>
                 </div>
                 <div class="flex items-center space-x-2">
@@ -777,7 +781,7 @@ onMounted(async () => {
                     />
                   </svg>
                   <span class="text-base sm:text-lg text-gray-600">{{
-                    home[0]?.section_7_subheadings[2]
+                    home[0]?.section_7_subtitle[2]
                   }}</span>
                 </div>
               </div>
