@@ -19,14 +19,14 @@
         <h1
           class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[60px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10 text-center z-10"
         >
-          {{ servicesData?.heading }}
+          {{ servicesData?.title }}
         </h1>
 
         <!-- Description -->
         <p
           class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8 text-center z-10"
         >
-          {{ servicesData?.subheading }}
+          {{ servicesData?.subtitle }}
         </p>
         <div
           class="absolute inset-0 bg-black opacity-80 z-5 animate-fade-grid-in-2"
@@ -60,11 +60,11 @@
       
         <!-- Intro Section -->
         <div class="space-y-6 mt-8">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900" v-if="servicesData?.introTitle">
-            {{ servicesData.introTitle }}
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900" v-if="servicesData?.introduction_title">
+            {{ servicesData.introduction_title }}
           </h2>
-          <p class="text-lg text-gray-900 font-medium" v-if="servicesData?.introDescription">
-            {{ servicesData.introDescription }}
+          <p class="text-lg sm:text-xl" v-if="servicesData?.introduction_description">
+            {{ servicesData.introduction_description }}
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -84,15 +84,15 @@
       <!-- Service Sections -->
       <div class="mt-10 space-y-10">
         <div 
-          v-for="(section, index) in servicesData?.bodyTitle?.sections" 
+          v-for="(section, index) in servicesData?.body" 
           :key="index"
           class="flex flex-col md:flex-row items-center gap-12"
         >
           <div class="md:w-1/2 space-y-4">
             <h3 class="text-2xl sm:text-3xl font-bold text-gray-900">
-              {{ section.miniTitle }}
+              {{ section.title }}
             </h3>
-            <p class="text-lg text-gray-900 font-medium">
+            <p class="text-lg sm:text-xl">
               {{ section.description }}
             </p>
           </div>

@@ -66,7 +66,7 @@
             {{ section.miniTitle }}
           </h2>
           <p class="text-lg sm:text-xl">
-            {{ section.description }}
+            {{ section.description }} sadsa
           </p>
         </section>
 
