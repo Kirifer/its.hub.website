@@ -91,12 +91,12 @@ const currentSlide = ref(0);
                   <div
                     class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-left text-black font-instrument-sans mb-4"
                   >
-                    {{ about[0]?.section_1[0].heading }}
+                    {{ about[0]?.section_1[0].title }}
                   </div>
                   <p
                     class="mt-4 mb-6 text-left text-lg md:text-xl text-gray-900 w-full leading-relaxed"
                   >
-                    {{ about[0]?.section_1[0].subheading }}
+                    {{ about[0]?.section_1[0].subtitle }}
                   </p>
                 </div>
                 <div class="md:flex-shrink-0">
@@ -121,36 +121,36 @@ const currentSlide = ref(0);
                       <div
                         class="uppercase text-3xl md:text-5xl text-blue-400 font-bold text-center"
                       >
-                        {{ about[0]?.section_2_stats[0].heading }}
+                        {{ about[0]?.section_2_stats[0].title }}
                       </div>
                       <div
                         class="md:text-center text-center  text-lg md:text-xl text-gray-900 w-full leading-relaxed "
                       >
-                        {{ about[0]?.section_2_stats[0].subheading }}
+                        {{ about[0]?.section_2_stats[0].subtitle }}
                       </div>
                     </div>
                     <div  class=" w-full ">
                       <div
                         class="uppercase text-3xl md:text-5xl text-blue-400 font-bold text-center"
                       >
-                        {{ about[0]?.section_2_stats[1].heading }}
+                        {{ about[0]?.section_2_stats[1].title }}
                       </div>
                       <div
                         class="md:text-center text-center text-lg md:text-xl text-gray-900 w-full leading-relaxed "
                       >
-                        {{ about[0]?.section_2_stats[1].subheading }}
+                        {{ about[0]?.section_2_stats[1].subtitle }}
                       </div>
                     </div>
                     <div  class=" w-full ">
                       <div
                         class="uppercase text-3xl md:text-5xl text-blue-400 font-bold text-center"
                       >
-                        {{ about[0]?.section_2_stats[2].heading }}
+                        {{ about[0]?.section_2_stats[2].title }}
                       </div>
                       <div
                         class="md:text-center text-center text-lg md:text-xl text-gray-900 w-full leading-relaxed "
                       >
-                        {{ about[0]?.section_2_stats[2].subheading }}
+                        {{ about[0]?.section_2_stats[2].subtitle }}
                       </div>
                     </div>
                   </div>
@@ -238,7 +238,7 @@ const currentSlide = ref(0);
         <div
           class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-center text-black font-instrument-sans mb-4 mt-6"
         >
-          {{ about[0]?.section_4_heading }}
+          {{ about[0]?.section_4_title }}
         </div>
         <div>
           <div class="relative mt-6 overflow-x-hidden">
@@ -260,10 +260,10 @@ const currentSlide = ref(0);
                   class="w-full h-48 object-cover rounded-lg mb-2"
                 />
                 <div class="text-lg font-bold text-center">
-                  {{ member.heading }}
+                  {{ member.title }}
                 </div>
                 <div class="text-gray-500 text-center">
-                  {{ member.subheading }}
+                  {{ member.subtitle }}
                 </div>
               </div>
             </div>

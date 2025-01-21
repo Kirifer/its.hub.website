@@ -111,7 +111,7 @@
           class="rounded-2xl p-8 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white shadow-xl h-auto md:h-[300px] flex flex-col justify-between"
         >
           <h2 class="text-3xl font-bold mb-6 leading-tight">
-            {{ contact[0]?.card1_title }}
+            {{ contact[0]?.card_1_title }}
           </h2>
           <router-link to="/careers">
             <button
@@ -192,7 +192,7 @@
               }"
               ref="titleRef"
             >
-              {{ contact[0]?.section2_title }}
+              {{ contact[0]?.section_2_title }}
             </h1>
           </div>
           <div class="space-y-2 md:space-y-10 mt-5 max-w-lg">
@@ -204,7 +204,7 @@
               }"
               ref="subtitleRef"
             >
-              {{ contact[0]?.section2_subtitle }}
+              {{ contact[0]?.section_2_subtitle }}
             </p>
             <div class="flex items-center justify-center">
               <div
@@ -216,8 +216,8 @@
                 ref="image1Ref"
               >
                 <img
-                  v-if="contact[0]?.section2_image1"
-                  :src="urlFor(contact[0]?.section2_image1)"
+                  v-if="contact[0]?.section_2_image1"
+                  :src="urlFor(contact[0]?.section_2_image1)"
                   alt="Section 2 Image 3"
                   class="w-full h-full object-cover rounded-lg"
                 />
@@ -233,8 +233,8 @@
                 ref="image2Ref"
               >
                 <img
-                  v-if="contact[0]?.section2_image2"
-                  :src="urlFor(contact[0]?.section2_image2)"
+                  v-if="contact[0]?.section_2_image2"
+                  :src="urlFor(contact[0]?.section_2_image2)"
                   alt="Section 2 Image 3"
                   class="w-full h-full object-cover rounded-lg"
                 />
@@ -249,8 +249,8 @@
               ref="image3Ref"
             >
               <img
-                v-if="contact[0]?.section2_image3"
-                :src="urlFor(contact[0]?.section2_image3)"
+                v-if="contact[0]?.section_2_image3"
+                :src="urlFor(contact[0]?.section_2_image3)"
                 alt="Section 2 Image 3"
                 class="w-full h-full object-cover rounded-lg"
               />
@@ -260,7 +260,7 @@
 
         <div class="w-full md:w-1/2 space-y-10">
           <template
-            v-for="(step, index) in contact[0]?.section2_steps"
+            v-for="(step, index) in contact[0]?.section_2_steps"
             :key="index"
           >
             <div
@@ -409,7 +409,7 @@ onMounted(async () => {
     if (contact.value.length > 0) {
       console.log("Contact data fetched successfully:", contact.value);
 
-      const stepsCount = contact.value[0]?.section2_steps?.length || 0;
+      const stepsCount = contact.value[0]?.section_2_steps?.length || 0;
       stepsVisible.value = new Array(stepsCount).fill(false);
       stepsRefs.value = new Array(stepsCount).fill(null);
     }
