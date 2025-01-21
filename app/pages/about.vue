@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import sanityClient from "@/hooks/sanityClient";
-import { InformationCircleIcon } from "@heroicons/vue/24/outline";
+import { InformationCircleIcon, UserIcon } from "@heroicons/vue/24/outline";
 import { urlFor } from "~/hooks/sanityImageUrl";
 import type { About } from "~/types/about";
 
@@ -24,6 +24,21 @@ onMounted(async () => {
 });
 
 const currentSlide = ref(0);
+
+const flags = ref<string[]>([
+  "https://flagcdn.com/w320/us.png",
+  "https://flagcdn.com/w320/ca.png",
+  "https://flagcdn.com/w320/gb.png",
+  "https://flagcdn.com/w320/fr.png",
+  "https://flagcdn.com/w320/de.png",
+  // Add more flag URLs as needed
+]);
+
+const getRandomFlag = (): string => {
+  const randomIndex = Math.floor(Math.random() * flags.value.length);
+  return flags.value[randomIndex];
+};
+
 </script>
 
 <template>
@@ -117,9 +132,9 @@ const currentSlide = ref(0);
                   <div
                     class="flex flex-row md:flex-row text-center justify-center gap-10 p-8"
                   >
-                    <div>
+                    <div class="w-full">
                       <div
-                        class="uppercase text-3xl md:text-5xl text-blue-400 font-bold text-center"
+                        class="uppercase text-3xl md:text-5xl text-blue-400 font-bold text-center "
                       >
                         {{ about[0]?.section_2_stats[0].title }}
                       </div>
@@ -288,26 +303,28 @@ const currentSlide = ref(0);
           class="relative flex h-[400px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background"
         >
         <Marquee pause-on-hover class="[--duration:20s]">
-  <ReviewCard
-    v-for="testimonial in about[0]?.section_5_testimonials"
-    :key="testimonial.author"
-    img="https://placehold.co/400"
-    :name="testimonial.author"
-    :body="testimonial.message"
-    :stars="Math.floor(Math.random() * 5) + 1"
-  />
-</Marquee>
+          <ReviewCard
+          v-for="testimonial in about[0]?.section_5_testimonials"
+          :key="testimonial.author"
+          :img="getRandomFlag()"
+          :name="testimonial.author"
+          :body="testimonial.message"
+          :stars="Math.floor(Math.random() * 5) + 1"
+          img-class="h-10 w-10" 
+        />
+    </Marquee>
 
-<Marquee reverse pause-on-hover class="[--duration:20s]">
-  <ReviewCard
-    v-for="testimonial in about[0]?.section_5_testimonials"
-    :key="testimonial.author"
-    img="https://placehold.co/400"
-    :name="testimonial.author"
-    :body="testimonial.message"
-    :stars="Math.floor(Math.random() * 5) + 1" 
-  />
-</Marquee>
+    <Marquee reverse pause-on-hover class="[--duration:20s]">
+      <ReviewCard
+        v-for="testimonial in about[0]?.section_5_testimonials"
+        :key="testimonial.author"
+        :img="getRandomFlag()"
+        :name="testimonial.author"
+        :body="testimonial.message"
+        :stars="Math.floor(Math.random() * 5) + 1"
+        img-class="h-10 w-10" 
+      />
+    </Marquee>
 
           <div
             class="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"

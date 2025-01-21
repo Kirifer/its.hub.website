@@ -17,36 +17,37 @@
         class="animate-fade-in-3 flex flex-col items-center justify-center z-10"
       >
         <h1
-          class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10"
+          class="w-full animate-fade-in max-w-[940px] pb-4 font-medium text-[28px] sm:mb-4 sm:text-4xl md:text-6xl leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white text-center z-10"
         >
           {{ blogData?.heading }}
         </h1>
 
         <p
-          class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8"
+          class="w-full text-sm  animate-fade-in  sm:text-base md:text-xl text-gray-600 text-white max-w-2xl mb-6 text-center z-10"
         >
           {{ blogData?.subheading }}
         </p>
       </div>
 
       <div
-        class="relative w-full max-w-[648px] mx-auto mt-4 mb-8 sm:mt-4 sm:mb-12"
+        class="relative w-full max-w-[648px]  mx-auto mt-4 mb-8 sm:mt-4 sm:mb-12"
       >
         <div
-          class="relative w-full pt-[62.3%] rounded-[15px] border-[6px] sm:border-[10px] border-[#606DF1] overflow-hidden mb-12"
+          v-if="blogImage.length > 0"
+          class="relative w-full pt-[62.3%] rounded-[15px] animate-fade-in  border-[6px] sm:border-[10px] border-[#606DF1] overflow-hidden mb-12"
         >
           <img
            v-if="blogImage.length > 0"
             :src="blogImage"
             alt="Philippine Outsourcing"
-            class="absolute top-0 left-0 w-full h-full object-cover"
+            class="absolute top-0 left-0 w-full h-full  object-cover"
           />
         </div>
       </div>
     </div>
 
     <div
-      class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 sm:mt-16 text-black"
+      class="w-full animate-fade-in  max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 sm:mt-16 text-black"
     >
       <article class="space-y-8 sm:space-y-12">
         <section>

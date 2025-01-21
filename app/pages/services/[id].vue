@@ -92,42 +92,65 @@
 
           <!-- Service Sections -->
           <div class="mt-10 space-y-10">
-  <div 
-    v-for="(section, index) in servicesData?.body" 
-    :key="index"
-    class="flex flex-col md:flex-row items-center gap-12"
-  >
-    <div class="md:w-1/2 space-y-4">
-      <h3 class="text-2xl sm:text-3xl font-bold text-gray-900">
-        {{ section.title }}
-      </h3>
-      <p class="text-lg sm:text-xl">
-        {{ section.description }}
-      </p>
-      <ul class="list-disc list-inside pl-4 space-y-4 text-gray-900 text-lg sm:text-xl">
-        <li v-for="(item, itemIndex) in section.list" :key="itemIndex">
-          <strong>{{ item.title }}</strong>
-          <p v-for="(desc, descIndex) in item.description" :key="descIndex">{{ desc }}</p>
-        </li>
-      </ul>
-    </div>
-    <div class="md:w-1/2 space-y-4">
-      <!-- <div 
-        v-for="(item, itemIndex) in section.list" 
-        :key="itemIndex"
-        class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out"
-      >
-        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-          <img 
-            :src="urlFor(item?.image_1)" 
-            alt="Item Image" 
-            class="w-8 h-8 object-cover"
-          />
+    <div 
+      v-for="(section, sectionIndex) in servicesData?.body" 
+      :key="sectionIndex"
+      class="flex flex-col gap-8"
+    >
+      <!-- Upper container with section title and image -->
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2 space-y-4">
+          <h3 class="text-2xl sm:text-3xl font-bold text-center text-gray-900">
+            {{ section.title }}
+          </h3>
         </div>
-      </div> -->
+        <div class="md:w-1/2 space-y-4">
+          <div 
+            v-if="section.list.length > 0"
+            class="relative bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-3 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out"
+            style="width: 100%; height: 200px;"
+          >
+            <div class="w-[475px] h-full md:w-full bg-purple-100 flex items-center text-center rounded-xl justify-center relative">
+              <template v-if="section.list[currentImageIndexes[sectionIndex]] && section.list[currentImageIndexes[sectionIndex]].image_1">
+                <img 
+                  :src="urlFor(section.list[currentImageIndexes[sectionIndex]].image_1.asset._ref)" 
+                  alt="Item Image" 
+                  class="object-cover w-full h-full md:w-full md:h-full rounded-xl"
+                />
+                <div class="absolute inset-0 bg-black rounded-xl bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <span class="text-white text-lg font-bold">{{ section.list[currentImageIndexes[sectionIndex]].title }}</span>
+                </div>
+                <button @click="nextImage(sectionIndex, section.list)" class="absolute bottom-2 right-2 bg-transparent text-white text-2xl z-10 ">
+                  <ArrowRightIcon class="w-6 h-6" />
+
+                </button>
+              </template>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lower container with item descriptions -->
+      <div class="flex flex-col md:flex-row gap-12">
+        <div class="md:w-1/2 space-y-4">
+          <ul class="space-y-4 text-gray-900 text-lg sm:text-xl">
+            <li v-for="(item, itemIndex) in section.list.slice(0, Math.ceil(section.list.length / 2))" :key="itemIndex">
+              <strong>{{ item.title }}</strong>
+              <p v-for="(desc, descIndex) in item.description" :key="descIndex">{{ desc }}</p>
+            </li>
+          </ul>
+        </div>
+        <div class="md:w-1/2 space-y-4">
+          <ul class="space-y-4 text-gray-900 text-lg sm:text-xl">
+            <li v-for="(item, itemIndex) in section.list.slice(Math.ceil(section.list.length / 2))" :key="itemIndex">
+              <strong>{{ item.title }}</strong>
+              <p v-for="(desc, descIndex) in item.description" :key="descIndex">{{ desc }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-</div>
           
           <div class="mt-10 space-y-4">
             <h2
@@ -156,7 +179,7 @@
             <div class="flex flex-col space-y-5 flex-1">
               <h1
                 v-if="contact.length > 0"
-                class="font-medium text-[28px] sm:text-[40px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-center md:text-left"
+                class="text-3xl sm:text-4xl font-bold text-gray-900"
               >
                 {{ contact[0]?.hero_title }}
               </h1>
@@ -187,36 +210,36 @@ import sanityClient from "@/hooks/sanityClient";
 import { urlFor } from "@/hooks/sanityImageUrl";
 import type { Contact } from "@/types/contact";
 import type { ServicesData } from "@/types/servicesData";
+import { ArrowRightIcon } from "@heroicons/vue/24/outline";
 
 const contact = ref<Contact[]>([]);
 const servicesData = ref<ServicesData | null>(null);
 const servicesImage = ref("");
-console.log(servicesImage);
+const currentImageIndexes = ref<number[]>([]);
+
+const nextImage = (sectionIndex: number, list: { image_1: any }[]) => {
+  do {
+    currentImageIndexes.value[sectionIndex] = (currentImageIndexes.value[sectionIndex] + 1) % list.length;
+  } while (!list[currentImageIndexes.value[sectionIndex]].image_1);
+};
+
+const route = useRoute();
+const id = route.params.id as string;
 
 onMounted(async () => {
-  const route = useRoute();
-  const id = route.params.id as string;
-
   try {
-    const contactData = await sanityClient.fetch<Contact[]>(
-      `*[_type == "contact"]`
-    );
+    const contactData = await sanityClient.fetch<Contact[]>(`*[_type == "contact"]`);
     contact.value = contactData;
 
     const servicesQuery = `*[_type == "servicesData" && id == $id][0]`;
-    const services = await sanityClient.fetch<ServicesData>(servicesQuery, {
-      id,
-    });
+    const services = await sanityClient.fetch<ServicesData>(servicesQuery, { id });
 
     if (services) {
       servicesData.value = services;
-      // Make sure image exists before trying to generate URL
+      currentImageIndexes.value = services.body.map(() => 0); // Initialize image indexes for each section
       if (services.icon) {
         servicesImage.value = urlFor(services.icon);
       }
-      console.log("Services data loaded:", services);
-    } else {
-      console.warn("No services data found for id:", id);
     }
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -242,6 +265,18 @@ const handleSubmit = () => {
     message: "",
   };
 };
+
+const currentImageIndex = ref(0);
+
+// Removed duplicate nextImage function
+
+const props = defineProps({
+  servicesData: {
+    type: Object,
+    required: true,
+  },
+});
+
 </script>
 
 <style scoped>
