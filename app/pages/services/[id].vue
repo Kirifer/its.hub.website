@@ -9,22 +9,22 @@
           ? `url(${urlFor(servicesData.image)})`
           : '',
       }"
-      class="bg-cover bg-center w-full h-[580px] animate-fade-grid-in-3 to-[#2a2a2a] flex flex-col items-center text-center px-4 pt-20 relative"
+      class="bg-cover bg-center w-full h-[580px] animate-fade-grid-in-3 to-[#2a2a2a] flex flex-col items-center text-center px-4 pt-16 relative"
     >
       <div
-        v-if="contact.length > 0"
-        class="animate-fade-in-3 flex flex-col items-center justify-center"
+        v-if="servicesData"
+        class="flex flex-col items-center justify-center"
       >
         <!-- Title -->
         <h1
-          class="w-full max-w-[840px] font-medium text-[28px] sm:text-[40px] lg:text-[60px] leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white mb-6 sm:mb-10 text-center z-10"
+        class="w-full animate-fade-in max-w-[940px] pb-4 font-medium text-[28px] sm:mb-6 sm:text-4xl md:text-6xl leading-[36px] sm:leading-[48px] lg:leading-[55px] text-white text-center z-10 truncate"
         >
-          {{ servicesData?.title }}
+          {{ servicesData?.title }} 
         </h1>
 
         <!-- Description -->
         <p
-          class="w-full max-w-[603px] font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white mb-8 text-center z-10"
+          class="w-full text-sm  animate-fade-in  sm:text-base md:text-xl text-gray-600 text-white max-w-2xl mb-6 text-center z-10"
         >
           {{ servicesData?.subtitle }}
         </p>
@@ -34,7 +34,7 @@
         <!-- Featured Image -->
         <div
           v-if="servicesData?.image"
-          class="relative w-full max-w-[648px] mx-auto mt-4 mb-8 sm:mt-4 sm:mb-12"
+          class="relative w-full  animate-fade-in  max-w-[648px] mx-auto mt-4 mb-8 sm:mt-4 sm:mb-12"
         >
           <div
             class="relative z-10 p-3 rounded-2xl bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400"
@@ -48,28 +48,37 @@
             </div>
           </div>
         </div>
+
+        
       </div>
+
+      
     </div>
 
     <!-- Content Section -->
     <div
-      class="w-full max-w-[1145px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mt-0 text-black mt-0 sm:mt-16"
+      class="w-full max-w-[1145px]  animate-fade-in   mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 md:mt-16 text-black sm:mt-16"
     >
       <article class="space-y-6 md:space-y-8">
         <div class="max-w-full mx-auto">
-      
-        <!-- Intro Section -->
-        <div class="space-y-6 mt-8">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900" v-if="servicesData?.introduction_title">
-            {{ servicesData.introduction_title }}
-          </h2>
-          <p class="text-lg sm:text-xl" v-if="servicesData?.introduction_description">
-            {{ servicesData.introduction_description }}
-          </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <!-- Featured Image -->
-        <!-- <div 
+          <!-- Intro Section -->
+          <div class="space-y-6 mt-8">
+            <h2
+              class="text-3xl sm:text-4xl font-bold text-gray-900"
+              v-if="servicesData?.introduction_title"
+            >
+              {{ servicesData.introduction_title }}
+            </h2>
+            <p
+              class="text-lg sm:text-xl"
+              v-if="servicesData?.introduction_description"
+            >
+              {{ servicesData.introduction_description }}
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Featured Image -->
+            <!-- <div 
           v-if="servicesData?.image" 
           class="relative rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out"
         >
@@ -79,42 +88,69 @@
             class="w-full h-full object-cover"
           />
         </div> -->
-      </div>
-
-      <!-- Service Sections -->
-      <div class="mt-10 space-y-10">
-        <div 
-          v-for="(section, index) in servicesData?.body" 
-          :key="index"
-          class="flex flex-col md:flex-row items-center gap-12"
-        >
-          <div class="md:w-1/2 space-y-4">
-            <h3 class="text-2xl sm:text-3xl font-bold text-gray-900">
-              {{ section.title }}
-            </h3>
-            <p class="text-lg sm:text-xl">
-              {{ section.description }}
-            </p>
           </div>
-          <div class="md:w-1/2">
-            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out">
-              <!-- You can add an icon or image here related to the section -->
-              <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
+
+          <!-- Service Sections -->
+          <div class="mt-10 space-y-10">
+            <div
+              v-for="(section, index) in servicesData?.body"
+              :key="index"
+              class="flex flex-col md:flex-row items-center gap-12"
+            >
+              <div class="md:w-1/2 space-y-4">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-900">
+                  {{ section.title }}
+                </h3>
+                <p class="text-lg sm:text-xl">
+                  {{ section.description }}
+                </p>
+                <ul
+                  class="list-disc list-inside space-y-4 text-gray-900 text-lg sm:text-xl"
+                >
+                  <li
+                    v-for="(item, itemIndex) in section.list"
+                    :key="itemIndex"
+                  >
+                    <strong>{{ item.title }}</strong>
+                    <ul class="space-y-4">
+                      <li
+                        v-for="(desc, descIndex) in item.description"
+                        :key="descIndex"
+                      >
+                        <p>{{ desc }}</p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
-              <h4 class="text-xl font-semibold text-gray-900 mb-2">Key Features</h4>
-              <!-- <ul class="list-disc list-inside text-gray-700">
-                <li>Feature 1</li>
-                <li>Feature 2</li>
-                <li>Feature 3</li>
-              </ul> -->
+              <div class="md:w-1/2">
+                <div
+                  class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out"
+                >
+                  <!-- You can add an icon or image here related to the section -->
+                  <div
+                    class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4"
+                  >
+                    <svg
+                      class="w-8 h-8 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
         <!-- Contact Section -->
         <div

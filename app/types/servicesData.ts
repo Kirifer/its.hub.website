@@ -5,7 +5,7 @@ interface ListItem {
 }
 
 interface Section {
-  description?: string;
+  description?: [];
   list: ListItem[];
   title: string;
   _key: string;
