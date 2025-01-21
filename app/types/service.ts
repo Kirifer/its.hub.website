@@ -8,7 +8,7 @@ interface Card {
     ];
     collabDescription: string;
     collabTitle: string;
-    heading: string;
+    title: string;
     id: string;
     image: any;
     introDescription: string;
@@ -20,6 +20,7 @@ export interface Services {
     date_created: string;
     hero_subtitle: string;
     hero_title: string;
+    hero_badge: string;
     section1_cards: Card[];
     _createdAt: string;
     _id: string;

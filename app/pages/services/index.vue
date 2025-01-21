@@ -3,14 +3,15 @@
     class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] animate-fade-grid-in-2"
   >
     <div
+    v-if="services.length > 0"
       class="relative z-10 flex flex-col items-center animate-fade-in justify-center min-h-screen px-4 py-10"
     >
       <div class="flex items-center space-x-2">
         <span
           class="inline-flex items-center px-3 py-1 gap-2 rounded-full text-lg font-medium bg-blue-200 text-blue-800"
         >
-          <BriefcaseIcon class="w-6 h-6 text-blue-800" /> Your Needs, Our
-          Mission
+          <BriefcaseIcon class="w-6 h-6 text-blue-800" /> 
+          {{ services[0]?.hero_badge }}
         </span>
       </div>
 
@@ -57,7 +58,7 @@
           <div class="w-full h-25 sm:h-30 md:h-48">
             <img
               :src="urlFor(service.image)"
-              :alt="service.heading"
+              :alt="service.title"
               class="w-full h-full object-cover"
             />
           </div>
@@ -66,7 +67,7 @@
             <h2
               class="text-md sm:text-xl font-semibold text-gray-900 leading-snug"
             >
-              {{ service.heading }}
+              {{ service.title }}
             </h2>
 
             <NuxtLink
@@ -126,6 +127,7 @@ onMounted(async () => {
 
   }`;
   services.value = await sanityClient.fetch<Services[]>(query);
+  console.log(services.value);
 });
 
 const paginatedServices = computed(() => {
