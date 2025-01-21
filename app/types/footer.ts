@@ -21,7 +21,10 @@ export interface Footer {
     _ref: string;
     _type: string;
   }[];
-  otherServices: string;
+  other_services: {  
+    name: string;
+    link: string;
+  }[];
   date_created: string;
   link: string;
   link_name: string;
