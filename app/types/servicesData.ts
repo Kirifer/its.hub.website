@@ -1,6 +1,8 @@
 interface ListItem {
   description: string;
   title: string;
+  image_1: any;
+  image_2: any;
   _key: string;
 }
 
@@ -13,8 +15,8 @@ interface Section {
 
 export interface ServicesData {
   body: Section[];
-  collabDescription: string;
-  collabTitle: string;
+  collaboration_description: string;
+  collaboration_title: string;
   title: string;
   icon: any;
   id: string;
