@@ -145,13 +145,13 @@
               </div>
               <div class="w-full md:w-[80%] space-y-2">
                 <div class="text-2xl md:text-3xl font-bold hover:underline">
-                  {{ blog.heading }}
+                  {{ blog.title }}
                 </div>
                 <div
                   class="text-lg text-gray-600"
-                  :class="{ 'line-clamp-3': blog.subheading.length > 100 }"
+                  :class="{ 'line-clamp-3': blog.subtitle.length > 100 }"
                 >
-                  {{ blog.introDescription }}
+                  {{ blog.introduction_description }}
                 </div>
                 <div class="flex flex-wrap space-x-2">
                   <span
@@ -202,6 +202,7 @@ onMounted(async () => {
       nextTick(() => {
         setupObserver();
       });
+
     }
   } catch (error) {
     console.error("Error fetching data from Sanity:", error);
@@ -247,7 +248,7 @@ const filteredBlogs = computed(() => {
     return blogs.value
       .flatMap((blog) => blog.section1_cards)
       .filter((blog) => {
-        return blog.heading
+        return blog.title
           .toLowerCase()
           .includes(searchQuery.value.toLowerCase());
       });

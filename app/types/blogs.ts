@@ -12,21 +12,21 @@ export interface Blogs {
 
 export interface Section1Card {
   button?: string;
-  heading: string;
+  title: string;
   icon: any;
-  bodyTitle: [
+  body: [
     {
-      miniTitle: string;
+      title: string;
       description: string;
     }
   ];
   conclusionTitle: string;
   conclusionDescription: string;
-  introTitle: string;
-  introDescription: string;
+  introduction_title: string;
+  introduction_description: string;
   id?: string;
   tags: string[];
-  subheading: string;
+  subtitle: string;
   _createdAt: string;
   _updatedAt: string;
   _type?: string;
