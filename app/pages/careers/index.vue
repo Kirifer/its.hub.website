@@ -39,6 +39,7 @@
             class="text-lg md:text-xl text-gray-900 w-full md:w-[500px] mx-auto"
           >
             {{ careers[0]?.hero_subtitle }}
+            {{ careers[0]?.hero_subtitle }}
           </p>
         </div>
         <div class="relative z-10 flex justify-center mt-7" @click="scrollToJobOpenings">
@@ -103,11 +104,13 @@
               class="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6"
             >
               {{ careers[0]?.section_1_title }}
+              {{ careers[0]?.section_1_title }}
             </h2>
             <div
               class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0 md:space-x-6"
             >
               <p class="text-lg md:text-xl text-gray-700 max-w-2xl">
+                {{ careers[0]?.section_1_subtitle }}
                 {{ careers[0]?.section_1_subtitle }}
               </p>
               <div
@@ -196,11 +199,13 @@
             class="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6"
           >
             {{ careers[0]?.section_2_title }}
+            {{ careers[0]?.section_2_title }}
           </h2>
           <router-link to="/services">
             <button
               class="px-4 py-2 text-sm md:text-base font-semibold bg-purple-200 text-purple-800 rounded-md hover:bg-purple-300 transition-all duration-300 hover:scale-105"
             >
+              {{ careers[0]?.section_2_button }}
               {{ careers[0]?.section_2_button }}
             </button>
           </router-link>
