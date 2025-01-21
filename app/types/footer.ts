@@ -1,4 +1,6 @@
 export interface Footer {
+  title: string;
+  subtitle: string;
   logo: any;
   images: any[];
   subheading: string;

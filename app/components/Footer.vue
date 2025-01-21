@@ -74,13 +74,13 @@
             </div>
           </div>
         </div>
-        <div class="space-y-6 col-span-1 w-full md:w-1/2">
+        <div class="space-y-4 col-span-1 w-full md:w-1/3">
           <div>
             <h3 class="font-medium mb-4">Outsourcing Services</h3>
             <div class="flex flex-col md:flex-row gap-y-2">
               <ul
                 v-if="services[0]?.section1_cards"
-                class="text-sm text-gray-600"
+                class="text-sm text-gray-600 md:w-1/2"
               >
                 <li v-for="service in firstHalfServices" :key="service.id">
                   <a :href="`/services/${service.id}`" class="hover:text-black ">
@@ -120,7 +120,7 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-col space-y-4 w-full md:w-auto">
+        <div class="flex flex-col space-y-4  w-full md:w-auto">
           <div v-for="(phone, index) in phones" :key="index">
             <h3 class="font-medium">{{ countries[index] }}</h3>
             <div
@@ -178,6 +178,8 @@ import { urlFor } from "~/hooks/sanityImageUrl";
 import type { Footer } from "~/types/footer";
 import type { Services } from "~/types/service";
 import AnimatedLogoCloud from "@/components/AnimateLogo/AnimatedLogoCloud.vue";
+
+
 const footer = ref<Footer[]>([]);
 const services = ref<Services[]>([]);
 
@@ -228,7 +230,7 @@ const logos = ref([
 onMounted(async () => {
   try {
     footer.value = await sanityClient.fetch<Footer[]>(
-      '*[_type == "footer"]{..., contactInfo{email, phone1, phone2, phone3, address1, address2, address3, facebook, linkedin, twitter, country1, country2, country3}, otherServices{name, link}, link, otherServices}'
+      '*[_type == "footer"]{..., contactInfo{email, phone1, phone2, phone3, address1, address2, address3, facebook, linkedin, twitter, country1, country2, country3}, otherServices{name, link}, link,}'
     );
 
     // console.log(footer.value[0]?.other_services);
