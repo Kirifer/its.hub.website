@@ -1,14 +1,14 @@
 export interface Careers {
     date_created: string;
     hero_button: string;
-    hero_heading: string;
+    hero_title: string;
     hero_image: any;
-    hero_subheading: string;
+    hero_subtitle: string;
     section1_cards: Array<any>;
-    section1_heading: string;
-    section1_subheading: string;
-    section2_button: string;
-    section2_heading: string;
+    section_1_title: string;
+    section_1_subtitle: string;
+    section_2_button: string;
+    section_2_title: string;
     _createdAt: string;
     _id: string;
     _rev: string;
