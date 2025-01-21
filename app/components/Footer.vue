@@ -83,8 +83,8 @@
                 class="text-sm text-gray-600"
               >
                 <li v-for="service in firstHalfServices" :key="service.id">
-                  <a :href="`/services/${service.id}`" class="hover:text-black">
-                    {{ service.heading }}
+                  <a :href="`/services/${service.id}`" class="hover:text-black ">
+                    {{ service.title }}
                   </a>
                 </li>
               </ul>
@@ -94,7 +94,7 @@
               >
                 <li v-for="service in secondHalfServices" :key="service.id">
                   <a :href="`/services/${service.id}`" class="hover:text-black">
-                    {{ service.heading }}
+                    {{ service.title }}
                   </a>
                 </li>
               </ul>
@@ -109,7 +109,10 @@
                   v-for="service in footer[0]?.other_services"
                   :key="service.name"
                 >
-                  <a :href="service.link" class="  text-sm text-gray-600 hover:text-black">
+                  <a
+                    :href="service.link"
+                    class="text-sm text-gray-600 hover:text-black"
+                  >
                     {{ service.name }}
                   </a>
                 </li>
