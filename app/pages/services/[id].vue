@@ -76,20 +76,7 @@
               {{ servicesData.introduction_description }}
             </p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <!-- Featured Image -->
-            <!-- <div 
-          v-if="servicesData?.image" 
-          class="relative rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out"
-        >
-          <img 
-            :src="urlFor(servicesData.image)" 
-            alt="Featured Service" 
-            class="w-full h-full object-cover"
-          />
-        </div> -->
-          </div>
-
+        
           <!-- Service Sections -->
           <div class="mt-10 space-y-10">
     <div 
@@ -136,7 +123,7 @@
         </div>
       </div>
 
-      <!-- Lower container with item descriptions -->
+      <!-- Lower container -->
       <div class="flex flex-col md:flex-row gap-12">
         <div class="md:w-1/2 space-y-4">
           <ul class="space-y-4 text-gray-900 text-lg sm:text-xl">
@@ -211,7 +198,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router"; // Changed from useRouter
+import { useRoute } from "vue-router"; 
 import sanityClient from "@/hooks/sanityClient";
 import { urlFor } from "@/hooks/sanityImageUrl";
 import type { Contact } from "@/types/contact";
@@ -242,7 +229,7 @@ onMounted(async () => {
 
     if (services) {
       servicesData.value = services;
-      currentImageIndexes.value = services.body.map(() => 0); // Initialize image indexes for each section
+      currentImageIndexes.value = services.body.map(() => 0); 
       if (services.icon) {
         servicesImage.value = urlFor(services.icon);
       }
@@ -260,10 +247,10 @@ const formData = ref({
 });
 
 const handleSubmit = () => {
-  // Handle form submission here
+  
   console.log("Form submitted:", formData.value);
 
-  // Reset form after submission
+  
   formData.value = {
     name: "",
     email: "",
@@ -274,7 +261,6 @@ const handleSubmit = () => {
 
 const currentImageIndex = ref(0);
 
-// Removed duplicate nextImage function
 
 const props = defineProps({
   servicesData: {

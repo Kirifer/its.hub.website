@@ -241,51 +241,6 @@ const getRandomFlag = (): string => {
       </div>
     </div>
 
-    <!-- <div class="container mx-auto py-4 px-12">
-      <div class="flex justify-center">
-        <div
-          class="inline-flex items-center px-3 py-1 rounded-full text-lg font-medium bg-blue-200 text-blue-800 mt-5"
-        >
-          Our Team
-        </div>
-      </div>
-      <div class="flex flex-col justify-center text-center">
-        <div
-          class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-center text-black font-instrument-sans mb-4 mt-6"
-        >
-          {{ about[0]?.section_4_title }}
-        </div>
-        <div>
-          <div class="relative mt-6 overflow-x-hidden">
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div
-                v-for="(member, index) in about[0]?.section_4_cards.slice(
-                  currentSlide * 8,
-                  currentSlide * 8 + 8
-                )"
-                :key="index"
-                :class="[
-                  'rounded-lg  p-4 flex flex-col items-center w-[300px]',
-                ]"
-                class="w-full sm:w-[300px]"
-              >
-                <img
-                  :src="urlFor(member.image.asset._ref)"
-                  alt="Team Member Image"
-                  class="w-full h-48 object-cover rounded-lg mb-2"
-                />
-                <div class="text-lg font-bold text-center">
-                  {{ member.title }}
-                </div>
-                <div class="text-gray-500 text-center">
-                  {{ member.subtitle }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div class="container mx-auto py-4">
       <div class="flex flex-col items-center justify-center">
         <div
