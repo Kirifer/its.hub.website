@@ -245,13 +245,14 @@ onMounted(async () => {
           class="flex flex-col items-center text-center relative"
           ref="featureRefs"
         >
+        <div class=" sm:hidden md:hidden xl:block max-w-full">
           <div
             :class="[
               'w-[80px] h-[80px] border border-[#844ddc] rounded-lg flex items-center justify-center bg-white mb-4 sm:mb-0 transition-opacity duration-500 ease-out',
               { 'opacity-0': !feature.visible, 'opacity-100': feature.visible },
               index % 2 === 0
-                ? 'sm:absolute sm:left-[5%] md:left-[15%]'
-                : 'sm:absolute sm:right-[5%] lg:right-[15%]',
+              ? 'sm:absolute sm:left-[5%] md:left-[15%]'
+              : 'sm:absolute sm:right-[5%] lg:right-[15%]',
             ]"
           >
             <img
@@ -261,6 +262,7 @@ onMounted(async () => {
               class="w-12 h-12"
             />
           </div>
+        </div>
 
           <div class="max-w-2xl mx-auto px-4 space-y-2 md:space-y-4">
             <h3
