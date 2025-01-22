@@ -230,10 +230,10 @@ const logos = ref([
 onMounted(async () => {
   try {
     footer.value = await sanityClient.fetch<Footer[]>(
-      '*[_type == "footer"]{..., contact_info{email, phone_1, phone_2, phone_3, address_1, address_2, address_3, facebook, linkedin, twitter, country_1, country_2, country_3}, other_services{name, link}, link,}'
+      '*[_type == "footer"]{..., contact_info{email, phone_1, phone_2, phone_3, address_1, address_2, address_3, facebook, linkedin, twitter, country_1, country_2, country_3}, link,}'
     );
 
-    console.log(footer.value[0]?.other_services);
+    // console.log(footer.value[0]?.other_services);
     console.log(footer.value)
 
     const servicesQuery = `*[_type == "services"] {
