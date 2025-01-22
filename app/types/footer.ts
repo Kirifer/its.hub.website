@@ -3,21 +3,20 @@ export interface Footer {
   subtitle: string;
   logo: any;
   images: any[];
-  subheading: string;
-  contactInfo: {
+  contact_info: {
     email: string;
-    phone1: string;
-    phone2: string;
-    phone3: string;
-    address1: string;
-    address2: string;
-    address3: string;
+    phone_1: string;
+    phone_2: string;
+    phone_3: string;
+    address_1: string;
+    address_2: string;
+    address_3: string;
     facebook: string;
     linkedin: string;
     twitter: string;
-    country1: string;
-    country2: string;
-    country3: string;
+    country_1: string;
+    country_2: string;
+    country_3: string;
   };
   services: {
     _ref: string;

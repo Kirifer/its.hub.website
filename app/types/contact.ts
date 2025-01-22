@@ -16,6 +16,7 @@ export interface SectionStep {
 
 export interface Contact {
     card_1_title: string;
+    card_2_image: any;
     date_created: string;
     hero_badge: string;
     hero_subtitle: string;

@@ -1,11 +1,17 @@
-
-interface Card {
-    bodyTitle: [
-        {
-            desription: string;
-            miniTitle: string;
-        }
-    ];
+interface ListItem {
+    description: string[];
+    title: string;
+    _key: string;
+  }
+  
+  interface Section {
+    list: ListItem[];
+    title: string;
+    _key: string;
+  }
+  
+  interface Card {
+    body: Section[];
     collabDescription: string;
     collabTitle: string;
     title: string;
@@ -13,10 +19,10 @@ interface Card {
     image: any;
     introDescription: string;
     introTitle: string;
-    subheading: string;
-}
-
-export interface Services {
+    subtitle: string;
+  }
+  
+  export interface Services {
     date_created: string;
     hero_subtitle: string;
     hero_title: string;
@@ -27,4 +33,4 @@ export interface Services {
     _rev: string;
     _type: string;
     _updatedAt: string;
-}
+  }

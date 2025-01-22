@@ -17,14 +17,14 @@
           <p
             class="text-gray-600 text-sm w-full md:w-full mx-auto md:mx-0 break-words"
           >
-            {{ footer[0]?.subheading }}
+            {{ footer[0]?.subtitle }}
           </p>
           <div class="space-y-2">
             <p class="font-medium">Contact and Follow Us on:</p>
-            <p class="text-sm">{{ footer[0]?.contactInfo.email }}</p>
+            <p class="text-sm">{{ footer[0]?.contact_info.email }}</p>
             <div class="flex justify-center md:justify-start space-x-4">
               <a
-                :href="footer[0]?.contactInfo.facebook"
+                :href="footer[0]?.contact_info.facebook"
                 target="_blank"
                 class="text-black hover:text-gray-700 transition-colors"
               >
@@ -40,7 +40,7 @@
                 </div>
               </a>
               <a
-                :href="footer[0]?.contactInfo.linkedin"
+                :href="footer[0]?.contact_info.linkedin"
                 target="_blank"
                 class="text-black hover:text-gray-700 transition-colors"
               >
@@ -56,7 +56,7 @@
                 </div>
               </a>
               <a
-                :href="footer[0]?.contactInfo.twitter"
+                :href="footer[0]?.contact_info.twitter"
                 target="_blank"
                 class="text-black hover:text-gray-700 transition-colors"
               >
@@ -184,27 +184,27 @@ const footer = ref<Footer[]>([]);
 const services = ref<Services[]>([]);
 
 const phones = computed(() => {
-  if (!footer.value[0]?.contactInfo) return [];
+  if (!footer.value[0]?.contact_info) return [];
   return [
-    footer.value[0].contactInfo.phone1,
-    footer.value[0].contactInfo.phone2,
-    footer.value[0].contactInfo.phone3,
+    footer.value[0].contact_info.phone_1,
+    footer.value[0].contact_info.phone_2,
+    footer.value[0].contact_info.phone_3,
   ].filter(Boolean);
 });
 const addresses = computed(() => {
-  if (!footer.value[0]?.contactInfo) return [];
+  if (!footer.value[0]?.contact_info) return [];
   return [
-    footer.value[0].contactInfo.address1,
-    footer.value[0].contactInfo.address2,
-    footer.value[0].contactInfo.address3,
+    footer.value[0].contact_info.address_1,
+    footer.value[0].contact_info.address_2,
+    footer.value[0].contact_info.address_3,
   ].filter(Boolean);
 });
 const countries = computed(() => {
-  if (!footer.value[0]?.contactInfo) return [];
+  if (!footer.value[0]?.contact_info) return [];
   return [
-    footer.value[0].contactInfo.country1,
-    footer.value[0].contactInfo.country2,
-    footer.value[0].contactInfo.country3,
+    footer.value[0].contact_info.country_1,
+    footer.value[0].contact_info.country_2,
+    footer.value[0].contact_info.country_3,
   ].filter(Boolean);
 });
 const firstHalfServices = computed(() => {
@@ -230,10 +230,11 @@ const logos = ref([
 onMounted(async () => {
   try {
     footer.value = await sanityClient.fetch<Footer[]>(
-      '*[_type == "footer"]{..., contactInfo{email, phone1, phone2, phone3, address1, address2, address3, facebook, linkedin, twitter, country1, country2, country3}, otherServices{name, link}, link,}'
+      '*[_type == "footer"]{..., contact_info{email, phone_1, phone_2, phone_3, address_1, address_2, address_3, facebook, linkedin, twitter, country_1, country_2, country_3}, other_services{name, link}, link,}'
     );
 
-    // console.log(footer.value[0]?.other_services);
+    console.log(footer.value[0]?.other_services);
+    console.log(footer.value)
 
     const servicesQuery = `*[_type == "services"] {
       ...,

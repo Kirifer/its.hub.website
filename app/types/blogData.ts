@@ -1,20 +1,28 @@
-interface sections {
+interface ListItem {
   description: string;
-  miniTitle: string;
+  title: string;
+  image_1: any;
+  image_2: any;
   _key: string;
 }
+
+interface Section {
+  description?: []; 
+  list: ListItem[];
+  title: string;
+  _key: string;
+}
+
 export interface BlogData {
-  bodyTitle:{
-    sections: sections[];
-  }
-  conclusionDescription: string;
-  conclusionTitle: string;
-  heading: string;
-  icon: any
+  body: Section[];
+  conclusion_description: string;
+  conclusion_title: string;
+  title: string;
+  icon: any;
   id: string;
-  introDescription: string;
-  introTitle: string;
-  subheading: string;
+  introduction_description: string;
+  introduction_title: string;
+  subtitle: string;
   tags: string[];
   _createdAt: string;
   _id: string;

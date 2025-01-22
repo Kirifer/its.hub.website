@@ -9,7 +9,7 @@
           ? `url(${urlFor(servicesData.image)})`
           : '',
       }"
-      class="bg-cover bg-center w-full h-[580px] animate-fade-grid-in-3 to-[#2a2a2a] flex flex-col items-center text-center px-4 pt-16 relative"
+      class="bg-cover bg-center w-full h-[580px] animate-fade-grid-in-3 to-[#2a2a2a] flex flex-col items-center text-center px-4 pt-10 relative"
     >
       <div
         v-if="servicesData"
@@ -98,16 +98,20 @@
       class="flex flex-col gap-8"
     >
       <!-- Upper container with section title and image -->
-      <div class="flex flex-col md:flex-row items-center gap-12">
+      <div 
+        v-if="section.list.some(item => item.image_1)" 
+        class="flex flex-col md:flex-row items-center gap-12"
+      >
         <div class="md:w-1/2 space-y-4">
           <h3 class="text-2xl sm:text-3xl font-bold text-center text-gray-900">
             {{ section.title }}
           </h3>
         </div>
         <div class="md:w-1/2 space-y-4">
+          
           <div 
             v-if="section.list.length > 0"
-            class="relative bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-3 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out"
+            class="relative bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-1 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out"
             style="width: 100%; height: 200px;"
           >
             <div class="w-[475px] h-full md:w-full bg-purple-100 flex items-center text-center rounded-xl justify-center relative">
@@ -119,14 +123,16 @@
                 />
                 <div class="absolute inset-0 bg-black rounded-xl bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                   <span class="text-white text-lg font-bold">{{ section.list[currentImageIndexes[sectionIndex]].title }}</span>
-                </div>
-                <button @click="nextImage(sectionIndex, section.list)" class="absolute bottom-2 right-2 bg-transparent text-white text-2xl z-10 ">
+                  <button @click="nextImage(sectionIndex, section.list)" class="absolute rounded-xl w-full h-full bg-black text-white text-2xl z-10 opacity-0 flex items-center justify-center">
                   <ArrowRightIcon class="w-6 h-6" />
-
                 </button>
+
+                </div>
+
               </template>
             </div>
           </div>
+
         </div>
       </div>
 

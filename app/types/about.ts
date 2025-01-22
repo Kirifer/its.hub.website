@@ -13,8 +13,8 @@ export interface About {
   section_3_title: string;
   section_3_button: string;
   section_3_cards: {
-    heading: string;
-    subheading: string;
+    title: string;
+    subtitle: string;
     image: { asset: { _ref: string } };
   }[];
   section_4_title: string;

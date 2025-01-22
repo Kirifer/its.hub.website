@@ -106,66 +106,31 @@
     <div
       class="container mx-auto max-w-full md:max-w-[1185px] pt-4 px-4 md:px-0 mb-12"
     >
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div
-          class="rounded-2xl p-8 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white shadow-xl h-auto md:h-[300px] flex flex-col justify-between"
-        >
-          <h2 class="text-3xl font-bold mb-6 leading-tight">
-            {{ contact[0]?.card_1_title }}
-          </h2>
-          <router-link to="/careers">
-            <button
-              class="bg-white text-black font-medium px-6 py-2 rounded-md hover:bg-gray-100 hover:text-gray-800 transition-colors w-fit"
-            >
-              Apply Now!
-            </button>
-          </router-link>
-        </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div
+    class="rounded-2xl p-8 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white shadow-xl h-auto md:h-[300px] flex flex-col justify-between"
+  >
+    <h2 class="text-3xl font-bold mb-6 leading-tight">
+      {{ contact[0]?.card_1_title }}
+    </h2>
+    <router-link to="/careers">
+      <button
+        class="bg-white text-black font-medium px-6 py-2 rounded-md hover:bg-gray-100 hover:text-gray-800 transition-colors w-fit"
+      >
+        Apply Now!
+      </button>
+    </router-link>
+  </div>
 
-        <div class="rounded-2xl overflow-hidden shadow-xl h-auto md:h-[300px]">
-          <img
-            src="~/assets/images/pic-header2.png"
-            alt="Business meeting"
-            class="w-full h-full object-cover"
-          />
-        </div>
-
-        <div class="space-y-4 h-auto md:h-[300px] flex flex-col">
-          <div class="bg-white rounded-2xl p-4 shadow-xl flex-1">
-            <div class="flex items-center justify-between h-full">
-              <div class="space-y-1">
-                <p class="text-sm text-gray-500">Your balance</p>
-                <p class="text-2xl font-bold">₱1,000</p>
-              </div>
-              <div class="w-8 h-8">
-                <PieChart :data="balanceData" />
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-2xl p-4 shadow-xl flex-[2]">
-            <div class="h-full flex flex-col justify-between">
-              <div class="flex items-center justify-between">
-                <p class="font-medium">Your Pie Chart</p>
-                <button class="text-sm text-gray-500">Monthly ▼</button>
-              </div>
-              <div class="flex-1 min-h-0">
-                <PieChart :data="pieChartData" :options="chartOptions" />
-              </div>
-              <div class="flex justify-around text-sm pt-2">
-                <div class="flex items-center gap-2">
-                  <div class="w-3 h-3 rounded-full bg-purple-500"></div>
-                  <span>63%</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <span>25%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="rounded-2xl overflow-hidden shadow-xl h-auto md:h-[300px] md:col-span-2">
+    <img
+      v-if="contact[0]?.card_2_image"
+      :src="urlFor(contact[0]?.card_2_image)"
+      alt="Business meeting"
+      class="w-full h-full object-cover"
+    />
+  </div>
+</div>
     </div>
 
     <div

@@ -7,7 +7,7 @@ import type { About } from "~/types/about";
 const about = ref<About[]>([]);
 const section1Image = ref("");
 
-console.log(about);
+// console.log(about);
 
 onMounted(async () => {
   try {
@@ -227,10 +227,10 @@ const getRandomFlag = (): string => {
                     <h3
                       class="text-lg font-bold mb-1 text-black text-center mx-2"
                     >
-                      {{ card.heading }}
+                      {{ card.title }}
                     </h3>
                     <p class="text-gray-600 text-sm text-center mx-2">
-                      {{ card.subheading }}
+                      {{ card.subtitle }}
                     </p>
                   </div>
                 </div>
