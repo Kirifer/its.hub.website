@@ -36,6 +36,32 @@ const autoplayInterval = ref<ReturnType<typeof setInterval> | null>(null);
 const featureRefs = ref<HTMLElement[]>([]);
 const isVisible = ref<boolean[]>([]);
 
+function getAosAnimation(index: number): string {
+  switch (index) {
+    case 0:
+      return 'fade-up-right';
+    case 1:
+      return 'fade-up';
+    case 2:
+      return 'fade-up-left';
+    default:
+      return '';
+  }
+}
+
+function getAosAnimation2(index: number): string {
+  switch (index) {
+    case 0:
+      return 'fade-right';
+    case 1:
+      return 'fade-up-right';
+    case 2:
+      return 'fade-up-left';
+    default:
+      return 'fade-left';
+  }
+}
+
 const setSlide = (index: number) => {
   currentIndex.value = index;
   resetAutoplay();
@@ -145,6 +171,8 @@ onMounted(async () => {
           >
             <div class="mt-10 -mb-2">
               <span
+              data-aos-duration="1100"
+                data-aos="fade-right"
                 class="inline-flex items-center px-3 py-1 rounded-full text-lg font-medium bg-purple-200 text-purple-800"
               >
                 <ChartBarIcon class="h-5 w-5 mr-1" />{{ home[0]?.hero_badge }}
@@ -157,6 +185,7 @@ onMounted(async () => {
               {{ home[0]?.hero_title }}
             </div>
             <div
+            data-aos="fade-right"
               class="text-center text-lg md:text-xl text-gray-900 w-[350px] md:w-[500px]"
             >
               <TextGenerateEffect :words="home[0]?.hero_subtitle" class="" />
@@ -315,46 +344,51 @@ onMounted(async () => {
           ></div>
           <div class="mb-2 relative z-20">
             <div
+            data-aos="fade-right"
               class="inline-block px-4 py-2 text-lg sm:text-xl font-medium rounded-full bg-purple-200 text-purple-800 mb-8"
             >
               Features
             </div>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3">
+            <h2 
+            data-aos="fade-right"
+            class="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3">
               {{ home[0]?.section_2_title }}
             </h2>
             <div class="flex flex-col md:flex-row justify-between items-center">
               <p
-                class="mt-5 mb-6 font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[900px]"
+              data-aos="fade-right"  
+              class="mt-5 mb-6 font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-900 max-w-[900px]"
               >
                 {{ home[0]?.section_2_subtitle }}
               </p>
             </div>
           </div>
 
-          <div
-            class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-20 relative z-20"
-          >
-            <div
-              v-for="card in home[0]?.section_2_cards"
-              :key="card._key"
-              class="relative bg-purple-200 border border-purple-300 p-8 sm:p-12 rounded-2xl shadow-sm"
-            >
-              <h3 class="font-semibold text-2xl sm:text-3xl mb-3">
-                <span v-html="card.Title"></span>
-              </h3>
-              <p
-                class="mt-4 text-gray-600 pb-16 sm:mb-32 text-sm sm:text-base font-normal md:text-lg leading-relaxed max-w-[290px]"
-              >
-                {{ card.Subtitle }}
-              </p>
-              <img
-                v-if="card.icon && card.icon.asset"
-                :src="urlFor(card.icon.asset._ref)"
-                alt="Card Icon"
-                class="absolute bottom-[-25px] right-[-10px] w-auto h-[100px] sm:h-[150px] object-contain"
-              />
-            </div>
-          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-20 relative z-20">
+    <div
+      v-for="(card, index) in home[0]?.section_2_cards"
+      :key="card._key"
+      :data-aos="getAosAnimation(index)"
+      :data-aos-duration="2000"
+      class="relative bg-purple-200 border border-purple-300 p-8 sm:p-12 rounded-2xl shadow-sm"
+    >
+      <h3 class="font-semibold text-2xl sm:text-3xl mb-3">
+        <span v-html="card.Title"></span>
+      </h3>
+      <p
+        class="mt-4 text-gray-600 pb-16 sm:mb-32 text-sm sm:text-base font-normal md:text-lg leading-relaxed max-w-[290px]"
+      >
+        {{ card.Subtitle }}
+      </p>
+      <img
+        v-if="card.icon && card.icon.asset"
+        :src="urlFor(card.icon.asset._ref)"
+        alt="Card Icon"
+        class="absolute bottom-[-25px] right-[-10px] w-auto h-[100px] sm:h-[150px] object-contain"
+      />
+    </div>
+  </div>
+
           <div class="circles-container relative z-10">
             <div class="circle"></div>
             <div class="circle"></div>
@@ -364,6 +398,7 @@ onMounted(async () => {
           <div class="relative z-20 space-y-10 md:space-y-16">
             <div class="flex justify-center">
               <div
+              data-aos="fade-left"
                 class="inline-block px-4 py-2 text-lg sm:text-xl font-medium rounded-full bg-purple-200 text-purple-800 mb-4"
               >
                 {{ home[0]?.section_2_badge_2 }}
@@ -371,37 +406,42 @@ onMounted(async () => {
             </div>
 
             <div class="grid grid-cols-2 gap-2 md:gap-0 md:grid-cols-4">
-              <div
-                v-for="stat in home[0]?.section_2_stats"
-                :key="stat.title"
-                class="text-center border-r-2 border-l-2 rounded-full border-b-2 border-purple-200 sm:p-5"
-              >
-                <div class="text-3xl sm:text-5xl font-semibold">
-                  {{ stat.title }}
-                </div>
-                <div
-                  class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600"
-                >
-                  {{ stat.subtitle }}
-                </div>
-              </div>
-            </div>
+    <div
+      v-for="(stat, index) in home[0]?.section_2_stats"
+      :key="stat.title"
+      :data-aos="getAosAnimation2(index)"
+      :data-aos-duration="1300"
+      class="text-center border-r-2 border-l-2 rounded-full border-b-2 border-purple-200 sm:p-5"
+    >
+      <div class="text-3xl sm:text-5xl font-semibold">
+        {{ stat.title }}
+      </div>
+      <div
+        class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600"
+      >
+        {{ stat.subtitle }}
+      </div>
+    </div>
+  </div>
           </div>
           <div
             class="relative z-20 mx-auto max-w-4xl animate-float mt-10 md:mt-28 text-center"
           >
             <h2
+            data-aos="fade-right"
               class="text-2xl sm:text-3xl md:text-5xl font-semibold mb-3 whitespace-normal sm:whitespace-nowrap"
             >
               {{ home[0]?.section_2_footer_title }}
             </h2>
             <p
+            data-aos="fade-left"
               class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 mb-8"
             >
               {{ home[0]?.section_2_footer_subtitle }}
             </p>
             <router-link to="/contact">
             <button
+            data-aos="fade-up"
               class="px-4 py-2 text-sm md:text-base font-semibold bg-purple-200 text-purple-800 rounded-md hover:bg-purple-300 transition-all duration-300 hover:scale-105"
             >
               {{ home[0]?.section_2_footer_button }}
@@ -417,10 +457,13 @@ onMounted(async () => {
         <div class="p-4 sm:p-8 rounded-3xl">
           <div class="w-full max-w-[90vw] md:max-w-[1250px] mx-auto px-4">
             <div
-              class="relative w-full h-[300px] sm:h-[550px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-[20px] rotate-180 p-2"
+            data-aos-duration="1300"
+            data-aos="zoom-in"
+              class="relative w-full h-[300px] sm:h-[550px] bg-gradient-to-br from-[#00b8d4] to-[#844ddc] rounded-[20px]  p-2"
             >
               <div
-                class="absolute inset-0 bg-cover bg-center rounded-[15px] rotate-180"
+              
+                class="absolute inset-0 bg-cover bg-center rounded-[15px] "
                 :style="{
                   backgroundImage: `url(${section3Image})`,
                   margin: '10px',
@@ -430,6 +473,8 @@ onMounted(async () => {
           </div>
           <div class="hidden sm:block">
             <div
+            data-aos-duration="1400"
+            data-aos="fade-left"
               class="absolute top-48 left-8 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center"
             >
               <BarsArrowUpIcon class="text-purple-500 w-8 h-8 mr-4" />
@@ -448,6 +493,8 @@ onMounted(async () => {
             </div>
 
             <div
+            data-aos-duration="1400"
+            data-aos="fade-left"
               class="absolute bottom-16 left-24 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center"
             >
               <ChartBarIcon class="text-purple-500 w-8 h-8 mr-4" />
@@ -465,6 +512,8 @@ onMounted(async () => {
               </div>
             </div>
             <div
+            data-aos-duration="1400"
+            data-aos="fade-right"
               class="absolute top-48 right-8 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center justify-between"
             >
               <div>
@@ -483,6 +532,8 @@ onMounted(async () => {
             </div>
 
             <div
+              data-aos-duration="1400"
+               data-aos="fade-right"
               class="absolute bottom-16 right-24 w-[220px] h-[90px] bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-purple-500 flex items-center justify-between"
             >
               <div>
@@ -517,6 +568,8 @@ onMounted(async () => {
         </div>
 
         <div
+          data-aos-duration="1000"
+            data-aos="fade-right"
           class="text-center cursor-pointer mt-10"
           @mouseenter="activeIndex = 0"
           @mouseleave="activeIndex = 0"
@@ -531,6 +584,8 @@ onMounted(async () => {
           </p>
         </div>
         <div
+        data-aos-duration="1000"
+            data-aos="fade-right"
           class="text-center cursor-pointer mt-10"
           @mouseenter="activeIndex = 1"
           @mouseleave="activeIndex = 0"
@@ -546,6 +601,8 @@ onMounted(async () => {
         </div>
 
         <div
+        data-aos-duration="1000"
+            data-aos="fade-right"
           class="text-center cursor-pointer mt-10"
           @mouseenter="activeIndex = 2"
           @mouseleave="activeIndex = 0"
@@ -566,7 +623,10 @@ onMounted(async () => {
           class="grid grid-cols-1 md:grid-cols-2 md:mb-1 mb-12 gap-8 sm:gap-12 items-center"
         >
           <div class="relative grid grid-cols-2 md:mb-1 mb-16 gap-4">
-            <div class="relative transform translate-y-2">
+            <div 
+            data-aos-duration="1100"
+            data-aos="fade-down-right"
+            class="relative transform translate-y-2">
               <img
                 v-if="
                   home[0] &&
@@ -578,7 +638,10 @@ onMounted(async () => {
                 class="w-full h-auto object-cover rounded-xl"
               />
             </div>
-            <div class="relative transform translate-y-6 sm:translate-y-12">
+            <div 
+            data-aos-duration="1100"
+            data-aos="fade-down-left"
+            class="relative transform translate-y-6 sm:translate-y-12">
               <img
                 v-if="
                   home[0] &&
@@ -591,6 +654,8 @@ onMounted(async () => {
               />
             </div>
             <div
+              data-aos-duration="1100"
+            data-aos="fade-up-right"
               class="relative transform translate-x-2 sm:translate-x-1 translate-y-3 sm:translate-y-3"
             >
               <img
@@ -605,6 +670,8 @@ onMounted(async () => {
               />
             </div>
             <div
+            data-aos-duration="1100"
+            data-aos="fade-up-left"
               class="relative transform translate-x-1 sm:translate-x-3 translate-y-8 sm:translate-y-12"
             >
               <img
@@ -622,21 +689,30 @@ onMounted(async () => {
 
           <div>
             <div
+            data-aos-duration="1100"
+            data-aos="fade-left"
               class="inline-block px-4 py-2 text-lg sm:text-xl font-medium rounded-full bg-purple-200 text-purple-800 mb-4"
             >
               {{ home[0]?.section_5_badge }}
             </div>
-            <h2 class="text-3xl sm:text-4xl font-semibold mb-6">
+            <h2 
+            data-aos-duration="1100"
+            data-aos="fade-left"
+            class="text-3xl sm:text-4xl font-semibold mb-6">
               {{ home[0]?.section_5_title }}
             </h2>
             <p
-              class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[900px] mb-8"
+            data-aos-duration="1100"
+            data-aos="fade-left"  
+            class="font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[900px] mb-8"
             >
               {{ home[0]?.section_5_subtitle }}
             </p>
             <div class="flex justify-center md:justify-end">
               <router-link to="/services"> 
               <button
+              data-aos-duration="1100"
+            data-aos="fade-left"
                 class="mt-4 px-4 py-2 text-sm md:text-base font-semibold bg-purple-200 text-purple-800 rounded-md hover:bg-purple-300 transition-colors"
               >
                 {{ home[0]?.section_5_button }}
@@ -649,6 +725,8 @@ onMounted(async () => {
 
       <div class="flex items-center pt-8 justify-center w-full">
         <div
+        data-aos-duration='1000'
+        data-aos="zoom-in"
           class="w-full max-w-8xl bg-white rounded-3xl p-6 sm:p-12 border border-purple-400 relative"
         >
           <div
@@ -691,6 +769,8 @@ onMounted(async () => {
 
           <div class="flex justify-center relative z-10">
             <span
+            data-aos-duration="1200"
+             data-aos="fade-right"
               class="inline-block px-4 py-2 rounded-full text-lg sm:text-xl font-medium bg-purple-100 text-purple-600 mb-4"
             >
               Testimonials
@@ -706,11 +786,15 @@ onMounted(async () => {
                 class="absolute w-full transition-all duration-500 ease-in-out"
               >
                 <h2
+                    data-aos-duration="1200"
+                data-aos="fade-left"
                   class="text-3xl sm:text-4xl md:text-5xl font-semibold text-left"
                 >
                   "{{ testimonial.message }}"
                 </h2>
                 <p
+                    data-aos-duration="1200"
+                data-aos="fade-right"
                   class="font-normal mt-10 text-sm sm:text-base md:text-2xl leading-relaxed text-gray-600 mx-auto text-end w-full"
                 >
                   - {{ testimonial.author }}, {{ testimonial.position }}
@@ -718,7 +802,9 @@ onMounted(async () => {
               </div>
             </TransitionGroup>
           </div>
-          <div class="flex justify-center space-x-2 mt-2 relative z-10">
+          <div 
+          data-aos="fade-up"
+          class="flex justify-center space-x-2 mt-2 relative z-10">
             <button
               v-for="(testimonial, index) in section6"
               :key="testimonial._key"
@@ -745,11 +831,16 @@ onMounted(async () => {
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div class="space-y-6 z-10">
               <h1
+              data-aos-duration='1000'
+        data-aos="fade-left"
                 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 leading-tight"
               >
                 {{ home[0]?.section_7_title }}
               </h1>
-              <div class="space-y-4">
+              <div 
+               data-aos-duration='1000'
+        data-aos="fade-left"
+              class="space-y-4">
                 <div class="flex items-center space-x-2">
                   <svg
                     class="w-5 h-5 text-purple-500"
@@ -764,7 +855,9 @@ onMounted(async () => {
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="text-base sm:text-lg text-gray-600">{{
+                  <span 
+                  
+                  class="text-base sm:text-lg text-gray-600">{{
                     home[0]?.section_7_subtitle[0]
                   }}</span>
                 </div>
@@ -810,6 +903,8 @@ onMounted(async () => {
               >
                 <router-link to="/contact">
                   <button
+                   data-aos-duration='1000'
+        data-aos="fade-right"
                     class="bg-white border-gray border mx-auto max-w-full w-full  font-medium px-6 py-2 rounded-md hover:bg-purple-300 hover:text-purple-900 transition-colors"
                   >
                     Get Started
@@ -817,6 +912,8 @@ onMounted(async () => {
                 </router-link>
                 <router-link to="/about">
                   <button
+                  data-aos-duration='1000'
+        data-aos="fade-left"
                     class="bg-purple-200 text-purple-800 mx-auto max-w-full w-full font-medium px-6 py-2 rounded-md hover:bg-purple-300 transition-colors"
                   >
                     Learn More
@@ -824,7 +921,10 @@ onMounted(async () => {
                 </router-link>
               </div>
             </div>
-            <div class="relative md:block hidden h-full w-full mt-8 sm:mt-0">
+            <div 
+            data-aos-duration='1200'
+        data-aos="zoom-in"
+            class="relative md:block hidden h-full w-full mt-8 sm:mt-0">
               <img
                 v-if="section7Image"
                 :src="section7Image"

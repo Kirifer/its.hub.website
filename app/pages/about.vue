@@ -3,7 +3,8 @@ import sanityClient from "@/hooks/sanityClient";
 import { InformationCircleIcon, UserIcon } from "@heroicons/vue/24/outline";
 import { urlFor } from "~/hooks/sanityImageUrl";
 import type { About } from "~/types/about";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const about = ref<About[]>([]);
 const section1Image = ref("");
 
@@ -18,10 +19,27 @@ onMounted(async () => {
       );
       console.log(about.value);
     }
+    AOS.init();
+
   } catch (error) {
     console.error("Error fetching data from Sanity:", error);
   }
 });
+
+function getAosAnimation(index: number): string {
+  switch (index) {
+    case 0:
+      return 'fade-up-right';
+    case 1:
+      return 'fade-left';
+    case 2:
+      return 'fade-up-right';
+    case 3:
+      return 'fade-up-left';
+    default:
+      return '';
+  }
+}
 
 const currentSlide = ref(0);
 
@@ -81,6 +99,7 @@ const getRandomFlag = (): string => {
           >
             <div class="mt-10 -mb-2">
               <span
+              data-aos="fade-right"
                 class="inline-flex items-center px-3 py-1 gap-2 rounded-full text-lg font-medium bg-blue-200 text-blue-800"
               >
                 <InformationCircleIcon class="h-6 w-6 text-blue-500" />
@@ -88,11 +107,13 @@ const getRandomFlag = (): string => {
               </span>
             </div>
             <div
+            data-aos="fade-right"
               class="font-bold text-center text-3xl md:text-6xl w-[350px] md:w-[650px]"
             >
               {{ about[0]?.hero_title }}
             </div>
             <div
+            data-aos="fade-left"
               class="text-center text-lg md:text-xl text-gray-900 w-[450px] md:w-[600px]"
             >
               {{ about[0]?.hero_subtitle }}
@@ -102,7 +123,9 @@ const getRandomFlag = (): string => {
               class="max-w-full mx-auto bg-white rounded-xl shadow-md overflow-hiddenh md:max-h-4xl md:max-w-4xl"
             >
               <div class="md:flex">
-                <div class="p-8">
+                <div 
+                data-aos="fade-left"
+                class="p-8">
                   <div
                     class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-left text-black font-instrument-sans mb-4"
                   >
@@ -114,7 +137,9 @@ const getRandomFlag = (): string => {
                     {{ about[0]?.section_1[0].subtitle }}
                   </p>
                 </div>
-                <div class="md:flex-shrink-0">
+                <div 
+                data-aos="fade-right"
+                class="md:flex-shrink-0">
                   <img
                     class="h-48 w-full object-cover md:block hidden md:h-[450px] md:w-full"
                     :src="section1Image"
@@ -125,7 +150,10 @@ const getRandomFlag = (): string => {
             </div>
 
             <div class="flex flex-col md:flex-row gap-7 max-w-4xl">
-              <div class="w-full md:w-3/4">
+              <div 
+              data-aos-duration="1100"
+              data-aos="fade-right"
+              class="w-full md:w-3/4">
                 <div
                   class="mx-auto bg-white rounded-xl shadow-md overflow-hidden h-auto"
                 >
@@ -173,11 +201,15 @@ const getRandomFlag = (): string => {
               </div>
               <div class="justify-center text-center w-full md:w-1/2">
                 <div
+                data-aos-duration="1100"
+              data-aos="fade-left"
                   class="inline-block px-4 py-2 text-lg max-w-full mx-auto sm:text-xl font-medium rounded-full bg-blue-100 text-blue-600"
                 >
                   Numbers
                 </div>
                 <div
+                 data-aos-duration="1100"
+              data-aos="fade-left"
                   class="font-regular text-lg md:text-xl w-3/4 mx-auto md:w-full leading-relaxed text-gray-600 text-center mt-3"
                 >
                   It’s time to strengthen your team and boost business
@@ -195,7 +227,10 @@ const getRandomFlag = (): string => {
         <div class="container mx-auto py-6 px-8">
           <div class="flex flex-col items-center justify-center mt-2">
             <div class="text-2xl md:text-4xl font-bold text-center">
-              <p class="font-semibold">The uniqueness of IT Squarehub</p>
+              <p 
+               data-aos-duration="1100"
+              data-aos="fade-down"
+              class="font-semibold">The uniqueness of IT Squarehub</p>
             </div>
           </div>
 
@@ -209,6 +244,8 @@ const getRandomFlag = (): string => {
                 <div
                   v-for="(card, index) in about[0]?.section_3_cards"
                   :key="index"
+                   :data-aos="getAosAnimation(index)"
+            :data-aos-duration="1100"
                   :class="
                     index === 1 || index === 2
                       ? 'col-span-1 md:col-span-2 row-span-1'
@@ -244,11 +281,13 @@ const getRandomFlag = (): string => {
     <div class="container mx-auto py-4">
       <div class="flex flex-col items-center justify-center">
         <div
+        data-aos="fade-right"
           class="inline-flex items-center px-3 py-1 rounded-full text-lg font-medium bg-blue-200 text-blue-800 mt-5"
         >
           Testimonials
         </div>
         <div
+         data-aos="fade-left"
           class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-center text-black font-instrument-sans mb-4 mt-6"
         >
           Hear it from our clients!

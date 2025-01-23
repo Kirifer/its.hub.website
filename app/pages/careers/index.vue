@@ -32,16 +32,24 @@
         <div
           class="relative z-10 max-w-2xl mx-auto px-4 space-y-2 md:space-y-4 text-center"
         >
-          <h1 class="text-3xl sm:text-6xl md:text-6xl font-bold text-gray-900">
+          <h1 
+          data-aos-duration="1000"
+          data-aos="fade-right"
+          class="text-3xl sm:text-6xl md:text-6xl font-bold text-gray-900">
             {{ careers[0]?.hero_title }}
           </h1>
           <p
+                data-aos-duration="1000"
+          data-aos="fade-right"
             class="text-lg md:text-xl text-gray-900 w-full md:w-[500px] mx-auto"
           >
             {{ careers[0]?.hero_subtitle }}
           </p>
         </div>
-        <div class="relative z-10 flex justify-center mt-7" @click="scrollToJobOpenings">
+        <div 
+        data-aos-duration="1100"
+          data-aos="fade-right"
+        class="relative z-10 flex justify-center mt-7" @click="scrollToJobOpenings">
            <ShimmerButton
                shimmer-size="2px"
               class="bg-[rgba(132,77,220,0.9)] text-white font-medium px-5 py-2 rounded-md hover:bg-purple-300 hover:text-white transition-colors"              >
@@ -49,9 +57,14 @@
               </ShimmerButton>
 </div>
         <div
+          data-aos-duration="1000"
+          data-aos="fade-up"
+
           class="relative z-10 mt-8 p-3 rounded-2xl bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 max-w-4xl w-full mx-auto"
         >
-          <div class="rounded-xl overflow-hidden">
+          <div 
+          
+          class="rounded-xl overflow-hidden">
             <img
               :src="careers[0]?.hero_image || '~/assets/images/its-hiring.jpg'"
               alt="Two people in a business meeting"
@@ -100,18 +113,24 @@
         <div class="sm:p-6 md:p-8 z-10">
           <div class="mx-auto space-y-4 sm:space-y-6 md:space-y-6">
             <h2
+            data-aos-duration="1000"
+          data-aos="fade-left"
               class="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6"
             >
               {{ careers[0]?.section_1_title }}
             </h2>
             <div
+            data-aos-duration="1000"
+          data-aos="fade-left"
               class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0 md:space-x-6"
             >
               <p class="text-lg md:text-xl text-gray-700 max-w-2xl">
                 {{ careers[0]?.section_1_subtitle }}
               </p>
               <div
-                class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full md:w-auto"
+                data-aos-duration="1100"
+          data-aos="fade-right"
+              class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full md:w-auto"
               >
                 <input
                   v-model="searchQuery"
@@ -136,6 +155,8 @@
               <div
                 v-for="(card, index) in paginatedFilteredAndSearchedCards"
                 :key="index"
+                :data-aos="getAosAnimation(index)"
+                :data-aos-duration="1100"
                 class="relative bg-white border border-purple-300 shadow-lg rounded-lg p-6 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-purple-500"
               >
                 <div class="space-y-4">
@@ -193,12 +214,18 @@
 
         <div class="justify-center text-center space-y-8 mt-16 mb-16">
           <h2
+          data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine"
             class="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6"
           >
             {{ careers[0]?.section_2_title }}
           </h2>
           <router-link to="/services">
             <button
+            data-aos="fade-left"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine"
               class="px-4 py-2 text-sm md:text-base font-semibold bg-purple-200 text-purple-800 rounded-md hover:bg-purple-300 transition-all duration-300 hover:scale-105"
             >
               {{ careers[0]?.section_2_button }}
@@ -221,6 +248,9 @@ import {
   ChevronRightIcon,
   CheckIcon,
 } from "lucide-vue-next";
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const careers = ref<Careers[]>([]);
 const currentPage = ref(1);
@@ -268,15 +298,31 @@ const navigate = (direction: number) => {
   }
 };
 
+function getAosAnimation(index: number): string {
+  switch (index) {
+    case 0:
+      return 'fade-up-right';
+    case 1:
+      return 'fade-up';
+    case 2:
+      return 'fade-up-left';
+    default:
+      return '';
+  }
+}
+
 onMounted(async () => {
   try {
     careers.value = await sanityClient.fetch<Careers[]>(
       '*[_type == "careers"]{..., "section1_cards": section1_cards[]->, "hero_image": hero_image.asset->url}'
     );
     console.log(careers);
+    AOS.init();
   } catch (error) {
     console.error("Error fetching data from Sanity:", error);
   }
+
+  
 });
 </script>
 

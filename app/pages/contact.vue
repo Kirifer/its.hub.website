@@ -268,8 +268,10 @@
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-full md:max-w-[1200px] mx-auto mb-10"
         >
           <div
-            v-for="office in offices"
+            v-for="(office, index) in offices"
             :key="office.country"
+            :data-aos="getAosAnimation(index)"
+            :data-aos-duration="1100"
             class="group bg-white rounded-xl overflow-hidden shadow-lg border-2 border-white-500 transition-transform duration-300 hover:-translate-y-2"
           >
             <div class="h-48 overflow-hidden">
@@ -303,6 +305,8 @@ import sanityClient from "~/hooks/sanityClient";
 import type { Contact } from "~/types/contact";
 import { urlFor } from "@/hooks/sanityImageUrl";
 import { MailIcon } from "lucide-vue-next";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const contact = ref<Contact[]>([]);
 const stepsRefs = ref<(HTMLElement | null)[]>([]);
@@ -377,6 +381,7 @@ onMounted(async () => {
       const stepsCount = contact.value[0]?.section_2_steps?.length || 0;
       stepsVisible.value = new Array(stepsCount).fill(false);
       stepsRefs.value = new Array(stepsCount).fill(null);
+      AOS.init();
     }
   } catch (error) {
     console.error("Error fetching data from Sanity:", error);
@@ -468,6 +473,19 @@ const PieChart = defineComponent({
     },
   },
 });
+
+function getAosAnimation(index: number): string {
+  switch (index) {
+    case 0:
+      return 'fade-up-right';
+    case 1:
+      return 'fade-up';
+    case 2:
+      return 'fade-up-left';
+    default:
+      return '';
+  }
+}
 
 interface Office {
   country: string;
