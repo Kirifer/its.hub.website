@@ -1,10 +1,10 @@
 import { createClient } from '@sanity/client';
-
+import { config } from 'dotenv';
 const sanityClient = createClient({
-  projectId: 'qyt42r3p', // Replace with your Sanity project ID
-  dataset: 'development',         // Replace with your dataset (default: 'production')
-  apiVersion: '2025-01-06',      // Use a date from when you made the project
-  useCdn: true,                  // true if you want cached content
+  projectId: 'qyt42r3p', 
+  dataset: 'development',         
+  apiVersion: '2025-01-06',     
+  useCdn: true,                  
 });
 
 export default sanityClient;

@@ -3,6 +3,9 @@ import { ref, onMounted, nextTick } from "vue";
 import sanityClient from "@/hooks/sanityClient";
 import { urlFor } from "@/hooks/sanityImageUrl";
 import type { Home } from "@/types/home";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import {
   ChartBarIcon,
   BarsArrowUpIcon,
@@ -90,6 +93,9 @@ onMounted(async () => {
     );
 
     featureRefs.value.forEach((el) => observer.observe(el));
+
+    // Initialize AOS
+    AOS.init();
   } catch (error) {
     console.error("Error fetching data from Sanity:", error);
   }
@@ -102,7 +108,9 @@ onMounted(async () => {
       class="inset-0 w-full bg-white bg-[linear-gradient(to_right,#80808012_3px,transparent_1px),linear-gradient(to_bottom,#80808012_3px,transparent_1px)] bg-[size:100px_100px] relative animate-fade-grid-in-2"
     >
       <div class="relative">
-        <div class="overflow-hidden h-[700px] relative">
+        <div 
+
+        class="overflow-hidden h-[700px] relative ">
           <div
             class="absolute inset-0 h-[500px] flex items-center justify-center z-0 animate-pulse-once "
           >
@@ -143,6 +151,7 @@ onMounted(async () => {
               </span>
             </div>
             <div
+            data-aos="fade-up"
               class="font-bold text-center text-3xl md:text-6xl w-[350px] md:w-[650px]"
             >
               {{ home[0]?.hero_title }}
@@ -155,12 +164,14 @@ onMounted(async () => {
             <div class="flex flex-row justify-center space-x-2">
               <router-link to="/contact">
               <button
+              data-aos="fade-right"
               class="bg-[rgba(132,77,220,0.9)] text-white font-medium px-6 py-2 rounded-md hover:bg-purple-300 hover:text-purple-800 transition-colors"              >
                 Get Started
               </button>
             </router-link>
             <router-link to="/about">
               <button
+               data-aos="fade-left"
                 class="bg-white border-gray border font-medium px-6 py-2 rounded-md hover:bg-purple-300 hover:text-purple-800 transition-colors"
               >
                 Learn More
@@ -208,11 +219,14 @@ onMounted(async () => {
                 }"
               />
               <GlowBorder
-                class="relative w-full h-[300px] md:h-[450px] bg-transparent rounded-2xl rotate-180 p-2 z-10 transition-transform duration-300"
+              data-aos-once="true"
+               data-aos="zoom-in"
+                class="relative w-full h-[300px] md:h-[450px] bg-transparent rounded-2xl  p-2 z-10 transition-transform duration-300"
                 :color="['#844DDC', '#00B8D4', '#D2A517', '#044897']"
               >
                 <div
-                  class="absolute inset-0 bg-cover bg-center rounded-2xl rotate-180"
+               
+                  class="absolute inset-0 bg-cover bg-center rounded-2xl "
                   :style="{
                     backgroundImage: `url(${heroImage})`,
                     margin: '10px',
@@ -220,15 +234,19 @@ onMounted(async () => {
                 ></div>
               </GlowBorder>
               <img
+              data-aos-once="true"
+              data-aos="fade-left"
                 src="~/assets/images/group 74.png"
                 alt="Design Element"
-                class="hidden lg:block absolute right-[-184px] top-[315px] transform -translate-y-1/2 z-10"
+                class="hidden lg:block absolute right-[-184px] bottom-[65px] transform -translate-y-1/2 z-10"
                 style="height: 270px; width: auto"
               />
               <img
+              data-aos-once="true"
+              data-aos="fade-right"  
                 src="~/assets/images/group 73.png"
                 alt="Design Element"
-                class="hidden lg:block absolute left-[-180px] top-[315px] transform -translate-y-1/2 z-10"
+                class="hidden lg:block absolute left-[-180px] bottom-[65px] transform -translate-y-1/2 z-10"
                 style="height: 270px; width: auto"
               />
             </div>
@@ -308,7 +326,7 @@ onMounted(async () => {
               <p
                 class="mt-5 mb-6 font-normal text-sm sm:text-base md:text-lg leading-relaxed text-gray-600 max-w-[900px]"
               >
-                {{ home[0]?.section_2_subtitle }} iloveyousomuch and forever my love
+                {{ home[0]?.section_2_subtitle }}
               </p>
             </div>
           </div>
