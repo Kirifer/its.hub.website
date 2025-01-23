@@ -164,7 +164,7 @@
       <div class="-mt-4 flex flex-wrap justify-center items-center gap-8">
         <AnimatedLogoCloud
           :logos="logos"
-          class="md:mr-28"
+          class="md:mr-24"
           title="Certified Professionals"
         />
       </div>
