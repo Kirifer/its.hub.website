@@ -8,8 +8,6 @@ import 'aos/dist/aos.css';
 const about = ref<About[]>([]);
 const section1Image = ref("");
 
-// console.log(about);
-
 onMounted(async () => {
   try {
     about.value = await sanityClient.fetch<About[]>('*[_type == "about"]');
